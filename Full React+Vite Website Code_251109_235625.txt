@@ -1,0 +1,434 @@
+Folder Structure:
+ 
+top-speed-appliance/
+├── index.html
+├── package.json
+├── vite.config.js
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── assets/
+│   │   └── logo.png        // Your logo file
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Services.jsx
+│   │   ├── About.jsx
+│   │   ├── Contact.jsx
+│   │   └── Footer.jsx
+│   └── styles/
+│       └── main.css
+
+Package.json:
+
+{
+  "name": "top-speed-appliance",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "vite": "^5.2.0"
+  }
+}
+Vite.config.js:
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    open: true,
+  },
+})
+
+Index.Html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Speed Appliance</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+Src/main.jsx:
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './styles/main.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+
+Src/App.jsx:
+
+import React from 'react'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import About from './components/About'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Hero />
+      <Services />
+      <About />
+      <Contact />
+      <Footer />
+    </>
+  )
+}
+
+export default App
+
+Src/components/Header.jsx:
+
+import React from 'react'
+import logo from '../assets/logo.png'
+import './Header.css'
+
+function Header() {
+  return (
+    <header className="header">
+      <div className="container">
+        <img src={logo} alt="Top Speed Appliance" className="logo" />
+        <nav className="nav">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+  )
+}
+
+export default Header
+
+Src/components/Hero.jsx
+import React from 'react'
+
+function Hero() {
+  return (
+    <section id="home" className="hero">
+      <div className="hero-overlay">
+        <div className="hero-content">
+          <h1>Fast, Reliable Appliance Repair</h1>
+          <p>Top Speed Appliance — where service meets speed and quality.</p>
+          <a href="#contact" className="cta-button">Book a Repair</a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Hero
+
+Src/components/Services.jsx:
+
+import React from 'react'
+
+function Services() {
+  const services = [
+    {
+      title: 'Refrigerator Repair',
+      desc: 'Quick fixes and full-service maintenance for all fridge brands.',
+    },
+    {
+      title: 'Washer & Dryer Repair',
+      desc: 'Professional washer and dryer diagnostics and repairs.',
+    },
+    {
+      title: 'Oven & Stove Repair',
+      desc: 'Get your cooking appliances back to top performance fast.',
+    },
+    {
+      title: 'Dishwasher Repair',
+      desc: 'Cleaning, draining, and power issues resolved same-day.',
+    },
+  ]
+
+  return (
+    <section id="services" className="services">
+      <h2>Our Services</h2>
+      <div className="service-grid">
+        {services.map((service, i) => (
+          <div className="service-card" key={i}>
+            <h3>{service.title}</h3>
+            <p>{service.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+export default Services
+
+Src/components/About.jsx:
+
+import React from 'react'
+
+function About() {
+  return (
+    <section id="about" className="about">
+      <h2>About Us</h2>
+      <p>
+        At <strong>Top Speed Appliance</strong>, we specialize in fast, professional, 
+        and affordable appliance repair services across your local area. 
+        Our certified technicians are trained to handle all major brands — 
+        ensuring top performance and reliability.
+      </p>
+      <p>
+        We pride ourselves on quick response times, honest pricing, and 
+        guaranteed satisfaction. Whether it’s your fridge, washer,
+
+Src/components/contact.jsx:
+
+import React, { useState } from 'react'
+
+function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert('Message sent! We’ll get back to you shortly.')
+    setFormData({ name: '', email: '', message: '' })
+  }
+
+  return (
+    <section id="contact" className="contact">
+      <h2>Contact Us</h2>
+      <form onSubmit={handleSubmit} className="contact-form">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+
+Src/components/Footer.jsx
+
+import React from 'react'
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <p>© {new Date().getFullYear()} Top Speed Appliance. All Rights Reserved.</p>
+      <p>Fast • Reliable • Professional</p>
+    </footer>
+  )
+}
+
+export default Footer
+
+Src/styles/main.jsx:
+
+/* === Global Styles === */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  color: #111;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  color: #d10000; /* Red brand color */
+}
+
+a {
+  text-decoration: none;
+  color: #d10000;
+}
+
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* === Header === */
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 120px;
+}
+
+.nav a {
+  margin: 0 15px;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #d10000;
+}
+
+/* === Hero Section === */
+.hero {
+  background: url('/src/assets/hero-bg.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #d10000;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #ff1a1a;
+}
+
+/* === Services === */
+.services {
+  background-color: #f9f9f9;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* === About === */
+.about {
+  background-color: #fff;
+  color: #333;
+}
+
+/* === Contact === */
+.contact {
+  background-color: #f3f3f3;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.contact-form button {
+  background-color: #d10000;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #ff1a1a;
+}
+
+/* === Footer === */
+.footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+npm install
+npm run dev
