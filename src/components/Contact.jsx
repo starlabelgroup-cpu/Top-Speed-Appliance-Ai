@@ -22,7 +22,7 @@ function Contact() {
             <span className="info-icon">📍</span>
             <div>
               <h3>Address</h3>
-              <p>1234 Appliance St.<br/>South Florida, 12345</p>
+              <p>10120 NW 53rd St<br/>South Florida, 33351</p>
             </div>
           </div>
           <div className="info-item">
