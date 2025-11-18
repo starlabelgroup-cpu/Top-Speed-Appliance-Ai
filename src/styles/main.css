@@ -115,7 +115,9 @@ section {
 
 /* === Hero Section === */
 .hero {
-  background: url('/src/assets/hero-bg.jpg') center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 90vh;
   display: flex;
   align-items: center;
@@ -176,9 +178,29 @@ section {
 .service-card {
   background: #fff;
   border-radius: 12px;
-  padding: 25px;
+  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+}
+
+.service-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card > h3,
+.service-card > p {
+  padding: 0 25px;
+}
+
+.service-card > h3 {
+  padding-top: 25px;
+}
+
+.service-card > p {
+  padding-bottom: 25px;
 }
 
 .service-card:hover {
@@ -189,6 +211,16 @@ section {
 .about {
   background-color: #fff;
   color: #333;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: block;
+  object-fit: cover;
 }
 
 /* === Contact === */
