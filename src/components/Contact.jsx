@@ -29,7 +29,7 @@ function Contact() {
             <span className="info-icon">📞</span>
             <div>
               <h3>Phone</h3>
-              <p>(123) 456-7890</p>
+              <p>(954) 931-7997</p>
             </div>
           </div>
           <div className="info-item">
