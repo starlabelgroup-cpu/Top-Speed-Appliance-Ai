@@ -2,7 +2,7 @@ import React from 'react'
 
 function Hero() {
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" style={{backgroundImage: 'url(https://images.pexels.com/photos/7446650/pexels-photo-7446650.jpeg)'}}>
       <div className="hero-overlay">
         <div className="hero-content">
           <h1>Fast, Reliable Appliance Repair</h1>

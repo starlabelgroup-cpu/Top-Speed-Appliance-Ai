@@ -4,6 +4,7 @@ function About() {
   return (
     <section id="about" className="about">
       <h2>About Us</h2>
+      <img src="https://images.pexels.com/photos/6755092/pexels-photo-6755092.jpeg" alt="Technician performing repair work" className="about-image" />
       <p>
         At <strong>Top Speed Appliance</strong>, we specialize in fast, professional,
         and affordable appliance repair services across your local area. Our certified
