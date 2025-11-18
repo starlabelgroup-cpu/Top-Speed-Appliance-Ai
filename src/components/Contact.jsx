@@ -16,33 +16,58 @@ function Contact() {
   return (
     <section id="contact" className="contact">
       <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit} className="contact-form">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          rows={5}
-          required
-        />
-        <button type="submit">Send Message</button>
-      </form>
+      <div className="contact-content">
+        <div className="contact-info">
+          <div className="info-item">
+            <span className="info-icon">📍</span>
+            <div>
+              <h3>Address</h3>
+              <p>1234 Appliance St.<br/>South Florida, 12345</p>
+            </div>
+          </div>
+          <div className="info-item">
+            <span className="info-icon">📞</span>
+            <div>
+              <h3>Phone</h3>
+              <p>(123) 456-7890</p>
+            </div>
+          </div>
+          <div className="info-item">
+            <span className="info-icon">📧</span>
+            <div>
+              <h3>Email</h3>
+              <p>info@topspeedappliance.com</p>
+            </div>
+          </div>
+        </div>
+        <form onSubmit={handleSubmit} className="contact-form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={5}
+            required
+          />
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
     </section>
   )
 }
