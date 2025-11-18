@@ -5,22 +5,22 @@ function Services() {
     {
       title: 'Refrigerator Repair',
       desc: 'Quick fixes and full-service maintenance for all fridge brands.',
-      image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F5b2cddc584514ebd90bab47dfa9fab6c?format=webp&width=800',
     },
     {
       title: 'Washer & Dryer Repair',
       desc: 'Professional washer and dryer diagnostics and repairs.',
-      image: 'https://images.pexels.com/photos/4700389/pexels-photo-4700389.jpeg',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc593bf5c5ea049c987a8ce14d83a1a44?format=webp&width=800',
     },
     {
       title: 'Oven & Stove Repair',
       desc: 'Get your cooking appliances back to top performance fast.',
-      image: 'https://images.pexels.com/photos/7446650/pexels-photo-7446650.jpeg',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc072dd8c0d7c4399a48c16f755323d21?format=webp&width=800',
     },
     {
       title: 'Dishwasher Repair',
       desc: 'Cleaning, draining, and power issues resolved same-day.',
-      image: 'https://images.pexels.com/photos/6755092/pexels-photo-6755092.jpeg',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F5b2cddc584514ebd90bab47dfa9fab6c?format=webp&width=800',
     },
   ]
 
