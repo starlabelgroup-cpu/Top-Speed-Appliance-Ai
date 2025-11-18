@@ -36,7 +36,7 @@ function Contact() {
             <span className="info-icon">📧</span>
             <div>
               <h3>Email</h3>
-              <p>info@topspeedappliance.com</p>
+              <p>service@topspeedappliance.net</p>
             </div>
           </div>
         </div>
