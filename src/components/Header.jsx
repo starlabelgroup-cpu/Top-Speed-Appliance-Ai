@@ -19,7 +19,10 @@ function Header() {
         <nav className={`nav ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
           <a href="#home">Home</a>
           <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Reviews</a>
           <a href="#about">About</a>
+          <a href="#booking">Booking</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
