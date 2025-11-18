@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import logo from '../assets/logo.svg'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -7,7 +6,7 @@ function Header() {
   return (
     <header className="header">
       <div className="container">
-        <img src={logo} alt="Top Speed Appliance" className="logo" />
+        <img src="https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800" alt="Top Speed Appliance" className="logo" />
 
         <button
           className="menu-toggle"
