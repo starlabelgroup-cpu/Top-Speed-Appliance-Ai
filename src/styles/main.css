@@ -26,11 +26,68 @@ section {
 .header {
   background-color: #1a1a1a;
   color: #fff;
-  padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+  background-color: #d10000;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header-contact {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.contact-link {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s;
+}
+
+.contact-link:hover {
+  opacity: 0.8;
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+}
+
+.book-now-btn {
+  background-color: #fff;
+  color: #d10000;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+  text-transform: uppercase;
+}
+
+.book-now-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.header .container {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .header .container {
