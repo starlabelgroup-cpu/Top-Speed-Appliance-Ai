@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
+import Keywords from './components/Keywords'
 import Gallery from './components/Gallery'
 import Reviews from './components/Reviews'
 import About from './components/About'
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Hero />
       <Services />
+      <Keywords />
       <Gallery />
       <Reviews />
       <About />
