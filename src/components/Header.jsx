@@ -34,6 +34,7 @@ function Header() {
           <a href="#services">Services</a>
           <a href="#keywords">Repair Near Me</a>
           <a href="#gallery">Gallery</a>
+          <a href="#videos">Videos</a>
           <a href="#reviews">Reviews</a>
           <a href="#about">About</a>
           <a href="#booking">Booking</a>
