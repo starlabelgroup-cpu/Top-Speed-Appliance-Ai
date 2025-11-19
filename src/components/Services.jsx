@@ -3,23 +3,23 @@ import React from 'react'
 function Services() {
   const services = [
     {
-      title: 'Refrigerator Repair',
-      desc: 'Quick fixes and full-service maintenance for all fridge brands. We handle cooling issues, compressor problems, and more.',
+      title: 'Refrigerator Repair Near Me',
+      desc: 'Expert refrigerator repair near me with fast response times. We handle cooling issues, compressor problems, leaks, and more. All major brands serviced.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F5b2cddc584514ebd90bab47dfa9fab6c?format=webp&width=800',
     },
     {
-      title: 'Washer & Dryer Repair',
-      desc: 'Professional washer and dryer diagnostics and repairs. We fix drainage, spinning, heating and drum problems.',
+      title: 'Washer & Dryer Repair Near Me',
+      desc: 'Professional washer and dryer repair near me with same-day service available. We fix drainage, spinning, heating, drum, and electrical problems.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc593bf5c5ea049c987a8ce14d83a1a44?format=webp&width=800',
     },
     {
-      title: 'Oven & Stove Repair',
-      desc: 'Get your cooking appliances back to top performance fast. We repair heating, ignition, and control issues.',
+      title: 'Oven & Stove Repair Near Me',
+      desc: 'Oven and stove repair near me for all major brands. We repair heating elements, ignition systems, controls, and burner issues quickly and affordably.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc072dd8c0d7c4399a48c16f755323d21?format=webp&width=800',
     },
     {
-      title: 'Dishwasher Repair',
-      desc: 'Cleaning, draining, and power issues resolved same-day. We service all major dishwasher brands and models.',
+      title: 'Dishwasher Repair Near Me',
+      desc: 'Dishwasher repair near me with certified technicians. We fix cleaning issues, drainage problems, leaks, and power issues same-day on all brands.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F5b2cddc584514ebd90bab47dfa9fab6c?format=webp&width=800',
     },
   ]
