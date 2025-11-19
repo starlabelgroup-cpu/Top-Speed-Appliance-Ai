@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -30,11 +31,12 @@ function Header() {
         </button>
 
         <nav className={`nav ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
-          <a href="#home">Home</a>
+          <Link to="/">Home</Link>
           <a href="#services">Services</a>
           <a href="#keywords">Repair Near Me</a>
           <a href="#gallery">Gallery</a>
           <a href="#videos">Videos</a>
+          <Link to="/blog">Blog</Link>
           <a href="#reviews">Reviews</a>
           <a href="#about">About</a>
           <a href="#booking">Booking</a>
