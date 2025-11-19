@@ -362,6 +362,67 @@ section {
   transform: scale(1.08);
 }
 
+/* === Videos === */
+.videos {
+  background-color: #fff;
+}
+
+.videos h2 {
+  margin-bottom: 15px;
+}
+
+.videos-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.video-item {
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-item h3 {
+  padding: 20px;
+  font-size: 1.1rem;
+  color: #d10000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.video-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 /* === Reviews/Testimonials === */
 .reviews {
   background-color: #f3f3f3;
