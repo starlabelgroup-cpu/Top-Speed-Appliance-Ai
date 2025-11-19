@@ -6,6 +6,7 @@ import Gallery from './components/Gallery'
 import Reviews from './components/Reviews'
 import About from './components/About'
 import Booking from './components/Booking'
+import Maps from './components/Maps'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -19,6 +20,7 @@ function App() {
       <Reviews />
       <About />
       <Booking />
+      <Maps />
       <Contact />
       <Footer />
     </>
