@@ -18,6 +18,14 @@ function Videos() {
       id: 'hweqe2tPklo',
       title: 'Quality Appliance Service',
     },
+    {
+      id: 'u_C3hGEbMcM',
+      title: 'Advanced Repair Techniques',
+    },
+    {
+      id: 'quq8QoC6vQo',
+      title: 'Customer Satisfaction Guaranteed',
+    },
   ]
 
   return (
