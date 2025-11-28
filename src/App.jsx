@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
 import Privacy from './components/Privacy'
+import Dashboard from './components/Dashboard'
 
 function HomePage() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/account" element={<Dashboard />} />
       </Routes>
       <Footer />
     </Router>
