@@ -39,6 +39,7 @@ function Header() {
           <Link to="/blog">Blog</Link>
           <a href="#reviews">Reviews</a>
           <a href="#about">About</a>
+          <Link to="/account">Account</Link>
           <a href="#booking">Booking</a>
           <a href="#maps">Map</a>
           <a href="#contact">Contact</a>
