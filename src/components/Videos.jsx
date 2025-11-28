@@ -3,20 +3,20 @@ import React from 'react'
 function Videos() {
   const videos = [
     {
-      id: 'dQw4w9WgXcQ',
-      title: 'Washing Machine Repair Guide',
+      id: 'lC5eqysbdsk',
+      title: 'Appliance Repair Expertise',
     },
     {
-      id: 'jNQXAC9IVRw',
-      title: 'Refrigerator Troubleshooting Tips',
+      id: 'Cx40plGVxg8',
+      title: 'Professional Repair Solutions',
     },
     {
-      id: '9bZkp7q19f0',
-      title: 'Dishwasher Common Problems',
+      id: 'QD_y_NRK9TA',
+      title: 'Expert Technician In Action',
     },
     {
-      id: 'u8m-4ow3Gm8',
-      title: 'Oven & Stove Repair Basics',
+      id: 'hweqe2tPklo',
+      title: 'Quality Appliance Service',
     },
   ]
 
