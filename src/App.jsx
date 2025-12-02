@@ -47,6 +47,7 @@ function App() {
         <Route path="/account" element={<Dashboard />} />
       </Routes>
       <Footer />
+      <AIAssistant />
     </Router>
   )
 }
