@@ -16,6 +16,7 @@ import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
 import Privacy from './components/Privacy'
 import Dashboard from './components/Dashboard'
+import AIAssistant from './components/AIAssistant'
 
 function HomePage() {
   return (
