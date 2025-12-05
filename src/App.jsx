@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -17,6 +17,8 @@ import BlogPost from './components/BlogPost'
 import Privacy from './components/Privacy'
 import Dashboard from './components/Dashboard'
 import AIAssistant from './components/AIAssistant'
+import ErrorBoundary from './components/ErrorBoundary'
+import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
 
 function HomePage() {
   return (
