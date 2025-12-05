@@ -38,19 +38,30 @@ function HomePage() {
 }
 
 function App() {
+  useEffect(() => {
+    initializeAnalytics()
+    setupPerformanceMonitoring()
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').catch(() => {})
+    }
+  }, [])
+
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/account" element={<Dashboard />} />
-      </Routes>
-      <Footer />
-      <AIAssistant />
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/account" element={<Dashboard />} />
+        </Routes>
+        <Footer />
+        <AIAssistant />
+      </Router>
+    </ErrorBoundary>
   )
 }
 
