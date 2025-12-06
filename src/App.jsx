@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -18,8 +18,11 @@ import Privacy from './components/Privacy'
 import Dashboard from './components/Dashboard'
 import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
+import AIAdsGenerator from './components/AIAdsGenerator'
+import AdminLogin from './components/AdminLogin'
 import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
 import { startHealthCheck, stopHealthCheck } from './services/agentService'
+import { adminAuth } from './utils/adminAuth'
 
 function HomePage() {
   return (
@@ -65,6 +68,11 @@ function App() {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/account" element={<Dashboard />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin/ads-generator"
+            element={adminAuth.hasAdminAccess() ? <AIAdsGenerator /> : <Navigate to="/admin/login" />}
+          />
         </Routes>
         <Footer />
         <AdvancedAIAgent />
