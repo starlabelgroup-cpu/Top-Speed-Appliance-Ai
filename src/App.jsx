@@ -16,9 +16,10 @@ import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
 import Privacy from './components/Privacy'
 import Dashboard from './components/Dashboard'
-import AIAssistant from './components/AIAssistant'
+import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
 import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
+import { startHealthCheck, stopHealthCheck } from './services/agentService'
 
 function HomePage() {
   return (
