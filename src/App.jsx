@@ -46,6 +46,13 @@ function App() {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js').catch(() => {})
     }
+
+    // Start AI agent health check
+    startHealthCheck()
+
+    return () => {
+      stopHealthCheck()
+    }
   }, [])
 
   return (
@@ -60,7 +67,7 @@ function App() {
           <Route path="/account" element={<Dashboard />} />
         </Routes>
         <Footer />
-        <AIAssistant />
+        <AdvancedAIAgent />
       </Router>
     </ErrorBoundary>
   )
