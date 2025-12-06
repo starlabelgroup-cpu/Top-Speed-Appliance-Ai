@@ -1,7 +1,7 @@
 // API Service for Top Speed Appliance AI Agent Backend
 // Communicates with Python FastAPI backend on Heroku
 
-const API_BASE_URL = process.env.REACT_APP_AGENT_API_URL || 'https://topspeed-ai-agent.herokuapp.com/api/v1'
+const API_BASE_URL = import.meta.env.VITE_REACT_APP_AGENT_API_URL || 'https://topspeed-ai-agent.herokuapp.com/api/v1'
 
 // Helper function for API calls
 const apiCall = async (endpoint, method = 'GET', data = null) => {
