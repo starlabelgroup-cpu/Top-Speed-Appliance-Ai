@@ -50,11 +50,11 @@ function App() {
       navigator.serviceWorker.register('/service-worker.js').catch(() => {})
     }
 
-    // Start AI agent health check
-    startHealthCheck()
+    // Health check disabled - no backend agent available
+    // startHealthCheck()
 
     return () => {
-      stopHealthCheck()
+      // stopHealthCheck()
     }
   }, [])
 
