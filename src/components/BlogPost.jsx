@@ -103,27 +103,52 @@ function BlogPost() {
         />
 
         <div className="post-content">
-          {post.content.split('\n\n').map((paragraph, index) => {
-            if (paragraph.startsWith('##')) {
+          {post.content.split('\n\n').map((block, index) => {
+            const lines = block.split('\n')
+            const firstLine = lines[0]
+
+            // Handle section headers
+            if (firstLine.startsWith('##')) {
+              const headerText = firstLine.replace('## ', '')
+              const restContent = lines.slice(1).join('\n')
+
               return (
-                <h2 key={index} className="post-section-title">
-                  {paragraph.replace('## ', '')}
-                </h2>
+                <div key={index}>
+                  <h2 className="post-section-title">{headerText}</h2>
+                  {restContent && (
+                    <p className="post-paragraph">{restContent}</p>
+                  )}
+                </div>
               )
             }
-            if (paragraph.startsWith('-')) {
-              const items = paragraph.split('\n').filter(item => item.startsWith('-'))
+
+            // Handle lists
+            if (lines.some(line => line.trim().startsWith('-'))) {
+              const listItems = lines.filter(line => line.trim().startsWith('-'))
+              const nonListLines = lines.filter(line => !line.trim().startsWith('-') && line.trim())
+
               return (
-                <ul key={index} className="post-list">
-                  {items.map((item, i) => (
-                    <li key={i}>{item.replace('- ', '')}</li>
-                  ))}
-                </ul>
+                <div key={index}>
+                  {nonListLines.length > 0 && (
+                    <p className="post-paragraph">
+                      {nonListLines.join(' ')}
+                    </p>
+                  )}
+                  {listItems.length > 0 && (
+                    <ul className="post-list">
+                      {listItems.map((item, i) => (
+                        <li key={i}>{item.trim().replace('- ', '')}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               )
             }
+
+            // Handle regular paragraphs
             return (
               <p key={index} className="post-paragraph">
-                {paragraph}
+                {block}
               </p>
             )
           })}
