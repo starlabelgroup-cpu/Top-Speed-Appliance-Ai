@@ -73,6 +73,12 @@ function Dashboard() {
           >
             Service History
           </button>
+          <button
+            className={`tab-button ${activeTab === 'portal' ? 'active' : ''}`}
+            onClick={() => setActiveTab('portal')}
+          >
+            Customer Portal
+          </button>
         </div>
 
         {activeTab === 'profile' && (
