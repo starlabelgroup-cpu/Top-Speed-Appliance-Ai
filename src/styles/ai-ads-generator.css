@@ -619,6 +619,161 @@ input:checked + .toggle-slider:before {
   color: var(--error-color);
 }
 
+/* Google Ads Analysis Section */
+.google-ads-analysis-section {
+  background: rgba(30, 35, 55, 0.8);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-left: 5px solid var(--primary-color);
+}
+
+.google-ads-analysis-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.google-ads-analysis-section h4 {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.analysis-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+/* Wasted Spend Container */
+.wasted-spend-container {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.terms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.term-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid var(--secondary-color);
+  transition: all 0.3s;
+}
+
+.term-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+
+.term-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.term-text {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.term-metrics {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.warning-badge {
+  display: inline-block;
+  background-color: rgba(220, 53, 69, 0.3);
+  color: #ff8a8a;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(220, 53, 69, 0.6);
+}
+
+/* Gemini Analysis Container */
+.gemini-analysis-container {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 86, 179, 0.3);
+}
+
+.analysis-content {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.analysis-content p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+}
+
+.analysis-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.meta-badge {
+  display: inline-block;
+  background-color: rgba(0, 86, 179, 0.3);
+  color: #7fb3ff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 86, 179, 0.6);
+}
+
+.meta-timestamp {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Empty Analysis State */
+.empty-analysis-state {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 2px dashed rgba(0, 86, 179, 0.3);
+}
+
+.empty-analysis-state i {
+  font-size: 2.5rem;
+  color: rgba(0, 86, 179, 0.4);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.empty-analysis-state p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
 /* Activity Section */
 .activity-section {
   background: rgba(30, 35, 55, 0.8);
