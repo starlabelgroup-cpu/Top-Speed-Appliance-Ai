@@ -20,6 +20,7 @@ import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
 import AIAdsGenerator from './components/AIAdsGenerator'
 import AdminLogin from './components/AdminLogin'
+import AdManagerDashboard from './components/AdManagerDashboard'
 import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
 import { startHealthCheck, stopHealthCheck } from './services/agentService'
 import { adminAuth } from './utils/adminAuth'
@@ -72,6 +73,10 @@ function App() {
           <Route
             path="/admin/ads-generator"
             element={adminAuth.hasAdminAccess() ? <AIAdsGenerator /> : <Navigate to="/admin/login" />}
+          />
+          <Route
+            path="/admin/ad-manager"
+            element={adminAuth.hasAdminAccess() ? <AdManagerDashboard /> : <Navigate to="/admin/login" />}
           />
         </Routes>
         <Footer />
