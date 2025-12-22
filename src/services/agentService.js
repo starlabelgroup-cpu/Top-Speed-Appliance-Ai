@@ -24,9 +24,13 @@ const apiCall = async (endpoint, method = 'GET', data = null) => {
       throw new Error(`API error: ${response.status} ${response.statusText}`)
     }
 
+    const contentType = response.headers.get('content-type')
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Invalid response format: expected JSON')
+    }
+
     return await response.json()
   } catch (error) {
-    console.error('API call failed:', error)
     throw error
   }
 }
