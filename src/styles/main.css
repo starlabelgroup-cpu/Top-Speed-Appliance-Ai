@@ -1390,8 +1390,46 @@ button:hover, a:hover {
     font-size: 0.95rem;
   }
 
+  .post-section-title {
+    font-size: 1.3rem;
+    margin: 30px 0 15px 0;
+  }
+
+  .post-cta {
+    padding: 30px 20px;
+    margin: 40px 0;
+  }
+
+  .post-cta h3 {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .post-featured-image {
+    max-height: 250px;
+    margin-bottom: 30px;
+  }
+
+  .post-list {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .post-container {
+    padding: 0 15px;
+  }
+
   .related-posts-grid {
     grid-template-columns: 1fr;
+  }
+
+  .related-post-card img {
+    height: 150px;
   }
 }
 
