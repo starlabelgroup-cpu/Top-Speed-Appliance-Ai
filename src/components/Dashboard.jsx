@@ -273,6 +273,59 @@ function Dashboard() {
           </div>
         )}
 
+        {activeTab === 'portal' && (
+          <div className="dashboard-content">
+            <div className="portal-section">
+              <h2>HouseCall Pro Customer Portal</h2>
+              <p className="portal-description">
+                Access your complete service history, manage appointments, and view invoices directly from our customer portal.
+              </p>
+
+              <div className="portal-features">
+                <div className="feature-item">
+                  <span className="feature-icon">📋</span>
+                  <div>
+                    <h3>Service History</h3>
+                    <p>View all past and upcoming service appointments</p>
+                  </div>
+                </div>
+
+                <div className="feature-item">
+                  <span className="feature-icon">📅</span>
+                  <div>
+                    <h3>Manage Appointments</h3>
+                    <p>Reschedule or cancel appointments online</p>
+                  </div>
+                </div>
+
+                <div className="feature-item">
+                  <span className="feature-icon">💵</span>
+                  <div>
+                    <h3>View Invoices</h3>
+                    <p>Access and download your service invoices</p>
+                  </div>
+                </div>
+
+                <div className="feature-item">
+                  <span className="feature-icon">💬</span>
+                  <div>
+                    <h3>Contact Support</h3>
+                    <p>Message our team directly through the portal</p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                className="portal-access-btn"
+                onClick={() => window.open('https://client.housecallpro.com/customer_portal/request-link?token=8d8427149b1b4af097d0fa3874bcf202', '_blank')}
+                aria-label="Log in to HouseCall Pro customer portal"
+              >
+                <span>🔐</span> Log In to Portal
+              </button>
+            </div>
+          </div>
+        )}
+
         {showRescheduleModal && selectedAppointment && (
           <div className="modal-overlay" onClick={() => setShowRescheduleModal(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
