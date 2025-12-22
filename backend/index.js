@@ -21,6 +21,35 @@ const pool = mockPool
 
 console.log('✅ Using in-memory database (development mode)')
 
+// Twilio Client (optional)
+let twilioClient = null
+if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
+  twilioClient = twilio(
+    process.env.TWILIO_ACCOUNT_SID,
+    process.env.TWILIO_AUTH_TOKEN
+  )
+  console.log('✅ Twilio configured')
+} else {
+  console.log('⚠️  Twilio not configured (optional)')
+}
+
+// Gmail Service Account Auth (optional)
+let gmail = null
+if (process.env.GMAIL_SERVICE_ACCOUNT_KEY) {
+  try {
+    const auth = new google.auth.GoogleAuth({
+      keyFile: process.env.GMAIL_SERVICE_ACCOUNT_KEY || './service-account.json',
+      scopes: ['https://www.googleapis.com/auth/gmail.send']
+    })
+    gmail = google.gmail({ version: 'v1', auth })
+    console.log('✅ Gmail configured')
+  } catch (err) {
+    console.log('⚠️  Gmail not configured (optional):', err.message)
+  }
+} else {
+  console.log('⚠️  Gmail not configured (optional)')
+}
+
 // Routes
 
 // GET /api/campaigns - Fetch campaigns
