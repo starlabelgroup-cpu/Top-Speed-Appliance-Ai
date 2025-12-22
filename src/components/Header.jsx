@@ -15,9 +15,21 @@ function Header() {
             <span className="contact-icon">📧</span>service@topspeedappliance.net
           </a>
         </div>
-        <a href="https://book.housecallpro.com/book/Top-Speed-Appliance/c9b4dccc30ee46f2bd3e162ee377aae1?v2=true" target="_blank" rel="noopener noreferrer" className="book-now-btn">
-          Book Now
-        </a>
+        <div className="header-actions">
+          <a href="https://book.housecallpro.com/book/Top-Speed-Appliance/c9b4dccc30ee46f2bd3e162ee377aae1?v2=true" target="_blank" rel="noopener noreferrer" className="book-now-btn">
+            Book Now
+          </a>
+          <button
+            data-token='8d8427149b1b4af097d0fa3874bcf202'
+            data-orgname='TopSpeed-Appliance'
+            onClick={() => window.open('https://client.housecallpro.com/customer_portal/request-link?token=8d8427149b1b4af097d0fa3874bcf202', '_blank')}
+            className="portal-login-btn"
+            aria-label="Log in to customer portal"
+            title="Access your service history and manage appointments"
+          >
+            Portal Login
+          </button>
+        </div>
       </div>
       <div className="container">
         <img src="https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800" alt="Top Speed Appliance" className="logo" />
