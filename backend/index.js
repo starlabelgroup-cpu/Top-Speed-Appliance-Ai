@@ -450,6 +450,24 @@ app.post('/api/generate-ad-variations', async (req, res) => {
   }
 })
 
+// POST /api/metrics - Log analytics metrics
+app.post('/api/metrics', (req, res) => {
+  try {
+    const { metric, data, timestamp, userAgent, url } = req.body
+
+    console.log(`[${timestamp}] ${metric}:`, {
+      url,
+      userAgent: userAgent?.substring(0, 50) + '...',
+      data
+    })
+
+    res.json({ success: true, received: true })
+  } catch (err) {
+    console.error('Error logging metric:', err)
+    res.status(500).json({ error: err.message })
+  }
+})
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({
