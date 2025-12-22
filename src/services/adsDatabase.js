@@ -202,5 +202,67 @@ export const adsDatabase = {
         google: localAds.filter(a => a.platform === 'google').length
       }
     }
+  },
+
+  /**
+   * Save an analysis result (Google Ads analysis with Gemini insights)
+   */
+  saveAnalysis: async (analysis) => {
+    const analysisData = {
+      type: analysis.type,
+      data: analysis.data,
+      analysis: analysis.analysis,
+      timestamp: analysis.timestamp,
+      created_by: analysis.createdBy || 'admin'
+    }
+
+    // Try Supabase first
+    const result = await makeSupabaseRequest(
+      'POST',
+      '/ads_analyses',
+      [analysisData]
+    )
+
+    if (result && result.length > 0) {
+      return result[0]
+    }
+
+    // Fallback to localStorage
+    const analyses = JSON.parse(localStorage.getItem('ads_analyses') || '[]')
+    const newAnalysis = { ...analysis, id: Date.now() }
+    analyses.push(newAnalysis)
+    localStorage.setItem('ads_analyses', JSON.stringify(analyses))
+    return newAnalysis
+  },
+
+  /**
+   * Get saved analyses
+   */
+  getAnalyses: async (type = null) => {
+    let query = ''
+
+    if (type) {
+      query = `type=eq.${type}`
+    }
+
+    query += `${query ? '&' : ''}order=timestamp.desc`
+
+    // Try Supabase first
+    const result = await makeSupabaseRequest(
+      'GET',
+      `/ads_analyses?${query}`,
+      null
+    )
+
+    if (result && Array.isArray(result)) {
+      return result
+    }
+
+    // Fallback to localStorage
+    const analyses = JSON.parse(localStorage.getItem('ads_analyses') || '[]')
+    if (type) {
+      return analyses.filter(a => a.type === type).reverse()
+    }
+    return analyses.reverse()
   }
 }
