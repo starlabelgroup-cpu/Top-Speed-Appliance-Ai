@@ -1,52 +1,25 @@
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import pkg from 'pg'
 import dotenv from 'dotenv'
 import twilio from 'twilio'
 import { google } from 'googleapis'
 import { googleAdsManager } from './googleAdsManager.js'
 import { geminiAdGenerator } from './geminiAdGenerator.js'
+import { mockPool } from './database.js'
 
 dotenv.config()
 
-const { Pool } = pkg
 const app = express()
 
 // Middleware
 app.use(cors())
 app.use(bodyParser.json())
 
-// Database Pool
-const pool = new Pool({
-  user: process.env.DB_USER || 'postgres',
-  host: process.env.DB_HOST || 'localhost',
-  database: process.env.DB_NAME || 'topspeed_dashboard',
-  password: process.env.DB_PASSWORD || 'password',
-  port: process.env.DB_PORT || 5432
-})
+// Use mock database for development (no PostgreSQL required)
+const pool = mockPool
 
-// Twilio Client
-const twilioClient = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-)
-
-// Gmail Service Account Auth
-const auth = new google.auth.GoogleAuth({
-  keyFile: process.env.GMAIL_SERVICE_ACCOUNT_KEY || './service-account.json',
-  scopes: ['https://www.googleapis.com/auth/gmail.send']
-})
-const gmail = google.gmail({ version: 'v1', auth })
-
-// Test database connection
-pool.query('SELECT NOW()', (err, result) => {
-  if (err) {
-    console.error('Database connection error:', err)
-  } else {
-    console.log('Database connected:', result.rows[0])
-  }
-})
+console.log('✅ Using in-memory database (development mode)')
 
 // Routes
 
