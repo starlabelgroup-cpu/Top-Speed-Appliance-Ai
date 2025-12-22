@@ -105,7 +105,7 @@ export const startHealthCheck = () => {
     try {
       await agentService.healthCheck()
     } catch (error) {
-      console.warn('Health check failed:', error)
+      // Health check failures are non-fatal, silently ignore
     }
   }, 30000)
 }
