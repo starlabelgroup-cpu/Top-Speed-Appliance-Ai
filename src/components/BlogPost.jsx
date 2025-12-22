@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getBlogPostBySlug, getRelatedPosts } from '../data/blogData'
 
@@ -6,6 +6,60 @@ function BlogPost() {
   const { slug } = useParams()
   const post = getBlogPostBySlug(slug)
   const relatedPosts = post ? getRelatedPosts(post.id) : []
+
+  // Add SEO meta tags dynamically
+  useEffect(() => {
+    if (post) {
+      // Update page title
+      document.title = `${post.title} | Top Speed Appliance Blog`
+
+      // Update meta description
+      const metaDescription = document.querySelector('meta[name="description"]')
+      if (metaDescription) {
+        metaDescription.setAttribute('content', post.excerpt)
+      }
+
+      // Update OG tags
+      const ogTitle = document.querySelector('meta[property="og:title"]')
+      if (ogTitle) ogTitle.setAttribute('content', post.title)
+
+      const ogDescription = document.querySelector('meta[property="og:description"]')
+      if (ogDescription) ogDescription.setAttribute('content', post.excerpt)
+
+      const ogImage = document.querySelector('meta[property="og:image"]')
+      if (ogImage) ogImage.setAttribute('content', post.image)
+
+      // Add JSON-LD schema for blog post
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.innerHTML = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.excerpt,
+        image: post.image,
+        datePublished: post.date,
+        author: {
+          '@type': 'Organization',
+          name: post.author,
+          url: 'https://topspeedappliance.com'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Top Speed Appliance',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://topspeedappliance.com/logo.png'
+          }
+        }
+      })
+      document.head.appendChild(script)
+
+      return () => {
+        document.head.removeChild(script)
+      }
+    }
+  }, [post])
 
   if (!post) {
     return (
@@ -19,6 +73,12 @@ function BlogPost() {
         </div>
       </section>
     )
+  }
+
+  const handleContactClick = (e) => {
+    e.preventDefault()
+    // Scroll to top and navigate to home with contact anchor
+    window.location.href = '/#contact'
   }
 
   return (
@@ -35,7 +95,12 @@ function BlogPost() {
           </div>
         </header>
 
-        <img src={post.image} alt={post.title} className="post-featured-image" />
+        <img
+          src={post.image}
+          alt={post.title}
+          className="post-featured-image"
+          loading="lazy"
+        />
 
         <div className="post-content">
           {post.content.split('\n\n').map((paragraph, index) => {
@@ -67,9 +132,13 @@ function BlogPost() {
         <div className="post-cta">
           <h3>Need Professional Help?</h3>
           <p>If you're experiencing appliance issues, our expert technicians are here to help.</p>
-          <a href="#contact" className="cta-button">
+          <button
+            className="cta-button"
+            onClick={handleContactClick}
+            aria-label="Contact us for appliance repair services"
+          >
             Contact Us Today
-          </a>
+          </button>
         </div>
       </article>
 
@@ -79,7 +148,11 @@ function BlogPost() {
           <div className="related-posts-grid">
             {relatedPosts.map(relatedPost => (
               <article key={relatedPost.id} className="related-post-card">
-                <img src={relatedPost.image} alt={relatedPost.title} />
+                <img
+                  src={relatedPost.image}
+                  alt={relatedPost.title}
+                  loading="lazy"
+                />
                 <h3>{relatedPost.title}</h3>
                 <p>{relatedPost.excerpt}</p>
                 <Link to={`/blog/${relatedPost.slug}`} className="read-more-link">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { blogPosts, getCategoryOptions } from '../data/blogData'
 
@@ -16,6 +16,15 @@ function Blog() {
   if (sortBy === 'oldest') {
     filteredPosts = [...filteredPosts].reverse()
   }
+
+  // Update page title and meta tags
+  useEffect(() => {
+    document.title = 'Appliance Repair Blog | Top Speed Appliance'
+    const metaDescription = document.querySelector('meta[name="description"]')
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Read our appliance repair blog for tips, guides, and advice on keeping your refrigerator, washer, dryer, oven, and dishwasher in top condition.')
+    }
+  }, [])
 
   return (
     <section id="blog" className="blog">
@@ -54,7 +63,12 @@ function Blog() {
       <div className="blog-grid">
         {filteredPosts.map(post => (
           <article key={post.id} className="blog-card">
-            <img src={post.image} alt={post.title} className="blog-card-image" />
+            <img
+              src={post.image}
+              alt={post.title}
+              className="blog-card-image"
+              loading="lazy"
+            />
             <div className="blog-card-content">
               <span className="blog-category">{post.category}</span>
               <h3>{post.title}</h3>
