@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { openaiService } from '../services/openaiService'
+import { geminiService } from '../services/geminiService'
+import { googleAdsService } from '../services/googleAdsService'
 import { adsDatabase } from '../services/adsDatabase'
 import '../styles/ai-ads-generator.css'
 
@@ -39,6 +41,13 @@ function AIAdsGenerator() {
     facebook: { ads: 0, ctr: '0%', cpc: '$0', conversions: 0 },
     google: { ads: 0, ctr: '0%', cpc: '$0', conversions: 0 }
   })
+
+  // Google Ads Analysis State
+  const [wastedSpendData, setWastedSpendData] = useState([])
+  const [geminiAnalysis, setGeminiAnalysis] = useState(null)
+  const [analysisLoading, setAnalysisLoading] = useState(false)
+  const [analysisError, setAnalysisError] = useState(null)
+  const [savedAnalyses, setSavedAnalyses] = useState([])
 
   // Load initial data
   useEffect(() => {
@@ -201,6 +210,96 @@ function AIAdsGenerator() {
       autoGeneration ? 'Auto-generation disabled' : 'Auto-generation enabled',
       autoGeneration ? 'pause' : 'play'
     )
+  }
+
+  // Google Ads Analysis with Gemini
+  const analyzeGoogleAds = async () => {
+    setAnalysisLoading(true)
+    setAnalysisError(null)
+    try {
+      // Mock wasted spend data for demo
+      const mockWastedSpendData = [
+        { searchTerm: 'free appliance repair', spend: 85.50, conversions: 0, impressions: 250 },
+        { searchTerm: 'cheap refrigerator', spend: 72.30, conversions: 0, impressions: 180 },
+        { searchTerm: 'appliance repair complaints', spend: 65.00, conversions: 0, impressions: 95 },
+        { searchTerm: 'used appliances', spend: 58.75, conversions: 0, impressions: 140 },
+        { searchTerm: 'appliance warranty', spend: 52.20, conversions: 0, impressions: 110 }
+      ]
+
+      setWastedSpendData(mockWastedSpendData)
+      addActivity('Analyzing Google Ads performance data...', 'search')
+
+      // Analyze with Gemini
+      const analysis = await geminiService.analyzeGoogleAds(mockWastedSpendData)
+      setGeminiAnalysis(analysis)
+      addActivity('Gemini analysis completed', 'brain')
+
+      // Save analysis to database
+      try {
+        await adsDatabase.saveAnalysis({
+          type: 'google-ads-wasted-spend',
+          data: mockWastedSpendData,
+          analysis: analysis.analysis,
+          timestamp: new Date().toISOString()
+        })
+        addActivity('Analysis saved to database', 'save')
+      } catch (err) {
+        console.warn('Failed to save analysis:', err)
+      }
+
+      setSuccessMessage('Google Ads analysis completed successfully!')
+      setTimeout(() => setSuccessMessage(null), 3000)
+    } catch (err) {
+      setAnalysisError(err.message || 'Failed to analyze Google Ads. Check your API keys.')
+      addActivity(`Google Ads analysis failed: ${err.message}`, 'error')
+    } finally {
+      setAnalysisLoading(false)
+    }
+  }
+
+  // Generate ads using Gemini instead of OpenAI
+  const generateAdsWithGemini = async () => {
+    setLoading(true)
+    setError(null)
+    try {
+      const ads = await geminiService.generateAdCopy({
+        productCategory,
+        platform,
+        audience,
+        tone,
+        count: 3,
+        focusKeyword: 'appliance repair'
+      })
+
+      // Save ads to database
+      for (const ad of ads) {
+        try {
+          await adsDatabase.saveAd({
+            ...ad,
+            productCategory,
+            audience,
+            tone
+          })
+        } catch (err) {
+          console.warn('Failed to save ad:', err)
+        }
+      }
+
+      setGeneratedAds(prev => [...ads, ...prev])
+      addActivity(`Gemini generated ${ads.length} new ad variations`, 'robot')
+      setSuccessMessage(`Successfully generated ${ads.length} new ads with Gemini!`)
+      setTimeout(() => setSuccessMessage(null), 3000)
+
+      setMetrics(prev => ({
+        ...prev,
+        adsGenerated: prev.adsGenerated + ads.length
+      }))
+    } catch (err) {
+      setError(err.message || 'Failed to generate ads. Check your Gemini API key.')
+      addActivity(`Ad generation failed: ${err.message}`, 'error')
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (!launchComplete) {
@@ -535,6 +634,93 @@ function AIAdsGenerator() {
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+          </div>
+
+          {/* Google Ads Analysis Section */}
+          <div className="google-ads-analysis-section">
+            <h3>Google Ads Performance Analysis</h3>
+
+            {analysisError && (
+              <div className="alert alert-error">
+                <i className="fas fa-exclamation-circle"></i>
+                <span>{analysisError}</span>
+                <button onClick={() => setAnalysisError(null)} className="alert-close">&times;</button>
+              </div>
+            )}
+
+            <div className="analysis-controls">
+              <button
+                className="btn-action"
+                onClick={analyzeGoogleAds}
+                disabled={analysisLoading}
+              >
+                {analysisLoading ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin"></i> Analyzing...
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-brain"></i> Analyze Wasted Spend
+                  </>
+                )}
+              </button>
+              <button
+                className="btn-action"
+                onClick={generateAdsWithGemini}
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin"></i> Generating...
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-sparkles"></i> Generate with Gemini
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Wasted Spend Data */}
+            {wastedSpendData.length > 0 && (
+              <div className="wasted-spend-container">
+                <h4>Wasted Spend Terms (High Cost, Zero Conversions)</h4>
+                <div className="terms-list">
+                  {wastedSpendData.map((item, idx) => (
+                    <div key={idx} className="term-item">
+                      <div className="term-info">
+                        <span className="term-text">{item.searchTerm}</span>
+                        <span className="term-metrics">
+                          Spent: ${item.spend.toFixed(2)} | Impressions: {item.impressions}
+                        </span>
+                      </div>
+                      <span className="warning-badge">0 Conversions</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Gemini Analysis Results */}
+            {geminiAnalysis && (
+              <div className="gemini-analysis-container">
+                <h4>Gemini AI Recommendations</h4>
+                <div className="analysis-content">
+                  <p>{geminiAnalysis.analysis}</p>
+                  <div className="analysis-meta">
+                    <span className="meta-badge">{geminiAnalysis.model}</span>
+                    <span className="meta-timestamp">{new Date(geminiAnalysis.timestamp).toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {wastedSpendData.length === 0 && !geminiAnalysis && (
+              <div className="empty-analysis-state">
+                <i className="fas fa-chart-line"></i>
+                <p>Click "Analyze Wasted Spend" to identify underperforming keywords and get AI-powered recommendations</p>
               </div>
             )}
           </div>
