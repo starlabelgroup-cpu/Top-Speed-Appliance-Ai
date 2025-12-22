@@ -223,7 +223,18 @@ section {
     width: 100%;
   }
 
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
   .book-now-btn {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .portal-login-btn {
     width: 100%;
     padding: 12px 16px;
   }
