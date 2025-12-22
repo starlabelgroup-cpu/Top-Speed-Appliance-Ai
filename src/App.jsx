@@ -74,10 +74,6 @@ function App() {
             path="/admin/ads-generator"
             element={adminAuth.hasAdminAccess() ? <AIAdsGenerator /> : <Navigate to="/admin/login" />}
           />
-          <Route
-            path="/admin/ad-manager"
-            element={adminAuth.hasAdminAccess() ? <AdManagerDashboard /> : <Navigate to="/admin/login" />}
-          />
         </Routes>
         <Footer />
         <AdvancedAIAgent />
