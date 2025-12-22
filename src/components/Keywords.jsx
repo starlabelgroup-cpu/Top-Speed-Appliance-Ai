@@ -44,7 +44,7 @@ function Keywords() {
                 ))}
               </ul>
             </div>
-            <a href="#booking" className="service-cta">Book Repair</a>
+            <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="service-cta">Book Repair</a>
           </div>
         ))}
       </div>
@@ -82,7 +82,7 @@ function Keywords() {
       <div className="keywords-cta">
         <h3>Need Appliance Repair Today?</h3>
         <p>Contact Top Speed Appliance for fast, reliable repair service in South Florida</p>
-        <a href="#booking" className="cta-button">Request Service Now</a>
+        <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="cta-button">Request Service Now</a>
         <a href="tel:9549317997" className="cta-button" style={{marginLeft: '10px', backgroundColor: '#fff', color: '#d10000', border: '2px solid #d10000'}}>
           Call (954) 931-7997
         </a>

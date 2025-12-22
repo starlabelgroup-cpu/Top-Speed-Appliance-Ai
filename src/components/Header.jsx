@@ -16,7 +16,7 @@ function Header() {
           </a>
         </div>
         <div className="header-actions">
-          <a href="https://book.housecallpro.com/book/Top-Speed-Appliance/c9b4dccc30ee46f2bd3e162ee377aae1?v2=true" target="_blank" rel="noopener noreferrer" className="book-now-btn">
+          <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="book-now-btn">
             Book Now
           </a>
           <button
