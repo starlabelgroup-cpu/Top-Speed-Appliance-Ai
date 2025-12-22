@@ -924,4 +924,26 @@ input:checked + .toggle-slider:before {
   .launch-subtitle {
     font-size: 1.2rem;
   }
+
+  .analysis-controls {
+    flex-direction: column;
+  }
+
+  .term-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .warning-badge {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+
+  .analysis-content {
+    font-size: 0.9rem;
+  }
+
+  .analysis-meta {
+    margin-top: 12px;
+  }
 }
