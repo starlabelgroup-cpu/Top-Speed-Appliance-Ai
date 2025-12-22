@@ -1,27 +1,41 @@
-// Ads Database Service - Supabase Integration
+// Ads Database Service - Supabase Integration via REST API
 // Handles storing, retrieving, and managing generated ads
+// Uses Supabase REST API instead of SDK (no dependencies needed)
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || null
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || null
 
-// Initialize Supabase client
-let supabaseClient = null
-
-const initSupabase = async () => {
-  if (supabaseClient) return supabaseClient
-
+// Helper to make Supabase REST API calls
+const makeSupabaseRequest = async (method, endpoint, data = null) => {
   if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-    console.warn('Supabase not configured. Using local storage fallback.')
     return null
   }
 
-  // Dynamically import supabase client
   try {
-    const { createClient } = await import('@supabase/supabase-js')
-    supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    return supabaseClient
+    const options = {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+      }
+    }
+
+    if (data) {
+      options.body = JSON.stringify(data)
+    }
+
+    const response = await fetch(`${SUPABASE_URL}/rest/v1${endpoint}`, options)
+
+    if (!response.ok) {
+      const error = await response.json()
+      console.error('Supabase API error:', error)
+      return null
+    }
+
+    return await response.json()
   } catch (error) {
-    console.warn('Supabase client not available:', error)
+    console.error('Supabase request failed:', error)
     return null
   }
 }
@@ -31,178 +45,162 @@ export const adsDatabase = {
    * Save a generated ad to the database
    */
   saveAd: async (ad) => {
-    const supabase = await initSupabase()
-
-    if (!supabase) {
-      // Fallback to localStorage
-      const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
-      const newAd = { ...ad, id: Date.now() }
-      ads.push(newAd)
-      localStorage.setItem('generated_ads', JSON.stringify(ads))
-      return newAd
+    const adData = {
+      headline: ad.headline,
+      description: ad.description,
+      cta: ad.cta,
+      key_point: ad.keyPoint,
+      platform: ad.platform,
+      product_category: ad.productCategory,
+      target_audience: ad.audience,
+      tone: ad.tone,
+      estimated_reach: ad.estimatedReach,
+      status: ad.status || 'pending',
+      generated_at: ad.generatedAt,
+      created_by: ad.createdBy || 'admin'
     }
 
-    try {
-      const { data, error } = await supabase
-        .from('generated_ads')
-        .insert([
-          {
-            headline: ad.headline,
-            description: ad.description,
-            cta: ad.cta,
-            key_point: ad.keyPoint,
-            platform: ad.platform,
-            product_category: ad.productCategory,
-            target_audience: ad.audience,
-            tone: ad.tone,
-            estimated_reach: ad.estimatedReach,
-            status: ad.status,
-            generated_at: ad.generatedAt,
-            created_by: ad.createdBy
-          }
-        ])
-        .select()
+    // Try Supabase first
+    const result = await makeSupabaseRequest(
+      'POST',
+      '/generated_ads',
+      [adData]
+    )
 
-      if (error) throw error
-      return data[0]
-    } catch (error) {
-      console.error('Failed to save ad:', error)
-      throw error
+    if (result && result.length > 0) {
+      return result[0]
     }
+
+    // Fallback to localStorage
+    const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
+    const newAd = { ...ad, id: Date.now() }
+    ads.push(newAd)
+    localStorage.setItem('generated_ads', JSON.stringify(ads))
+    return newAd
   },
 
   /**
    * Retrieve all ads with optional filters
    */
   getAds: async (filters = {}) => {
-    const supabase = await initSupabase()
+    let query = ''
 
-    if (!supabase) {
-      // Fallback to localStorage
-      const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
-      return ads.reverse()
+    if (filters.platform) {
+      query += `platform=eq.${filters.platform}`
+    }
+    if (filters.status) {
+      query += `${query ? '&' : ''}status=eq.${filters.status}`
+    }
+    if (filters.productCategory) {
+      query += `${query ? '&' : ''}product_category=eq.${filters.productCategory}`
     }
 
-    try {
-      let query = supabase.from('generated_ads').select('*')
+    // Order by created_at descending
+    query += `${query ? '&' : ''}order=created_at.desc`
 
-      if (filters.platform) {
-        query = query.eq('platform', filters.platform)
-      }
-      if (filters.status) {
-        query = query.eq('status', filters.status)
-      }
-      if (filters.productCategory) {
-        query = query.eq('product_category', filters.productCategory)
-      }
+    // Try Supabase first
+    const result = await makeSupabaseRequest(
+      'GET',
+      `/generated_ads?${query}`,
+      null
+    )
 
-      const { data, error } = await query.order('created_at', { ascending: false })
-
-      if (error) throw error
-      return data || []
-    } catch (error) {
-      console.error('Failed to fetch ads:', error)
-      throw error
+    if (result && Array.isArray(result)) {
+      return result
     }
+
+    // Fallback to localStorage
+    const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
+    return ads.reverse()
   },
 
   /**
    * Update ad status (approved, published, rejected)
    */
   updateAdStatus: async (adId, status) => {
-    const supabase = await initSupabase()
-
-    if (!supabase) {
-      // Fallback to localStorage
-      const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
-      const adIndex = ads.findIndex(a => a.id === adId)
-      if (adIndex !== -1) {
-        ads[adIndex].status = status
-        localStorage.setItem('generated_ads', JSON.stringify(ads))
+    // Try Supabase first
+    const result = await makeSupabaseRequest(
+      'PATCH',
+      `/generated_ads?id=eq.${adId}`,
+      {
+        status,
+        updated_at: new Date().toISOString()
       }
+    )
+
+    if (result && result.length > 0) {
+      return result[0]
+    }
+
+    // Fallback to localStorage
+    const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
+    const adIndex = ads.findIndex(a => a.id === adId)
+    if (adIndex !== -1) {
+      ads[adIndex].status = status
+      ads[adIndex].updated_at = new Date().toISOString()
+      localStorage.setItem('generated_ads', JSON.stringify(ads))
       return ads[adIndex]
     }
 
-    try {
-      const { data, error } = await supabase
-        .from('generated_ads')
-        .update({ status, updated_at: new Date().toISOString() })
-        .eq('id', adId)
-        .select()
-
-      if (error) throw error
-      return data[0]
-    } catch (error) {
-      console.error('Failed to update ad status:', error)
-      throw error
-    }
+    return null
   },
 
   /**
    * Delete an ad
    */
   deleteAd: async (adId) => {
-    const supabase = await initSupabase()
+    // Try Supabase first
+    const result = await makeSupabaseRequest(
+      'DELETE',
+      `/generated_ads?id=eq.${adId}`,
+      null
+    )
 
-    if (!supabase) {
-      // Fallback to localStorage
-      const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
-      const filtered = ads.filter(a => a.id !== adId)
-      localStorage.setItem('generated_ads', JSON.stringify(filtered))
+    if (result !== null) {
       return true
     }
 
-    try {
-      const { error } = await supabase
-        .from('generated_ads')
-        .delete()
-        .eq('id', adId)
-
-      if (error) throw error
-      return true
-    } catch (error) {
-      console.error('Failed to delete ad:', error)
-      throw error
-    }
+    // Fallback to localStorage
+    const ads = JSON.parse(localStorage.getItem('generated_ads') || '[]')
+    const filtered = ads.filter(a => a.id !== adId)
+    localStorage.setItem('generated_ads', JSON.stringify(filtered))
+    return true
   },
 
   /**
    * Get performance metrics for ads
    */
   getMetrics: async () => {
-    const supabase = await initSupabase()
+    // Try Supabase first
+    const result = await makeSupabaseRequest(
+      'GET',
+      '/generated_ads?select=status,platform',
+      null
+    )
 
-    if (!supabase) {
-      // Return mock metrics
-      return {
-        totalGenerated: 0,
-        totalPublished: 0,
-        totalApproved: 0,
-        byPlatform: { facebook: 0, google: 0 }
-      }
-    }
-
-    try {
-      const { data, error } = await supabase
-        .from('generated_ads')
-        .select('status, platform')
-
-      if (error) throw error
-
+    if (result && Array.isArray(result)) {
       const metrics = {
-        totalGenerated: data.length,
-        totalPublished: data.filter(a => a.status === 'published').length,
-        totalApproved: data.filter(a => a.status === 'approved').length,
+        totalGenerated: result.length,
+        totalPublished: result.filter(a => a.status === 'published').length,
+        totalApproved: result.filter(a => a.status === 'approved').length,
         byPlatform: {
-          facebook: data.filter(a => a.platform === 'facebook').length,
-          google: data.filter(a => a.platform === 'google').length
+          facebook: result.filter(a => a.platform === 'facebook').length,
+          google: result.filter(a => a.platform === 'google').length
         }
       }
-
       return metrics
-    } catch (error) {
-      console.error('Failed to get metrics:', error)
-      return null
+    }
+
+    // Fallback: Return mock metrics or localStorage data
+    const localAds = JSON.parse(localStorage.getItem('generated_ads') || '[]')
+    return {
+      totalGenerated: localAds.length,
+      totalPublished: localAds.filter(a => a.status === 'published').length,
+      totalApproved: localAds.filter(a => a.status === 'approved').length,
+      byPlatform: {
+        facebook: localAds.filter(a => a.platform === 'facebook').length,
+        google: localAds.filter(a => a.platform === 'google').length
+      }
     }
   }
 }
