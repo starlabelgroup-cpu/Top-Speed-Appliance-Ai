@@ -5,6 +5,8 @@ import pkg from 'pg'
 import dotenv from 'dotenv'
 import twilio from 'twilio'
 import { google } from 'googleapis'
+import { googleAdsManager } from './googleAdsManager.js'
+import { geminiAdGenerator } from './geminiAdGenerator.js'
 
 dotenv.config()
 
@@ -275,9 +277,187 @@ app.post('/api/campaigns', async (req, res) => {
   }
 })
 
+// ===== NEW: Google Ads & Gemini Integration Routes =====
+
+// GET /api/google-ads/config - Get Google Ads configuration status
+app.get('/api/google-ads/config', (req, res) => {
+  const config = googleAdsManager.validateConfiguration()
+  res.json(config)
+})
+
+// GET /api/gemini/config - Get Gemini configuration status
+app.get('/api/gemini/config', (req, res) => {
+  const config = geminiAdGenerator.validateConfiguration()
+  res.json(config)
+})
+
+// POST /api/generate-ads - Generate ads using Gemini
+app.post('/api/generate-ads', async (req, res) => {
+  try {
+    const {
+      productCategory = 'refrigerator repair',
+      platform = 'google',
+      audience = 'homeowners',
+      tone = 'urgent',
+      count = 3
+    } = req.body
+
+    console.log('Generating ads with Gemini:', { productCategory, platform, audience, tone })
+
+    const ads = await geminiAdGenerator.generateAdCopy({
+      productCategory,
+      platform,
+      audience,
+      tone,
+      count
+    })
+
+    // Save generated ads to database
+    for (const ad of ads) {
+      try {
+        await pool.query(
+          'INSERT INTO generated_ads (headline1, headline2, headline3, description1, description2, final_url, status, platform) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
+          [
+            ad.headline1,
+            ad.headline2,
+            ad.headline3,
+            ad.description1,
+            ad.description2,
+            ad.finalUrl || 'https://topspeedappliance.com',
+            ad.status,
+            ad.platform
+          ]
+        )
+      } catch (dbErr) {
+        console.warn('Could not save ad to database:', dbErr)
+      }
+    }
+
+    res.json({
+      success: true,
+      count: ads.length,
+      ads: ads
+    })
+  } catch (err) {
+    console.error('Error generating ads:', err)
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// POST /api/google-ads/create-campaign - Create campaign and auto-generate ads
+app.post('/api/google-ads/create-campaign', async (req, res) => {
+  try {
+    const {
+      name,
+      budgetMicros,
+      productCategory = 'appliance repair',
+      tone = 'urgent'
+    } = req.body
+
+    if (!name || !budgetMicros) {
+      return res.status(400).json({ error: 'Campaign name and budget required' })
+    }
+
+    // Create campaign
+    const campaignResult = await googleAdsManager.createCampaign({
+      name,
+      budgetMicros
+    })
+
+    // Auto-generate ads for the campaign
+    console.log('Auto-generating ads for new campaign:', name)
+    const ads = await geminiAdGenerator.generateAdCopy({
+      productCategory,
+      platform: 'google',
+      audience: 'homeowners',
+      tone,
+      count: 3,
+      focusKeyword: name
+    })
+
+    // Save campaign to database
+    const campaignRes = await pool.query(
+      'INSERT INTO campaigns (name, budget_micros, status) VALUES ($1, $2, $3) RETURNING *',
+      [name, budgetMicros, 'Active']
+    )
+
+    // Save generated ads
+    for (const ad of ads) {
+      try {
+        await googleAdsManager.createAd(campaignRes.rows[0].id, {
+          headline: ad.headline1,
+          description: ad.description1,
+          finalUrl: ad.finalUrl || 'https://topspeedappliance.com',
+          displayUrl: 'topspeedappliance.com'
+        })
+      } catch (adErr) {
+        console.warn('Could not create ad:', adErr)
+      }
+    }
+
+    res.status(201).json({
+      success: true,
+      campaign: campaignRes.rows[0],
+      generatedAds: ads
+    })
+  } catch (err) {
+    console.error('Error creating campaign:', err)
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// POST /api/optimize-ad - Analyze and optimize existing ad
+app.post('/api/optimize-ad', async (req, res) => {
+  try {
+    const { adId, headline, description, clicks, impressions, conversions } = req.body
+
+    const analysis = await geminiAdGenerator.analyzeAndOptimize({
+      headline,
+      description,
+      clicks: clicks || 0,
+      impressions: impressions || 0,
+      conversions: conversions || 0
+    })
+
+    res.json({
+      success: true,
+      adId,
+      analysis
+    })
+  } catch (err) {
+    console.error('Error optimizing ad:', err)
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// POST /api/generate-ad-variations - Generate variations of existing ad
+app.post('/api/generate-ad-variations', async (req, res) => {
+  try {
+    const { headline1, description1, variationType = 'aggressive' } = req.body
+
+    const variations = await geminiAdGenerator.generateVariations(
+      { headline1, description1 },
+      variationType
+    )
+
+    res.json({
+      success: true,
+      variations
+    })
+  } catch (err) {
+    console.error('Error generating variations:', err)
+    res.status(500).json({ error: err.message })
+  }
+})
+
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() })
+  res.json({
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    googleAds: googleAdsManager.validateConfiguration(),
+    gemini: geminiAdGenerator.validateConfiguration()
+  })
 })
 
 // Start server
