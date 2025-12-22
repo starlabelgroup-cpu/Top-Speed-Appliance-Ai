@@ -1163,47 +1163,86 @@ section {
 
 .post-section-title {
   font-size: 1.5rem;
-  margin: 30px 0 15px 0;
-  color: #111;
+  margin: 40px 0 20px 0;
+  color: #d10000;
   text-transform: none;
+  font-weight: 700;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
 }
 
 .post-paragraph {
   color: #555;
   font-size: 1rem;
   margin-bottom: 20px;
-  text-align: justify;
+  text-align: left;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
 }
 
 .post-list {
-  margin: 20px 0 20px 20px;
+  margin: 25px 0 25px 30px;
   color: #555;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #d10000;
 }
 
 .post-list li {
-  margin-bottom: 10px;
-  line-height: 1.6;
+  margin-bottom: 12px;
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 .post-cta {
-  background-color: #f9f9f9;
-  padding: 40px;
+  background: linear-gradient(135deg, #f9f9f9 0%, #fff5f5 100%);
+  padding: 50px;
   border-radius: 12px;
-  border-left: 4px solid #d10000;
+  border-left: 5px solid #d10000;
   text-align: center;
-  margin: 50px 0;
+  margin: 60px 0;
+  box-shadow: 0 4px 15px rgba(209, 0, 0, 0.08);
 }
 
 .post-cta h3 {
-  font-size: 1.3rem;
-  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+  margin: 0 0 15px 0;
   color: #111;
+  font-weight: 700;
 }
 
 .post-cta p {
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #d10000;
+  color: #fff;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(209, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+  background-color: #ff1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(209, 0, 0, 0.4);
+}
+
+.cta-button:active {
+  transform: translateY(0);
 }
 
 .related-posts {
