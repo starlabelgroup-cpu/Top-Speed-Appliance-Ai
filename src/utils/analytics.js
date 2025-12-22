@@ -133,26 +133,35 @@ export const trackError = (errorType, errorMessage) => {
 export const setupPerformanceMonitoring = () => {
   if (typeof window === 'undefined') return
 
-  const originalFetch = window.fetch
-  window.fetch = function(...args) {
-    const startTime = performance.now()
-    return originalFetch.apply(this, args).then(response => {
-      const endTime = performance.now()
-      const duration = endTime - startTime
-      const resource = args[0]
+  try {
+    const originalFetch = window.fetch
+    window.fetch = function(...args) {
+      const startTime = performance.now()
+      return originalFetch.apply(this, args).then(response => {
+        const endTime = performance.now()
+        const duration = endTime - startTime
+        const resource = args[0]
 
-      logMetric('api_call', {
-        url: typeof resource === 'string' ? resource : resource.url,
-        method: args[1]?.method || 'GET',
-        duration,
-        status: response.status
+        // Don't log /api/metrics calls to avoid infinite loops
+        const resourceUrl = typeof resource === 'string' ? resource : resource.url
+        if (!resourceUrl?.includes('/api/metrics')) {
+          logMetric('api_call', {
+            url: resourceUrl,
+            method: args[1]?.method || 'GET',
+            duration,
+            status: response.status
+          })
+        }
+
+        return response
+      }).catch(error => {
+        trackError('fetch_error', error.message)
+        throw error
       })
-
-      return response
-    }).catch(error => {
-      trackError('fetch_error', error.message)
-      throw error
-    })
+    }
+  } catch (err) {
+    // Performance monitoring setup failed, continue without it
+    console.warn('Could not set up performance monitoring:', err)
   }
 }
 
