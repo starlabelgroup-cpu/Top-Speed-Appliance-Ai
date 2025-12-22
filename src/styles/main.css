@@ -66,6 +66,12 @@ section {
   font-size: 1.1rem;
 }
 
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .book-now-btn {
   background-color: #fff;
   color: #d10000;
@@ -75,10 +81,38 @@ section {
   font-size: 0.9rem;
   transition: background 0.3s;
   text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .book-now-btn:hover {
   background-color: #f0f0f0;
+}
+
+.portal-login-btn {
+  background-color: #0f77cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portal-login-btn:hover {
+  background-color: #0a5aa1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 119, 204, 0.3);
+}
+
+.portal-login-btn:active {
+  transform: translateY(0);
 }
 
 .header .container {
