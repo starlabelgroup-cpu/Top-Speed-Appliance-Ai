@@ -2075,6 +2075,19 @@ button:hover, a:hover {
     gap: 15px;
   }
 
+  .portal-section {
+    padding: 25px;
+  }
+
+  .portal-features {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-access-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .info-row {
     flex-direction: column;
     align-items: flex-start;
