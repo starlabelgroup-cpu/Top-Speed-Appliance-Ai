@@ -297,9 +297,11 @@ input:checked + .toggle-slider:before {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.select-control option {
+.select-control option,
+.control-group select option {
   background: var(--card-bg);
   color: white;
+  padding: 10px;
 }
 
 /* Quick Actions */
