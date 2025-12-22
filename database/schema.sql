@@ -41,6 +41,28 @@ VALUES
   ('Display Network', 200000000, 'Active', 3450, 45, '1.3%')
 ON CONFLICT DO NOTHING;
 
+-- Create generated_ads table for Gemini-generated ad copies
+CREATE TABLE IF NOT EXISTS generated_ads (
+  id SERIAL PRIMARY KEY,
+  headline1 VARCHAR(255),
+  headline2 VARCHAR(255),
+  headline3 VARCHAR(255),
+  description1 TEXT,
+  description2 TEXT,
+  final_url VARCHAR(500),
+  display_url VARCHAR(255),
+  platform VARCHAR(50) DEFAULT 'google',
+  status VARCHAR(50) DEFAULT 'draft',
+  ctr VARCHAR(10) DEFAULT '0%',
+  conversions INTEGER DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create index for generated ads
+CREATE INDEX IF NOT EXISTS idx_generated_ads_status ON generated_ads(status);
+CREATE INDEX IF NOT EXISTS idx_generated_ads_platform ON generated_ads(platform);
+
 -- Insert sample leads
 INSERT INTO leads (name, phone, email, service, campaign, status, paid, revenue)
 VALUES
