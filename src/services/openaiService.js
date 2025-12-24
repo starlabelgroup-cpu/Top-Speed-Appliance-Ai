@@ -173,7 +173,13 @@ Return as JSON with improved "headline" and "description" fields.`
         throw new Error('Invalid response format from OpenAI API')
       }
 
-      const data = await response.json()
+      let data
+      try {
+        data = await response.json()
+      } catch (parseErr) {
+        throw new Error('Failed to parse OpenAI response as JSON')
+      }
+
       const content = data.choices[0].message.content
 
       const jsonMatch = content.match(/\{[\s\S]*\}/)
@@ -181,7 +187,11 @@ Return as JSON with improved "headline" and "description" fields.`
         throw new Error('Could not parse improvement response')
       }
 
-      return JSON.parse(jsonMatch[0])
+      try {
+        return JSON.parse(jsonMatch[0])
+      } catch (parseErr) {
+        throw new Error('Failed to parse improved ad JSON')
+      }
     } catch (error) {
       console.error('AI improvement failed:', error)
       throw error
