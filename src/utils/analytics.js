@@ -140,28 +140,31 @@ export const setupPerformanceMonitoring = () => {
   try {
     const originalFetch = window.fetch
     window.fetch = function(...args) {
+      // Don't intercept /api/metrics calls - this prevents circular logging
+      const resource = args[0]
+      const resourceUrl = typeof resource === 'string' ? resource : resource.url
+      if (resourceUrl?.includes('/api/metrics')) {
+        return originalFetch.apply(this, args)
+      }
+
       const startTime = performance.now()
       return originalFetch.apply(this, args).then(response => {
         const endTime = performance.now()
         const duration = endTime - startTime
-        const resource = args[0]
 
-        // Don't log /api/metrics calls to avoid infinite loops
-        const resourceUrl = typeof resource === 'string' ? resource : resource.url
-        if (!resourceUrl?.includes('/api/metrics')) {
-          logMetric('api_call', {
-            url: resourceUrl,
-            method: args[1]?.method || 'GET',
-            duration,
-            status: response.status
-          })
-        }
+        // Only log successful responses
+        logMetric('api_call', {
+          url: resourceUrl,
+          method: args[1]?.method || 'GET',
+          duration,
+          status: response.status
+        })
 
         return response
       }).catch(error => {
-        // Silently suppress fetch errors to prevent infinite loops
-        // Don't call trackError as it would try to send data to /api/metrics
-        return error
+        // Silently suppress ALL fetch errors
+        // Don't try to log them - this prevents infinite loops
+        throw error
       })
     }
   } catch (err) {
