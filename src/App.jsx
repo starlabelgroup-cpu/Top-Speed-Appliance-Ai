@@ -24,6 +24,7 @@ import AdminLogin from './components/AdminLogin'
 import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
 import { startHealthCheck, stopHealthCheck } from './services/agentService'
 import { adminAuth } from './utils/adminAuth'
+import validateConfig from './utils/configValidator'
 
 function HomePage() {
   return (
