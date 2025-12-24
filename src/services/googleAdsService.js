@@ -86,7 +86,12 @@ export const googleAdsService = {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to fetch campaign metrics')
+        throw new Error(`Failed to fetch campaign metrics: Status ${response.status}`)
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from server')
       }
 
       const data = await response.json()
@@ -126,7 +131,12 @@ export const googleAdsService = {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to fetch search terms')
+        throw new Error(`Failed to fetch search terms: Status ${response.status}`)
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from server')
       }
 
       const data = await response.json()
@@ -163,7 +173,12 @@ export const googleAdsService = {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to fetch keyword performance')
+        throw new Error(`Failed to fetch keyword performance: Status ${response.status}`)
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from server')
       }
 
       const data = await response.json()
@@ -206,8 +221,22 @@ export const googleAdsService = {
       })
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(`Failed to add negative keywords: ${error.error || 'Unknown error'}`)
+        const contentType = response.headers.get('content-type')
+        if (contentType?.includes('application/json')) {
+          try {
+            const error = await response.json()
+            throw new Error(`Failed to add negative keywords: ${error.error || 'Unknown error'}`)
+          } catch (parseErr) {
+            throw new Error(`Failed to add negative keywords: Status ${response.status}`)
+          }
+        } else {
+          throw new Error(`Failed to add negative keywords: Status ${response.status}`)
+        }
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from server')
       }
 
       const data = await response.json()
