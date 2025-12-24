@@ -15,7 +15,7 @@ function About() {
         Whether it's your refrigerator, washer, dryer, oven, or dishwasher, our team of experts will diagnose the problem accurately and provide a solution that fits your budget. We're locally owned and committed to serving our community with integrity and care.
       </p>
       <div style={{marginTop: '40px'}}>
-        <a href="#booking" className="cta-button">Request a Quote</a>
+        <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="cta-button">Schedule Service Today</a>
       </div>
     </section>
   )
