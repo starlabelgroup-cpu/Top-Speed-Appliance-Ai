@@ -555,6 +555,85 @@ function Dashboard() {
           </div>
         )}
 
+        {activeTab === 'appointments' && (
+          <div className="dashboard-content">
+            <div className="appointments-section">
+              <h2>Service History & Appointments</h2>
+
+              {mockAppointments.length === 0 ? (
+                <p className="no-appointments">No service appointments found.</p>
+              ) : (
+                <div className="appointments-list">
+                  {mockAppointments.map((appointment) => (
+                    <div key={appointment.id} className="appointment-card">
+                      <div className="appointment-header">
+                        <h3>{appointment.service}</h3>
+                        <span
+                          className="appointment-status"
+                          style={{ backgroundColor: getStatusColor(appointment.status) }}
+                        >
+                          {getStatusLabel(appointment.status)}
+                        </span>
+                      </div>
+
+                      <div className="appointment-details">
+                        <div className="detail-row">
+                          <span className="detail-label">📅 Date:</span>
+                          <span className="detail-value">{appointment.date}</span>
+                        </div>
+                        <div className="detail-row">
+                          <span className="detail-label">⏰ Time:</span>
+                          <span className="detail-value">{appointment.time}</span>
+                        </div>
+                        <div className="detail-row">
+                          <span className="detail-label">👨‍🔧 Technician:</span>
+                          <span className="detail-value">{appointment.technician}</span>
+                        </div>
+                        <div className="detail-row">
+                          <span className="detail-label">📍 Address:</span>
+                          <span className="detail-value">{appointment.address}</span>
+                        </div>
+
+                        {appointment.status === 'completed' ? (
+                          <div className="detail-row">
+                            <span className="detail-label">💰 Cost:</span>
+                            <span className="detail-value">{appointment.actualCost}</span>
+                          </div>
+                        ) : (
+                          <div className="detail-row">
+                            <span className="detail-label">💰 Estimated Cost:</span>
+                            <span className="detail-value">{appointment.estimatedCost}</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {appointment.status === 'scheduled' && (
+                        <div className="appointment-actions">
+                          <button
+                            className="reschedule-button"
+                            onClick={() => {
+                              setSelectedAppointment(appointment)
+                              setShowRescheduleModal(true)
+                            }}
+                          >
+                            Reschedule
+                          </button>
+                          <button
+                            className="cancel-appointment-button"
+                            onClick={() => handleCancelAppointment(appointment.id)}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {activeTab === 'portal' && (
           <div className="dashboard-content">
             <div className="portal-section">
