@@ -63,9 +63,11 @@ export const calculateCumulativeLayoutShift = () => {
 }
 
 export const logMetric = (metricName, data) => {
-  // Metrics logging is optional and non-critical
-  // Only attempt if in development environment
-  if (process.env.NODE_ENV !== 'production') {
+  try {
+    // Metrics logging is optional and non-critical
+    // Silently skip if in production or if backend is unavailable
+    if (process.env.NODE_ENV === 'production') return
+
     const payload = {
       metric: metricName,
       data,
@@ -86,6 +88,9 @@ export const logMetric = (metricName, data) => {
         keepalive: true
       }).catch(() => {})
     }
+  } catch (err) {
+    // Silently suppress all metric logging errors
+    // This ensures analytics failures don't break the app
   }
 }
 
