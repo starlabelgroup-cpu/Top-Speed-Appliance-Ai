@@ -60,8 +60,22 @@ Format your response as structured recommendations that can be implemented immed
       )
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(`Gemini API error: ${error.error?.message || 'Unknown error'}`)
+        const contentType = response.headers.get('content-type')
+        if (contentType?.includes('application/json')) {
+          try {
+            const error = await response.json()
+            throw new Error(`Gemini API error: ${error.error?.message || 'Unknown error'}`)
+          } catch (parseErr) {
+            throw new Error(`Gemini API error: Status ${response.status}`)
+          }
+        } else {
+          throw new Error(`Gemini API error: Status ${response.status}`)
+        }
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from Gemini API')
       }
 
       const data = await response.json()
