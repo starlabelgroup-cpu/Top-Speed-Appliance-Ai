@@ -747,6 +747,32 @@ section {
     flex-direction: column;
     gap: 10px;
   }
+
+  .reviews-cta {
+    padding: 40px 20px;
+    margin-top: 40px;
+  }
+
+  .reviews-cta h3 {
+    font-size: 1.4rem;
+  }
+
+  .reviews-cta p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .reviews-cta .cta-button,
+  .reviews-call-btn {
+    display: block;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-bottom: 12px;
+  }
+
+  .reviews-call-btn {
+    margin-bottom: 0 !important;
+  }
 }
 
 /* === About === */
