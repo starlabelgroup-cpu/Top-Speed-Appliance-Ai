@@ -104,15 +104,8 @@ export const agentService = {
 let healthCheckInterval = null
 
 export const startHealthCheck = () => {
-  if (healthCheckInterval) return
-
-  healthCheckInterval = setInterval(async () => {
-    try {
-      await agentService.healthCheck()
-    } catch (error) {
-      // Health check failures are non-fatal, silently ignore
-    }
-  }, 30000)
+  // Health check disabled - no backend available
+  // This prevents repeated "API call failed" errors in console
 }
 
 export const stopHealthCheck = () => {
