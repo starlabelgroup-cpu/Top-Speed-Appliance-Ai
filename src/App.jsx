@@ -17,6 +17,7 @@ import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
 import Privacy from './components/Privacy'
 import Dashboard from './components/Dashboard'
+import PromotionalPlatformPage from './pages/PromotionalPlatformPage'
 import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
 import AIAdsGenerator from './components/AIAdsGenerator'
@@ -70,6 +71,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/promotional-platform" element={<PromotionalPlatformPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/privacy" element={<Privacy />} />
