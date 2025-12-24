@@ -28,7 +28,7 @@ function AdminLogin() {
       // In production, use Supabase Auth
       if (email && password.length >= 6) {
         adminAuth.setAdminSession('admin_authenticated')
-        navigate('/admin/ads-generator')
+        navigate('/')
       } else {
         setError('Invalid credentials. Password must be at least 6 characters.')
       }
@@ -50,7 +50,7 @@ function AdminLogin() {
               <i className="fas fa-shield-alt"></i>
             </div>
             <h1>Admin Access</h1>
-            <p>Top Speed Appliance - AI Ad Generator</p>
+            <p>Top Speed Appliance Admin Panel</p>
           </div>
 
           {error && (
@@ -107,41 +107,29 @@ function AdminLogin() {
           <div className="login-footer">
             <p className="demo-note">
               <i className="fas fa-info-circle"></i>
-              Demo: Enter any email and password (6+ chars) to access
-            </p>
-            <p className="future-note">
-              <i className="fas fa-lock"></i>
-              Full Supabase authentication will be implemented after credentials are provided
+              Admin panel access - Enter any email and password (6+ chars)
             </p>
           </div>
         </div>
 
         <div className="login-features">
-          <h3>Admin Features</h3>
+          <h3>Access Available</h3>
           <ul>
             <li>
-              <i className="fas fa-robot"></i>
-              <span>AI-Powered Ad Generation</span>
+              <i className="fas fa-tasks"></i>
+              <span>Manage Business Content</span>
             </li>
             <li>
-              <i className="fas fa-fab fa-facebook"></i>
-              <span>Facebook & Instagram Integration</span>
+              <i className="fas fa-cog"></i>
+              <span>System Configuration</span>
             </li>
             <li>
-              <i className="fas fa-fab fa-google"></i>
-              <span>Google Ads Integration</span>
+              <i className="fas fa-analytics"></i>
+              <span>View Analytics & Metrics</span>
             </li>
             <li>
-              <i className="fas fa-chart-line"></i>
-              <span>Real-time Performance Metrics</span>
-            </li>
-            <li>
-              <i className="fas fa-database"></i>
-              <span>Centralized Ad Management</span>
-            </li>
-            <li>
-              <i className="fas fa-sync-alt"></i>
-              <span>Auto-Publishing & Scheduling</span>
+              <i className="fas fa-users"></i>
+              <span>User Management</span>
             </li>
           </ul>
         </div>
