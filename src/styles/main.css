@@ -361,6 +361,28 @@ section {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+.service-booking-btn {
+  display: inline-block;
+  background-color: #d10000;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.service-booking-btn:hover {
+  background-color: #ff1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(209, 0, 0, 0.3);
+}
+
 /* === Gallery === */
 .gallery {
   background-color: #fff;
