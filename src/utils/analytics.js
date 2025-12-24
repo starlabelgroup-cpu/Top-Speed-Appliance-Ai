@@ -63,27 +63,29 @@ export const calculateCumulativeLayoutShift = () => {
 }
 
 export const logMetric = (metricName, data) => {
-  const payload = {
-    metric: metricName,
-    data,
-    timestamp: new Date().toISOString(),
-    userAgent: navigator.userAgent,
-    url: window.location.href
-  }
+  // Metrics logging is optional and non-critical
+  // Only attempt if in development environment
+  if (process.env.NODE_ENV !== 'production') {
+    const payload = {
+      metric: metricName,
+      data,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      url: window.location.href
+    }
 
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon('/api/metrics', JSON.stringify(payload))
-  } else {
-    fetch('/api/metrics', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload),
-      keepalive: true
-    }).catch(() => {
-      // Metrics logging is non-critical, silently ignore failures
-    })
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/api/metrics', JSON.stringify(payload))
+    } else {
+      fetch('/api/metrics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(() => {})
+    }
   }
 }
 
