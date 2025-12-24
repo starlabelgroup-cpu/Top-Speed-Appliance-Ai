@@ -44,8 +44,20 @@ function Contact() {
 
         <div className="google-section">
           <h3>Connect With Us</h3>
-          <p>Follow us on Google and leave a review</p>
+          <p>Book your service, leave a review, or share us on Google</p>
           <div className="google-buttons">
+            <a
+              href={BOOKING_CONFIG.BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-btn housecall-pro-btn"
+              title="Book service on HouseCall Pro"
+              aria-label="HouseCall Pro - Book Your Service"
+            >
+              <span className="google-icon">📅</span>
+              <span className="btn-text">Book Service</span>
+            </a>
+
             <a
               href="https://g.page/r/CcII31xB8cIPEBM/review"
               target="_blank"
