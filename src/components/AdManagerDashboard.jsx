@@ -33,20 +33,34 @@ function AdManagerDashboard() {
       ])
 
       if (!campaignsRes.ok || !leadsRes.ok || !statsRes.ok) {
-        throw new Error('Failed to fetch data')
+        throw new Error('Backend API is unavailable. Please ensure the server is running at ' + API_URL)
       }
 
-      const campaignsData = await campaignsRes.json()
-      const leadsData = await leadsRes.json()
-      const statsData = await statsRes.json()
+      const parseJSON = async (response) => {
+        const contentType = response.headers.get('content-type')
+        if (!contentType?.includes('application/json')) {
+          throw new Error('Invalid response format from server')
+        }
+        return response.json()
+      }
 
-      setCampaigns(campaignsData)
-      setLeads(leadsData)
-      setStats(statsData)
+      const campaignsData = await parseJSON(campaignsRes)
+      const leadsData = await parseJSON(leadsRes)
+      const statsData = await parseJSON(statsRes)
+
+      setCampaigns(campaignsData || [])
+      setLeads(leadsData || [])
+      setStats(statsData || { totalLeads: 0, totalRevenue: 0, conversionRate: 0, activeCampaigns: 0 })
       setError(null)
     } catch (err) {
-      setError(err.message)
+      const errorMsg = err instanceof TypeError && err.message.includes('fetch')
+        ? `Cannot connect to backend at ${API_URL}. Make sure the server is running.`
+        : err.message
+      setError(errorMsg)
       console.error('Fetch error:', err)
+      setCampaigns([])
+      setLeads([])
+      setStats({ totalLeads: 0, totalRevenue: 0, conversionRate: 0, activeCampaigns: 0 })
     } finally {
       setLoading(false)
     }
