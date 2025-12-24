@@ -26,14 +26,29 @@ export const googleAdsService = {
         },
         body: JSON.stringify({
           customerId: GOOGLE_ADS_CUSTOMER_ID,
-          minSpend: 50, // Minimum $50 spent
-          minDays: 30   // Last 30 days
+          minSpend: 50,
+          minDays: 30
         })
       })
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(`Google Ads API error: ${error.error || 'Unknown error'}`)
+        const contentType = response.headers.get('content-type')
+        let error
+        if (contentType?.includes('application/json')) {
+          try {
+            error = await response.json()
+            throw new Error(`Google Ads API error: ${error.error || 'Unknown error'}`)
+          } catch (parseErr) {
+            throw new Error(`Google Ads API error: Backend returned status ${response.status}`)
+          }
+        } else {
+          throw new Error(`Google Ads API error: Backend returned status ${response.status}`)
+        }
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from server')
       }
 
       const data = await response.json()
