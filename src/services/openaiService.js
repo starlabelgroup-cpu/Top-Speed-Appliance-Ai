@@ -89,7 +89,13 @@ Make the ads compelling, action-oriented, and specific to appliance repair/sales
         throw new Error('Invalid response format from OpenAI API')
       }
 
-      const data = await response.json()
+      let data
+      try {
+        data = await response.json()
+      } catch (parseErr) {
+        throw new Error('Failed to parse OpenAI response as JSON')
+      }
+
       const content = data.choices[0].message.content
 
       const jsonMatch = content.match(/\[[\s\S]*\]/)
@@ -97,7 +103,12 @@ Make the ads compelling, action-oriented, and specific to appliance repair/sales
         throw new Error('Could not parse AI response')
       }
 
-      const ads = JSON.parse(jsonMatch[0])
+      let ads
+      try {
+        ads = JSON.parse(jsonMatch[0])
+      } catch (parseErr) {
+        throw new Error('Failed to parse generated ads JSON')
+      }
 
       // Ensure platform is set correctly
       return ads.map(ad => ({
