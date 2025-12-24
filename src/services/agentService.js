@@ -29,7 +29,11 @@ const apiCall = async (endpoint, method = 'GET', data = null) => {
       throw new Error('Invalid response format: expected JSON')
     }
 
-    return await response.json()
+    try {
+      return await response.json()
+    } catch (parseErr) {
+      throw new Error('Failed to parse JSON response')
+    }
   } catch (error) {
     // Silently suppress errors - no backend available
     throw error
