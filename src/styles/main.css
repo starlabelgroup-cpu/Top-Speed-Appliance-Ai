@@ -1071,6 +1071,14 @@ section {
   font-weight: 600;
 }
 
+.housecall-pro-btn {
+  background: linear-gradient(135deg, #0f77cc 0%, #0d5fa8 100%);
+}
+
+.housecall-pro-btn:hover {
+  box-shadow: 0 6px 16px rgba(15, 119, 204, 0.3);
+}
+
 .google-reviews {
   background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
 }
