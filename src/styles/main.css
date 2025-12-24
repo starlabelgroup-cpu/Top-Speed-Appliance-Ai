@@ -3058,6 +3058,27 @@ button:hover, a:hover {
     width: 35px;
     height: 35px;
   }
+
+  .gallery-cta,
+  .videos-cta {
+    padding: 40px 20px;
+    margin-top: 40px;
+  }
+
+  .gallery-cta p,
+  .videos-cta p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .gallery-cta .cta-button,
+  .videos-cta .cta-button {
+    width: 100%;
+  }
+
+  .service-booking-btn {
+    width: 100%;
+  }
 }
 
 /* === Footer === */
