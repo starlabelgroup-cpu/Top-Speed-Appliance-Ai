@@ -109,8 +109,5 @@ export const startHealthCheck = () => {
 }
 
 export const stopHealthCheck = () => {
-  if (healthCheckInterval) {
-    clearInterval(healthCheckInterval)
-    healthCheckInterval = null
-  }
+  // No-op since health check is disabled
 }
