@@ -1,4 +1,4 @@
-const CACHE_NAME = 'top-speed-v1'
+const CACHE_NAME = 'top-speed-v2'
 const STATIC_ASSETS = [
   '/',
   '/index.html',
