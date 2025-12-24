@@ -163,8 +163,22 @@ Create compelling, action-oriented, conversion-focused ads specific to the appli
       )
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(`Gemini API error: ${error.error?.message || 'Unknown error'}`)
+        const contentType = response.headers.get('content-type')
+        if (contentType?.includes('application/json')) {
+          try {
+            const error = await response.json()
+            throw new Error(`Gemini API error: ${error.error?.message || 'Unknown error'}`)
+          } catch (parseErr) {
+            throw new Error(`Gemini API error: Status ${response.status}`)
+          }
+        } else {
+          throw new Error(`Gemini API error: Status ${response.status}`)
+        }
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from Gemini API')
       }
 
       const data = await response.json()
@@ -175,7 +189,6 @@ Create compelling, action-oriented, conversion-focused ads specific to the appli
 
       const content = data.candidates[0].content.parts[0].text
 
-      // Parse the JSON response
       const jsonMatch = content.match(/\[[\s\S]*\]/)
       if (!jsonMatch) {
         throw new Error('Could not parse Gemini response')
