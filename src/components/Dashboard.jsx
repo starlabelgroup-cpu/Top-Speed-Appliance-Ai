@@ -1,9 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { mockAppointments, getStatusColor, getStatusLabel } from '../data/mockServiceData'
+import DiagnosticMode from './DiagnosticMode'
+import RecommendationMode from './RecommendationMode'
+import MaintenanceMode from './MaintenanceMode'
+import AgentChat from './AgentChat'
 
 function Dashboard() {
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true')
   const [activeTab, setActiveTab] = useState('profile')
+  const [aiMode, setAiMode] = useState(null)
+  const [sessionId, setSessionId] = useState(null)
+  const [notification, setNotification] = useState(null)
+  const [showSignUpModal, setShowSignUpModal] = useState(!isLoggedIn)
+
   const [customer, setCustomer] = useState({
     name: localStorage.getItem('customerName') || 'John Doe',
     email: localStorage.getItem('customerEmail') || 'john@example.com',
@@ -18,6 +28,63 @@ function Dashboard() {
   const [showRescheduleModal, setShowRescheduleModal] = useState(false)
   const [newDate, setNewDate] = useState('')
   const [newTime, setNewTime] = useState('')
+  const [signUpData, setSignUpData] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    name: '',
+    phone: '',
+    terms: false
+  })
+
+  useEffect(() => {
+    const id = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    setSessionId(id)
+  }, [])
+
+  const handleNotification = (message, type = 'info') => {
+    setNotification({ message, type })
+    setTimeout(() => setNotification(null), 5000)
+  }
+
+  const handleSignUp = () => {
+    if (!signUpData.email || !signUpData.password || !signUpData.name || !signUpData.phone) {
+      handleNotification('Please fill in all required fields', 'warning')
+      return
+    }
+
+    if (signUpData.password !== signUpData.confirmPassword) {
+      handleNotification('Passwords do not match', 'error')
+      return
+    }
+
+    if (!signUpData.terms) {
+      handleNotification('Please accept the terms and conditions', 'warning')
+      return
+    }
+
+    localStorage.setItem('customerName', signUpData.name)
+    localStorage.setItem('customerEmail', signUpData.email)
+    localStorage.setItem('customerPhone', signUpData.phone)
+    localStorage.setItem('isLoggedIn', 'true')
+
+    setCustomer({
+      name: signUpData.name,
+      email: signUpData.email,
+      phone: signUpData.phone,
+      address: '',
+      serviceAddress: '',
+    })
+
+    setIsLoggedIn(true)
+    setShowSignUpModal(false)
+    handleNotification('Account created successfully!', 'success')
+  }
+
+  const handleGoogleSignUp = () => {
+    handleNotification('Redirecting to HouseCall Pro Google Sign-In...', 'info')
+    window.open('https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true', '_blank')
+  }
 
   const handleEditChange = (field, value) => {
     setEditData({ ...editData, [field]: value })
@@ -31,23 +98,156 @@ function Dashboard() {
     localStorage.setItem('customerAddress', editData.address)
     localStorage.setItem('customerServiceAddress', editData.serviceAddress)
     setIsEditing(false)
-    alert('Profile updated successfully!')
+    handleNotification('Profile updated successfully!', 'success')
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn')
+    localStorage.removeItem('customerName')
+    localStorage.removeItem('customerEmail')
+    localStorage.removeItem('customerPhone')
+    setIsLoggedIn(false)
+    setShowSignUpModal(true)
+    handleNotification('Logged out successfully', 'success')
   }
 
   const handleReschedule = () => {
     if (!newDate || !newTime) {
-      alert('Please select a date and time')
+      handleNotification('Please select a date and time', 'warning')
       return
     }
-    alert(`Appointment rescheduled to ${newDate} at ${newTime}`)
+    handleNotification(`Appointment rescheduled to ${newDate} at ${newTime}`, 'success')
     setShowRescheduleModal(false)
     setSelectedAppointment(null)
   }
 
   const handleCancelAppointment = (id) => {
     if (window.confirm('Are you sure you want to cancel this appointment?')) {
-      alert('Appointment cancelled successfully')
+      handleNotification('Appointment cancelled successfully', 'success')
     }
+  }
+
+  if (!isLoggedIn) {
+    return (
+      <section id="dashboard" className="dashboard">
+        <div className="dashboard-container">
+          <Link to="/" className="back-link">← Back to Home</Link>
+          {showSignUpModal && (
+            <div className="modal-overlay" onClick={() => setShowSignUpModal(false)}>
+              <div className="modal-content sign-up-modal" onClick={(e) => e.stopPropagation()}>
+                <h2>Create Your Account</h2>
+                <p className="modal-subtitle">Join Top Speed Appliance for better service management</p>
+
+                <div className="sign-up-methods">
+                  <button className="google-sign-up-btn" onClick={handleGoogleSignUp}>
+                    <span>🔐</span> Sign Up with HouseCall Pro
+                  </button>
+                  <div className="divider">or</div>
+                </div>
+
+                <form className="sign-up-form" onSubmit={(e) => { e.preventDefault(); handleSignUp() }}>
+                  <div className="form-group">
+                    <label htmlFor="signup-name">Full Name *</label>
+                    <input
+                      id="signup-name"
+                      type="text"
+                      value={signUpData.name}
+                      onChange={(e) => setSignUpData({ ...signUpData, name: e.target.value })}
+                      className="form-input"
+                      placeholder="Your full name"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="signup-email">Email Address *</label>
+                    <input
+                      id="signup-email"
+                      type="email"
+                      value={signUpData.email}
+                      onChange={(e) => setSignUpData({ ...signUpData, email: e.target.value })}
+                      className="form-input"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="signup-phone">Phone Number *</label>
+                    <input
+                      id="signup-phone"
+                      type="tel"
+                      value={signUpData.phone}
+                      onChange={(e) => setSignUpData({ ...signUpData, phone: e.target.value })}
+                      className="form-input"
+                      placeholder="(954) 000-0000"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="signup-password">Password *</label>
+                    <input
+                      id="signup-password"
+                      type="password"
+                      value={signUpData.password}
+                      onChange={(e) => setSignUpData({ ...signUpData, password: e.target.value })}
+                      className="form-input"
+                      placeholder="Enter password"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="signup-confirm">Confirm Password *</label>
+                    <input
+                      id="signup-confirm"
+                      type="password"
+                      value={signUpData.confirmPassword}
+                      onChange={(e) => setSignUpData({ ...signUpData, confirmPassword: e.target.value })}
+                      className="form-input"
+                      placeholder="Confirm password"
+                    />
+                  </div>
+
+                  <label className="terms-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={signUpData.terms}
+                      onChange={(e) => setSignUpData({ ...signUpData, terms: e.target.checked })}
+                    />
+                    <span>I agree to the terms and conditions</span>
+                  </label>
+
+                  <button type="submit" className="sign-up-btn">
+                    Create Account
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    )
+  }
+
+  if (aiMode) {
+    return (
+      <section id="dashboard" className="dashboard">
+        <div className="dashboard-container">
+          <button className="back-to-dashboard-btn" onClick={() => setAiMode(null)}>
+            ← Back to Dashboard
+          </button>
+
+          {notification && (
+            <div className={`notification notification-${notification.type}`}>
+              {notification.message}
+            </div>
+          )}
+
+          {aiMode === 'chat' && <AgentChat sessionId={sessionId} onModeChange={setAiMode} onNotify={handleNotification} />}
+          {aiMode === 'diagnostic' && <DiagnosticMode sessionId={sessionId} onNotify={handleNotification} />}
+          {aiMode === 'recommendation' && <RecommendationMode sessionId={sessionId} onNotify={handleNotification} />}
+          {aiMode === 'maintenance' && <MaintenanceMode sessionId={sessionId} onNotify={handleNotification} />}
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -55,9 +255,20 @@ function Dashboard() {
       <div className="dashboard-container">
         <Link to="/" className="back-link">← Back to Home</Link>
 
+        {notification && (
+          <div className={`notification notification-${notification.type}`}>
+            {notification.message}
+          </div>
+        )}
+
         <header className="dashboard-header">
-          <h1>Customer Account</h1>
-          <p className="welcome-message">Welcome, {customer.name}!</p>
+          <div className="header-content">
+            <h1>Customer Account</h1>
+            <p className="welcome-message">Welcome, {customer.name}!</p>
+          </div>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </header>
 
         <div className="dashboard-tabs">
@@ -72,6 +283,12 @@ function Dashboard() {
             onClick={() => setActiveTab('appointments')}
           >
             Service History
+          </button>
+          <button
+            className={`tab-button ${activeTab === 'ai-assistant' ? 'active' : ''}`}
+            onClick={() => setActiveTab('ai-assistant')}
+          >
+            AI Assistant
           </button>
           <button
             className={`tab-button ${activeTab === 'portal' ? 'active' : ''}`}
