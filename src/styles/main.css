@@ -1104,6 +1104,20 @@ section {
   .contact-form {
     max-width: 100%;
   }
+
+  .google-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .google-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .google-section {
+    padding: 20px;
+  }
 }
 
 /* === Maps === */
