@@ -31,6 +31,12 @@ function Gallery() {
           </div>
         ))}
       </div>
+      <div className="gallery-cta">
+        <p>Impressed with our work?</p>
+        <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="cta-button">
+          Book Your Repair Today
+        </a>
+      </div>
     </section>
   )
 }
