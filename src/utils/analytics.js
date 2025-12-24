@@ -157,13 +157,13 @@ export const setupPerformanceMonitoring = () => {
 
         return response
       }).catch(error => {
-        trackError('fetch_error', error.message)
-        throw error
+        // Silently suppress fetch errors to prevent infinite loops
+        // Don't call trackError as it would try to send data to /api/metrics
+        return error
       })
     }
   } catch (err) {
     // Performance monitoring setup failed, continue without it
-    console.warn('Could not set up performance monitoring:', err)
   }
 }
 
