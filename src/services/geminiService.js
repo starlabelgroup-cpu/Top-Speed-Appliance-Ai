@@ -259,7 +259,12 @@ Focus on clarity, urgency, and conversion psychology. Format as JSON.`
       )
 
       if (!response.ok) {
-        throw new Error('Failed to optimize copy')
+        throw new Error(`Failed to optimize copy: Status ${response.status}`)
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from Gemini API')
       }
 
       const data = await response.json()
