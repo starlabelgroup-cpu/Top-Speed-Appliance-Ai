@@ -46,6 +46,9 @@ function HomePage() {
 
 function App() {
   useEffect(() => {
+    // Validate configuration on app startup (dev only)
+    validateConfig()
+
     initializeAnalytics()
     setupPerformanceMonitoring()
 
