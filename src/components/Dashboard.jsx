@@ -397,16 +397,81 @@ function Dashboard() {
                     <span className="info-label">Phone:</span>
                     <span className="info-value">{customer.phone}</span>
                   </div>
-                  <div className="info-row">
-                    <span className="info-label">Billing Address:</span>
-                    <span className="info-value">{customer.address}</span>
-                  </div>
-                  <div className="info-row">
-                    <span className="info-label">Service Address:</span>
-                    <span className="info-value">{customer.serviceAddress}</span>
-                  </div>
+                  {customer.address && (
+                    <div className="info-row">
+                      <span className="info-label">Billing Address:</span>
+                      <span className="info-value">{customer.address}</span>
+                    </div>
+                  )}
+                  {customer.serviceAddress && (
+                    <div className="info-row">
+                      <span className="info-label">Service Address:</span>
+                      <span className="info-value">{customer.serviceAddress}</span>
+                    </div>
+                  )}
                 </div>
               )}
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'ai-assistant' && (
+          <div className="dashboard-content">
+            <div className="ai-assistant-section">
+              <h2>AI-Powered Service Assistant</h2>
+              <p className="section-description">
+                Get expert help with appliance diagnostics, product recommendations, maintenance scheduling, and more.
+              </p>
+
+              <div className="ai-features-grid">
+                <div className="ai-feature-card">
+                  <div className="feature-icon">🔧</div>
+                  <h3>Appliance Diagnostics</h3>
+                  <p>Diagnose issues with your appliances and get repair recommendations</p>
+                  <button className="feature-btn" onClick={() => setAiMode('diagnostic')}>
+                    Start Diagnosis
+                  </button>
+                </div>
+
+                <div className="ai-feature-card">
+                  <div className="feature-icon">🛒</div>
+                  <h3>Product Recommendations</h3>
+                  <p>Get personalized appliance recommendations based on your preferences</p>
+                  <button className="feature-btn" onClick={() => setAiMode('recommendation')}>
+                    Get Recommendations
+                  </button>
+                </div>
+
+                <div className="ai-feature-card">
+                  <div className="feature-icon">📅</div>
+                  <h3>Maintenance Scheduling</h3>
+                  <p>Schedule preventive maintenance to keep appliances running smoothly</p>
+                  <button className="feature-btn" onClick={() => setAiMode('maintenance')}>
+                    Schedule Maintenance
+                  </button>
+                </div>
+
+                <div className="ai-feature-card">
+                  <div className="feature-icon">💬</div>
+                  <h3>Chat with AI Assistant</h3>
+                  <p>Ask questions about appliances and get personalized assistance</p>
+                  <button className="feature-btn" onClick={() => setAiMode('chat')}>
+                    Start Chat
+                  </button>
+                </div>
+              </div>
+
+              <div className="ai-benefits">
+                <h3>Why Use AI Assistant?</h3>
+                <ul className="benefits-list">
+                  <li>✓ Get instant diagnosis of appliance problems</li>
+                  <li>✓ Receive personalized product recommendations</li>
+                  <li>✓ Schedule maintenance at your convenience</li>
+                  <li>✓ Chat with AI for expert advice anytime</li>
+                  <li>✓ Save money on unnecessary repairs</li>
+                  <li>✓ Extend appliance lifespan with proper maintenance</li>
+                </ul>
+              </div>
             </div>
           </div>
         )}
