@@ -70,10 +70,20 @@ function AdManagerDashboard() {
     try {
       const res = await fetch(`${API_URL}/api/leads/${leadId}/paid`, { method: 'POST' })
       if (!res.ok) throw new Error('Failed to mark as paid')
-      
+
+      const contentType = res.headers.get('content-type')
+      if (contentType?.includes('application/json')) {
+        await res.json()
+      }
+
       setLeads(leads.map(l => l.id === leadId ? { ...l, paid: true } : l))
+      setError(null)
     } catch (err) {
-      setError(err.message)
+      const errorMsg = err instanceof TypeError
+        ? 'Cannot connect to backend. Make sure the server is running.'
+        : err.message
+      setError(errorMsg)
+      console.error('Mark paid error:', err)
     }
   }
 
@@ -85,10 +95,20 @@ function AdManagerDashboard() {
         body: JSON.stringify({ phone })
       })
       if (!res.ok) throw new Error('Failed to initiate call')
-      
+
+      const contentType = res.headers.get('content-type')
+      if (contentType?.includes('application/json')) {
+        await res.json()
+      }
+
       setLeads(leads.map(l => l.id === leadId ? { ...l, status: 'Called' } : l))
+      setError(null)
     } catch (err) {
-      setError(err.message)
+      const errorMsg = err instanceof TypeError
+        ? 'Cannot connect to backend. Make sure the server is running.'
+        : err.message
+      setError(errorMsg)
+      console.error('Call lead error:', err)
     }
   }
 
@@ -100,10 +120,20 @@ function AdManagerDashboard() {
         body: JSON.stringify({ email })
       })
       if (!res.ok) throw new Error('Failed to send email')
-      
+
+      const contentType = res.headers.get('content-type')
+      if (contentType?.includes('application/json')) {
+        await res.json()
+      }
+
       alert('Email sent successfully!')
+      setError(null)
     } catch (err) {
-      setError(err.message)
+      const errorMsg = err instanceof TypeError
+        ? 'Cannot connect to backend. Make sure the server is running.'
+        : err.message
+      setError(errorMsg)
+      console.error('Email lead error:', err)
     }
   }
 
