@@ -7,7 +7,7 @@
  * This only runs in development to aid debugging.
  */
 
-import { BOOKING_CONFIG } from '@/config/bookingConfig'
+import { BOOKING_CONFIG } from '../config/bookingConfig'
 
 /**
  * Validate all critical configuration
