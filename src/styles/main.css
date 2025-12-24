@@ -688,6 +688,42 @@ section {
   font-size: 0.95rem;
 }
 
+.reviews-cta {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #d10000 0%, #a00000 100%);
+  color: #fff;
+  border-radius: 12px;
+  margin-top: 60px;
+  box-shadow: 0 12px 40px rgba(209, 0, 0, 0.3);
+}
+
+.reviews-cta h3 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.reviews-cta p {
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  margin: 0 0 35px 0;
+  line-height: 1.6;
+}
+
+.reviews-call-btn {
+  background-color: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  margin-left: 15px !important;
+}
+
+.reviews-call-btn:hover {
+  background-color: #fff !important;
+  color: #d10000 !important;
+}
+
 @media (max-width: 768px) {
   .reviews-controls {
     flex-direction: column;
