@@ -50,6 +50,12 @@ function Videos() {
           </div>
         ))}
       </div>
+      <div className="videos-cta">
+        <p>Ready to get professional help?</p>
+        <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="cta-button">
+          Schedule Service Now
+        </a>
+      </div>
     </section>
   )
 }
