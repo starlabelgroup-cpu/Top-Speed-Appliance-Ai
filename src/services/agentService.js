@@ -31,6 +31,7 @@ const apiCall = async (endpoint, method = 'GET', data = null) => {
 
     return await response.json()
   } catch (error) {
+    // Silently suppress errors - no backend available
     throw error
   }
 }
