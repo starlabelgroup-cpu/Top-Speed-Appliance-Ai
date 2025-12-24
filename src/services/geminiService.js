@@ -78,7 +78,12 @@ Format your response as structured recommendations that can be implemented immed
         throw new Error('Invalid response format from Gemini API')
       }
 
-      const data = await response.json()
+      let data
+      try {
+        data = await response.json()
+      } catch (parseErr) {
+        throw new Error('Failed to parse Gemini response as JSON')
+      }
 
       if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
         throw new Error('Invalid Gemini API response')
