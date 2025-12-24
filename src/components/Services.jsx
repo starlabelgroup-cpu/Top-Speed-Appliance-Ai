@@ -34,6 +34,9 @@ function Services() {
             <img src={service.image} alt={service.title} className="service-card-image" />
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
+            <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="service-booking-btn">
+              Book Now
+            </a>
           </div>
         ))}
       </div>
