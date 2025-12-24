@@ -76,18 +76,15 @@ export const logMetric = (metricName, data) => {
       url: window.location.href
     }
 
+    // Use sendBeacon if available (more reliable for analytics)
     if (navigator.sendBeacon) {
-      navigator.sendBeacon('/api/metrics', JSON.stringify(payload))
-    } else {
-      fetch('/api/metrics', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload),
-        keepalive: true
-      }).catch(() => {})
+      try {
+        navigator.sendBeacon('/api/metrics', JSON.stringify(payload))
+      } catch (beaconErr) {
+        // Silently ignore beacon errors - don't try to log them!
+      }
     }
+    // Don't use fetch here - it would create circular error logging
   } catch (err) {
     // Silently suppress all metric logging errors
     // This ensures analytics failures don't break the app
