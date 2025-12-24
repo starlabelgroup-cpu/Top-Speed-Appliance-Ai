@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { BOOKING_CONFIG } from '../config/bookingConfig'
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
