@@ -238,6 +238,17 @@ function Reviews() {
           </div>
         ))}
       </div>
+
+      <div className="reviews-cta">
+        <h3>Ready to Experience Top Speed Service?</h3>
+        <p>Join thousands of satisfied customers in South Florida</p>
+        <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="cta-button">
+          Book Your Repair Now
+        </a>
+        <a href="tel:9549317997" className="cta-button reviews-call-btn">
+          Call (954) 931-7997
+        </a>
+      </div>
     </section>
   )
 }
