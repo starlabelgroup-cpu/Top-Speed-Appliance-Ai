@@ -3081,6 +3081,232 @@ button:hover, a:hover {
   }
 }
 
+/* === Promotional Platform Page === */
+.promotional-platform-page {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.promo-page-header {
+  background: linear-gradient(135deg, #d10000 0%, #a00000 100%);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.promo-page-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.promo-page-header h1 {
+  color: #fff;
+  font-size: 2.8rem;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.promo-page-subtitle {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  margin: 0 0 40px 0;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.promo-page-header .cta-button {
+  display: inline-block;
+  background-color: #fff;
+  color: #d10000;
+  padding: 16px 50px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.promo-page-header .cta-button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.promo-page-footer {
+  background-color: #f9f9f9;
+  padding: 80px 20px;
+}
+
+.promo-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.promo-footer-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 60px;
+}
+
+.promo-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.promo-benefit-item {
+  background: #fff;
+  padding: 40px 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.promo-benefit-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.promo-benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.promo-benefit-item h3 {
+  font-size: 1.3rem;
+  margin: 0 0 12px 0;
+  color: #111;
+}
+
+.promo-benefit-item p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.promo-footer-cta {
+  background: linear-gradient(135deg, #d10000 0%, #a00000 100%);
+  color: #fff;
+  padding: 60px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(209, 0, 0, 0.3);
+}
+
+.promo-footer-cta h3 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 0 0 15px 0;
+}
+
+.promo-footer-cta p {
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  margin: 0 0 35px 0;
+}
+
+.promo-footer-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.promo-footer-actions .cta-button {
+  display: inline-block;
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.promo-footer-actions .primary-btn {
+  background-color: #fff;
+  color: #d10000;
+}
+
+.promo-footer-actions .primary-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.promo-footer-actions .secondary-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.promo-footer-actions .secondary-btn:hover {
+  background-color: #fff;
+  color: #d10000;
+}
+
+@media (max-width: 768px) {
+  .promo-page-header {
+    padding: 50px 20px;
+  }
+
+  .promo-page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .promo-page-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .promo-page-footer {
+    padding: 60px 20px;
+  }
+
+  .promo-footer-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .promo-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+
+  .promo-benefit-item {
+    padding: 30px 20px;
+  }
+
+  .promo-footer-cta {
+    padding: 40px 20px;
+  }
+
+  .promo-footer-cta h3 {
+    font-size: 1.4rem;
+  }
+
+  .promo-footer-cta p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .promo-footer-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .promo-footer-actions .cta-button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}
+
 /* === Footer === */
 .footer {
   background-color: #1a1a1a;
