@@ -34,33 +34,58 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const { request } = event
 
-  if (request.method !== 'GET') {
+  if (request.method !== 'GET') return
+
+  const url = new URL(request.url)
+
+  // Only handle same-origin requests
+  if (url.origin !== self.location.origin) return
+
+  const isNavigation = request.mode === 'navigate'
+  const isAsset = request.destination === 'script' || request.destination === 'style'
+  const isImageOrFont = request.destination === 'image' || request.destination === 'font'
+
+  const cacheFirst = async () => {
+    const cache = await caches.open(CACHE_NAME)
+    const cached = await cache.match(request)
+    if (cached) return cached
+
+    const response = await fetch(request)
+    if (response && response.status === 200 && response.type !== 'error') {
+      cache.put(request, response.clone())
+    }
+    return response
+  }
+
+  const networkFirst = async () => {
+    const cache = await caches.open(CACHE_NAME)
+    try {
+      const response = await fetch(request)
+      if (response && response.status === 200 && response.type !== 'error') {
+        cache.put(request, response.clone())
+      }
+      return response
+    } catch (err) {
+      const cached = await cache.match(request)
+      if (cached) return cached
+      return isNavigation ? caches.match('/index.html') : Response.error()
+    }
+  }
+
+  // HTML and app assets should be network-first to prevent stale bundles
+  if (isNavigation || isAsset) {
+    event.respondWith(networkFirst())
     return
   }
 
-  event.respondWith(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.match(request).then(response => {
-        if (response) {
-          return response
-        }
+  // Images/fonts can be cache-first
+  if (isImageOrFont) {
+    event.respondWith(cacheFirst())
+    return
+  }
 
-        return fetch(request)
-          .then(response => {
-            if (!response || response.status !== 200 || response.type === 'error') {
-              return response
-            }
-
-            const responseToCache = response.clone()
-            cache.put(request, responseToCache)
-            return response
-          })
-          .catch(() => {
-            return caches.match('/index.html')
-          })
-      })
-    })
-  )
+  // Default: network-first
+  event.respondWith(networkFirst())
 })
 
 self.addEventListener('message', event => {
