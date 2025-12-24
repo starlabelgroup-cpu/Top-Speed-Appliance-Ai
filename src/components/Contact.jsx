@@ -40,6 +40,49 @@ function Contact() {
             </div>
           </div>
         </div>
+
+        <div className="google-section">
+          <h3>Connect With Us</h3>
+          <p>Follow us on Google and leave a review</p>
+          <div className="google-buttons">
+            <a
+              href="https://g.page/r/CcII31xB8cIPEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-btn google-reviews"
+              title="Leave a review on Google"
+              aria-label="Google Reviews - Leave a Review"
+            >
+              <span className="google-icon">⭐</span>
+              <span className="btn-text">Google Reviews</span>
+            </a>
+
+            <a
+              href="https://share.google/HzHi48xJlsGcjDJkS"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-btn google-share"
+              title="Share our business on Google"
+              aria-label="Google Share - Share Top Speed Appliance"
+            >
+              <span className="google-icon">📤</span>
+              <span className="btn-text">Share Us</span>
+            </a>
+
+            <a
+              href="https://www.google.com/search?q=12328780520724801902"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-btn google-business"
+              title="Visit our Google Business Profile"
+              aria-label="Google Business - View Profile"
+            >
+              <span className="google-icon">🔍</span>
+              <span className="btn-text">Google Business</span>
+            </a>
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit} className="contact-form">
           <input
             type="text"
