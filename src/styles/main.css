@@ -511,6 +511,27 @@ section {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+.videos-cta {
+  text-align: center;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #d10000 0%, #a00000 100%);
+  color: #fff;
+  border-radius: 12px;
+  margin-top: 60px;
+  box-shadow: 0 12px 40px rgba(209, 0, 0, 0.3);
+}
+
+.videos-cta p {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  margin: 0 0 25px 0;
+  font-weight: 600;
+}
+
+.videos-cta .cta-button {
+  display: inline-block;
+}
+
 /* === Reviews/Testimonials === */
 .reviews {
   background-color: #f3f3f3;
