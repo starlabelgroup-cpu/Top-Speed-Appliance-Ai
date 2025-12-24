@@ -71,14 +71,27 @@ Make the ads compelling, action-oriented, and specific to appliance repair/sales
       })
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(`OpenAI API error: ${error.error?.message || 'Unknown error'}`)
+        const contentType = response.headers.get('content-type')
+        if (contentType?.includes('application/json')) {
+          try {
+            const error = await response.json()
+            throw new Error(`OpenAI API error: ${error.error?.message || 'Unknown error'}`)
+          } catch (parseErr) {
+            throw new Error(`OpenAI API error: Status ${response.status}`)
+          }
+        } else {
+          throw new Error(`OpenAI API error: Status ${response.status}`)
+        }
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from OpenAI API')
       }
 
       const data = await response.json()
       const content = data.choices[0].message.content
 
-      // Parse the JSON response
       const jsonMatch = content.match(/\[[\s\S]*\]/)
       if (!jsonMatch) {
         throw new Error('Could not parse AI response')
@@ -141,7 +154,12 @@ Return as JSON with improved "headline" and "description" fields.`
       })
 
       if (!response.ok) {
-        throw new Error('Failed to improve ad')
+        throw new Error(`Failed to improve ad: Status ${response.status}`)
+      }
+
+      const contentType = response.headers.get('content-type')
+      if (!contentType?.includes('application/json')) {
+        throw new Error('Invalid response format from OpenAI API')
       }
 
       const data = await response.json()
