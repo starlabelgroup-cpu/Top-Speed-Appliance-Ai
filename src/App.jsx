@@ -55,7 +55,36 @@ function App() {
     setupPerformanceMonitoring()
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js').catch(() => {})
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registration) => {
+          registration.update().catch(() => {})
+
+          const activateAndReload = (worker) => {
+            if (!worker) return
+            worker.postMessage({ type: 'SKIP_WAITING' })
+
+            if (navigator.serviceWorker.controller) {
+              window.location.reload()
+            }
+          }
+
+          if (registration.waiting) {
+            activateAndReload(registration.waiting)
+          }
+
+          registration.addEventListener('updatefound', () => {
+            const worker = registration.installing
+            if (!worker) return
+
+            worker.addEventListener('statechange', () => {
+              if (worker.state === 'installed') {
+                activateAndReload(worker)
+              }
+            })
+          })
+        })
+        .catch(() => {})
     }
 
     // Health check disabled - no backend agent available
