@@ -74,6 +74,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/promotional-platform" element={<PromotionalPlatformPage />} />
+          <Route path="/service-request" element={<ServiceRequestPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/privacy" element={<Privacy />} />
