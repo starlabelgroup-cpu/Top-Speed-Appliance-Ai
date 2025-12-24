@@ -6,6 +6,7 @@ import Services from './components/Services'
 import Keywords from './components/Keywords'
 import Gallery from './components/Gallery'
 import Videos from './components/Videos'
+import PromotionalBroadcasting from './components/PromotionalBroadcasting'
 import Reviews from './components/Reviews'
 import About from './components/About'
 import Booking from './components/Booking'
@@ -30,6 +31,7 @@ function HomePage() {
       <Hero />
       <Services />
       <Keywords />
+      <PromotionalBroadcasting />
       <Gallery />
       <Videos />
       <Reviews />
