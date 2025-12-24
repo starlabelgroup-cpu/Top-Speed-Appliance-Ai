@@ -27,9 +27,19 @@ const makeSupabaseRequest = async (method, endpoint, data = null) => {
 
     const response = await fetch(`${SUPABASE_URL}/rest/v1${endpoint}`, options)
 
+    const contentType = response.headers.get('content-type')
+    if (!contentType?.includes('application/json')) {
+      console.error('Invalid response format from Supabase')
+      return null
+    }
+
     if (!response.ok) {
-      const error = await response.json()
-      console.error('Supabase API error:', error)
+      try {
+        const error = await response.json()
+        console.error('Supabase API error:', error)
+      } catch (parseErr) {
+        console.error('Supabase API error: Status', response.status)
+      }
       return null
     }
 
