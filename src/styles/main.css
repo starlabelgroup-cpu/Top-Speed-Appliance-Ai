@@ -1011,6 +1011,90 @@ section {
   background-color: #ff1a1a;
 }
 
+/* === Google Section === */
+.google-section {
+  background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+  padding: 30px;
+  border-radius: 8px;
+  border-left: 4px solid #d10000;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.google-section h3 {
+  color: #d10000;
+  font-size: 1.3rem;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.google-section p {
+  color: #666;
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+}
+
+.google-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.google-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #d10000 0%, #8b0000 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.google-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(209, 0, 0, 0.3);
+}
+
+.google-btn .google-icon {
+  font-size: 1.2rem;
+}
+
+.google-btn .btn-text {
+  font-weight: 600;
+}
+
+.google-reviews {
+  background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
+}
+
+.google-reviews:hover {
+  box-shadow: 0 6px 16px rgba(66, 133, 244, 0.3);
+}
+
+.google-share {
+  background: linear-gradient(135deg, #34a853 0%, #0d652d 100%);
+}
+
+.google-share:hover {
+  box-shadow: 0 6px 16px rgba(52, 168, 83, 0.3);
+}
+
+.google-business {
+  background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
+}
+
+.google-business:hover {
+  box-shadow: 0 6px 16px rgba(234, 67, 53, 0.3);
+}
+
 @media (max-width: 768px) {
   .contact-content {
     grid-template-columns: 1fr;
