@@ -68,6 +68,7 @@ function App() {
   return (
     <ErrorBoundary>
       <Router>
+        <SEOSchema />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
