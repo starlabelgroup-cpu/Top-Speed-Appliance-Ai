@@ -46,6 +46,7 @@ function Header() {
           <Link to="/">Home</Link>
           <a href="#services">Services</a>
           <a href="#keywords">Repair Near Me</a>
+          <Link to="/service-request">Service Request</Link>
           <Link to="/promotional-platform">Promotional Platform</Link>
           <a href="#gallery">Gallery</a>
           <a href="#videos">Videos</a>
