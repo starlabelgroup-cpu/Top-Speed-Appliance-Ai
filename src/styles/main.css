@@ -77,7 +77,7 @@ section {
   color: #d10000;
   padding: 10px 20px;
   border-radius: 4px;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.9rem;
   transition: background 0.3s;
   text-transform: uppercase;
@@ -85,6 +85,13 @@ section {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  opacity: 1;
+}
+
+.header-top .book-now-btn {
+  background-color: #fff;
+  color: #d10000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 .book-now-btn:hover {
