@@ -7,6 +7,7 @@ export default function AIAssistant() {
     { sender: 'bot', text: 'Hello! I\'m the Top Speed Appliance AI Assistant. How can I help you today?' }
   ])
   const [input, setInput] = useState('')
+  const [showIntegrations, setShowIntegrations] = useState(false)
   const [bookingMode, setBookingMode] = useState(false)
   const [troubleshootMode, setTroubleshootMode] = useState(false)
   const [troubleStep, setTroubleStep] = useState(0)
@@ -186,10 +187,65 @@ export default function AIAssistant() {
               </svg>
               <h2>Top Speed Appliance AI</h2>
             </div>
-            <button onClick={() => setOpen(false)} className="ai-close-btn" aria-label="Close chat">
-              ✕
-            </button>
+            <div className="ai-header-actions">
+              <button
+                type="button"
+                className="ai-integrations-btn"
+                onClick={() => setShowIntegrations((s) => !s)}
+                aria-expanded={showIntegrations}
+                aria-controls="ai-integrations"
+              >
+                Integrations
+              </button>
+              <button onClick={() => setOpen(false)} className="ai-close-btn" aria-label="Close chat">
+                ✕
+              </button>
+            </div>
           </div>
+
+          {showIntegrations && (
+            <div className="ai-integrations" id="ai-integrations" role="region" aria-label="AI Assistant integrations">
+              <div className="ai-integrations-title">Connect AI Assistant to Platforms</div>
+              <div className="ai-integrations-subtitle">
+                Use these platforms for parts shopping, order lookups, customer messaging, payments, and automations.
+              </div>
+
+              <div className="ai-integrations-section">
+                <div className="ai-integrations-section-title">Shopping Platforms</div>
+                <div className="ai-integrations-grid">
+                  <a className="ai-integration-link" href="https://www.shopify.com/" target="_blank" rel="noopener noreferrer">Shopify</a>
+                  <a className="ai-integration-link" href="https://woocommerce.com/" target="_blank" rel="noopener noreferrer">WooCommerce</a>
+                  <a className="ai-integration-link" href="https://sellercentral.amazon.com/" target="_blank" rel="noopener noreferrer">Amazon Seller Central</a>
+                  <a className="ai-integration-link" href="https://www.ebay.com/sellercenter" target="_blank" rel="noopener noreferrer">eBay Seller Hub</a>
+                  <a className="ai-integration-link" href="https://www.etsy.com/sell" target="_blank" rel="noopener noreferrer">Etsy Shop</a>
+                </div>
+              </div>
+
+              <div className="ai-integrations-section">
+                <div className="ai-integrations-section-title">Marketing & Messaging</div>
+                <div className="ai-integrations-grid">
+                  <a className="ai-integration-link" href="https://business.google.com/" target="_blank" rel="noopener noreferrer">Google Business Profile</a>
+                  <a className="ai-integration-link" href="https://ads.google.com/" target="_blank" rel="noopener noreferrer">Google Ads</a>
+                  <a className="ai-integration-link" href="https://business.facebook.com/" target="_blank" rel="noopener noreferrer">Meta Business Suite</a>
+                  <a className="ai-integration-link" href="https://www.twilio.com/" target="_blank" rel="noopener noreferrer">Twilio (SMS)</a>
+                </div>
+              </div>
+
+              <div className="ai-integrations-section">
+                <div className="ai-integrations-section-title">Payments & Automation</div>
+                <div className="ai-integrations-grid">
+                  <a className="ai-integration-link" href="https://stripe.com/" target="_blank" rel="noopener noreferrer">Stripe</a>
+                  <a className="ai-integration-link" href="https://zapier.com/" target="_blank" rel="noopener noreferrer">Zapier</a>
+                  <a className="ai-integration-link" href="https://www.make.com/" target="_blank" rel="noopener noreferrer">Make</a>
+                  <a className="ai-integration-link" href="https://www.google.com/sheets/about/" target="_blank" rel="noopener noreferrer">Google Sheets</a>
+                </div>
+              </div>
+
+              <div className="ai-integrations-note">
+                Need a custom workflow? Use Zapier/Make to connect your booking leads to email, SMS, CRM, or spreadsheets.
+              </div>
+            </div>
+          )}
 
           <div className="ai-messages">
             {messages.map((msg, i) => (
