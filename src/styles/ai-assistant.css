@@ -97,6 +97,31 @@
   color: white;
 }
 
+.ai-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-integrations-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.ai-integrations-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .ai-close-btn {
   background: none;
   border: none;
@@ -110,6 +135,75 @@
 
 .ai-close-btn:hover {
   transform: scale(1.2);
+}
+
+.ai-integrations {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 14px 16px;
+}
+
+.ai-integrations-title {
+  color: #111;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+.ai-integrations-subtitle {
+  color: #444;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.ai-integrations-section {
+  margin-top: 12px;
+}
+
+.ai-integrations-section-title {
+  color: #111;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.ai-integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ai-integration-link {
+  align-items: center;
+  background: #f5f5f5;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  color: #111;
+  display: flex;
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ai-integration-link:hover {
+  border-color: rgba(209, 0, 0, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.ai-integrations-note {
+  color: #444;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 12px;
 }
 
 .ai-messages {
@@ -150,7 +244,7 @@
     transform: translateY(10px);
   }
   to {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -242,6 +336,10 @@
 
 /* Mobile Responsive */
 @media (max-width: 480px) {
+  .ai-integrations-grid {
+    grid-template-columns: 1fr;
+  }
+
   .ai-chat-container {
     width: calc(100% - 32px);
     height: 70vh;
