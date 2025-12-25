@@ -1,8 +1,43 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 function Header() {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname, location.hash])
+
+  useEffect(() => {
+    const hash = location.hash
+
+    if (hash) {
+      const id = hash.replace('#', '')
+      const tryScroll = () => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          return true
+        }
+        return false
+      }
+
+      if (!tryScroll()) {
+        setTimeout(() => {
+          if (!tryScroll()) {
+            requestAnimationFrame(tryScroll)
+          }
+        }, 50)
+      }
+
+      return
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [location.pathname, location.hash])
+
+  const navLinkClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`
 
   return (
     <header className="header">
@@ -52,23 +87,23 @@ function Header() {
           <span className={`hamburger ${open ? 'open' : ''}`}></span>
         </button>
 
-        <nav className={`nav ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
-          <Link to="/">Home</Link>
-          <a href="#services">Services</a>
-          <a href="#keywords">Repair Near Me</a>
-          <Link to="/service-areas">Service Areas</Link>
-          <Link to="/service-request">Service Request</Link>
-          <Link to="/qr">QR Page</Link>
-          <Link to="/promotional-platform">Promotional Platform</Link>
-          <a href="#gallery">Gallery</a>
-          <a href="#videos">Videos</a>
-          <Link to="/blog">Blog</Link>
-          <a href="#reviews">Reviews</a>
-          <a href="#about">About</a>
-          <Link to="/account">Account</Link>
-          <a href="#booking">Booking</a>
-          <a href="#maps">Map</a>
-          <a href="#contact">Contact</a>
+        <nav className={`nav ${open ? 'open' : ''}`}>
+          <NavLink to="/" end className={navLinkClass}>Home</NavLink>
+          <Link to="/#services" className="nav-link">Services</Link>
+          <Link to="/#keywords" className="nav-link">Repair Near Me</Link>
+          <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
+          <NavLink to="/service-request" className={navLinkClass}>Service Request</NavLink>
+          <NavLink to="/qr" className={navLinkClass}>QR Page</NavLink>
+          <NavLink to="/promotional-platform" className={navLinkClass}>Promotional Platform</NavLink>
+          <Link to="/#gallery" className="nav-link">Gallery</Link>
+          <Link to="/#videos" className="nav-link">Videos</Link>
+          <NavLink to="/blog" className={navLinkClass}>Blog</NavLink>
+          <Link to="/#reviews" className="nav-link">Reviews</Link>
+          <Link to="/#about" className="nav-link">About</Link>
+          <NavLink to="/account" className={navLinkClass}>Account</NavLink>
+          <Link to="/#booking" className="nav-link">Booking</Link>
+          <Link to="/#maps" className="nav-link">Map</Link>
+          <Link to="/#contact" className="nav-link">Contact</Link>
         </nav>
       </div>
     </header>
