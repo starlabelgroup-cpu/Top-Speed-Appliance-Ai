@@ -21,6 +21,7 @@ import PromotionalPlatformPage from './pages/PromotionalPlatformPage'
 import ServiceRequestPage from './pages/ServiceRequestPage'
 import QrLeadPage from './pages/QrLeadPage'
 import ServiceAreasPage from './pages/ServiceAreasPage'
+import SeoLandingPage from './pages/SeoLandingPage'
 import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
 import AdminLogin from './components/AdminLogin'
@@ -113,6 +114,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/account" element={<Dashboard />} />
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/:seoSlug" element={<SeoLandingPage />} />
         </Routes>
         <Footer />
         <AdvancedAIAgent />
