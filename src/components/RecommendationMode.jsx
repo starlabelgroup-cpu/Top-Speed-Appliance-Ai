@@ -47,8 +47,7 @@ export default function RecommendationMode({ sessionId, onNotify }) {
         onNotify('Failed to get recommendations', 'error')
       }
     } catch (error) {
-      console.error('Recommendation error:', error)
-      onNotify('Error getting recommendations', 'error')
+      onNotify('Recommendations are temporarily unavailable. Please try again shortly.', 'error')
     } finally {
       setLoading(false)
     }

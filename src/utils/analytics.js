@@ -138,6 +138,9 @@ export const setupPerformanceMonitoring = () => {
   if (typeof window === 'undefined') return
 
   try {
+    if (window.__tsap_fetch_wrapped) return
+    window.__tsap_fetch_wrapped = true
+
     const originalFetch = window.fetch
     window.fetch = function(...args) {
       // Don't intercept /api/metrics calls - this prevents circular logging
@@ -162,9 +165,8 @@ export const setupPerformanceMonitoring = () => {
 
         return response
       }).catch(error => {
-        // Silently suppress ALL fetch errors
-        // Don't try to log them - this prevents infinite loops
-        throw error
+        // Don't log fetch errors here (prevents loops). Let callers handle.
+        return Promise.reject(error)
       })
     }
   } catch (err) {
