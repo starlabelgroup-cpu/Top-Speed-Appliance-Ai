@@ -57,7 +57,40 @@ function App() {
     initializeAnalytics()
     setupPerformanceMonitoring()
 
-    if ('serviceWorker' in navigator) {
+    const isProd = import.meta.env.PROD
+
+    if (!isProd && 'serviceWorker' in navigator) {
+      // Dev + Service Worker is a common source of "Failed to fetch" errors (it can cache/override Vite HMR requests).
+      // Unregister any existing SWs so the dev experience remains stable.
+      navigator.serviceWorker
+        .getRegistrations()
+        .then((registrations) => {
+          if (!registrations.length) return
+
+          const hadController = Boolean(navigator.serviceWorker.controller)
+
+          Promise.all(
+            registrations.map((registration) => registration.unregister().catch(() => false))
+          )
+            .then(() => {
+              if (hadController) {
+                // One reload is needed to drop the old controller.
+                window.location.reload()
+              }
+            })
+            .catch(() => {})
+
+          if (typeof caches !== 'undefined' && caches.keys) {
+            caches
+              .keys()
+              .then((keys) => Promise.all(keys.map((k) => caches.delete(k).catch(() => false))))
+              .catch(() => {})
+          }
+        })
+        .catch(() => {})
+    }
+
+    if (isProd && 'serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/service-worker.js')
         .then((registration) => {
