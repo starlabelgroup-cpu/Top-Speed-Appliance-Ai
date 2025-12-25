@@ -63,7 +63,18 @@ section {
 }
 
 .contact-icon {
-  font-size: 1.1rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  display: inline-flex;
+  height: 26px;
+  justify-content: center;
+  width: 26px;
+}
+
+.header-contact-icon {
+  display: block;
 }
 
 .header-actions {
@@ -89,9 +100,13 @@ section {
 }
 
 .header-top .book-now-btn {
-  background-color: #fff;
-  color: #d10000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+.header-top .book-now-btn:hover {
+  background: linear-gradient(180deg, #2a2a2a 0%, #111 100%);
 }
 
 .book-now-btn:hover {
