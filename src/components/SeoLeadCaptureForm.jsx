@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { storageGetItem, storageGetJson, storageSetItem, storageSetJson } from '../utils/storage'
 import '../styles/seo-leads.css'
 
 function formatPhone(value) {
@@ -15,12 +16,12 @@ function validateEmail(value) {
 }
 
 export default function SeoLeadCaptureForm({ source, contextLabel, defaultIssue }) {
-  const [formData, setFormData] = useState({
-    name: localStorage.getItem('customerName') || '',
-    phone: formatPhone(localStorage.getItem('customerPhone') || ''),
-    email: localStorage.getItem('customerEmail') || '',
+  const [formData, setFormData] = useState(() => ({
+    name: storageGetItem('customerName', ''),
+    phone: formatPhone(storageGetItem('customerPhone', '')),
+    email: storageGetItem('customerEmail', ''),
     issue: defaultIssue || ''
-  })
+  }))
 
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
@@ -58,9 +59,9 @@ export default function SeoLeadCaptureForm({ source, contextLabel, defaultIssue 
     e.preventDefault()
     if (!validate()) return
 
-    localStorage.setItem('customerName', formData.name)
-    localStorage.setItem('customerPhone', formData.phone)
-    localStorage.setItem('customerEmail', formData.email)
+    storageSetItem('customerName', formData.name)
+    storageSetItem('customerPhone', formData.phone)
+    storageSetItem('customerEmail', formData.email)
 
     const id = `LS-${Date.now().toString(36).toUpperCase()}`
     const lead = {
@@ -74,8 +75,9 @@ export default function SeoLeadCaptureForm({ source, contextLabel, defaultIssue 
       issue: formData.issue
     }
 
-    const existing = JSON.parse(localStorage.getItem('seo_leads') || '[]')
-    localStorage.setItem('seo_leads', JSON.stringify([lead, ...existing].slice(0, 200)))
+    const existing = storageGetJson('seo_leads', [])
+    const existingList = Array.isArray(existing) ? existing : []
+    storageSetJson('seo_leads', [lead, ...existingList].slice(0, 200))
 
     const subject = encodeURIComponent(`New Lead (${id}) - ${contextLabel || 'Website'}`)
     const body = encodeURIComponent(

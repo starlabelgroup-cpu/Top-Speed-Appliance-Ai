@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { storageGetItem, storageSetJson } from '../utils/storage'
 import '../styles/service-request.css'
 
 export default function ServiceRequestPage() {
   const [step, setStep] = useState(1)
-  const [formData, setFormData] = useState({
-    customerName: localStorage.getItem('customerName') || '',
-    customerEmail: localStorage.getItem('customerEmail') || '',
-    customerPhone: localStorage.getItem('customerPhone') || '',
+  const [formData, setFormData] = useState(() => ({
+    customerName: storageGetItem('customerName', ''),
+    customerEmail: storageGetItem('customerEmail', ''),
+    customerPhone: storageGetItem('customerPhone', ''),
     applianceType: '',
     brand: '',
     model: '',
@@ -19,9 +20,9 @@ export default function ServiceRequestPage() {
     preferredDate: '',
     preferredTime: '',
     urgency: 'normal',
-    serviceAddress: localStorage.getItem('customerServiceAddress') || '',
+    serviceAddress: storageGetItem('customerServiceAddress', ''),
     consent: false
-  })
+  }))
 
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
@@ -187,7 +188,7 @@ export default function ServiceRequestPage() {
         ...formData
       }
 
-      localStorage.setItem(`serviceRequest_${requestData.id}`, JSON.stringify(requestData))
+      storageSetJson(`serviceRequest_${requestData.id}`, requestData)
       
       setSubmitted(true)
       setNotification({ type: 'success', message: 'Request submitted! Redirecting to booking...' })

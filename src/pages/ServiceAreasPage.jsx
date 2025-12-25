@@ -61,6 +61,10 @@ export default function ServiceAreasPage() {
     schema
   })
 
+  const stopSummaryToggle = (event) => {
+    event.stopPropagation()
+  }
+
   return (
     <main className="seo-leads-page">
       <section className="seo-leads-hero">
@@ -92,8 +96,22 @@ export default function ServiceAreasPage() {
                   <summary className="seo-leads-county-summary">
                     <span className="seo-leads-county-name">{county.name}</span>
                     <span className="seo-leads-county-links">
-                      <Link className="seo-leads-inline-link" to={`/${county.slug}`}>County page</Link>
-                      <Link className="seo-leads-inline-link" to={`/${buildServiceLocationSlug('appliance-repair', county.slug)}`}>Appliance repair</Link>
+                      <Link
+                        className="seo-leads-inline-link"
+                        to={`/${county.slug}`}
+                        onClick={stopSummaryToggle}
+                        onPointerDown={stopSummaryToggle}
+                      >
+                        County page
+                      </Link>
+                      <Link
+                        className="seo-leads-inline-link"
+                        to={`/${buildServiceLocationSlug('appliance-repair', county.slug)}`}
+                        onClick={stopSummaryToggle}
+                        onPointerDown={stopSummaryToggle}
+                      >
+                        Appliance repair
+                      </Link>
                     </span>
                   </summary>
 

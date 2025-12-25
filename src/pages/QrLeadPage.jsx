@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { storageGetItem, storageGetJson, storageSetItem, storageSetJson } from '../utils/storage'
 import '../styles/qr-lead.css'
 
 function formatPhone(value) {
@@ -30,16 +31,16 @@ export default function QrLeadPage() {
   const initialTarget = query.get('target') === 'booking' ? 'booking' : 'service-request'
   const [qrTarget, setQrTarget] = useState(initialTarget)
 
-  const [formData, setFormData] = useState({
-    name: localStorage.getItem('customerName') || '',
-    phone: formatPhone(localStorage.getItem('customerPhone') || ''),
-    email: localStorage.getItem('customerEmail') || '',
+  const [formData, setFormData] = useState(() => ({
+    name: storageGetItem('customerName', ''),
+    phone: formatPhone(storageGetItem('customerPhone', '')),
+    email: storageGetItem('customerEmail', ''),
     appliance: '',
     issue: '',
     zip: '',
     preferredContact: 'text',
     consent: false
-  })
+  }))
 
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
@@ -157,11 +158,12 @@ export default function QrLeadPage() {
     const id = `TS-${Date.now().toString(36).toUpperCase()}`
     setLeadId(id)
 
-    localStorage.setItem('customerName', formData.name)
-    localStorage.setItem('customerPhone', formData.phone)
-    localStorage.setItem('customerEmail', formData.email)
+    storageSetItem('customerName', formData.name)
+    storageSetItem('customerPhone', formData.phone)
+    storageSetItem('customerEmail', formData.email)
 
-    const existing = JSON.parse(localStorage.getItem('qr_leads') || '[]')
+    const existing = storageGetJson('qr_leads', [])
+    const existingList = Array.isArray(existing) ? existing : []
     const lead = {
       id,
       source: 'qr',
@@ -175,7 +177,7 @@ export default function QrLeadPage() {
       preferredContact: formData.preferredContact
     }
 
-    localStorage.setItem('qr_leads', JSON.stringify([lead, ...existing].slice(0, 200)))
+    storageSetJson('qr_leads', [lead, ...existingList].slice(0, 200))
 
     const subject = encodeURIComponent(`New QR Lead (${id}) - ${formData.appliance}`)
     const body = encodeURIComponent(
