@@ -27,7 +27,7 @@ function Services() {
   return (
     <section id="services" className="services">
       <h2>Our Services</h2>
-      <p style={{color: '#666', marginBottom: '50px', fontSize: '1.1rem'}}>Fast and reliable repair services for all major appliance brands</p>
+      <p className="services-subtitle">Fast and reliable repair services for all major appliance brands</p>
       <div className="service-grid">
         {services.map((service, i) => (
           <div className="service-card" key={i}>
