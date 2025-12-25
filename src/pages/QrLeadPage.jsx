@@ -193,7 +193,8 @@ export default function QrLeadPage() {
       ].join('\n')
     )
 
-    window.open(`mailto:${BOOKING_CONFIG.BUSINESS_NAME.toLowerCase().replace(/\s/g, '')}@topspeedappliance.net?subject=${subject}&body=${body}`.replace('topspeedappliance@topspeedappliance.net', 'service@topspeedappliance.net'))
+    const supportEmail = 'service@topspeedappliance.net'
+    window.open(`mailto:${supportEmail}?subject=${subject}&body=${body}`)
 
     setSubmitted(true)
   }
