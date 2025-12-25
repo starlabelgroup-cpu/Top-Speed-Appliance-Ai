@@ -19,6 +19,7 @@ import Privacy from './components/Privacy'
 import Dashboard from './components/Dashboard'
 import PromotionalPlatformPage from './pages/PromotionalPlatformPage'
 import ServiceRequestPage from './pages/ServiceRequestPage'
+import QrLeadPage from './pages/QrLeadPage'
 import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
 import AdminLogin from './components/AdminLogin'
@@ -104,6 +105,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/promotional-platform" element={<PromotionalPlatformPage />} />
           <Route path="/service-request" element={<ServiceRequestPage />} />
+          <Route path="/qr" element={<QrLeadPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/privacy" element={<Privacy />} />
