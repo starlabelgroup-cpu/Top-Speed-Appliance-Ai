@@ -10,7 +10,7 @@ Complete guide for automatic ad generation, campaign creation, and lead manageme
 - ✅ Google Ads Customer ID: `226-028-1282`
 - ✅ Google Ads Manager ID: `489-162-4166`
 - ✅ Google Developer Token: Configured
-- ✅ Gemini API Key: Configured (`AIzaSyBjvv6lCgtqGMQOB3bhUeXqbo28kEgZb7M`)
+- ✅ Gemini API Key: Configured (`YOUR_GEMINI_API_KEY`)
 - ✅ Email Account: `topspeedappliance@gmail.com`
 
 **Features Enabled:**
@@ -43,8 +43,8 @@ The `.env` file in `backend/` is already configured with your credentials:
 ```env
 GOOGLE_ADS_CUSTOMER_ID=226-028-1282
 GOOGLE_ADS_MANAGER_ID=489-162-4166
-GOOGLE_ADS_DEVELOPER_TOKEN=43mF0j0CNnT2y__RovcRRA
-GEMINI_API_KEY=AIzaSyBjvv6lCgtqGMQOB3bhUeXqbo28kEgZb7M
+GOOGLE_ADS_DEVELOPER_TOKEN=YOUR_GOOGLE_ADS_DEVELOPER_TOKEN
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 AUTO_CREATE_ADS=true
 AUTO_RUN_CAMPAIGNS=true
 SYNC_GOOGLE_ADS_DATA=true
@@ -441,8 +441,8 @@ const runABTest = async (baseAd) => {
 ✅ **Best Practices:**
 ```bash
 # .env file (DO NOT COMMIT)
-GOOGLE_ADS_DEVELOPER_TOKEN=43mF0j0CNnT2y__RovcRRA
-GEMINI_API_KEY=AIzaSyBjvv6lCgtqGMQOB3bhUeXqbo28kEgZb7M
+GOOGLE_ADS_DEVELOPER_TOKEN=YOUR_GOOGLE_ADS_DEVELOPER_TOKEN
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 
 # .gitignore (DO COMMIT)
 .env

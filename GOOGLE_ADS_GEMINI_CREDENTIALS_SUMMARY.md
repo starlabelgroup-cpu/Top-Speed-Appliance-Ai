@@ -10,12 +10,12 @@ Complete configuration for automatic ad generation and campaign management using
 ```
 Customer ID:      226-028-1282
 Manager ID:       489-162-4166
-Developer Token:  43mF0j0CNnT2y__RovcRRA (configured in backend/.env)
+Developer Token:  YOUR_GOOGLE_ADS_DEVELOPER_TOKEN (set in backend/.env on Netlify)
 ```
 
 ### Gemini API
 ```
-API Key:          AIzaSyBjvv6lCgtqGMQOB3bhUeXqbo28kEgZb7M (configured in backend/.env)
+API Key:          YOUR_GEMINI_API_KEY (set in backend/.env on Netlify)
 Model:            gemini-3-flash-preview
 Features:         Ad generation, optimization, analysis
 ```
@@ -152,10 +152,10 @@ curl -X POST http://localhost:5000/api/generate-ads \
 # Google Ads Configuration
 GOOGLE_ADS_CUSTOMER_ID=226-028-1282
 GOOGLE_ADS_MANAGER_ID=489-162-4166
-GOOGLE_ADS_DEVELOPER_TOKEN=43mF0j0CNnT2y__RovcRRA
+GOOGLE_ADS_DEVELOPER_TOKEN=YOUR_GOOGLE_ADS_DEVELOPER_TOKEN
 
 # Gemini API
-GEMINI_API_KEY=AIzaSyBjvv6lCgtqGMQOB3bhUeXqbo28kEgZb7M
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 
 # Automation Flags
 AUTO_CREATE_ADS=true
