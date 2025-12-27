@@ -25,6 +25,7 @@ import SeoLandingPage from './pages/SeoLandingPage'
 import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
 import AdminLogin from './components/AdminLogin'
+import AdminLeadsPage from './pages/AdminLeadsPage'
 import SEOSchema from './components/SEOSchema'
 import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
 import { startHealthCheck, stopHealthCheck } from './services/agentService'
@@ -147,6 +148,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/account" element={<Dashboard />} />
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/leads" element={<AdminLeadsPage />} />
           <Route path="/:seoSlug" element={<SeoLandingPage />} />
         </Routes>
         <Footer />

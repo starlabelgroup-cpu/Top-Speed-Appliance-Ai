@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { useState } from 'react'
+import { supabase } from '../services/supabaseClient'
 import { adminAuth } from '../utils/adminAuth'
 import '../styles/admin-login.css'
 
@@ -16,24 +18,33 @@ function AdminLogin() {
     setLoading(true)
 
     try {
-      // Simple validation for demo
-      // TODO: Replace with actual Supabase authentication
       if (!email || !password) {
         setError('Please enter email and password')
         setLoading(false)
         return
       }
 
-      // For now, accept any email/password combo (DEMO ONLY)
-      // In production, use Supabase Auth
-      if (email && password.length >= 6) {
-        adminAuth.setAdminSession('admin_authenticated')
-        navigate('/')
-      } else {
-        setError('Invalid credentials. Password must be at least 6 characters.')
+      if (!supabase) {
+        setError('Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Netlify.')
+        setLoading(false)
+        return
       }
+
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      })
+
+      if (signInError) {
+        setError(signInError.message || 'Login failed')
+        setLoading(false)
+        return
+      }
+
+      adminAuth.setAdminSession('admin_authenticated')
+      navigate('/admin/leads')
     } catch (err) {
-      setError(err.message || 'Login failed')
+      setError(err?.message || 'Login failed')
     } finally {
       setLoading(false)
     }
@@ -107,7 +118,7 @@ function AdminLogin() {
           <div className="login-footer">
             <p className="demo-note">
               <i className="fas fa-info-circle"></i>
-              Admin panel access - Enter any email and password (6+ chars)
+              Admin panel access - Sign in with your Supabase admin user
             </p>
           </div>
         </div>
