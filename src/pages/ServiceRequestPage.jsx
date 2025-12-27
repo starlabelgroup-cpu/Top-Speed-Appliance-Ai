@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { leadsDatabase } from '../services/leadsDatabase'
 import { storageGetItem, storageSetJson } from '../utils/storage'
 import '../styles/service-request.css'
 
@@ -181,7 +182,7 @@ export default function ServiceRequestPage() {
 
     setNotification({ type: 'info', message: 'Submitting your request...' })
 
-    setTimeout(() => {
+    setTimeout(async () => {
       const requestData = {
         id: `SR-${Date.now()}`,
         timestamp: new Date().toLocaleString(),
@@ -189,7 +190,34 @@ export default function ServiceRequestPage() {
       }
 
       storageSetJson(`serviceRequest_${requestData.id}`, requestData)
-      
+
+      try {
+        const params = new URLSearchParams(window.location.search)
+        await leadsDatabase.createLead({
+          name: formData.customerName,
+          phone: formData.customerPhone,
+          email: formData.customerEmail,
+          address: formData.serviceAddress,
+          service_type: formData.applianceType,
+          issue_description: [
+            formData.brand ? `Brand: ${formData.brand}` : null,
+            formData.model ? `Model: ${formData.model}` : null,
+            formData.age ? `Age: ${formData.age}` : null,
+            formData.symptoms?.length ? `Symptoms: ${formData.symptoms.join(', ')}` : null,
+            formData.description ? `Description: ${formData.description}` : null,
+            formData.preferredDate ? `Preferred Date: ${formData.preferredDate}` : null,
+            formData.preferredTime ? `Preferred Time: ${formData.preferredTime}` : null,
+            formData.urgency ? `Urgency: ${formData.urgency}` : null,
+            formData.photos?.length ? `Photos: ${formData.photos.map(p => p.name).join(', ')}` : null
+          ].filter(Boolean).join('\n'),
+          lead_source: params.get('src') || 'service-request',
+          campaign_id: params.get('campaignid') || params.get('campaign_id') || null,
+          keyword: params.get('keyword') || null
+        })
+      } catch {
+        // Non-critical: localStorage already captured the request
+      }
+
       setSubmitted(true)
       setNotification({ type: 'success', message: 'Request submitted! Redirecting to booking...' })
 

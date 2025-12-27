@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { leadsDatabase } from '../services/leadsDatabase'
 import { storageGetItem, storageGetJson, storageSetItem, storageSetJson } from '../utils/storage'
 import '../styles/seo-leads.css'
 
@@ -55,7 +56,7 @@ export default function SeoLeadCaptureForm({ source, contextLabel, defaultIssue 
     return Object.keys(next).length === 0
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validate()) return
 
@@ -78,6 +79,20 @@ export default function SeoLeadCaptureForm({ source, contextLabel, defaultIssue 
     const existing = storageGetJson('seo_leads', [])
     const existingList = Array.isArray(existing) ? existing : []
     storageSetJson('seo_leads', [lead, ...existingList].slice(0, 200))
+
+    try {
+      await leadsDatabase.createLead({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        service_type: contextLabel || 'Website Lead',
+        issue_description: formData.issue,
+        lead_source: source || 'seo',
+        keyword: contextLabel || null
+      })
+    } catch {
+      // Non-critical: localStorage + mailto already capture the lead
+    }
 
     const subject = encodeURIComponent(`New Lead (${id}) - ${contextLabel || 'Website'}`)
     const body = encodeURIComponent(

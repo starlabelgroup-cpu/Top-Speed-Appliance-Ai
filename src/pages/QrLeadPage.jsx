@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { leadsDatabase } from '../services/leadsDatabase'
 import { storageGetItem, storageGetJson, storageSetItem, storageSetJson } from '../utils/storage'
 import '../styles/qr-lead.css'
 
@@ -178,6 +179,19 @@ export default function QrLeadPage() {
     }
 
     storageSetJson('qr_leads', [lead, ...existingList].slice(0, 200))
+
+    try {
+      leadsDatabase.createLead({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        service_type: formData.appliance,
+        issue_description: `Issue: ${formData.issue}\nZIP: ${formData.zip}\nPreferred Contact: ${formData.preferredContact}`,
+        lead_source: 'qr'
+      })
+    } catch {
+      // Non-critical: localStorage + mailto already capture the lead
+    }
 
     const subject = encodeURIComponent(`New QR Lead (${id}) - ${formData.appliance}`)
     const body = encodeURIComponent(
