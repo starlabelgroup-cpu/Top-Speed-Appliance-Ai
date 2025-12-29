@@ -446,7 +446,28 @@
   gap: 8px;
 }
 
-.zip-directory-sort-button {
+.zip-directory-filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zip-directory-filter-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.zip-directory-filter-group {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zip-directory-sort-button,
+.zip-directory-filter-button {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
@@ -457,7 +478,8 @@
   text-transform: uppercase;
 }
 
-.zip-directory-sort-button.is-active {
+.zip-directory-sort-button.is-active,
+.zip-directory-filter-button.is-active {
   background: #fff;
   border-color: #fff;
   color: #8b0000;
