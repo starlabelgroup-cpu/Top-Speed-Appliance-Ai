@@ -335,6 +335,286 @@
   text-transform: none;
 }
 
+.zip-directory-section {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 20px 70px;
+}
+
+.zip-directory-header {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.zip-directory-badge {
+  background: rgba(209, 0, 0, 0.18);
+  border: 1px solid rgba(209, 0, 0, 0.4);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+
+.zip-directory-title {
+  color: #fff;
+  font-size: 1.9rem;
+  margin: 0 0 10px;
+  text-transform: none;
+}
+
+.zip-directory-description {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 640px;
+}
+
+.zip-directory-summary {
+  display: flex;
+  gap: 14px;
+}
+
+.zip-directory-summary-item {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.zip-directory-summary-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.zip-directory-summary-value {
+  color: #fff;
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.zip-directory-controls {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding: 18px;
+}
+
+.zip-directory-search {
+  flex: 1 1 240px;
+}
+
+.zip-directory-search-label {
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.zip-directory-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  color: #fff;
+  font: inherit;
+  padding: 12px;
+  width: 100%;
+}
+
+.zip-directory-sort-group {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zip-directory-sort-button {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+
+.zip-directory-sort-button.is-active {
+  background: #fff;
+  border-color: #fff;
+  color: #8b0000;
+}
+
+.zip-directory-results {
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 0 auto;
+  text-transform: none;
+}
+
+.zip-directory-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.zip-directory-card {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+}
+
+.zip-directory-card-header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.zip-directory-card-location {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.zip-directory-zip {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.zip-directory-city {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: none;
+}
+
+.zip-directory-badge-pill {
+  background: rgba(209, 0, 0, 0.2);
+  border: 1px solid rgba(209, 0, 0, 0.4);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  text-transform: uppercase;
+}
+
+.zip-directory-metrics {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.zip-directory-metric {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.zip-directory-metric dt {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.zip-directory-metric dd {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+  text-transform: none;
+}
+
+.zip-directory-card-footer {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zip-directory-footer-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.zip-directory-link {
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.zip-directory-link:hover {
+  color: #d10000;
+}
+
+.zip-directory-empty-state {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .zip-directory-summary {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .zip-directory-results {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .zip-directory-header {
+    flex-direction: column;
+  }
+
+  .zip-directory-summary {
+    flex-direction: column;
+  }
+
+  .zip-directory-controls {
+    flex-direction: column;
+  }
+
+  .zip-directory-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
 .seo-leads-footer {
   padding: 40px 20px 70px;
   text-align: center;
