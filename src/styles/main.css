@@ -3054,6 +3054,18 @@ button:hover, a:hover {
     gap: 20px;
   }
 
+  .keyword-library {
+    padding: 35px 20px;
+  }
+
+  .keyword-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-keywords-grid {
+    grid-template-columns: 1fr;
+  }
+
   .keywords-cta {
     padding: 30px 20px;
   }
@@ -3075,6 +3087,14 @@ button:hover, a:hover {
 
   .keywords-intro {
     font-size: 1rem;
+  }
+
+  .keyword-library {
+    margin: 50px auto;
+  }
+
+  .keyword-chip {
+    font-size: 0.8rem;
   }
 }
 
