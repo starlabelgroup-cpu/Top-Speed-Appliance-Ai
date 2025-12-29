@@ -446,14 +446,18 @@ section {
   .menu-toggle { display: block }
   .nav {
     position: absolute;
+    left: 16px;
     right: 16px;
-    top: 120px;
+    top: calc(100% - 10px);
     background: rgba(0,0,0,0.98);
     flex-direction: column;
-    padding: 12px 16px;
-    border-radius: 8px;
+    padding: 16px;
+    border-radius: 12px;
     gap: 10px;
     display: none;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    z-index: 1300;
   }
   .nav.open { display: flex }
   .nav .nav-link { color: #fff; margin: 8px 0; font-size: 0.9rem }
