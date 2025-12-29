@@ -9,6 +9,8 @@ const SORT_OPTIONS = [
   { id: 'density', label: 'Density' }
 ]
 
+const COUNTY_OPTIONS = Array.from(new Set(ZIP_DIRECTORY.map(entry => entry.county || 'Unknown County'))).sort()
+
 function formatNumber(value) {
   if (typeof value !== 'number' || value <= 0) return '—'
   return value.toLocaleString('en-US')
@@ -33,14 +35,20 @@ function getBadge(entry) {
 export default function ZipDirectory() {
   const [searchTerm, setSearchTerm] = useState('')
   const [activeSort, setActiveSort] = useState('zip')
+  const [countyFilter, setCountyFilter] = useState('all')
 
   const normalizedSearch = searchTerm.trim().toLowerCase()
   const totalZipCount = ZIP_DIRECTORY.length
+  const countyCount = COUNTY_OPTIONS.length
 
   const filteredZips = useMemo(() => {
-    const baseList = normalizedSearch
+    let baseList = normalizedSearch
       ? ZIP_DIRECTORY.filter(entry => entry.zip.includes(normalizedSearch) || entry.city.toLowerCase().includes(normalizedSearch))
       : ZIP_DIRECTORY
+
+    if (countyFilter !== 'all') {
+      baseList = baseList.filter(entry => entry.county === countyFilter)
+    }
 
     const sortedList = [...baseList]
     sortedList.sort((a, b) => {
@@ -53,7 +61,7 @@ export default function ZipDirectory() {
       return a.zip.localeCompare(b.zip)
     })
     return sortedList
-  }, [normalizedSearch, activeSort])
+  }, [normalizedSearch, activeSort, countyFilter])
 
   const { avgPopulation, avgDensity } = useMemo(() => {
     if (!filteredZips.length) return { avgPopulation: 0, avgDensity: 0 }
@@ -73,6 +81,8 @@ export default function ZipDirectory() {
       avgDensity: Math.round(sumDensity / filteredZips.length)
     }
   }, [filteredZips])
+
+  const resultsSuffix = countyFilter !== 'all' ? ` in ${countyFilter}` : ''
 
   return (
     <section className="zip-directory-section">
@@ -98,6 +108,10 @@ export default function ZipDirectory() {
             <span className="zip-directory-summary-value">
               {avgDensity > 0 ? `${avgDensity.toLocaleString('en-US')} / sq mi` : '—'}
             </span>
+          </div>
+          <div className="zip-directory-summary-item">
+            <span className="zip-directory-summary-label">Counties Covered</span>
+            <span className="zip-directory-summary-value">{countyCount}</span>
           </div>
         </div>
       </div>
@@ -128,8 +142,31 @@ export default function ZipDirectory() {
           ))}
         </div>
 
+        <div className="zip-directory-filter-wrapper">
+          <span className="zip-directory-filter-label">County focus</span>
+          <div className="zip-directory-filter-group" role="group" aria-label="Filter ZIP directory by county">
+            <button
+              type="button"
+              className={`zip-directory-filter-button${countyFilter === 'all' ? ' is-active' : ''}`}
+              onClick={() => setCountyFilter('all')}
+            >
+              All Counties
+            </button>
+            {COUNTY_OPTIONS.map(county => (
+              <button
+                key={county}
+                type="button"
+                className={`zip-directory-filter-button${countyFilter === county ? ' is-active' : ''}`}
+                onClick={() => setCountyFilter(county)}
+              >
+                {county.replace(' County', '')}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <p className="zip-directory-results">
-          Showing <strong>{filteredZips.length}</strong> of {totalZipCount} ZIP codes
+          Showing <strong>{filteredZips.length}</strong> of {totalZipCount} ZIP codes{resultsSuffix}
         </p>
       </div>
 
@@ -162,6 +199,23 @@ export default function ZipDirectory() {
                     <dd>{formatArea(entry.areaSquareMiles)}</dd>
                   </div>
                 </dl>
+
+                <div className="zip-directory-card-meta">
+                  <div className="zip-directory-meta-block">
+                    <span className="zip-directory-footer-label">County</span>
+                    <span className="zip-directory-county-name">{entry.county}</span>
+                  </div>
+                  <div className="zip-directory-meta-block">
+                    <span className="zip-directory-footer-label">Area Codes</span>
+                    <div className="zip-directory-area-codes">
+                      {entry.areaCodes.map(code => (
+                        <span key={`${entry.zip}-${code}`} className="zip-directory-area-code">
+                          {code}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
                 <div className="zip-directory-card-footer">
                   <span className="zip-directory-footer-label">City page:</span>
