@@ -2738,6 +2738,10 @@ button:hover, a:hover {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   margin-bottom: 60px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .keyword-card {
@@ -2824,6 +2828,9 @@ button:hover, a:hover {
   border-radius: 12px;
   margin-bottom: 50px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .keywords-faq h3 {
@@ -2861,6 +2868,9 @@ button:hover, a:hover {
   background: linear-gradient(135deg, #d10000 0%, #a00000 100%);
   color: #fff;
   border-radius: 12px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .keywords-cta h3 {
@@ -2907,6 +2917,20 @@ button:hover, a:hover {
   .keywords-cta .cta-button {
     display: block;
     margin: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .keywords-grid {
+    gap: 20px;
+  }
+
+  .keyword-card {
+    padding: 24px;
+  }
+
+  .keywords-intro {
+    font-size: 1rem;
   }
 }
 
