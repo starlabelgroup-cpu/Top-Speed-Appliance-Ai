@@ -24,6 +24,224 @@ function Keywords() {
     },
   ]
 
+  const keywordCategories = [
+    {
+      title: 'General Appliance Repair',
+      description: 'Broad, high-intent phrases people use before they name a specific appliance.',
+      keywords: [
+        'appliance repair',
+        'appliance repair near me',
+        'appliance repair service',
+        'appliance repair companies near me',
+        'home appliance repair',
+        'local appliance repair',
+        'certified appliance repair',
+        'professional appliance repair',
+        'appliance maintenance',
+        'appliance repair cost',
+        'appliance repair experts',
+        'appliance repair shops near me',
+      ],
+    },
+    {
+      title: 'Emergency & Same-Day',
+      description: 'Queries that signal urgent breakdowns and fast response expectations.',
+      keywords: [
+        '24 hour appliance repair',
+        'emergency appliance repair',
+        'emergency fridge repair',
+        'emergency refrigerator repair',
+        'same day appliance repair',
+        'same day appliance repair near me',
+        'repair fridge near me',
+        'fix appliances near me',
+        'washer and dryer maintenance',
+        'washer dryer repair near me',
+        'squeaky dryer fix',
+        'broken dishwasher',
+      ],
+    },
+    {
+      title: 'Refrigerator & Freezer',
+      description: 'Use these when promoting cooling repairs, seal work, or compressor replacements.',
+      keywords: [
+        'refrigerator repair',
+        'refrigerator repair near me',
+        'fridge repair near me',
+        'emergency refrigerator repair',
+        'fridge compressor replacement',
+        'fridge freezer repairs',
+        'refrigerator maintenance near me',
+        'refrigerator seal repair',
+        'wine cooler repair',
+        'walk in freezer repair',
+        'ice maker repair',
+        'freezer repair near me',
+      ],
+    },
+    {
+      title: 'Washer & Dryer',
+      description: 'Laundry-specific phrases that highlight bearings, belts, pumps, and service calls.',
+      keywords: [
+        'washer repair near me',
+        'washing machine repair',
+        'washing machine repair near me',
+        'washer dryer repair',
+        'washer dryer repair service near me',
+        'washer repair service near me',
+        'washing machine bearing replacement cost',
+        'washing machine seal replacement',
+        'dryer repair near me',
+        'dryer belt replacement',
+        'dryer repair service near me',
+        'fix washing machine near me',
+      ],
+    },
+    {
+      title: 'Kitchen & Dishwasher',
+      description: 'Target households focused on dishwashers, trash compactors, and kitchen suites.',
+      keywords: [
+        'dishwasher repair near me',
+        'dishwasher repair service near me',
+        'dishwasher appliance repair near me',
+        'dishwasher pump replacement',
+        'dishwasher rack repair',
+        'kitchen appliance repair',
+        'kitchen appliance repair near me',
+        'fix dishwasher',
+        'trash compactor repair',
+        'stove repair near me',
+        'range repair',
+        'kitchen appliance repair service',
+      ],
+    },
+    {
+      title: 'Cooking, Oven & Range',
+      description: 'Great for campaigns around ovens, cooktops, hoods, and microwave repairs.',
+      keywords: [
+        'oven repair near me',
+        'oven repair service',
+        'oven appliance repair',
+        'oven control board replacement',
+        'gas oven repair near me',
+        'electric oven repair near me',
+        'cooktop repair near me',
+        'range hood repair service near me',
+        'gas stove repair home service',
+        'stove element replacement',
+        'microwave oven repair near me',
+        'microwave repair service near me',
+      ],
+    },
+    {
+      title: 'Commercial & Specialty',
+      description: 'Focus on restaurants, property managers, and niche appliance service calls.',
+      keywords: [
+        'commercial appliance repair',
+        'commercial appliance repair near me',
+        'commercial refrigerator repair',
+        'commercial dishwasher repair near me',
+        'commercial oven repair',
+        'commercial freezer repair near me',
+        'commercial fryer repair',
+        'ice machine repair near me',
+        'dehumidifier repair near me',
+        'water cooler repair',
+        'water dispenser repair near me',
+        'water dispenser tap replacement',
+      ],
+    },
+    {
+      title: 'Small Appliance & Tools',
+      description: 'Capture searches for vacuums, coffee makers, and other countertop appliances.',
+      keywords: [
+        'coffee machine repair near me',
+        'coffee machine repair service near me',
+        'coffee maker repair near me',
+        'blender repair near me',
+        'dyson vacuum repair near me',
+        'electrolux vacuum repair',
+        'rainbow vacuum repair near me',
+        'small appliance repair near me',
+        'small kitchen appliance repair near me',
+        'vacuum cleaner repair near me',
+        'vacuum cleaner repair shops near me',
+        'toaster repair near me',
+      ],
+    },
+  ]
+
+  const brandKeywordGroups = [
+    {
+      brand: 'Amana',
+      keywords: ['amana appliance repair', 'amana refrigerator repair', 'amana washer repair', 'amana dryer belt replacement'],
+    },
+    {
+      brand: 'Bosch',
+      keywords: ['bosch appliance repair', 'bosch dishwasher repair near me', 'bosch oven repair', 'bosch washing machine repair', 'bosch repair service near me'],
+    },
+    {
+      brand: 'Frigidaire',
+      keywords: ['frigidaire appliance repair', 'frigidaire refrigerator repair', 'frigidaire dishwasher repair', 'frigidaire oven control board replacement', 'frigidaire repair service near me'],
+    },
+    {
+      brand: 'GE',
+      keywords: ['ge appliance repair near me', 'ge dishwasher repair', 'ge microwave repair near me', 'ge oven control board replacement', 'ge washer repair'],
+    },
+    {
+      brand: 'KitchenAid',
+      keywords: ['kitchenaid appliance repair', 'kitchenaid refrigerator repair', 'kitchenaid dishwasher repair near me', 'kitchenaid mixer repair', 'authorized kitchenaid mixer repair near me'],
+    },
+    {
+      brand: 'LG',
+      keywords: ['lg appliance repair', 'lg appliance repair near me', 'lg refrigerator repair', 'lg washer repair near me', 'lg dryer repair near me'],
+    },
+    {
+      brand: 'Maytag',
+      keywords: ['maytag appliance repair near me', 'maytag refrigerator repair near me', 'maytag washer repair service near me', 'maytag dryer repair near me', 'maytag repairman near me'],
+    },
+    {
+      brand: 'Samsung',
+      keywords: ['samsung appliance repair', 'samsung refrigerator repair near me', 'samsung washer repair near me', 'samsung dryer belt replacement', 'samsung dishwasher repair'],
+    },
+    {
+      brand: 'Sub-Zero',
+      keywords: ['sub zero appliance repair', 'sub zero refrigerator repair near me', 'sub zero repair near me', 'subzero repair'],
+    },
+    {
+      brand: 'Viking',
+      keywords: ['viking appliance repair', 'viking oven repair near me', 'viking refrigerator repair', 'viking stove repair near me'],
+    },
+    {
+      brand: 'Whirlpool',
+      keywords: ['whirlpool appliance repair', 'whirlpool refrigerator repair near me', 'whirlpool dryer repair near me', 'whirlpool washer repair near me', 'whirlpool authorized repair'],
+    },
+    {
+      brand: 'Kenmore + Sears',
+      keywords: ['kenmore appliance repair near me', 'kenmore refrigerator repair', 'kenmore washer repair service near me', 'sears appliance repair near me', 'sears repair appointment'],
+    },
+    {
+      brand: 'Miele',
+      keywords: ['miele appliance repair', 'miele dishwasher repair', 'miele washing machine repairs', 'miele vacuum repair near me'],
+    },
+    {
+      brand: 'Fisher & Paykel',
+      keywords: ['fisher and paykel repairs', 'fisher and paykel dishwasher repair', 'fisher and paykel washing machine repairs'],
+    },
+    {
+      brand: 'Wolf',
+      keywords: ['wolf appliance repair', 'wolf appliance repair near me', 'wolf oven repair'],
+    },
+    {
+      brand: 'JennAir',
+      keywords: ['jenn air appliance repair', 'jenn air repair near me'],
+    },
+    {
+      brand: 'Hisense',
+      keywords: ['hisense fridge repairs'],
+    },
+  ]
+
   return (
     <section id="keywords" className="keywords">
       <h2>Appliance Repair Services Near Me</h2>
