@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 
 function Header() {
   const [open, setOpen] = useState(false)
+  const [moreOpen, setMoreOpen] = useState(false)
+  const dropdownRef = useRef(null)
+  const moreButtonRef = useRef(null)
   const location = useLocation()
 
   useEffect(() => {
     setOpen(false)
+    setMoreOpen(false)
   }, [location.pathname, location.hash])
 
   useEffect(() => {
@@ -37,7 +41,34 @@ function Header() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [location.pathname, location.hash])
 
+  useEffect(() => {
+    if (!moreOpen) return
+
+    const handlePointerDown = (event) => {
+      const target = event.target
+      if (!(target instanceof Node)) return
+
+      if (dropdownRef.current && dropdownRef.current.contains(target)) return
+      if (moreButtonRef.current && moreButtonRef.current.contains(target)) return
+
+      setMoreOpen(false)
+    }
+
+    document.addEventListener('mousedown', handlePointerDown)
+    document.addEventListener('touchstart', handlePointerDown)
+
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown)
+      document.removeEventListener('touchstart', handlePointerDown)
+    }
+  }, [moreOpen])
+
   const navLinkClass = ({ isActive }) => `nav-link nav-pill${isActive ? ' active' : ''}`
+
+  const isMoreActive =
+    (location.pathname === '/' &&
+      ['#gallery', '#videos', '#reviews', '#about', '#booking', '#maps'].includes(location.hash)) ||
+    ['/qr', '/promotional-platform', '/account'].includes(location.pathname)
 
   return (
     <header className="header">
@@ -98,17 +129,84 @@ function Header() {
           <Link to="/#keywords" className="nav-link nav-pill">Repair Near Me</Link>
           <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
           <NavLink to="/service-request" className={navLinkClass}>Service Request</NavLink>
-          <NavLink to="/qr" className={navLinkClass}>QR Page</NavLink>
-          <NavLink to="/promotional-platform" className={navLinkClass}>Promotional Platform</NavLink>
-          <Link to="/#gallery" className="nav-link nav-pill">Gallery</Link>
-          <Link to="/#videos" className="nav-link nav-pill">Videos</Link>
           <NavLink to="/blog" className={navLinkClass}>Blog</NavLink>
-          <Link to="/#reviews" className="nav-link nav-pill">Reviews</Link>
-          <Link to="/#about" className="nav-link nav-pill">About</Link>
-          <NavLink to="/account" className={navLinkClass}>Account</NavLink>
-          <Link to="/#booking" className="nav-link nav-pill">Booking</Link>
-          <Link to="/#maps" className="nav-link nav-pill">Map</Link>
           <Link to="/#contact" className="nav-link nav-pill">Contact</Link>
+
+          <div className={`nav-dropdown ${moreOpen ? 'open' : ''}`} ref={dropdownRef}>
+            <button
+              ref={moreButtonRef}
+              type="button"
+              className={`nav-link nav-pill nav-dropdown-toggle${isMoreActive ? ' active' : ''}`}
+              aria-haspopup="menu"
+              aria-expanded={moreOpen}
+              onClick={() => setMoreOpen((s) => !s)}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setMoreOpen(false)
+                  moreButtonRef.current?.focus()
+                }
+              }}
+            >
+              More
+              <span className={`nav-dropdown-caret${moreOpen ? ' open' : ''}`} aria-hidden="true">▾</span>
+            </button>
+
+            <div
+              className="nav-dropdown-menu"
+              role="menu"
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setMoreOpen(false)
+                  moreButtonRef.current?.focus()
+                }
+              }}
+            >
+              <NavLink to="/qr" className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}>QR Page</NavLink>
+              <NavLink
+                to="/promotional-platform"
+                className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}
+              >
+                Promotional Platform
+              </NavLink>
+              <NavLink to="/account" className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}>Account</NavLink>
+              <Link
+                to="/#gallery"
+                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#gallery' ? ' active' : ''}`}
+              >
+                Gallery
+              </Link>
+              <Link
+                to="/#videos"
+                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#videos' ? ' active' : ''}`}
+              >
+                Videos
+              </Link>
+              <Link
+                to="/#reviews"
+                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#reviews' ? ' active' : ''}`}
+              >
+                Reviews
+              </Link>
+              <Link
+                to="/#about"
+                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#about' ? ' active' : ''}`}
+              >
+                About
+              </Link>
+              <Link
+                to="/#booking"
+                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#booking' ? ' active' : ''}`}
+              >
+                Booking
+              </Link>
+              <Link
+                to="/#maps"
+                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#maps' ? ' active' : ''}`}
+              >
+                Map
+              </Link>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

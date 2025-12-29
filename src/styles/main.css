@@ -285,6 +285,78 @@ section {
   content: none;
 }
 
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-dropdown-caret {
+  display: inline-block;
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown-caret.open {
+  transform: translateY(-1px) rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 240px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  display: none;
+  z-index: 1200;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  display: grid;
+  gap: 8px;
+  animation: fadeInUp 0.25s ease;
+}
+
+.nav-dropdown-item {
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.nav-dropdown-item.active {
+  background: rgba(209, 0, 0, 0.18);
+  border-color: rgba(209, 0, 0, 0.5);
+}
+
+.nav-dropdown-item:focus-visible {
+  outline: 2px solid #d10000;
+  outline-offset: 3px;
+}
+
 .nav .nav-link:hover {
   color: #d10000;
 }
@@ -359,6 +431,19 @@ section {
   .nav.open { display: flex }
   .nav .nav-link { color: #fff; margin: 8px 0; font-size: 0.9rem }
   .nav .nav-pill { width: 100%; text-align: center }
+  .nav-dropdown-menu {
+    position: static;
+    min-width: 0;
+    width: 100%;
+    padding: 8px 0 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .nav-dropdown.open .nav-dropdown-menu { animation: none }
+  .nav-dropdown-item { width: 100%; justify-content: center }
   .logo { width: 140px }
 
   .header-top {
