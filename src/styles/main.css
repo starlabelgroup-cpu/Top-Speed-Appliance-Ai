@@ -103,6 +103,48 @@ section {
   background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
   color: #fff;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-top .book-now-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.22), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(209, 0, 0, 0.28), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.header-top .book-now-btn::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -60%;
+  width: 60%;
+  height: 180%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 45%, transparent 100%);
+  transform: rotate(18deg);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.header-top .book-now-btn:hover::before {
+  opacity: 1;
+}
+
+.header-top .book-now-btn:hover::after {
+  opacity: 1;
+  animation: headerShimmer 0.9s ease;
+}
+
+.header-top .book-now-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .header-top .book-now-btn:hover {
@@ -125,6 +167,29 @@ section {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-top .portal-login-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.28), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(209, 0, 0, 0.2), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.header-top .portal-login-btn:hover::before {
+  opacity: 1;
+}
+
+.header-top .portal-login-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .portal-login-btn:hover {
@@ -135,6 +200,11 @@ section {
 
 .portal-login-btn:active {
   transform: translateY(0);
+}
+
+@keyframes headerShimmer {
+  0% { left: -60% }
+  100% { left: 120% }
 }
 
 .header .container {
