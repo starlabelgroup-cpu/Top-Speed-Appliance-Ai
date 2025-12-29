@@ -37,7 +37,7 @@ function Header() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [location.pathname, location.hash])
 
-  const navLinkClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`
+  const navLinkClass = ({ isActive }) => `nav-link nav-pill${isActive ? ' active' : ''}`
 
   return (
     <header className="header">
@@ -94,21 +94,21 @@ function Header() {
 
         <nav className={`nav ${open ? 'open' : ''}`}>
           <NavLink to="/" end className={navLinkClass}>Home</NavLink>
-          <Link to="/#services" className="nav-link">Services</Link>
-          <Link to="/#keywords" className="nav-link">Repair Near Me</Link>
+          <Link to="/#services" className="nav-link nav-pill">Services</Link>
+          <Link to="/#keywords" className="nav-link nav-pill">Repair Near Me</Link>
           <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
           <NavLink to="/service-request" className={navLinkClass}>Service Request</NavLink>
           <NavLink to="/qr" className={navLinkClass}>QR Page</NavLink>
           <NavLink to="/promotional-platform" className={navLinkClass}>Promotional Platform</NavLink>
-          <Link to="/#gallery" className="nav-link">Gallery</Link>
-          <Link to="/#videos" className="nav-link">Videos</Link>
+          <Link to="/#gallery" className="nav-link nav-pill">Gallery</Link>
+          <Link to="/#videos" className="nav-link nav-pill">Videos</Link>
           <NavLink to="/blog" className={navLinkClass}>Blog</NavLink>
-          <Link to="/#reviews" className="nav-link">Reviews</Link>
-          <Link to="/#about" className="nav-link">About</Link>
+          <Link to="/#reviews" className="nav-link nav-pill">Reviews</Link>
+          <Link to="/#about" className="nav-link nav-pill">About</Link>
           <NavLink to="/account" className={navLinkClass}>Account</NavLink>
-          <Link to="/#booking" className="nav-link">Booking</Link>
-          <Link to="/#maps" className="nav-link">Map</Link>
-          <Link to="/#contact" className="nav-link">Contact</Link>
+          <Link to="/#booking" className="nav-link nav-pill">Booking</Link>
+          <Link to="/#maps" className="nav-link nav-pill">Map</Link>
+          <Link to="/#contact" className="nav-link nav-pill">Contact</Link>
         </nav>
       </div>
     </header>
