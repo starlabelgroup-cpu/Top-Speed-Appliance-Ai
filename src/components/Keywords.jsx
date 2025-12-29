@@ -267,6 +267,56 @@ function Keywords() {
         ))}
       </div>
 
+      <div className="keyword-library">
+        <div className="keyword-library-header">
+          <h3>High-Intent Keyword Library</h3>
+          <p>
+            Organized search terms you can drop directly into SEO pages, service area landing pages, or paid search ad groups.
+            Use the categories to match intent, then layer in the matching brand combinations below.
+          </p>
+        </div>
+
+        <div className="keyword-category-grid">
+          {keywordCategories.map((category) => (
+            <div key={category.title} className="keyword-category-card">
+              <div className="keyword-category-heading">
+                <h4>{category.title}</h4>
+                <p>{category.description}</p>
+              </div>
+              <ul className="keyword-chip-list">
+                {category.keywords.map((keyword) => (
+                  <li key={keyword}>
+                    <span className="keyword-chip">{keyword}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="brand-keywords">
+          <h4>Brand + Service Combos</h4>
+          <p>
+            Target homeowners searching for authorized or local help by pairing each manufacturer with the repairs they need most.
+            These make excellent ad group themes, FAQ anchors, or structured list content.
+          </p>
+          <div className="brand-keywords-grid">
+            {brandKeywordGroups.map((group) => (
+              <div key={group.brand} className="brand-card">
+                <div className="brand-card-header">
+                  <span className="brand-pill">{group.brand}</span>
+                </div>
+                <ul>
+                  {group.keywords.map((keyword) => (
+                    <li key={keyword}>{keyword}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="keywords-faq">
         <h3>Why Choose Top Speed Appliance?</h3>
         <div className="faq-grid">
