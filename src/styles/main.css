@@ -637,7 +637,9 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  margin-top: 30px;
+  margin: 30px auto 0;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .service-card {
@@ -646,6 +648,9 @@ section {
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .service-card-image {
@@ -653,6 +658,7 @@ section {
   height: 200px;
   object-fit: cover;
   display: block;
+  flex-shrink: 0;
 }
 
 .service-card > h3,
@@ -669,11 +675,23 @@ section {
   padding-bottom: 25px;
   color: #444;
   font-size: 0.95rem;
+  flex-grow: 1;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card .service-booking-btn {
+  margin: 20px 25px 25px;
+  align-self: flex-start;
+}
+
+@media (max-width: 600px) {
+  .service-grid {
+    gap: 20px;
+  }
 }
 
 .service-booking-btn {
