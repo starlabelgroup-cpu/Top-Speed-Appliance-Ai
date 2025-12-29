@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import SeoLeadCaptureForm from '../components/SeoLeadCaptureForm'
+import ZipDirectory from '../components/ZipDirectory'
 import {
   SEO_COUNTIES,
   SEO_CITIES_BY_COUNTY,
@@ -171,6 +172,8 @@ export default function ServiceAreasPage() {
           <SeoLeadCaptureForm source="seo" contextLabel="Service Areas Hub" defaultIssue="" />
         </div>
       </section>
+
+      <ZipDirectory />
 
       <section className="seo-leads-footer">
         <div className="seo-leads-footer-inner">
