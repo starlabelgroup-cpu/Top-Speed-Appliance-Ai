@@ -83,6 +83,44 @@ section {
   align-items: center;
 }
 
+.header-social {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-social-link {
+  color: #fff;
+  display: inline-flex;
+}
+
+.header-social-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.header-social-icon {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  display: inline-flex;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+  transition: background 0.3s, opacity 0.3s;
+}
+
+.header-social-link:hover .header-social-icon {
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0.95;
+}
+
+.header-social-icon-svg {
+  display: block;
+}
+
 .book-now-btn {
   background-color: #fff;
   color: #d10000;
