@@ -77,6 +77,92 @@
   font-size: 0.95rem;
 }
 
+/* Setup Notice */
+.admin-setup-notice {
+  border: 1px solid rgba(0, 86, 179, 0.25);
+  background: rgba(0, 86, 179, 0.06);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.admin-setup-notice-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.admin-setup-notice-icon {
+  color: #0056b3;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.admin-setup-notice-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0056b3;
+}
+
+.admin-setup-notice-subtitle {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.admin-setup-notice-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #333;
+  font-size: 0.92rem;
+}
+
+.admin-setup-notice-item {
+  margin: 8px 0;
+}
+
+.admin-setup-notice-vars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.admin-setup-notice-var {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
+.admin-setup-notice-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.admin-setup-notice-status-chip {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.admin-setup-notice-status-chip[data-status="set"] {
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #116329;
+}
+
+.admin-setup-notice-status-chip[data-status="missing"] {
+  background: rgba(225, 6, 0, 0.12);
+  border: 1px solid rgba(225, 6, 0, 0.35);
+  color: #721c24;
+}
+
 /* Error Message */
 .login-error {
   background-color: #f8d7da;

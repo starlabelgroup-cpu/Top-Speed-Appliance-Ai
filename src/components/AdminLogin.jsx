@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { supabase } from '../services/supabaseClient'
+import AdminSupabaseSetupNotice from './AdminSupabaseSetupNotice'
 import { adminAuth } from '../utils/adminAuth'
 import '../styles/admin-login.css'
 
@@ -62,6 +63,8 @@ function AdminLogin() {
             <h1>Admin Access</h1>
             <p>Top Speed Appliance Admin Panel</p>
           </div>
+
+          {!supabase && <AdminSupabaseSetupNotice />}
 
           {error && (
             <div className="login-error">

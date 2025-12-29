@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 import { supabase } from '../services/supabaseClient'
+import AdminSupabaseSetupNotice from '../components/AdminSupabaseSetupNotice'
 import { adminAuth } from '../utils/adminAuth'
 import '../styles/admin-leads.css'
 
@@ -178,6 +179,8 @@ export default function AdminLeadsPage() {
           </div>
         </div>
       </section>
+
+      {!supabase && <AdminSupabaseSetupNotice />}
 
       {error && (
         <div className="admin-leads-error" role="status">
