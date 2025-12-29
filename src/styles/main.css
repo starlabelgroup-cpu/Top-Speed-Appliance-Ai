@@ -83,44 +83,6 @@ section {
   align-items: center;
 }
 
-.header-social {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.header-social-link {
-  color: #fff;
-  display: inline-flex;
-}
-
-.header-social-link:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
-  border-radius: 999px;
-}
-
-.header-social-icon {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  display: inline-flex;
-  height: 34px;
-  justify-content: center;
-  width: 34px;
-  transition: background 0.3s, opacity 0.3s;
-}
-
-.header-social-link:hover .header-social-icon {
-  background: rgba(255, 255, 255, 0.2);
-  opacity: 0.95;
-}
-
-.header-social-icon-svg {
-  display: block;
-}
-
 .book-now-btn {
   background-color: #fff;
   color: #d10000;
@@ -3528,6 +3490,45 @@ button:hover, a:hover {
 .footer p {
   margin: 10px 0;
   font-size: 0.95rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.footer-social-link {
+  color: #fff;
+  display: inline-flex;
+}
+
+.footer-social-link:focus-visible {
+  outline: 2px solid #d10000;
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.footer-social-icon {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  display: inline-flex;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.footer-social-link:hover .footer-social-icon {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.footer-social-icon-svg {
+  display: block;
 }
 
 .footer-flag {
