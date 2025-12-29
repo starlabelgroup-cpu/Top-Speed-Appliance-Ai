@@ -670,6 +670,19 @@
     flex-direction: column;
   }
 
+  .zip-directory-filter-group {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .zip-directory-filter-button {
+    width: 100%;
+  }
+
+  .zip-directory-card-meta {
+    flex-direction: column;
+  }
+
   .zip-directory-metrics {
     grid-template-columns: 1fr;
   }
