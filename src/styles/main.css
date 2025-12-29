@@ -410,6 +410,10 @@ section {
   padding: 0;
 }
 
+.hero-bg {
+  background-image: url(https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc593bf5c5ea049c987a8ce14d83a1a44?format=webp&width=800);
+}
+
 .hero-overlay {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -2866,6 +2870,14 @@ button:hover, a:hover {
   grid-column: span 2;
 }
 
+.media-item.span-3 {
+  grid-column: span 3;
+}
+
+.media-item.span-4 {
+  grid-column: span 4;
+}
+
 .image-wrapper {
   position: relative;
   width: 100%;
@@ -3250,7 +3262,9 @@ button:hover, a:hover {
 }
 
 @media (max-width: 1024px) {
-  .media-item.span-2 {
+  .media-item.span-2,
+  .media-item.span-3,
+  .media-item.span-4 {
     grid-column: span 1;
   }
 

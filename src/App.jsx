@@ -1,36 +1,55 @@
-import React, { useEffect } from 'react'
+import React, { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import Keywords from './components/Keywords'
-import Gallery from './components/Gallery'
-import Videos from './components/Videos'
-import PromotionalBroadcasting from './components/PromotionalBroadcasting'
-import Reviews from './components/Reviews'
-import About from './components/About'
-import Booking from './components/Booking'
-import Maps from './components/Maps'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
-import Blog from './components/Blog'
-import BlogPost from './components/BlogPost'
-import Privacy from './components/Privacy'
-import Dashboard from './components/Dashboard'
-import PromotionalPlatformPage from './pages/PromotionalPlatformPage'
-import ServiceRequestPage from './pages/ServiceRequestPage'
-import QrLeadPage from './pages/QrLeadPage'
-import ServiceAreasPage from './pages/ServiceAreasPage'
-import SeoLandingPage from './pages/SeoLandingPage'
-import AdvancedAIAgent from './components/AdvancedAIAgent'
 import ErrorBoundary from './components/ErrorBoundary'
-import AdminLogin from './components/AdminLogin'
-import AdminLeadsPage from './pages/AdminLeadsPage'
 import SEOSchema from './components/SEOSchema'
 import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
 import { startHealthCheck, stopHealthCheck } from './services/agentService'
 import { adminAuth } from './utils/adminAuth'
 import validateConfig from './utils/configValidator'
+
+const Gallery = lazy(() => import('./components/Gallery'))
+const Videos = lazy(() => import('./components/Videos'))
+const PromotionalBroadcasting = lazy(() => import('./components/PromotionalBroadcasting'))
+const Reviews = lazy(() => import('./components/Reviews'))
+const About = lazy(() => import('./components/About'))
+const Booking = lazy(() => import('./components/Booking'))
+const Maps = lazy(() => import('./components/Maps'))
+const Contact = lazy(() => import('./components/Contact'))
+const Blog = lazy(() => import('./components/Blog'))
+const BlogPost = lazy(() => import('./components/BlogPost'))
+const Privacy = lazy(() => import('./components/Privacy'))
+const Dashboard = lazy(() => import('./components/Dashboard'))
+const PromotionalPlatformPage = lazy(() => import('./pages/PromotionalPlatformPage'))
+const ServiceRequestPage = lazy(() => import('./pages/ServiceRequestPage'))
+const QrLeadPage = lazy(() => import('./pages/QrLeadPage'))
+const ServiceAreasPage = lazy(() => import('./pages/ServiceAreasPage'))
+const SeoLandingPage = lazy(() => import('./pages/SeoLandingPage'))
+const AdminLogin = lazy(() => import('./components/AdminLogin'))
+const AdminLeadsPage = lazy(() => import('./pages/AdminLeadsPage'))
+const AdvancedAIAgent = lazy(() => import('./components/AdvancedAIAgent'))
+
+function DeferredMount({ children, timeoutMs = 1500 }) {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    const mount = () => setMounted(true)
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(mount, { timeout: timeoutMs })
+      return () => window.cancelIdleCallback?.(id)
+    }
+
+    const timerId = window.setTimeout(mount, 250)
+    return () => window.clearTimeout(timerId)
+  }, [timeoutMs])
+
+  return mounted ? children : null
+}
 
 function HomePage() {
   return (
@@ -38,14 +57,19 @@ function HomePage() {
       <Hero />
       <Services />
       <Keywords />
-      <PromotionalBroadcasting />
-      <Gallery />
-      <Videos />
-      <Reviews />
-      <About />
-      <Booking />
-      <Maps />
-      <Contact />
+
+      <DeferredMount>
+        <Suspense fallback={null}>
+          <PromotionalBroadcasting />
+          <Gallery />
+          <Videos />
+          <Reviews />
+          <About />
+          <Booking />
+          <Maps />
+          <Contact />
+        </Suspense>
+      </DeferredMount>
     </>
   )
 }
@@ -137,22 +161,28 @@ function App() {
       <Router>
         <SEOSchema />
         <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/promotional-platform" element={<PromotionalPlatformPage />} />
-          <Route path="/service-request" element={<ServiceRequestPage />} />
-          <Route path="/qr" element={<QrLeadPage />} />
-          <Route path="/service-areas" element={<ServiceAreasPage />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/account" element={<Dashboard />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/leads" element={<AdminLeadsPage />} />
-          <Route path="/:seoSlug" element={<SeoLandingPage />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/promotional-platform" element={<PromotionalPlatformPage />} />
+            <Route path="/service-request" element={<ServiceRequestPage />} />
+            <Route path="/qr" element={<QrLeadPage />} />
+            <Route path="/service-areas" element={<ServiceAreasPage />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/account" element={<Dashboard />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/leads" element={<AdminLeadsPage />} />
+            <Route path="/:seoSlug" element={<SeoLandingPage />} />
+          </Routes>
+        </Suspense>
         <Footer />
-        <AdvancedAIAgent />
+        <DeferredMount>
+          <Suspense fallback={null}>
+            <AdvancedAIAgent />
+          </Suspense>
+        </DeferredMount>
       </Router>
     </ErrorBoundary>
   )

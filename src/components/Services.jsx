@@ -31,7 +31,7 @@ function Services() {
       <div className="service-grid">
         {services.map((service, i) => (
           <div className="service-card" key={i}>
-            <img src={service.image} alt={service.title} className="service-card-image" />
+            <img src={service.image} alt={service.title} className="service-card-image" loading="lazy" decoding="async" />
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
             <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="service-booking-btn">

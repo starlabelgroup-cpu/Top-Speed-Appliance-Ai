@@ -178,11 +178,7 @@ function PromotionalBroadcasting() {
       <div className="broadcast-container">
         <div className="broadcast-media-grid">
           {filteredImages.map((image) => (
-            <div
-              key={`img-${image.id}`}
-              className={`media-item image-item span-${image.span}`}
-              style={{ gridColumn: image.span > 1 ? `span ${image.span}` : 'auto' }}
-            >
+            <div key={`img-${image.id}`} className={`media-item image-item span-${image.span}`}>
               <div className="image-wrapper">
                 <img
                   src={image.src}
