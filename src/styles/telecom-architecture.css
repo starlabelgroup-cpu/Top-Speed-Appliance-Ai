@@ -1,0 +1,289 @@
+.telecom-architecture-page {
+  background: linear-gradient(135deg, #0f0f10 0%, #1a1a1c 100%);
+  color: #fff;
+  min-height: 100vh;
+  padding: 40px 20px 80px;
+}
+
+.telecom-hero {
+  margin: 0 auto 48px;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.telecom-eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.telecom-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.telecom-lede {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0 auto 24px;
+  max-width: 820px;
+}
+
+.telecom-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.telecom-layer-section,
+.telecom-service-section,
+.telecom-endpoints-section,
+.telecom-database-section,
+.telecom-workflow-section,
+.telecom-vendors-section,
+.telecom-billing-section,
+.telecom-deployment-section,
+.telecom-video-section,
+.telecom-cta-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 36px 0;
+}
+
+.telecom-section-heading {
+  margin-bottom: 22px;
+}
+
+.telecom-section-heading h2 {
+  font-size: 1.9rem;
+  margin-bottom: 8px;
+}
+
+.telecom-section-heading p {
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+}
+
+.telecom-layer-grid,
+.telecom-service-grid,
+.telecom-database-grid,
+.telecom-workflow-grid,
+.telecom-vendor-grid,
+.telecom-billing-grid,
+.telecom-video-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.telecom-layer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.telecom-layer-card,
+.telecom-service-card,
+.telecom-database-card,
+.telecom-workflow-card,
+.telecom-vendor-card,
+.telecom-billing-card,
+.telecom-video-card,
+.telecom-cta-card {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.telecom-layer-card ul,
+.telecom-service-card ul,
+.telecom-database-card ul,
+.telecom-vendor-card ul,
+.telecom-video-card ul {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.telecom-layer-card li,
+.telecom-service-card li,
+.telecom-database-card li,
+.telecom-vendor-card li,
+.telecom-video-card li {
+  margin-bottom: 6px;
+}
+
+.telecom-card-badge {
+  background: rgba(209, 0, 0, 0.2);
+  border: 1px solid rgba(209, 0, 0, 0.4);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+
+.telecom-service-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.telecom-service-card h3,
+.telecom-database-card h3,
+.telecom-workflow-card h3,
+.telecom-vendor-card h3,
+.telecom-billing-card h3,
+.telecom-video-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+}
+
+.telecom-endpoints-section .telecom-table-wrapper {
+  overflow-x: auto;
+}
+
+.telecom-table {
+  border-collapse: collapse;
+  min-width: 640px;
+  width: 100%;
+}
+
+.telecom-table th,
+.telecom-table td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px;
+  text-align: left;
+}
+
+.telecom-table th {
+  background: rgba(255, 255, 255, 0.04);
+  font-weight: 800;
+}
+
+.telecom-table td {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.telecom-database-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.telecom-workflow-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.telecom-workflow-card ol {
+  color: rgba(255, 255, 255, 0.82);
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.telecom-workflow-card li {
+  margin-bottom: 8px;
+}
+
+.telecom-vendor-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.telecom-vendor-header {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.telecom-vendor-role {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.telecom-billing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.telecom-billing-card p {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.telecom-deployment-list {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px 24px;
+}
+
+.telecom-deployment-list li {
+  margin-bottom: 10px;
+}
+
+.telecom-video-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.telecom-cta-section {
+  padding-bottom: 0;
+}
+
+.telecom-cta-card {
+  text-align: center;
+}
+
+.telecom-cta-card h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 12px;
+}
+
+.telecom-cta-card p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.telecom-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .telecom-architecture-page {
+    padding: 30px 16px 60px;
+  }
+
+  .telecom-hero {
+    text-align: left;
+  }
+
+  .telecom-hero-actions {
+    justify-content: flex-start;
+  }
+
+  .telecom-table {
+    min-width: 520px;
+  }
+}
+
+@media (max-width: 520px) {
+  .telecom-hero {
+    text-align: center;
+  }
+
+  .telecom-hero-actions {
+    justify-content: center;
+  }
+
+  .telecom-table {
+    min-width: 420px;
+  }
+}
