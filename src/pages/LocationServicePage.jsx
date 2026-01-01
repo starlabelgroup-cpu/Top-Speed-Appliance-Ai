@@ -64,11 +64,13 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
   const citySlug = citySlugProp ?? params.citySlug
   const serviceSlug = serviceSlugProp ?? params.serviceSlug
 
-  const canonicalPath = `/locations/${citySlug}/${serviceSlug}`
+  const fallbackPath = `/locations/${citySlug}/${serviceSlug}`
 
   const page = useMemo(() => {
     return LOCATION_SERVICE_PAGES.find((entry) => entry.citySlug === citySlug && entry.serviceSlug === serviceSlug) || null
   }, [citySlug, serviceSlug])
+
+  const canonicalPath = page?.canonicalPath ?? fallbackPath
 
   const origin = safeOrigin()
 
