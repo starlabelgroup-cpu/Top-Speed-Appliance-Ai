@@ -175,6 +175,7 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/telecom-architecture" element={<TelecomArchitecturePage />} />
             <Route path="/locations/:citySlug/:serviceSlug" element={<LocationServicePage />} />
+            <Route path="/dryer-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="dryer-repair" />} />
             <Route path="/account" element={<Dashboard />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/leads" element={<AdminLeadsPage />} />
