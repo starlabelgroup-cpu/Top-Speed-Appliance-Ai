@@ -29,6 +29,7 @@ const ServiceRequestPage = lazy(() => import('./pages/ServiceRequestPage'))
 const QrLeadPage = lazy(() => import('./pages/QrLeadPage'))
 const ServiceAreasPage = lazy(() => import('./pages/ServiceAreasPage'))
 const SeoLandingPage = lazy(() => import('./pages/SeoLandingPage'))
+const LocationServicePage = lazy(() => import('./pages/LocationServicePage'))
 const TelecomArchitecturePage = lazy(() => import('./pages/TelecomArchitecturePage'))
 const AdminLogin = lazy(() => import('./components/AdminLogin'))
 const AdminLeadsPage = lazy(() => import('./pages/AdminLeadsPage'))
@@ -173,6 +174,7 @@ function App() {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/telecom-architecture" element={<TelecomArchitecturePage />} />
+            <Route path="/locations/:citySlug/:serviceSlug" element={<LocationServicePage />} />
             <Route path="/account" element={<Dashboard />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/leads" element={<AdminLeadsPage />} />
