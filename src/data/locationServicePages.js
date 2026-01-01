@@ -5,6 +5,7 @@ export const LOCATION_SERVICE_PAGES = [
     serviceSlug: 'dryer-repair',
     serviceName: 'Dryer Repair',
     county: 'Miami-Dade County',
+    canonicalPath: '/dryer-repair-miami-fl',
     hero: {
       intro: 'Top Speed Appliance delivers licensed and insured dryer repair in Miami with same-day appointments when available. We help homeowners, condos, and property managers keep laundry rooms running without downtime.',
       ctaLabel: 'Book Dryer Repair',
