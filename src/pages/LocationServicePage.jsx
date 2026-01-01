@@ -103,7 +103,7 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
   return (
     <main className="location-service-page">
       <section className="location-hero">
-        <p className="location-eyebrow">Dryer Repair • Miami, FL</p>
+        <p className="location-eyebrow">{page.serviceName} • {page.cityName}, FL</p>
         <h1>Professional {page.serviceName} Services in {page.cityName}, FL</h1>
         <p className="location-lede">{page.hero.intro}</p>
         <div className="location-hero-actions">
