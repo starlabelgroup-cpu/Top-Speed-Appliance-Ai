@@ -5,6 +5,11 @@ import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { useSeo } from '../utils/useSeo'
 import '../styles/location-service-page.css'
 
+function safeOrigin() {
+  if (typeof window === 'undefined') return 'https://topspeedappliance.com'
+  return window.location.origin
+}
+
 function buildFaqSchema({ origin, canonicalPath, faqs, serviceName, cityName }) {
   return {
     '@context': 'https://schema.org',
@@ -62,6 +67,8 @@ export default function LocationServicePage() {
     return LOCATION_SERVICE_PAGES.find((entry) => entry.citySlug === citySlug && entry.serviceSlug === serviceSlug) || null
   }, [citySlug, serviceSlug])
 
+  const origin = safeOrigin()
+
   useSeo(
     page
       ? {
@@ -70,7 +77,7 @@ export default function LocationServicePage() {
           canonicalPath,
           ogImage: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F5b2cddc584514ebd90bab47dfa9fab6c?format=webp&width=1200',
           schema: buildFaqSchema({
-            origin: 'https://topspeedappliance.com',
+            origin,
             canonicalPath,
             faqs: page.faqs,
             serviceName: page.serviceName,
