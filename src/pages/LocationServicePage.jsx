@@ -59,8 +59,11 @@ function NotFoundSection() {
   )
 }
 
-export default function LocationServicePage() {
-  const { citySlug, serviceSlug } = useParams()
+export default function LocationServicePage({ citySlug: citySlugProp, serviceSlug: serviceSlugProp } = {}) {
+  const params = useParams()
+  const citySlug = citySlugProp ?? params.citySlug
+  const serviceSlug = serviceSlugProp ?? params.serviceSlug
+
   const canonicalPath = `/locations/${citySlug}/${serviceSlug}`
 
   const page = useMemo(() => {
