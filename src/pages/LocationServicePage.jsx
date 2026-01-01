@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useMemo } from 'react'
 import { LOCATION_SERVICE_PAGES } from '../data/locationServicePages'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
