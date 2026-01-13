@@ -104,7 +104,8 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Location + Service Landing Pages (High-Intent SEO) -->
+  <!-- Location + Service Landing Pages (High-Intent SEO - 23 Pages) -->
+  <!-- Miami (5 services) -->
   <url>
     <loc>https://topspeedappliance.com/dryer-repair-miami-fl</loc>
     <lastmod>2025-12-25</lastmod>
@@ -124,6 +125,19 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://topspeedappliance.com/oven-stove-repair-miami-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/dishwasher-repair-miami-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Fort Lauderdale (4 services) -->
+  <url>
     <loc>https://topspeedappliance.com/dryer-repair-fort-lauderdale-fl</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -136,13 +150,89 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://topspeedappliance.com/oven-stove-repair-fort-lauderdale-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/dishwasher-repair-fort-lauderdale-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Boca Raton (4 services) -->
+  <url>
     <loc>https://topspeedappliance.com/dryer-repair-boca-raton-fl</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://topspeedappliance.com/washer-dryer-repair-boca-raton-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/oven-stove-repair-boca-raton-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/dishwasher-repair-boca-raton-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- West Palm Beach (3 services) -->
+  <url>
     <loc>https://topspeedappliance.com/dryer-repair-west-palm-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/washer-dryer-repair-west-palm-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/refrigerator-repair-west-palm-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Delray Beach (3 services) -->
+  <url>
+    <loc>https://topspeedappliance.com/dryer-repair-delray-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/washer-dryer-repair-delray-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/oven-stove-repair-delray-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Boynton Beach (2 services) -->
+  <url>
+    <loc>https://topspeedappliance.com/dryer-repair-boynton-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/refrigerator-repair-boynton-beach-fl</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
