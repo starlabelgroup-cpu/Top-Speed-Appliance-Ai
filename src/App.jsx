@@ -175,7 +175,14 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/telecom-architecture" element={<TelecomArchitecturePage />} />
             <Route path="/locations/:citySlug/:serviceSlug" element={<LocationServicePage />} />
+            {/* SEO Aliases for High-Intent Location + Service Pages */}
             <Route path="/dryer-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/refrigerator-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="refrigerator-repair" />} />
+            <Route path="/dryer-repair-fort-lauderdale-fl" element={<LocationServicePage citySlug="fort-lauderdale" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-fort-lauderdale-fl" element={<LocationServicePage citySlug="fort-lauderdale" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/dryer-repair-boca-raton-fl" element={<LocationServicePage citySlug="boca-raton" serviceSlug="dryer-repair" />} />
+            <Route path="/dryer-repair-west-palm-beach-fl" element={<LocationServicePage citySlug="west-palm-beach" serviceSlug="dryer-repair" />} />
             <Route path="/account" element={<Dashboard />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/leads" element={<AdminLeadsPage />} />
