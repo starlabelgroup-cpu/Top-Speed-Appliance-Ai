@@ -175,14 +175,34 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/telecom-architecture" element={<TelecomArchitecturePage />} />
             <Route path="/locations/:citySlug/:serviceSlug" element={<LocationServicePage />} />
-            {/* SEO Aliases for High-Intent Location + Service Pages */}
+            {/* SEO Aliases for High-Intent Location + Service Pages (23 Pages) */}
+            {/* Miami (5 services) */}
             <Route path="/dryer-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="dryer-repair" />} />
             <Route path="/washer-dryer-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="washer-dryer-repair" />} />
             <Route path="/refrigerator-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="refrigerator-repair" />} />
+            <Route path="/oven-stove-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="oven-stove-repair" />} />
+            <Route path="/dishwasher-repair-miami-fl" element={<LocationServicePage citySlug="miami" serviceSlug="dishwasher-repair" />} />
+            {/* Fort Lauderdale (4 services) */}
             <Route path="/dryer-repair-fort-lauderdale-fl" element={<LocationServicePage citySlug="fort-lauderdale" serviceSlug="dryer-repair" />} />
             <Route path="/washer-dryer-repair-fort-lauderdale-fl" element={<LocationServicePage citySlug="fort-lauderdale" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/oven-stove-repair-fort-lauderdale-fl" element={<LocationServicePage citySlug="fort-lauderdale" serviceSlug="oven-stove-repair" />} />
+            <Route path="/dishwasher-repair-fort-lauderdale-fl" element={<LocationServicePage citySlug="fort-lauderdale" serviceSlug="dishwasher-repair" />} />
+            {/* Boca Raton (4 services) */}
             <Route path="/dryer-repair-boca-raton-fl" element={<LocationServicePage citySlug="boca-raton" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-boca-raton-fl" element={<LocationServicePage citySlug="boca-raton" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/oven-stove-repair-boca-raton-fl" element={<LocationServicePage citySlug="boca-raton" serviceSlug="oven-stove-repair" />} />
+            <Route path="/dishwasher-repair-boca-raton-fl" element={<LocationServicePage citySlug="boca-raton" serviceSlug="dishwasher-repair" />} />
+            {/* West Palm Beach (3 services) */}
             <Route path="/dryer-repair-west-palm-beach-fl" element={<LocationServicePage citySlug="west-palm-beach" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-west-palm-beach-fl" element={<LocationServicePage citySlug="west-palm-beach" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/refrigerator-repair-west-palm-beach-fl" element={<LocationServicePage citySlug="west-palm-beach" serviceSlug="refrigerator-repair" />} />
+            {/* Delray Beach (3 services) */}
+            <Route path="/dryer-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/oven-stove-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="oven-stove-repair" />} />
+            {/* Boynton Beach (2 services) */}
+            <Route path="/dryer-repair-boynton-beach-fl" element={<LocationServicePage citySlug="boynton-beach" serviceSlug="dryer-repair" />} />
+            <Route path="/refrigerator-repair-boynton-beach-fl" element={<LocationServicePage citySlug="boynton-beach" serviceSlug="refrigerator-repair" />} />
             <Route path="/account" element={<Dashboard />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/leads" element={<AdminLeadsPage />} />
