@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
-import { Link, useParams } from 'react-router-dom'
-import { useMemo } from 'react'
+import { useMemo, useEffect, useRef } from 'react'
 import { LOCATION_SERVICE_PAGES } from '../data/locationServicePages'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { useSeo } from '../utils/useSeo'
+import * as ga4Events from '../utils/ga4Events'
 import '../styles/location-service-page.css'
 
 function safeOrigin() {
