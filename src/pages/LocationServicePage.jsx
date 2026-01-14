@@ -64,6 +64,9 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
   const params = useParams()
   const citySlug = citySlugProp ?? params.citySlug
   const serviceSlug = serviceSlugProp ?? params.serviceSlug
+  const scrollTrackedRef = useRef({ 25: false, 50: false, 75: false, 100: false })
+  const timeTrackedRef = useRef({ 30: false, 60: false, 120: false })
+  const pageStartTimeRef = useRef(Date.now())
 
   const fallbackPath = `/locations/${citySlug}/${serviceSlug}`
 
@@ -96,6 +99,78 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
           canonicalPath
         }
   )
+
+  // Track landing page view on mount
+  useEffect(() => {
+    if (page) {
+      ga4Events.trackLandingPageView(page.cityName, page.serviceName, canonicalPath)
+    }
+  }, [page, canonicalPath])
+
+  // Track scroll depth and time on page
+  useEffect(() => {
+    if (!page) return
+
+    const handleScroll = () => {
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+
+      if (scrollPercentage >= 25 && !scrollTrackedRef.current[25]) {
+        scrollTrackedRef.current[25] = true
+        ga4Events.trackScrollDepth(25, page.cityName, page.serviceName)
+      }
+      if (scrollPercentage >= 50 && !scrollTrackedRef.current[50]) {
+        scrollTrackedRef.current[50] = true
+        ga4Events.trackScrollDepth(50, page.cityName, page.serviceName)
+      }
+      if (scrollPercentage >= 75 && !scrollTrackedRef.current[75]) {
+        scrollTrackedRef.current[75] = true
+        ga4Events.trackScrollDepth(75, page.cityName, page.serviceName)
+      }
+      if (scrollPercentage >= 100 && !scrollTrackedRef.current[100]) {
+        scrollTrackedRef.current[100] = true
+        ga4Events.trackScrollDepth(100, page.cityName, page.serviceName)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [page])
+
+  // Track time on page at intervals
+  useEffect(() => {
+    if (!page) return
+
+    const intervals = [
+      { time: 30000, key: 30 },
+      { time: 60000, key: 60 },
+      { time: 120000, key: 120 }
+    ]
+
+    const timeouts = intervals.map(({ time, key }) =>
+      setTimeout(() => {
+        if (!timeTrackedRef.current[key]) {
+          timeTrackedRef.current[key] = true
+          ga4Events.trackTimeOnPage(key, page.cityName, page.serviceName)
+        }
+      }, time)
+    )
+
+    return () => timeouts.forEach(timeout => clearTimeout(timeout))
+  }, [page])
+
+  // Track CTA clicks
+  const handleCTAClick = (ctaType) => {
+    if (page) {
+      ga4Events.trackLandingPageCTA(ctaType, page.cityName, page.serviceName)
+    }
+  }
+
+  // Track FAQ expansion
+  const handleFAQToggle = (question) => {
+    if (page) {
+      ga4Events.trackFAQEngagement(question, page.cityName, page.serviceName)
+    }
+  }
 
   if (!page) {
     return <NotFoundSection />
