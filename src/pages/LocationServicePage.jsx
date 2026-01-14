@@ -244,7 +244,7 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
             <h2>Frequently Asked Questions</h2>
             <div className="location-faq-list">
               {page.faqs.map((faq) => (
-                <details key={faq.question} className="location-faq">
+                <details key={faq.question} className="location-faq" onToggle={() => handleFAQToggle(faq.question)}>
                   <summary>{faq.question}</summary>
                   <p>{faq.answer}</p>
                 </details>
