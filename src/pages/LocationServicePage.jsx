@@ -258,8 +258,8 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
             <h3>Schedule Dryer Repair</h3>
             <p>Call or click to confirm your appointment instantly.</p>
             <div className="location-sidebar-actions">
-              <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
-              <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
+              <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick('sidebar_book_online')}>Book Online</a>
+              <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK} onClick={() => handleCTAClick('sidebar_call')}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
             </div>
             <p className="location-sidebar-note">Serving {page.county} and nearby cities.</p>
           </div>
