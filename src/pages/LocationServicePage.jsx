@@ -104,7 +104,22 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
   // Track landing page view on mount
   useEffect(() => {
     if (page) {
+      // GA4 tracking
       ga4Events.trackLandingPageView(page.cityName, page.serviceName, canonicalPath)
+
+      // Google Ads tracking - page view conversion
+      googleAdsTracking.trackPageViewConversion({
+        service: page.serviceName,
+        city: page.cityName,
+        pageType: 'landing_page'
+      })
+
+      // Add to remarketing audience
+      googleAdsTracking.trackRemarketingAudience({
+        audienceType: 'landing_page_visitor',
+        service: page.serviceName,
+        city: page.cityName
+      })
     }
   }, [page, canonicalPath])
 
