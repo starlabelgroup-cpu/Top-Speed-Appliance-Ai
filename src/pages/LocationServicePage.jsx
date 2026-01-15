@@ -141,6 +141,12 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
       if (scrollPercentage >= 75 && !scrollTrackedRef.current[75]) {
         scrollTrackedRef.current[75] = true
         ga4Events.trackScrollDepth(75, page.cityName, page.serviceName)
+        // Track high engagement for Google Ads remarketing
+        googleAdsTracking.trackHighEngagement({
+          service: page.serviceName,
+          city: page.cityName,
+          scrollDepth: 75
+        })
       }
       if (scrollPercentage >= 100 && !scrollTrackedRef.current[100]) {
         scrollTrackedRef.current[100] = true
