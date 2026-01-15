@@ -183,7 +183,30 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
   // Track CTA clicks
   const handleCTAClick = (ctaType) => {
     if (page) {
+      // GA4 tracking
       ga4Events.trackLandingPageCTA(ctaType, page.cityName, page.serviceName)
+
+      // Google Ads tracking
+      if (ctaType === 'call_now' || ctaType === 'sidebar_call') {
+        googleAdsTracking.trackPhoneCallConversion({
+          service: page.serviceName,
+          city: page.cityName,
+          phone: BOOKING_CONFIG.PHONE_NUMBER
+        })
+      } else if (ctaType === 'book_now' || ctaType === 'sidebar_book_online') {
+        googleAdsTracking.trackLeadConversion({
+          leadType: 'booking_request',
+          service: page.serviceName,
+          city: page.cityName
+        })
+      }
+
+      // Track remarketing audience for CTA clickers
+      googleAdsTracking.trackRemarketingAudience({
+        audienceType: 'cta_clicker',
+        service: page.serviceName,
+        city: page.cityName
+      })
     }
   }
 
