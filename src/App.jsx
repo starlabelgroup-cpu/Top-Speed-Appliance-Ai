@@ -200,9 +200,27 @@ function App() {
             <Route path="/dryer-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="dryer-repair" />} />
             <Route path="/washer-dryer-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="washer-dryer-repair" />} />
             <Route path="/oven-stove-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="oven-stove-repair" />} />
-            {/* Boynton Beach (2 services) */}
+            {/* Boynton Beach (5 services) */}
             <Route path="/dryer-repair-boynton-beach-fl" element={<LocationServicePage citySlug="boynton-beach" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-boynton-beach-fl" element={<LocationServicePage citySlug="boynton-beach" serviceSlug="washer-dryer-repair" />} />
             <Route path="/refrigerator-repair-boynton-beach-fl" element={<LocationServicePage citySlug="boynton-beach" serviceSlug="refrigerator-repair" />} />
+            <Route path="/oven-stove-repair-boynton-beach-fl" element={<LocationServicePage citySlug="boynton-beach" serviceSlug="oven-stove-repair" />} />
+            <Route path="/dishwasher-repair-boynton-beach-fl" element={<LocationServicePage citySlug="boynton-beach" serviceSlug="dishwasher-repair" />} />
+            {/* Delray Beach - Additional Services (5 services) */}
+            <Route path="/refrigerator-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="refrigerator-repair" />} />
+            <Route path="/dishwasher-repair-delray-beach-fl" element={<LocationServicePage citySlug="delray-beach" serviceSlug="dishwasher-repair" />} />
+            {/* Jupiter (5 services) */}
+            <Route path="/dryer-repair-jupiter-fl" element={<LocationServicePage citySlug="jupiter" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-jupiter-fl" element={<LocationServicePage citySlug="jupiter" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/refrigerator-repair-jupiter-fl" element={<LocationServicePage citySlug="jupiter" serviceSlug="refrigerator-repair" />} />
+            <Route path="/oven-stove-repair-jupiter-fl" element={<LocationServicePage citySlug="jupiter" serviceSlug="oven-stove-repair" />} />
+            <Route path="/dishwasher-repair-jupiter-fl" element={<LocationServicePage citySlug="jupiter" serviceSlug="dishwasher-repair" />} />
+            {/* Palm Beach Gardens (5 services) */}
+            <Route path="/dryer-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="dryer-repair" />} />
+            <Route path="/washer-dryer-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="washer-dryer-repair" />} />
+            <Route path="/refrigerator-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="refrigerator-repair" />} />
+            <Route path="/oven-stove-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="oven-stove-repair" />} />
+            <Route path="/dishwasher-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="dishwasher-repair" />} />
             <Route path="/account" element={<Dashboard />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/leads" element={<AdminLeadsPage />} />
