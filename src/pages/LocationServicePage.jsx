@@ -4,6 +4,7 @@ import { LOCATION_SERVICE_PAGES } from '../data/locationServicePages'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { useSeo } from '../utils/useSeo'
 import * as ga4Events from '../utils/ga4Events'
+import * as googleAdsTracking from '../utils/googleAdsTracking'
 import '../styles/location-service-page.css'
 
 function safeOrigin() {
