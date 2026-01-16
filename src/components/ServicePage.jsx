@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../styles/service-page.css'
+import '../styles/service-and-city-pages.css'
 
 /**
  * ServicePage Component
