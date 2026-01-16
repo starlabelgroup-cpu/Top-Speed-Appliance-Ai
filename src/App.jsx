@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import './lib/builder' // Initialize Builder.io
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
