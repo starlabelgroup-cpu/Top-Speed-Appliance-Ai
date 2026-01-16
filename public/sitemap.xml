@@ -331,6 +331,82 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Core Service Pages (4 - High Priority) -->
+  <url>
+    <loc>https://topspeedappliance.com/washer-repair</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/dryer-repair</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/refrigerator-repair</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/oven-stove-repair</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- City Landing Pages (8 - High Priority) -->
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-fort-lauderdale</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-hollywood-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-plantation-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-pembroke-pines-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-delray-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-boynton-beach-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-jupiter-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://topspeedappliance.com/appliance-repair-palm-beach-gardens-fl</loc>
+    <lastmod>2025-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <url>
     <loc>https://topspeedappliance.com/broward-county</loc>
     <lastmod>2025-12-25</lastmod>
