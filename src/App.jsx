@@ -35,6 +35,8 @@ const TelecomArchitecturePage = lazy(() => import('./pages/TelecomArchitecturePa
 const AdminLogin = lazy(() => import('./components/AdminLogin'))
 const AdminLeadsPage = lazy(() => import('./pages/AdminLeadsPage'))
 const AdvancedAIAgent = lazy(() => import('./components/AdvancedAIAgent'))
+const ServicePage = lazy(() => import('./components/ServicePage'))
+const CityPage = lazy(() => import('./components/CityPage'))
 
 function DeferredMount({ children, timeoutMs = 1500 }) {
   const [mounted, setMounted] = useState(false)
