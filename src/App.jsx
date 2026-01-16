@@ -224,6 +224,23 @@ function App() {
             <Route path="/refrigerator-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="refrigerator-repair" />} />
             <Route path="/oven-stove-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="oven-stove-repair" />} />
             <Route path="/dishwasher-repair-palm-beach-gardens-fl" element={<LocationServicePage citySlug="palm-beach-gardens" serviceSlug="dishwasher-repair" />} />
+
+            {/* New Service Pages (High-Converting) */}
+            <Route path="/washer-repair" element={<ServicePage service="washer" />} />
+            <Route path="/dryer-repair" element={<ServicePage service="dryer" />} />
+            <Route path="/refrigerator-repair" element={<ServicePage service="refrigerator" />} />
+            <Route path="/oven-stove-repair" element={<ServicePage service="oven" />} />
+
+            {/* New City Pages (Local SEO) */}
+            <Route path="/appliance-repair-fort-lauderdale" element={<CityPage city="fort-lauderdale" />} />
+            <Route path="/appliance-repair-hollywood-fl" element={<CityPage city="hollywood-fl" />} />
+            <Route path="/appliance-repair-plantation-fl" element={<CityPage city="plantation-fl" />} />
+            <Route path="/appliance-repair-pembroke-pines-fl" element={<CityPage city="pembroke-pines-fl" />} />
+            <Route path="/appliance-repair-delray-beach-fl" element={<CityPage city="delray-beach-fl" />} />
+            <Route path="/appliance-repair-boynton-beach-fl" element={<CityPage city="boynton-beach-fl" />} />
+            <Route path="/appliance-repair-jupiter-fl" element={<CityPage city="jupiter-fl" />} />
+            <Route path="/appliance-repair-palm-beach-gardens-fl" element={<CityPage city="palm-beach-gardens-fl" />} />
+
             <Route path="/account" element={<Dashboard />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/leads" element={<AdminLeadsPage />} />
