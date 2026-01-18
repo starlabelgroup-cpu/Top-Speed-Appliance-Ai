@@ -6,7 +6,20 @@ function Footer() {
     <footer className="footer">
       <p>© {new Date().getFullYear()} Top Speed Appliance. All Rights Reserved.</p>
       <p>Fast • Reliable • Professional</p>
-      <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+
+      <div className="footer-links-wrapper">
+        <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+
+        <div className="footer-network-section">
+          <p className="footer-network-title">Part of the TopSpeed Appliance Network:</p>
+          <nav className="footer-network-links" aria-label="Appliance service network sites">
+            <a href="https://appliancepro.net" target="_blank" rel="noopener noreferrer" className="footer-network-link">AppliancePro App</a>
+            <a href="https://appliancereferral.com" target="_blank" rel="noopener noreferrer" className="footer-network-link">Referral Program</a>
+            <a href="https://primehomeconnect.com" target="_blank" rel="noopener noreferrer" className="footer-network-link">PrimeHomeConnect</a>
+            <a href="https://applianceconnect.com" target="_blank" rel="noopener noreferrer" className="footer-network-link">Lead Requests</a>
+          </nav>
+        </div>
+      </div>
 
       <div className="footer-social" aria-label="Social media">
         <a
