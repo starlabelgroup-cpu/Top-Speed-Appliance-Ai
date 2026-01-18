@@ -4052,6 +4052,52 @@ button:hover, a:hover {
   display: inline-block;
 }
 
+.footer-links-wrapper {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-network-section {
+  margin-top: 15px;
+}
+
+.footer-network-title {
+  font-size: 0.9rem;
+  margin: 8px 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.footer-network-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.footer-network-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.footer-network-link:hover {
+  background-color: #d10000;
+  color: #fff;
+}
+
+.footer-network-link:focus-visible {
+  outline: 2px solid #d10000;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 @media (max-width: 768px) {
   section {
     padding: 60px 20px;
