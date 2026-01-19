@@ -174,6 +174,7 @@ function App() {
             <Route path="/service-request" element={<ServiceRequestPage />} />
             <Route path="/qr" element={<QrLeadPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
+            <Route path="/network" element={<NetworkArchitecture />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/privacy" element={<Privacy />} />
