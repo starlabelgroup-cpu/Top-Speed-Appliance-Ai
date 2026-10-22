@@ -225,7 +225,8 @@ Sitemap: https://applianceconnect.com/sitemap.xml
 
         <div className="kpi-targets">
           <h3>Expected Outcomes (6-12 Months)</h3>
-          <table className="kpi-table">
+          <div className="kpi-table-wrapper">
+            <table className="kpi-table">
             <thead>
               <tr>
                 <th>Metric</th>
@@ -272,7 +273,8 @@ Sitemap: https://applianceconnect.com/sitemap.xml
                 <td>Ongoing</td>
               </tr>
             </tbody>
-          </table>
+            </table>
+          </div>
         </div>
       </section>
 

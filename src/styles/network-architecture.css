@@ -348,8 +348,15 @@
   color: #1a1a1a;
 }
 
+.kpi-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+
 .kpi-table {
   width: 100%;
+  min-width: 480px;
   background: #fff;
   border-collapse: collapse;
   border-radius: 8px;
