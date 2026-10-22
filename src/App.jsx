@@ -5,6 +5,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import Keywords from './components/Keywords'
+import HomeCityGrid from './components/HomeCityGrid'
+import Reveal from './components/Reveal'
 import Footer from './components/Footer'
 import ErrorBoundary from './components/ErrorBoundary'
 import SEOSchema from './components/SEOSchema'
@@ -25,13 +27,10 @@ const Blog = lazy(() => import('./components/Blog'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
 const Privacy = lazy(() => import('./components/Privacy'))
 const Dashboard = lazy(() => import('./components/Dashboard'))
-const PromotionalPlatformPage = lazy(() => import('./pages/PromotionalPlatformPage'))
 const ServiceRequestPage = lazy(() => import('./pages/ServiceRequestPage'))
-const QrLeadPage = lazy(() => import('./pages/QrLeadPage'))
 const ServiceAreasPage = lazy(() => import('./pages/ServiceAreasPage'))
 const SeoLandingPage = lazy(() => import('./pages/SeoLandingPage'))
 const LocationServicePage = lazy(() => import('./pages/LocationServicePage'))
-const TelecomArchitecturePage = lazy(() => import('./pages/TelecomArchitecturePage'))
 const AdminLogin = lazy(() => import('./components/AdminLogin'))
 const AdminLeadsPage = lazy(() => import('./pages/AdminLeadsPage'))
 const AdvancedAIAgent = lazy(() => import('./components/AdvancedAIAgent'))
@@ -61,8 +60,15 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <Services />
-      <Keywords />
+      <Reveal>
+        <Services />
+      </Reveal>
+      <Reveal>
+        <HomeCityGrid />
+      </Reveal>
+      <Reveal>
+        <Keywords />
+      </Reveal>
 
       <DeferredMount>
         <Suspense fallback={null}>
@@ -170,15 +176,12 @@ function App() {
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/promotional-platform" element={<PromotionalPlatformPage />} />
             <Route path="/service-request" element={<ServiceRequestPage />} />
-            <Route path="/qr" element={<QrLeadPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/network" element={<NetworkArchitecture />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/privacy" element={<Privacy />} />
-            <Route path="/telecom-architecture" element={<TelecomArchitecturePage />} />
             <Route path="/locations/:citySlug/:serviceSlug" element={<LocationServicePage />} />
             {/* SEO Aliases for High-Intent Location + Service Pages (23 Pages) */}
             {/* Miami (5 services) */}

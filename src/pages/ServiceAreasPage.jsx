@@ -79,7 +79,6 @@ export default function ServiceAreasPage() {
           <div className="seo-leads-hero-actions">
             <a className="cta-button seo-leads-hero-cta" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
             <a className="cta-button seo-leads-hero-cta secondary" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
-            <Link className="cta-button seo-leads-hero-cta secondary" to="/qr">QR Page</Link>
             <Link className="cta-button seo-leads-hero-cta secondary" to="/service-request">Service Request</Link>
           </div>
         </div>
@@ -164,7 +163,7 @@ export default function ServiceAreasPage() {
               <h3 className="seo-leads-directory-title">Directory Posting Tip</h3>
               <p className="seo-leads-directory-text">
                 When listing your business on directories, paste a city page URL (example: <span className="seo-leads-mono">/appliance-repair-fort-lauderdale</span>)
-                and include the QR code from the <Link className="seo-leads-inline-link" to="/qr">QR Page</Link> for flyers and stickers.
+                and include your booking link on flyers and stickers.
               </p>
             </div>
           </div>

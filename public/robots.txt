@@ -4,7 +4,6 @@ Allow: /blog
 Allow: /account
 Allow: /service-areas
 Allow: /service-request
-Allow: /qr
 Disallow: /admin/
 Disallow: /api/
 Crawl-delay: 1

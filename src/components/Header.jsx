@@ -68,7 +68,7 @@ function Header() {
   const isMoreActive =
     (location.pathname === '/' &&
       ['#gallery', '#videos', '#reviews', '#about', '#booking', '#maps'].includes(location.hash)) ||
-    ['/qr', '/promotional-platform', '/telecom-architecture', '/account'].includes(location.pathname)
+    location.pathname === '/account'
 
   return (
     <header className="header">
@@ -161,19 +161,6 @@ function Header() {
                 }
               }}
             >
-              <NavLink to="/qr" className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}>QR Page</NavLink>
-              <NavLink
-                to="/promotional-platform"
-                className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}
-              >
-                Promotional Platform
-              </NavLink>
-              <NavLink
-                to="/telecom-architecture"
-                className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}
-              >
-                Telecom Architecture
-              </NavLink>
               <NavLink to="/account" className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}>Account</NavLink>
               <Link
                 to="/#gallery"

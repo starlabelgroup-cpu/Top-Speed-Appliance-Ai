@@ -410,7 +410,6 @@ export default function SeoLandingPage() {
         <div className="seo-landing-actions">
           <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
           <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
-          <Link className="cta-button secondary-btn" to="/qr">QR Page</Link>
         </div>
       </section>
 
