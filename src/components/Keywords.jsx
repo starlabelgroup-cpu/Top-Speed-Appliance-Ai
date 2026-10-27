@@ -1,23 +1,29 @@
 import React from 'react'
 
+import ApplianceIcon from './ApplianceIcon'
+
 function Keywords() {
   const keywords = [
     {
+      type: 'Refrigerator',
       title: 'Refrigerator Repair Near Me',
       description: 'Looking for refrigerator repair near me? Top Speed Appliance provides fast, reliable refrigerator repair services for all brands. We handle cooling problems, compressor issues, leaks, and ice maker repairs.',
       services: ['Cooling issues', 'Compressor problems', 'Leak repairs', 'Ice maker repair', 'Temperature control issues'],
     },
     {
+      type: 'Washer',
       title: 'Washer and Dryer Repair Near Me',
       description: 'Need washer and dryer repair near me? Our certified technicians offer same-day service for washing machine and dryer problems including drainage, spinning, heating, and electrical issues.',
       services: ['Drainage problems', 'Spinning issues', 'Heating element repair', 'Drum repairs', 'Electrical problems'],
     },
     {
+      type: 'Oven',
       title: 'Oven and Stove Repair Near Me',
       description: 'Professional oven and stove repair near me with quick turnaround times. We repair gas and electric ovens, stovetops, burners, heating elements, and ignition systems for all major brands.',
       services: ['Heating element repair', 'Ignition system repair', 'Burner repair', 'Temperature control', 'Door lock repair'],
     },
     {
+      type: 'Dishwasher',
       title: 'Dishwasher Repair Near Me',
       description: 'Expert dishwasher repair near me from Top Speed Appliance. We fix cleaning issues, drainage problems, leaks, spray arm problems, and power issues on all dishwasher brands.',
       services: ['Cleaning issues', 'Drainage problems', 'Leak repair', 'Spray arm repair', 'Filter cleaning'],
@@ -34,6 +40,7 @@ function Keywords() {
       <div className="keywords-grid">
         {keywords.map((item, i) => (
           <div key={i} className="keyword-card">
+            <ApplianceIcon type={item.type} />
             <h3>{item.title}</h3>
             <p>{item.description}</p>
             <div className="services-list">

@@ -1,23 +1,28 @@
 import React from 'react'
+import ApplianceIcon from './ApplianceIcon'
 
 function Services() {
   const services = [
     {
+      type: 'Refrigerator',
       title: 'Refrigerator Repair Near Me',
       desc: 'Expert refrigerator repair near me with fast response times. We handle cooling issues, compressor problems, leaks, and more. All major brands serviced.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F5b2cddc584514ebd90bab47dfa9fab6c?format=webp&width=800',
     },
     {
+      type: 'Washer',
       title: 'Washer & Dryer Repair Near Me',
       desc: 'Professional washer and dryer repair near me with same-day service available. We fix drainage, spinning, heating, drum, and electrical problems.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc593bf5c5ea049c987a8ce14d83a1a44?format=webp&width=800',
     },
     {
+      type: 'Oven',
       title: 'Oven & Stove Repair Near Me',
       desc: 'Oven and stove repair near me for all major brands. We repair heating elements, ignition systems, controls, and burner issues quickly and affordably.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc072dd8c0d7c4399a48c16f755323d21?format=webp&width=800',
     },
     {
+      type: 'Dishwasher',
       title: 'Dishwasher Repair Near Me',
       desc: 'Dishwasher repair near me with certified technicians. We fix cleaning issues, drainage problems, leaks, and power issues same-day on all brands.',
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F5b2cddc584514ebd90bab47dfa9fab6c?format=webp&width=800',
@@ -32,6 +37,7 @@ function Services() {
         {services.map((service, i) => (
           <div className="service-card" key={i}>
             <img src={service.image} alt={service.title} className="service-card-image" loading="lazy" decoding="async" />
+            <ApplianceIcon type={service.type} />
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
             <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="service-booking-btn">
