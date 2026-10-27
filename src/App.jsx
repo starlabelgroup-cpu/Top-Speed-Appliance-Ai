@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import Keywords from './components/Keywords'
 import HomeCityGrid from './components/HomeCityGrid'
+import PhotoBand from './components/PhotoBand'
 import Reveal from './components/Reveal'
 import Footer from './components/Footer'
 import ErrorBoundary from './components/ErrorBoundary'
@@ -59,9 +60,24 @@ function HomePage() {
       <Reveal>
         <Services />
       </Reveal>
+      <PhotoBand
+        className="photo-band-services"
+        eyebrow="Same-Day Service"
+        title="Fast Appliance Repair Across South Florida"
+        text="Certified technicians with experience across all major appliance brands."
+        ctaLabel="Book Online"
+      />
       <Reveal>
         <HomeCityGrid />
       </Reveal>
+      <PhotoBand
+        className="photo-band-city"
+        eyebrow="Local Experts"
+        title="Serving Miami-Dade, Broward, and Palm Beach Counties"
+        text="Pick your city and appliance to see local repair options."
+        ctaLabel="View All Service Areas"
+        ctaHref="/service-areas"
+      />
       <Reveal>
         <Keywords />
       </Reveal>
@@ -73,6 +89,14 @@ function HomePage() {
           <Contact />
         </Suspense>
       </DeferredMount>
+      <PhotoBand
+        className="photo-band-finish"
+        eyebrow="Top Speed Appliance"
+        title="Fast Response Times on Every Repair"
+        text="Refrigerators, washers, dryers, ovens, and dishwashers serviced by our team."
+        ctaLabel="Call (954) 931-7997"
+        ctaHref="tel:9549317997"
+      />
     </>
   )
 }
