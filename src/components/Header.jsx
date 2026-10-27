@@ -102,7 +102,6 @@ function Header() {
           <NavLink to="/brands" className={navLinkClass}>Brands</NavLink>
           <Link to="/#about" className="nav-link nav-pill">About</Link>
           <Link to="/#booking" className="nav-link nav-pill">Booking</Link>
-          <Link to="/#contact" className="nav-link nav-pill">Contact</Link>
 
         </nav>
       </div>
