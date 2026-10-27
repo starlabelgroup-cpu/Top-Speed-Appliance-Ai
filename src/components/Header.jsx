@@ -67,7 +67,7 @@ function Header() {
 
   const isMoreActive =
     (location.pathname === '/' &&
-      ['#gallery', '#videos', '#reviews', '#about', '#booking', '#maps'].includes(location.hash)) ||
+      ['#about', '#booking'].includes(location.hash)) ||
     location.pathname === '/account'
 
   return (
@@ -126,7 +126,6 @@ function Header() {
         <nav className={`nav ${open ? 'open' : ''}`}>
           <NavLink to="/" end className={navLinkClass}>Home</NavLink>
           <Link to="/#services" className="nav-link nav-pill">Services</Link>
-          <Link to="/#keywords" className="nav-link nav-pill">Repair Near Me</Link>
           <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
           <NavLink to="/service-request" className={navLinkClass}>Service Request</NavLink>
           <NavLink to="/blog" className={navLinkClass}>Blog</NavLink>
@@ -163,24 +162,6 @@ function Header() {
             >
               <NavLink to="/account" className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}>Account</NavLink>
               <Link
-                to="/#gallery"
-                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#gallery' ? ' active' : ''}`}
-              >
-                Gallery
-              </Link>
-              <Link
-                to="/#videos"
-                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#videos' ? ' active' : ''}`}
-              >
-                Videos
-              </Link>
-              <Link
-                to="/#reviews"
-                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#reviews' ? ' active' : ''}`}
-              >
-                Reviews
-              </Link>
-              <Link
                 to="/#about"
                 className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#about' ? ' active' : ''}`}
               >
@@ -191,12 +172,6 @@ function Header() {
                 className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#booking' ? ' active' : ''}`}
               >
                 Booking
-              </Link>
-              <Link
-                to="/#maps"
-                className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#maps' ? ' active' : ''}`}
-              >
-                Map
               </Link>
             </div>
           </div>
