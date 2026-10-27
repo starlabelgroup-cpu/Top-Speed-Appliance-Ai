@@ -15,13 +15,9 @@ import { startHealthCheck, stopHealthCheck } from './services/agentService'
 import { adminAuth } from './utils/adminAuth'
 import validateConfig from './utils/configValidator'
 
-const Gallery = lazy(() => import('./components/Gallery'))
-const Videos = lazy(() => import('./components/Videos'))
 const PromotionalBroadcasting = lazy(() => import('./components/PromotionalBroadcasting'))
-const Reviews = lazy(() => import('./components/Reviews'))
 const About = lazy(() => import('./components/About'))
 const Booking = lazy(() => import('./components/Booking'))
-const Maps = lazy(() => import('./components/Maps'))
 const Contact = lazy(() => import('./components/Contact'))
 const Blog = lazy(() => import('./components/Blog'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
@@ -73,12 +69,8 @@ function HomePage() {
       <DeferredMount>
         <Suspense fallback={null}>
           <PromotionalBroadcasting />
-          <Gallery />
-          <Videos />
-          <Reviews />
           <About />
           <Booking />
-          <Maps />
           <Contact />
         </Suspense>
       </DeferredMount>
