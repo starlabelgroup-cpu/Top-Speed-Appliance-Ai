@@ -32,6 +32,7 @@ const AdvancedAIAgent = lazy(() => import('./components/AdvancedAIAgent'))
 const ServicePage = lazy(() => import('./components/ServicePage'))
 const CityPage = lazy(() => import('./components/CityPage'))
 const NetworkArchitecture = lazy(() => import('./components/NetworkArchitecture'))
+const BrandsPage = lazy(() => import('./pages/BrandsPage'))
 
 function DeferredMount({ children, timeoutMs = 1500 }) {
   const [mounted, setMounted] = useState(false)
@@ -169,6 +170,7 @@ function App() {
             <Route path="/service-request" element={<ServiceRequestPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/network" element={<NetworkArchitecture />} />
+            <Route path="/brands" element={<BrandsPage />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/privacy" element={<Privacy />} />

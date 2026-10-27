@@ -161,6 +161,7 @@ function Header() {
               }}
             >
               <NavLink to="/account" className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}>Account</NavLink>
+              <NavLink to="/brands" className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}>Brands</NavLink>
               <Link
                 to="/#about"
                 className={`nav-dropdown-item${location.pathname === '/' && location.hash === '#about' ? ' active' : ''}`}
