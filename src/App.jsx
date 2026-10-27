@@ -15,7 +15,6 @@ import { startHealthCheck, stopHealthCheck } from './services/agentService'
 import { adminAuth } from './utils/adminAuth'
 import validateConfig from './utils/configValidator'
 
-const PromotionalBroadcasting = lazy(() => import('./components/PromotionalBroadcasting'))
 const About = lazy(() => import('./components/About'))
 const Booking = lazy(() => import('./components/Booking'))
 const Contact = lazy(() => import('./components/Contact'))
@@ -68,7 +67,6 @@ function HomePage() {
 
       <DeferredMount>
         <Suspense fallback={null}>
-          <PromotionalBroadcasting />
           <About />
           <Booking />
           <Contact />
