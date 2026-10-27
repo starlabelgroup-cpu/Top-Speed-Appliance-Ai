@@ -8,7 +8,16 @@ export const SEO_BRANDS = [
   'Frigidaire',
   'KitchenAid',
   'Maytag',
-  'Bosch'
+  'Bosch',
+  'Electrolux',
+  'Speed Queen',
+  'Kenmore',
+  'Viking',
+  'Wolf',
+  'Sub-Zero',
+  'Thermador',
+  'Miele',
+  'Fisher Paykel'
 ]
 
 export const SEO_COUNTIES = [
