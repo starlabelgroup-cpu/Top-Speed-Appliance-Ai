@@ -459,10 +459,10 @@ section {
 
 .hero-banner-image {
   display: block;
-  width: 100vw;
-  max-width: none;
+  width: 800px;
+  max-width: 100%;
   height: auto;
-  margin: 24px calc(50% - 50vw);
+  margin: 24px auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
