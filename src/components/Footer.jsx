@@ -6,6 +6,7 @@ function Footer() {
     <footer className="footer">
       <p>© {new Date().getFullYear()} Top Speed Appliance. All Rights Reserved.</p>
       <p>Fast • Reliable • Professional</p>
+      <p>6810 N State Rd 7, Suite 341, Coconut Creek, FL 33073</p>
 
       <div className="footer-links-wrapper">
         <Link to="/privacy" className="footer-link">Privacy Policy</Link>
