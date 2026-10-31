@@ -13,7 +13,7 @@ function Services() {
       type: 'Washer',
       title: 'Washer & Dryer Repair Near Me',
       desc: 'Professional washer and dryer repair near me with same-day service available. We fix drainage, spinning, heating, drum, and electrical problems.',
-      image: '/images/service/washer-dryer-stack.webp',
+      image: '/images/service/washer-dryer-service.webp',
     },
     {
       type: 'Oven',
