@@ -258,6 +258,15 @@ function App() {
             <Route path="/home-appliance-repair" element={<ServicePage service="home" />} />
             <Route path="/commercial-appliance-repair" element={<ServicePage service="commercial" />} />
             <Route path="/appliance-installation" element={<ServicePage service="installation" />} />
+            <Route path="/commercial-refrigeration-repair" element={<ServicePage service="commercialRefrigeration" />} />
+            <Route path="/commercial-cooking-equipment-repair" element={<ServicePage service="commercialCooking" />} />
+            <Route path="/commercial-dishwasher-repair" element={<ServicePage service="commercialDishwasher" />} />
+            <Route path="/commercial-laundry-repair" element={<ServicePage service="commercialLaundry" />} />
+            <Route path="/washer-dryer-installation" element={<ServicePage service="washerDryerInstallation" />} />
+            <Route path="/refrigerator-installation" element={<ServicePage service="refrigeratorInstallation" />} />
+            <Route path="/range-oven-installation" element={<ServicePage service="rangeOvenInstallation" />} />
+            <Route path="/dishwasher-installation" element={<ServicePage service="dishwasherInstallation" />} />
+            <Route path="/microwave-installation" element={<ServicePage service="microwaveInstallation" />} />
 
             {/* New City Pages (Local SEO) */}
             <Route path="/appliance-repair-fort-lauderdale" element={<CityPage city="fort-lauderdale" />} />

@@ -20,6 +20,37 @@ const DEFAULT_BENEFITS = [
   '12-month warranty on repairs'
 ]
 
+const COMMERCIAL_PRICING = {
+  label: 'Pricing',
+  amount: 'Custom Quote',
+  note: 'Commercial repairs are quoted after diagnosis, and you approve the quote before work begins. Book online or call to schedule a visit.'
+}
+
+const COMMERCIAL_BENEFITS = ['Quotes provided before work begins', 'Scheduling around your business hours', 'Licensed and insured technicians', '12-month warranty on repairs']
+
+const INSTALLATION_PRICING = {
+  label: 'Pricing',
+  amount: 'Custom Quote',
+  note: 'Installation is quoted based on your appliance and the hookups it needs. Book online or call for an exact price.'
+}
+
+const INSTALLATION_BENEFITS = ['Installation quoted before work begins', 'Licensed and insured technicians', 'Same-day service available in most areas']
+
+const COMMERCIAL_RELATED_LINKS = [
+  { href: '/commercial-refrigeration-repair', label: 'Commercial Refrigeration Repair' },
+  { href: '/commercial-cooking-equipment-repair', label: 'Commercial Cooking Equipment Repair' },
+  { href: '/commercial-dishwasher-repair', label: 'Commercial Dishwasher Repair' },
+  { href: '/commercial-laundry-repair', label: 'Commercial Laundry Repair' }
+]
+
+const INSTALLATION_RELATED_LINKS = [
+  { href: '/washer-dryer-installation', label: 'Washer and Dryer Installation' },
+  { href: '/refrigerator-installation', label: 'Refrigerator Installation' },
+  { href: '/range-oven-installation', label: 'Range and Oven Installation' },
+  { href: '/dishwasher-installation', label: 'Dishwasher Installation' },
+  { href: '/microwave-installation', label: 'Microwave Installation' }
+]
+
 const SERVICE_CONFIG = {
   washer: {
     name: 'Washer',
@@ -129,7 +160,8 @@ const SERVICE_CONFIG = {
       amount: 'Custom Quote',
       note: 'Commercial repairs are quoted after diagnosis, and you approve the quote before work begins. Book online or call to schedule a visit.'
     },
-    benefits: ['Quotes provided before work begins', 'Scheduling around your business hours', 'Licensed and insured technicians', '12-month warranty on repairs'],
+    benefits: COMMERCIAL_BENEFITS,
+    relatedLinks: COMMERCIAL_RELATED_LINKS,
     faqs: [
       { question: 'Do you repair restaurant equipment?', answer: 'Yes, we service commercial kitchen equipment including refrigeration, cooking, and dishwashing appliances.' },
       { question: 'How are commercial repairs priced?', answer: 'Commercial repairs are quoted after diagnosis, and you approve the quote before any work begins.' },
@@ -167,12 +199,184 @@ const SERVICE_CONFIG = {
       amount: 'Custom Quote',
       note: 'Installation is quoted based on your appliance and the hookups it needs. Book online or call for an exact price.'
     },
-    benefits: ['Installation quoted before work begins', 'Licensed and insured technicians', 'Same-day service available in most areas'],
+    benefits: INSTALLATION_BENEFITS,
+    relatedLinks: INSTALLATION_RELATED_LINKS,
     faqs: [
       { question: 'How much does appliance installation cost?', answer: 'Installation is quoted based on the appliance and the hookups it requires. Book online or call for an exact price.' },
       { question: 'What is included in an installation?', answer: 'Installation connects the appliance to its water, gas, or electrical lines and confirms it runs correctly.' },
       { question: 'Can you install an appliance I bought elsewhere?', answer: 'Call us with the appliance model and we will confirm whether we can install it.' },
       { question: 'Can you schedule installation the same day?', answer: 'Same-day installation is available in most areas. Book online or call to check availability.' }
+    ]
+  },
+  commercialRefrigeration: {
+    name: 'Commercial Refrigeration',
+    seoTitle: 'Commercial Refrigeration Repair in South Florida | Book Online',
+    metaDescription: 'Commercial refrigeration repair in South Florida for walk-in coolers, reach-ins, freezers, and ice machines. Book online or call (954) 931-7997.',
+    h1: 'Commercial Refrigeration Repair in South Florida',
+    intro: 'Top Speed Appliance repairs commercial refrigeration for restaurants, grocers, and food service businesses across South Florida. We restore cooling in walk-in coolers, reach-in units, freezers, and ice machines with fast response.',
+    listTitle: 'Commercial Refrigeration Problems We Fix',
+    problems: ['Walk-in cooler not holding temperature', 'Reach-in unit not cooling', 'Commercial freezer frosting over', 'Ice machine not producing ice', 'Condenser and fan failures', 'Door gasket leaks', 'Refrigerant leaks'],
+    brands: ['True', 'Traulsen', 'Beverage-Air', 'Hoshizaki', 'Manitowoc', 'Hobart', 'Turbo Air', 'Kolpak', 'Continental', 'Migali'],
+    ctaTitle: 'Ready to Book Commercial Refrigeration Service?',
+    pricing: COMMERCIAL_PRICING,
+    benefits: COMMERCIAL_BENEFITS,
+    faqs: [
+      { question: 'Do you repair walk-in coolers and freezers?', answer: 'Yes, we service walk-in coolers, walk-in freezers, reach-in units, and prep tables.' },
+      { question: 'Can you repair an ice machine during service hours?', answer: 'Yes, we schedule ice machine repairs around your business hours. Call to confirm availability.' },
+      { question: 'How are commercial refrigeration repairs priced?', answer: 'Repairs are quoted after diagnosis, and you approve the quote before any work begins.' },
+      { question: 'What should I do while I wait for a technician?', answer: 'Keep doors closed, move perishable food to working units if possible, and call us for urgent help.' }
+    ]
+  },
+  commercialCooking: {
+    name: 'Commercial Cooking Equipment',
+    seoTitle: 'Commercial Cooking Equipment Repair in South Florida | Book Online',
+    metaDescription: 'Commercial cooking equipment repair in South Florida for ovens, ranges, fryers, and griddles. Book online or call (954) 931-7997.',
+    h1: 'Commercial Cooking Equipment Repair in South Florida',
+    intro: 'Top Speed Appliance repairs commercial cooking equipment for restaurants, hotels, and catering kitchens across South Florida. We service ovens, ranges, fryers, and griddles with clear quotes and minimal downtime.',
+    listTitle: 'Commercial Cooking Problems We Fix',
+    problems: ['Commercial oven not heating', 'Range burners not lighting', 'Fryer not heating or recovering', 'Griddle temperature problems', 'Faulty ignition or thermostats', 'Gas line and burner issues', 'Control board errors'],
+    brands: ['Vulcan', 'Blodgett', 'Frymaster', 'Garland', 'Southbend', 'Hobart', 'Montague', 'Star', 'Imperial', 'Wolf'],
+    ctaTitle: 'Ready to Book Commercial Cooking Service?',
+    pricing: COMMERCIAL_PRICING,
+    benefits: COMMERCIAL_BENEFITS,
+    faqs: [
+      { question: 'Do you repair gas and electric commercial cooking equipment?', answer: 'Yes, we service both gas and electric commercial ovens, ranges, fryers, and griddles.' },
+      { question: 'Can you repair a fryer that is not heating?', answer: 'Yes, we diagnose heating elements, thermostats, and controls on commercial fryers.' },
+      { question: 'How are commercial cooking repairs priced?', answer: 'Repairs are quoted after diagnosis, and you approve the quote before any work begins.' },
+      { question: 'Do you offer same-day service for restaurants?', answer: 'Same-day service is available in many areas. Call us to check availability for urgent breakdowns.' }
+    ]
+  },
+  commercialDishwasher: {
+    name: 'Commercial Dishwasher',
+    seoTitle: 'Commercial Dishwasher Repair in South Florida | Book Online',
+    metaDescription: 'Commercial dishwasher repair in South Florida, including sanitizing and booster problems. Book online or call (954) 931-7997.',
+    h1: 'Commercial Dishwasher Repair in South Florida',
+    intro: 'Top Speed Appliance repairs commercial dishwashers for restaurants, schools, and food service operations across South Florida. We restore wash, rinse, and sanitizing performance so your kitchen stays compliant and running.',
+    listTitle: 'Commercial Dishwasher Problems We Fix',
+    problems: ['Dishes not sanitizing', 'Booster heater not heating', 'Low or no rinse pressure', 'Machine not filling', 'Leaking water', 'Door or limit switch faults', 'Chemical dispenser problems'],
+    brands: ['Hobart', 'Jackson', 'Champion', 'Moyer Diebel', 'Insinger', 'Meiko', 'Halo', 'Vulcan', 'Electrolux', 'True'],
+    ctaTitle: 'Ready to Book Commercial Dishwasher Service?',
+    pricing: COMMERCIAL_PRICING,
+    benefits: COMMERCIAL_BENEFITS,
+    faqs: [
+      { question: 'Why is my commercial dishwasher not sanitizing?', answer: 'Common causes include a failed booster heater, low rinse temperature, or a clogged spray arm. We test and repair each one.' },
+      { question: 'Do you repair Hobart and Jackson dishwashers?', answer: 'Yes, we service major commercial dishwasher brands including Hobart and Jackson.' },
+      { question: 'How are commercial dishwasher repairs priced?', answer: 'Repairs are quoted after diagnosis, and you approve the quote before any work begins.' },
+      { question: 'Can you schedule repairs outside busy hours?', answer: 'Yes, we schedule visits around your business hours. Call to confirm a time.' }
+    ]
+  },
+  commercialLaundry: {
+    name: 'Commercial Laundry',
+    seoTitle: 'Commercial Laundry Equipment Repair in South Florida | Book Online',
+    metaDescription: 'Commercial laundry equipment repair in South Florida for hotels, apartments, and laundromats. Book online or call (954) 931-7997.',
+    h1: 'Commercial Laundry Equipment Repair in South Florida',
+    intro: 'Top Speed Appliance repairs commercial washers and dryers for apartment complexes, hotels, and laundromats across South Florida. We keep high-volume laundry equipment running with fast response and clear quotes.',
+    listTitle: 'Commercial Laundry Problems We Fix',
+    problems: ['Commercial washer not spinning', 'Commercial dryer not heating', 'Coin or card reader faults', 'Water leaks and drain problems', 'Door lock failures', 'Error codes', 'Belt and drum noises'],
+    brands: ['Speed Queen', 'Alliance', 'Continental', 'Dexter', 'Wascomat', 'Electrolux', 'Huebsch', 'Unimac', 'Girbau', 'Maytag'],
+    ctaTitle: 'Ready to Book Commercial Laundry Service?',
+    pricing: COMMERCIAL_PRICING,
+    benefits: COMMERCIAL_BENEFITS,
+    faqs: [
+      { question: 'Do you repair commercial washers for apartment complexes?', answer: 'Yes, we service commercial washers and dryers for apartment complexes, hotels, and laundromats.' },
+      { question: 'Can you repair coin and card-operated machines?', answer: 'Yes, we troubleshoot coin and card readers along with the mechanical and electrical parts.' },
+      { question: 'How are commercial laundry repairs priced?', answer: 'Repairs are quoted after diagnosis, and you approve the quote before any work begins.' },
+      { question: 'Do you offer a warranty on commercial repairs?', answer: 'Yes, all repairs come with a 12-month warranty on parts and labor.' }
+    ]
+  },
+  washerDryerInstallation: {
+    name: 'Washer & Dryer Installation',
+    seoTitle: 'Washer and Dryer Installation in South Florida | Book Online',
+    metaDescription: 'Washer and dryer installation in South Florida, including hookups and stacking kits. Book online or call (954) 931-7997 for a quote.',
+    h1: 'Washer and Dryer Installation in South Florida',
+    intro: 'Top Speed Appliance installs washers and dryers in South Florida homes and apartments. We connect water supply, drain, power, and gas or venting, then test the cycles before we leave.',
+    listTitle: 'Washer and Dryer Installation Services',
+    problems: ['Washer water supply and drain hookup', 'Electric dryer connection', 'Gas dryer connection and leak test', 'Stacking kit installation', 'Dryer vent hookup', 'Leveling and vibration setup'],
+    brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Maytag', 'Kenmore', 'Frigidaire', 'Speed Queen', 'Bosch', 'Electrolux'],
+    ctaTitle: 'Ready to Schedule Washer and Dryer Installation?',
+    pricing: INSTALLATION_PRICING,
+    benefits: INSTALLATION_BENEFITS,
+    faqs: [
+      { question: 'Do you install stacked washers and dryers?', answer: 'Yes, we install stacking kits and connect both units to water, drain, power, and venting.' },
+      { question: 'Can you connect a gas dryer?', answer: 'Yes, we connect gas dryers and check every connection for leaks before we leave.' },
+      { question: 'How much does washer and dryer installation cost?', answer: 'Installation is quoted based on the hookups your home needs. Book online or call for an exact price.' },
+      { question: 'Can you install a washer and dryer I bought elsewhere?', answer: 'Yes, call us with the model numbers and we will confirm the installation.' }
+    ]
+  },
+  refrigeratorInstallation: {
+    name: 'Refrigerator Installation',
+    seoTitle: 'Refrigerator Installation in South Florida | Book Online',
+    metaDescription: 'Refrigerator installation in South Florida, including ice maker water lines and built-in units. Book online or call (954) 931-7997.',
+    h1: 'Refrigerator Installation in South Florida',
+    intro: 'Top Speed Appliance installs refrigerators in South Florida homes, including French door, side-by-side, and built-in models. We run ice maker and water dispenser lines and level the unit so it cools correctly from day one.',
+    listTitle: 'Refrigerator Installation Services',
+    problems: ['Ice maker water line hookup', 'Water dispenser connection', 'Built-in refrigerator install', 'Leveling and clearance check', 'Door alignment and seal setup', 'Temperature test before handoff'],
+    brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Maytag', 'Frigidaire', 'KitchenAid', 'Sub-Zero', 'Bosch', 'Electrolux'],
+    ctaTitle: 'Ready to Schedule Refrigerator Installation?',
+    pricing: INSTALLATION_PRICING,
+    benefits: INSTALLATION_BENEFITS,
+    faqs: [
+      { question: 'Do you connect the ice maker and water dispenser?', answer: 'Yes, we connect the water line and confirm the ice maker and dispenser work before we leave.' },
+      { question: 'Do you install built-in refrigerators?', answer: 'Yes, we install built-in and counter-depth refrigerators and check the clearances.' },
+      { question: 'How much does refrigerator installation cost?', answer: 'Installation is quoted based on the model and the hookups it needs. Book online or call for an exact price.' },
+      { question: 'Can you remove my old refrigerator?', answer: 'Call us when you book and we will confirm whether old unit removal is included.' }
+    ]
+  },
+  rangeOvenInstallation: {
+    name: 'Range & Oven Installation',
+    seoTitle: 'Range and Oven Installation in South Florida | Book Online',
+    metaDescription: 'Range and oven installation in South Florida for electric, gas, and induction models. Book online or call (954) 931-7997 for a quote.',
+    h1: 'Range and Oven Installation in South Florida',
+    intro: 'Top Speed Appliance installs electric, gas, and induction ranges and wall ovens in South Florida homes. We connect power or gas, anchor the unit safely, and test every burner and oven function before we leave.',
+    listTitle: 'Range and Oven Installation Services',
+    problems: ['Electric range connection', 'Gas range and gas line hookup', 'Induction range installation', 'Built-in wall oven installation', 'Anti-tip bracket installation', 'Burner and oven function test'],
+    brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Maytag', 'Frigidaire', 'KitchenAid', 'Bosch', 'Electrolux', 'Wolf'],
+    ctaTitle: 'Ready to Schedule Range or Oven Installation?',
+    pricing: INSTALLATION_PRICING,
+    benefits: INSTALLATION_BENEFITS,
+    faqs: [
+      { question: 'Do you install gas ranges?', answer: 'Yes, we connect gas ranges and test every connection for leaks before we leave.' },
+      { question: 'Do you install induction ranges?', answer: 'Yes, we install induction ranges and confirm the electrical requirements first.' },
+      { question: 'How much does range installation cost?', answer: 'Installation is quoted based on the range type and the connections it needs. Book online or call for an exact price.' },
+      { question: 'Do you install built-in wall ovens?', answer: 'Yes, we install built-in wall ovens and check the cabinet clearances.' }
+    ]
+  },
+  dishwasherInstallation: {
+    name: 'Dishwasher Installation',
+    seoTitle: 'Dishwasher Installation in South Florida | Book Online',
+    metaDescription: 'Dishwasher installation in South Florida with water, drain, and power hookups. Book online or call (954) 931-7997 for a quote.',
+    h1: 'Dishwasher Installation in South Florida',
+    intro: 'Top Speed Appliance installs built-in and portable dishwashers in South Florida homes. We connect the water supply, drain, and power, then run a test cycle to confirm drainage and sealing.',
+    listTitle: 'Dishwasher Installation Services',
+    problems: ['Water supply hookup', 'Drain line connection', 'Electrical connection', 'Built-in dishwasher install', 'Portable dishwasher setup', 'Test cycle and leak check'],
+    brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Bosch', 'KitchenAid', 'Frigidaire', 'Maytag', 'Miele', 'Electrolux'],
+    ctaTitle: 'Ready to Schedule Dishwasher Installation?',
+    pricing: INSTALLATION_PRICING,
+    benefits: INSTALLATION_BENEFITS,
+    faqs: [
+      { question: 'Do you install built-in dishwashers?', answer: 'Yes, we install built-in dishwashers and connect water, drain, and power.' },
+      { question: 'Do you connect the drain to a garbage disposal?', answer: 'Yes, we connect the drain hose to the disposal or drain line and test for leaks.' },
+      { question: 'How much does dishwasher installation cost?', answer: 'Installation is quoted based on the connections your kitchen needs. Book online or call for an exact price.' },
+      { question: 'Can you install a dishwasher I bought elsewhere?', answer: 'Call us with the model and we will confirm whether we can install it.' }
+    ]
+  },
+  microwaveInstallation: {
+    name: 'Microwave Installation',
+    seoTitle: 'Microwave Installation in South Florida | Book Online',
+    metaDescription: 'Microwave installation in South Florida for built-in, over-the-range, and countertop models. Book online or call (954) 931-7997.',
+    h1: 'Microwave Installation in South Florida',
+    intro: 'Top Speed Appliance installs built-in, over-the-range, and countertop microwaves in South Florida homes. We check the electrical outlet, mount the unit securely, and confirm the venting and controls work.',
+    listTitle: 'Microwave Installation Services',
+    problems: ['Over-the-range microwave mounting', 'Built-in microwave installation', 'Countertop microwave setup', 'Dedicated outlet check', 'Venting connection', 'Function test before handoff'],
+    brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Panasonic', 'Sharp', 'Frigidaire', 'KitchenAid', 'Bosch', 'Electrolux'],
+    ctaTitle: 'Ready to Schedule Microwave Installation?',
+    pricing: INSTALLATION_PRICING,
+    benefits: INSTALLATION_BENEFITS,
+    faqs: [
+      { question: 'Do you install over-the-range microwaves?', answer: 'Yes, we mount over-the-range microwaves and connect the venting.' },
+      { question: 'Do you install built-in microwaves?', answer: 'Yes, we install built-in microwaves and check the cabinet opening and clearances.' },
+      { question: 'How much does microwave installation cost?', answer: 'Installation is quoted based on the model and mounting needs. Book online or call for an exact price.' },
+      { question: 'Do I need a special outlet?', answer: 'Some built-in models need a dedicated outlet. We check your outlet and tell you before installation.' }
     ]
   }
 }
@@ -257,6 +461,17 @@ const ServicePageComponent = ({ service }) => {
           ))}
         </ul>
       </section>
+
+      {config.relatedLinks && (
+        <section className="service-section">
+          <h2>Explore Our {config.name} Services</h2>
+          <ul className="cities-list">
+            {config.relatedLinks.map((link) => (
+              <li key={link.href}><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="service-section">
         <h2>Brands We Service</h2>

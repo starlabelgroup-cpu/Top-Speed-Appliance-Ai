@@ -27,6 +27,11 @@ function Services() {
       desc: 'Dishwasher repair near me with certified technicians. We fix cleaning issues, drainage problems, leaks, and power issues same-day on all brands.',
       image: '/images/service/dishwasher-service.webp',
     },
+    {
+      type: 'Microwave',
+      title: 'Microwave Repair Near Me',
+      desc: 'Microwave repair near me for built-in, over-the-range, and countertop models. We fix heating failures, control panels, turntables, and door faults.',
+    },
   ]
 
   return (
@@ -36,7 +41,7 @@ function Services() {
       <div className="service-grid">
         {services.map((service, i) => (
           <div className="service-card" key={i}>
-            <img src={service.image} alt={service.title} className="service-card-image" loading="lazy" decoding="async" />
+            {service.image && <img src={service.image} alt={service.title} className="service-card-image" loading="lazy" decoding="async" />}
             <ApplianceIcon type={service.type} />
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
