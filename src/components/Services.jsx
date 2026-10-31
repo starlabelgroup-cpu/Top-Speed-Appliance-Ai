@@ -19,7 +19,7 @@ function Services() {
       type: 'Oven',
       title: 'Oven & Stove Repair Near Me',
       desc: 'Oven and stove repair near me for all major brands. We repair heating elements, ignition systems, controls, and burner issues quickly and affordably.',
-      image: '/images/service/oven-stove-range.webp',
+      image: '/images/service/oven-stove-service.webp',
     },
     {
       type: 'Dishwasher',
