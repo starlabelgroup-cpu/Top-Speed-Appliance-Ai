@@ -26,6 +26,8 @@ const SERVICE_CONFIG = {
     seoTitle: 'Washer Repair in Fort Lauderdale | $99 Service Fee',
     metaDescription: 'Washer repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
     h1: 'Washer Repair in Fort Lauderdale, FL',
+    image: '/images/service/washer-dryer-stack.webp',
+    imageAlt: 'Stacked LG washer and dryer in a laundry room',
     intro: 'Top Speed Appliance provides professional washer repair in Fort Lauderdale and nearby areas. Our licensed technicians service all major brands for leaks, spin problems, drain issues, and error codes.',
     problems: ['Washer not spinning', 'Water leaking', 'Won\'t drain', 'Loud noises', 'Error codes', 'Not filling with water'],
     brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Maytag', 'Kenmore', 'Frigidaire', 'Speed Queen', 'Bosch', 'Electrolux'],
@@ -71,6 +73,8 @@ const SERVICE_CONFIG = {
     seoTitle: 'Oven & Stove Repair in Fort Lauderdale | $99 Service Fee',
     metaDescription: 'Oven and stove repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
     h1: 'Oven & Stove Repair in Fort Lauderdale, FL',
+    image: '/images/service/oven-stove-range.webp',
+    imageAlt: 'Freestanding electric range with glass cooktop and digital controls',
     intro: 'Top Speed Appliance provides professional oven and stove repair in Fort Lauderdale. We fix burners, igniters, temperature issues, and controls for gas and electric models of all major brands.',
     problems: ['Oven not heating', 'Burners not lighting', 'Faulty controls', 'Igniters failing', 'Temperature problems', 'Broken door seals', 'Self-cleaning cycle errors'],
     brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Maytag', 'Kenmore', 'Frigidaire', 'Wolf', 'Bosch', 'Electrolux'],
@@ -232,6 +236,7 @@ const ServicePageComponent = ({ service }) => {
           <h1>{config.h1}</h1>
           <p className="service-intro">{config.intro}</p>
           {bookingButtons('service-hero-cta')}
+          {config.image && <img className="service-hero-image" src={config.image} alt={config.imageAlt} />}
         </div>
       </section>
 
