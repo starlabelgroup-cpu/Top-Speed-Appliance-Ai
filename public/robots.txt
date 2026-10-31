@@ -1,19 +1,21 @@
 User-agent: *
 Allow: /
-Allow: /blog
-Allow: /account
-Allow: /service-areas
-Allow: /service-request
 Disallow: /admin/
 Disallow: /api/
+Disallow: /account
 Crawl-delay: 1
 
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
 Crawl-delay: 1
 
 # TopSpeed Appliance Network Sitemaps
