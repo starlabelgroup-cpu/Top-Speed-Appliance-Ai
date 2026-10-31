@@ -41,6 +41,9 @@ function CommercialServices() {
           </div>
         ))}
       </div>
+      <div className="services-cta">
+        <a href="/commercial-appliance-repair" className="cta-button">View All Commercial Services</a>
+      </div>
     </section>
   )
 }
