@@ -253,6 +253,8 @@ function App() {
             <Route path="/dryer-repair" element={<ServicePage service="dryer" />} />
             <Route path="/refrigerator-repair" element={<ServicePage service="refrigerator" />} />
             <Route path="/oven-stove-repair" element={<ServicePage service="oven" />} />
+            <Route path="/dishwasher-repair" element={<ServicePage service="dishwasher" />} />
+            <Route path="/microwave-repair" element={<ServicePage service="microwave" />} />
 
             {/* New City Pages (Local SEO) */}
             <Route path="/appliance-repair-fort-lauderdale" element={<CityPage city="fort-lauderdale" />} />

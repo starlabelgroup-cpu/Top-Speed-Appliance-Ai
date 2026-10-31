@@ -195,6 +195,43 @@
 }
 
 /* ============================================
+   SERVICE FEE PRICING CARD
+   ============================================ */
+
+.service-price-card {
+  background: #fff;
+  border: 2px solid #d10000;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.service-price-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #555;
+  margin: 0 0 8px;
+}
+
+.service-price-amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #d10000;
+  line-height: 1;
+  margin: 0 0 12px;
+}
+
+.service-price-note {
+  font-size: 1rem;
+  color: #333;
+  margin: 0 0 24px;
+}
+
+/* ============================================
    MIDDLE CTA SECTION
    ============================================ */
 
