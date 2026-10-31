@@ -37,6 +37,7 @@ const ServicePage = lazy(() => import('./components/ServicePage'))
 const CityPage = lazy(() => import('./components/CityPage'))
 const NetworkArchitecture = lazy(() => import('./components/NetworkArchitecture'))
 const BrandsPage = lazy(() => import('./pages/BrandsPage'))
+const ServiceDirectoryPage = lazy(() => import('./pages/ServiceDirectoryPage'))
 
 function DeferredMount({ children, timeoutMs = 1500 }) {
   const [mounted, setMounted] = useState(false)
@@ -203,6 +204,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/service-request" element={<ServiceRequestPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
+            <Route path="/service-directory" element={<ServiceDirectoryPage />} />
             <Route path="/network" element={<NetworkArchitecture />} />
             <Route path="/brands" element={<BrandsPage />} />
             <Route path="/blog" element={<Blog />} />

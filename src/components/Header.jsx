@@ -96,6 +96,7 @@ function Header() {
           <NavLink to="/" end className={navLinkClass}>Home</NavLink>
           <Link to="/#services" className="nav-link nav-pill">Services</Link>
           <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
+          <NavLink to="/service-directory" className={navLinkClass}>Directory</NavLink>
           <NavLink to="/service-request" className={navLinkClass}>Service Request</NavLink>
           <NavLink to="/blog" className={navLinkClass}>Blog</NavLink>
           <NavLink to="/account" className={navLinkClass}>Account</NavLink>
