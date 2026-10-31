@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../styles/ai-assistant.css'
+import { leadsDatabase } from '../services/leadsDatabase'
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false)
@@ -43,11 +44,12 @@ export default function AIAssistant() {
     const userMsg = { sender: 'user', text: input }
     setMessages((p) => [...p, userMsg])
 
-    const userText = input.toLowerCase()
+    const rawText = input.trim()
+    const userText = rawText.toLowerCase()
     setInput('')
 
     if (bookingMode) {
-      handleBookingFlow(userText)
+      handleBookingFlow(rawText)
       return
     }
 
@@ -125,11 +127,27 @@ export default function AIAssistant() {
       return
     }
     if (!bookingData.time) {
-      setBookingData({ ...bookingData, time: text })
-      addBotMessage(`Perfect! Your appointment request has been saved:\n\nName: ${bookingData.name}\nPhone: ${bookingData.phone}\nAppliance: ${bookingData.appliance}\nIssue: ${bookingData.issue}\nDate: ${bookingData.date}\nTime: ${text}\n\nA technician will confirm shortly!`)
+      const booking = { ...bookingData, time: text }
       setBookingMode(false)
       setBookingData({ name: '', phone: '', appliance: '', issue: '', date: '', time: '' })
+      saveBooking(booking)
       return
+    }
+  }
+
+  const saveBooking = async (booking) => {
+    const result = await leadsDatabase.createLead({
+      name: booking.name,
+      phone: booking.phone,
+      service_type: booking.appliance,
+      issue_description: `${booking.issue} | Preferred day: ${booking.date} | Preferred time: ${booking.time}`,
+      lead_source: 'ai_assistant'
+    })
+
+    if (result.ok) {
+      addBotMessage(`Perfect! Your appointment request has been saved:\n\nName: ${booking.name}\nPhone: ${booking.phone}\nAppliance: ${booking.appliance}\nIssue: ${booking.issue}\nDate: ${booking.date}\nTime: ${booking.time}\n\nA technician will confirm shortly!`)
+    } else {
+      addBotMessage('Sorry, I could not save your request right now. Please call (954) 931-7997 to book your appointment.')
     }
   }
 
