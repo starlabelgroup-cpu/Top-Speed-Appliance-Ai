@@ -1,6 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../styles/ai-assistant.css'
 import { leadsDatabase } from '../services/leadsDatabase'
+import { BOOKING_CONFIG } from '../config/bookingConfig'
+
+const BOOKING_OPTIONS = [
+  { label: 'Book Online (Housecall Pro)', href: BOOKING_CONFIG.BOOKING_URL },
+  { label: `Call ${BOOKING_CONFIG.PHONE_NUMBER}`, href: BOOKING_CONFIG.PHONE_LINK },
+  { label: 'Email Us', href: `mailto:${BOOKING_CONFIG.EMAIL}` }
+]
+
+const CONTACT_INTENT = /\b(book|schedule|appointment|call|phone|email|online|housecall|contact)\b/
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false)
@@ -59,12 +68,22 @@ export default function AIAssistant() {
     }
 
     const reply = mainAIResponse(userText)
+    const actions = CONTACT_INTENT.test(userText) ? BOOKING_OPTIONS : undefined
     setTimeout(() => {
-      setMessages((p) => [...p, { sender: 'bot', text: reply }])
+      setMessages((p) => [...p, { sender: 'bot', text: reply, actions }])
     }, 300)
   }
 
   const mainAIResponse = (text) => {
+    if (/\b(online|housecall)\b/.test(text))
+      return "You can book online 24/7 through our Housecall Pro scheduler. Pick a time that works for you."
+
+    if (/\b(call|phone)\b/.test(text))
+      return `You can call us at ${BOOKING_CONFIG.PHONE_NUMBER} to book a technician right away.`
+
+    if (text.includes('email'))
+      return `Email ${BOOKING_CONFIG.EMAIL} with your appliance, issue, and preferred time, and our team will reply.`
+
     if (text.includes('book') || text.includes('schedule') || text.includes('appointment')) {
       setBookingMode(true)
       return "Great! Let's schedule your service. What's your full name?"
@@ -145,9 +164,9 @@ export default function AIAssistant() {
     })
 
     if (result.ok) {
-      addBotMessage(`Perfect! Your appointment request has been saved:\n\nName: ${booking.name}\nPhone: ${booking.phone}\nAppliance: ${booking.appliance}\nIssue: ${booking.issue}\nDate: ${booking.date}\nTime: ${booking.time}\n\nA technician will confirm shortly!`)
+      addBotMessage(`Perfect! Your appointment request has been saved:\n\nName: ${booking.name}\nPhone: ${booking.phone}\nAppliance: ${booking.appliance}\nIssue: ${booking.issue}\nDate: ${booking.date}\nTime: ${booking.time}\n\nA technician will confirm shortly! To lock in a time now, use one of the options below.`, BOOKING_OPTIONS)
     } else {
-      addBotMessage('Sorry, I could not save your request right now. Please call (954) 931-7997 to book your appointment.')
+      addBotMessage(`Sorry, I could not save your request right now. Please book online, call ${BOOKING_CONFIG.PHONE_NUMBER}, or email us using the options below.`, BOOKING_OPTIONS)
     }
   }
 
@@ -175,9 +194,9 @@ export default function AIAssistant() {
     }
   }
 
-  const addBotMessage = (text) => {
+  const addBotMessage = (text, actions) => {
     setTimeout(() => {
-      setMessages((p) => [...p, { sender: 'bot', text }])
+      setMessages((p) => [...p, { sender: 'bot', text, actions }])
     }, 300)
   }
 
@@ -269,6 +288,20 @@ export default function AIAssistant() {
             {messages.map((msg, i) => (
               <div key={i} className={`ai-message ai-message-${msg.sender}`}>
                 <div className="ai-message-content">{msg.text}</div>
+                {msg.actions && (
+                  <div className="ai-message-actions">
+                    {msg.actions.map((action) => (
+                      <a
+                        key={action.label}
+                        href={action.href}
+                        className="ai-action-link"
+                        {...(action.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        {action.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
             <div ref={messagesEndRef} />

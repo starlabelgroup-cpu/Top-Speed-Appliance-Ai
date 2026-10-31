@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react'
+import { Link } from 'react-router-dom'
 import { agentService } from '../services/agentService'
+import { findRelevantSiteLinks } from '../data/siteLinks'
 
 const AgentChat = forwardRef(({ sessionId, onModeChange, onNotify, isLoading }, ref) => {
   const [messages, setMessages] = useState([
@@ -55,6 +57,7 @@ const AgentChat = forwardRef(({ sessionId, onModeChange, onNotify, isLoading }, 
           text: response.response.answer || response.response,
           timestamp: new Date(),
           suggestedActions: response.response.suggested_actions || [],
+          siteLinks: findRelevantSiteLinks(userMessage),
           confidence: response.response.confidence,
           requiresHuman: response.response.requires_human,
           agent: response.agent_used
@@ -115,6 +118,15 @@ const AgentChat = forwardRef(({ sessionId, onModeChange, onNotify, isLoading }, 
                   {msg.agent === 'Marty Maintenance' && '📅'}
                   {msg.agent === 'Cara Care' && '💬'}
                   {' '}{msg.agent}
+                </div>
+              )}
+              {msg.siteLinks && msg.siteLinks.length > 0 && (
+                <div className="agent-site-links">
+                  {msg.siteLinks.map((link) => (
+                    <Link key={link.href} to={link.href} className="agent-site-link">
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
               )}
               {msg.suggestedActions && msg.suggestedActions.length > 0 && (

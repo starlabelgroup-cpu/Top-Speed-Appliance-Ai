@@ -15,6 +15,8 @@ export const BOOKING_CONFIG = {
   // Phone number for direct calls
   PHONE_NUMBER: '(954) 931-7997',
   PHONE_LINK: 'tel:9549317997',
+
+  EMAIL: 'service@topspeedappliance.net',
   
   // Business info
   BUSINESS_NAME: 'Top Speed Appliance',
