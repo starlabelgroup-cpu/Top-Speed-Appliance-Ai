@@ -158,7 +158,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What is the cost range for refrigerator repair?',
-        answer: 'Service calls start at $79. Repairs typically range from $150 to $600 depending on the part and brand. We provide free digital estimates.'
+        answer: 'Service calls start at $99. Repairs typically range from $150 to $600 depending on the part and brand. We provide free digital estimates.'
       },
       {
         question: 'How long do repairs usually take?',
@@ -268,7 +268,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does dishwasher repair typically cost?',
-        answer: 'Service calls are $79. Most repairs range from $150 (seal replacement) to $400 (pump replacement). We provide free estimates.'
+        answer: 'Service calls are $99. Most repairs range from $150 (seal replacement) to $400 (pump replacement). We provide free estimates.'
       },
       {
         question: 'Do you repair built-in vs. portable dishwashers?',
@@ -381,7 +381,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does washer repair usually cost?',
-        answer: 'Service calls are $79. Repairs range from $150 (seal replacement) to $400+ (pump replacement). We email estimates before starting.'
+        answer: 'Service calls are $99. Repairs range from $150 (seal replacement) to $400+ (pump replacement). We email estimates before starting.'
       },
       {
         question: 'Is mold in my washer normal?',
@@ -440,7 +440,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What\'s the typical cost for oven repair?',
-        answer: 'Service calls start at $79. Component replacements range from $100–$400. We provide free estimates.'
+        answer: 'Service calls start at $99. Component replacements range from $100–$400. We provide free estimates.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912169.1913849098!2d-80.49050316000017!3d26.1548928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9155f90bfe4a7%3A0xfa1cd4b56ff00061!2sFort%20Lauderdale%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'
@@ -1264,7 +1264,7 @@ export const LOCATION_SERVICE_PAGES = [
     faqs: [
       {
         question: 'How much does dishwasher repair typically cost?',
-        answer: 'Service calls are $79. Repairs range $150–$400 depending on the component. We provide estimates before starting.'
+        answer: 'Service calls are $99. Repairs range $150–$400 depending on the component. We provide estimates before starting.'
       },
       {
         question: 'My dishes are cloudy—what causes this?',
@@ -1440,7 +1440,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does dishwasher repair cost?',
-        answer: 'Service calls: $79. Repairs: $150–$400. We always provide estimates before proceeding.'
+        answer: 'Service calls: $99. Repairs: $150–$400. We always provide estimates before proceeding.'
       },
       {
         question: 'Can you fix a broken door latch?',
@@ -1722,7 +1722,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What\'s the typical cost for dishwasher repair?',
-        answer: 'Service calls are $79. Repairs range $150–$400. We provide free estimates before starting.'
+        answer: 'Service calls are $99. Repairs range $150–$400. We provide free estimates before starting.'
       },
       {
         question: 'Is my dishwasher still under warranty?',
@@ -1823,7 +1823,7 @@ export const LOCATION_SERVICE_PAGES = [
     faqs: [
       {
         question: 'What\'s the average cost to repair a washer?',
-        answer: 'Service calls: $79. Repairs typically range $200–$400 depending on the component. We provide free estimates.'
+        answer: 'Service calls: $99. Repairs typically range $200–$400 depending on the component. We provide free estimates.'
       },
       {
         question: 'Is it normal for my washer to vibrate?',
@@ -1945,7 +1945,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does oven repair typically cost?',
-        answer: 'Service calls: $79. Component replacement: $150–$500 depending on the part. We provide free estimates.'
+        answer: 'Service calls: $99. Component replacement: $150–$500 depending on the part. We provide free estimates.'
       },
       {
         question: 'Do you service high-end ranges like Wolf?',
@@ -1996,7 +1996,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does dishwasher repair cost?',
-        answer: 'Service: $79. Repairs: $150–$400. We always provide free estimates before starting work.'
+        answer: 'Service: $99. Repairs: $150–$400. We always provide free estimates before starting work.'
       },
       {
         question: 'Can I fix the door latch myself?',
