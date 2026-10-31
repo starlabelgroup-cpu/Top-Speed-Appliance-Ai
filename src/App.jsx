@@ -4,6 +4,7 @@ import './lib/builder' // Initialize Builder.io
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
+import CommercialServices from './components/CommercialServices'
 import Keywords from './components/Keywords'
 import HomeCityGrid from './components/HomeCityGrid'
 import PhotoBand from './components/PhotoBand'
@@ -60,6 +61,9 @@ function HomePage() {
       <Hero />
       <Reveal>
         <Services />
+      </Reveal>
+      <Reveal>
+        <CommercialServices />
       </Reveal>
       <PhotoBand
         className="photo-band-services"
