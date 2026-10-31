@@ -95,6 +95,59 @@
   outline-offset: 2px;
 }
 
+.home-city-appliances {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.home-city-appliance {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(11, 31, 68, 0.12);
+  color: #0b1f44;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.home-city-appliance img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.home-city-appliance span {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.home-city-appliance:hover,
+.home-city-appliance.is-active {
+  border-color: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.home-city-appliance:focus-visible {
+  outline: 3px solid #1e5bd8;
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .home-city-appliances {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .home-city-chips {
   display: flex;
   flex-wrap: wrap;

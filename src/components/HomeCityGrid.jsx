@@ -14,9 +14,17 @@ const cities = Object.values(
   }, {})
 )
 
+const APPLIANCE_IMAGES = {
+  'refrigerator-repair': '/images/service/refrigerator-service.webp',
+  'washer-dryer-repair': '/images/service/washer-dryer-service.webp',
+  'dryer-repair': '/images/service/washer-dryer-service.webp',
+  'oven-stove-repair': '/images/service/oven-stove-service.webp',
+  'dishwasher-repair': '/images/service/dishwasher-service.webp',
+}
+
 const appliances = Array.from(
   new Map(LOCATION_SERVICE_PAGES.map((page) => [page.serviceSlug, page.serviceName])).entries()
-).map(([slug, name]) => ({ slug, name }))
+).map(([slug, name]) => ({ slug, name, image: APPLIANCE_IMAGES[slug] }))
 
 function HomeCityGrid() {
   const [query, setQuery] = useState('')
@@ -50,6 +58,21 @@ function HomeCityGrid() {
       <p className="home-city-grid-subtitle">
         Find appliance repair in your city. Choose an appliance, then pick the local page for same-day service options.
       </p>
+
+      <div className="home-city-appliances" role="group" aria-label="Filter by appliance">
+        {appliances.map((appliance) => (
+          <button
+            type="button"
+            key={appliance.slug}
+            className={`home-city-appliance${activeAppliance === appliance.slug ? ' is-active' : ''}`}
+            aria-pressed={activeAppliance === appliance.slug}
+            onClick={() => setActiveAppliance(activeAppliance === appliance.slug ? 'all' : appliance.slug)}
+          >
+            {appliance.image && <img src={appliance.image} alt="" loading="lazy" decoding="async" />}
+            <span>{appliance.name}</span>
+          </button>
+        ))}
+      </div>
 
       <div className="home-city-controls" role="search">
         <div className="home-city-field">
