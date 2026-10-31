@@ -26,19 +26,6 @@ const CITIES = [
   { value: 'palm-beach-gardens-fl', label: 'Palm Beach Gardens', county: 'Palm Beach County', to: '/appliance-repair-palm-beach-gardens-fl' },
 ]
 
-const EMPTY_FORM = {
-  fullName: '',
-  phone: '',
-  email: '',
-  address: '',
-  city: '',
-  appliance: '',
-  brand: '',
-  issue: '',
-  preferredDate: '',
-  consent: false,
-}
-
 function pushDataLayer(event, payload = {}) {
   if (typeof window === 'undefined' || !Array.isArray(window.dataLayer)) return
   window.dataLayer.push({ event, ...payload })
@@ -47,9 +34,6 @@ function pushDataLayer(event, payload = {}) {
 function ServiceDirectoryPage() {
   const [filters, setFilters] = useState({ service: '', city: '' })
   const [draftFilters, setDraftFilters] = useState({ service: '', city: '' })
-  const [form, setForm] = useState(EMPTY_FORM)
-  const [started, setStarted] = useState(false)
-  const [demoNotice, setDemoNotice] = useState(false)
 
   const visibleServices = SERVICES.filter((s) => !filters.service || s.value === filters.service)
   const visibleCities = CITIES.filter((c) => !filters.city || c.value === filters.city)
@@ -64,27 +48,13 @@ function ServiceDirectoryPage() {
     document.getElementById('directory-services')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  const handleFieldChange = (e) => {
-    const { name, value, type, checked } = e.target
-    if (!started) {
-      setStarted(true)
-      pushDataLayer('service_request_started')
-    }
-    setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setDemoNotice(true)
-  }
-
   return (
     <div className="ts-directory">
       <section className="ts-hero">
         <div className="ts-hero-content">
           <span className="ts-eyebrow ts-eyebrow-light">SERVICE DIRECTORY</span>
           <h1>Find <em>Appliance Repair</em> Near You</h1>
-          <p>Choose your appliance and city to find the right repair page, then request a visit or call our team.</p>
+          <p>Choose your appliance and city to find the right repair page, then book online or call our team.</p>
           <div className="ts-hero-actions">
             <a className="ts-button ts-button-light" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
             <a className="ts-hero-phone" href="tel:9549317997">Call (954) 931-7997</a>
@@ -191,13 +161,13 @@ function ServiceDirectoryPage() {
           </div>
           <div className="ts-step">
             <b>03</b>
-            <h3>Send a request</h3>
-            <p>Share your contact details and the issue you are seeing.</p>
+            <h3>Book online</h3>
+            <p>Pick a time in our booking system.</p>
           </div>
           <div className="ts-step">
             <b>04</b>
-            <h3>Call to confirm</h3>
-            <p>Call (954) 931-7997 to confirm scheduling for your visit.</p>
+            <h3>Call if needed</h3>
+            <p>Call (954) 931-7997 with questions about your visit.</p>
           </div>
         </div>
       </section>
@@ -205,75 +175,19 @@ function ServiceDirectoryPage() {
       <section className="ts-booking-section" id="service-request">
         <aside className="ts-booking-aside">
           <h2>Request a Repair Visit</h2>
-          <p>Tell us about your appliance and we will follow up to confirm scheduling.</p>
-          <p>Prefer to talk? Call <a href="tel:9549317997">(954) 931-7997</a> or <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">book online</a>.</p>
+          <p>Book your appointment online and choose a time that works for you.</p>
+          <p>Prefer to talk? Call <a href="tel:9549317997">(954) 931-7997</a>.</p>
         </aside>
         <div className="ts-booking-main">
-          <form className="ts-booking-form" onSubmit={handleSubmit}>
+          <div className="ts-booking-form">
             <div className="ts-form-heading">
-              <h2>Service Request</h2>
-              <p>Fields marked with an asterisk are required.</p>
+              <h2>Book Your Appointment</h2>
+              <p>Pick your appliance, address, and preferred time in our online booking system.</p>
             </div>
-            {demoNotice && (
-              <div className="ts-alert" role="status">
-                This request form is in demo mode and has not been sent. Please call (954) 931-7997 or book online to schedule your repair.
-              </div>
-            )}
-            <div className="ts-form-grid">
-              <div className="ts-field">
-                <label htmlFor="ts-fullName">Full name *</label>
-                <input id="ts-fullName" name="fullName" type="text" autoComplete="name" required value={form.fullName} onChange={handleFieldChange} />
-              </div>
-              <div className="ts-field">
-                <label htmlFor="ts-phone">Phone *</label>
-                <input id="ts-phone" name="phone" type="tel" autoComplete="tel" required value={form.phone} onChange={handleFieldChange} />
-              </div>
-              <div className="ts-field">
-                <label htmlFor="ts-email">Email</label>
-                <input id="ts-email" name="email" type="email" autoComplete="email" value={form.email} onChange={handleFieldChange} />
-              </div>
-              <div className="ts-field">
-                <label htmlFor="ts-address">Service address *</label>
-                <input id="ts-address" name="address" type="text" autoComplete="street-address" required value={form.address} onChange={handleFieldChange} />
-              </div>
-              <div className="ts-field">
-                <label htmlFor="ts-city">City *</label>
-                <select id="ts-city" name="city" required value={form.city} onChange={handleFieldChange}>
-                  <option value="">Select a city</option>
-                  {CITIES.map((c) => (
-                    <option key={c.value} value={c.value}>{c.label}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="ts-field">
-                <label htmlFor="ts-appliance">Appliance *</label>
-                <select id="ts-appliance" name="appliance" required value={form.appliance} onChange={handleFieldChange}>
-                  <option value="">Select an appliance</option>
-                  {SERVICES.map((s) => (
-                    <option key={s.value} value={s.value}>{s.label}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="ts-field">
-                <label htmlFor="ts-brand">Brand</label>
-                <input id="ts-brand" name="brand" type="text" value={form.brand} onChange={handleFieldChange} />
-              </div>
-              <div className="ts-field">
-                <label htmlFor="ts-preferredDate">Preferred date</label>
-                <input id="ts-preferredDate" name="preferredDate" type="date" value={form.preferredDate} onChange={handleFieldChange} />
-              </div>
-              <div className="ts-field ts-field-full">
-                <label htmlFor="ts-issue">What is the problem? *</label>
-                <textarea id="ts-issue" name="issue" rows={4} required value={form.issue} onChange={handleFieldChange} />
-              </div>
-            </div>
-            <label className="ts-consent">
-              <input name="consent" type="checkbox" required checked={form.consent} onChange={handleFieldChange} />
-              <span>I agree to be contacted by Top Speed Appliance about this request. *</span>
-            </label>
-            <button type="submit" className="ts-button ts-button-primary ts-submit">Submit Request</button>
-            <p className="ts-privacy">Do not include payment card or other sensitive financial information in this form.</p>
-          </form>
+            <a className="ts-button ts-button-primary ts-submit" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+              Book Online with Housecall Pro
+            </a>
+          </div>
         </div>
       </section>
     </div>
