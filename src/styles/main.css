@@ -456,6 +456,16 @@ section {
   background-position: center;
 }
 
+.hero-banner-image {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 24px 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
 .hero-overlay {
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
