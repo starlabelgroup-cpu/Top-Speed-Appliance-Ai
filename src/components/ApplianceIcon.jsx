@@ -46,6 +46,14 @@ const ICON_PATHS = {
       <line x1="18" y1="9" x2="18" y2="15" />
     </>
   ),
+  WineCooler: (
+    <>
+      <rect x="6" y="2" width="12" height="20" rx="2" />
+      <line x1="6" y1="8" x2="18" y2="8" />
+      <line x1="6" y1="15" x2="18" y2="15" />
+      <line x1="9" y1="5" x2="9" y2="6" />
+    </>
+  ),
   GarbageDisposal: (
     <>
       <path d="M5 4h14v4a7 7 0 0 1-14 0V4z" />

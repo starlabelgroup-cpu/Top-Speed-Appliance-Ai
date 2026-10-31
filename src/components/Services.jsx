@@ -37,6 +37,11 @@ function Services() {
       title: 'Garbage Disposal Repair Near Me',
       desc: 'Garbage disposal repair near me for jams, leaks, and units that hum without turning. We clear blockages and replace failed motors and switches on most brands.',
     },
+    {
+      type: 'WineCooler',
+      title: 'Wine Cooler Repair Near Me',
+      desc: 'Wine cooler repair near me for built-in and freestanding units. We fix cooling problems, fan and compressor faults, temperature swings, and door seal issues.',
+    },
   ]
 
   return (
