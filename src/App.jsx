@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import CommercialServices from './components/CommercialServices'
+import InstallationServices from './components/InstallationServices'
 import Keywords from './components/Keywords'
 import HomeCityGrid from './components/HomeCityGrid'
 import PhotoBand from './components/PhotoBand'
@@ -64,6 +65,9 @@ function HomePage() {
       </Reveal>
       <Reveal>
         <CommercialServices />
+      </Reveal>
+      <Reveal>
+        <InstallationServices />
       </Reveal>
       <PhotoBand
         className="photo-band-services"
