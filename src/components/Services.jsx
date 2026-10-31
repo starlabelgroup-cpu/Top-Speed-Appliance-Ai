@@ -41,6 +41,7 @@ function Services() {
     {
       type: 'WineCooler',
       title: 'Wine Cooler Repair Near Me',
+      image: '/images/service/wine-cooler-service.webp',
       desc: 'Wine cooler repair near me for built-in and freestanding units. We fix cooling problems, fan and compressor faults, temperature swings, and door seal issues.',
     },
   ]

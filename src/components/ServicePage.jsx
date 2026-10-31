@@ -153,6 +153,8 @@ const SERVICE_CONFIG = {
     seoTitle: 'Wine Cooler Repair in South Florida | Book Online',
     metaDescription: 'Wine cooler repair in South Florida for units that are not cooling, humming, or leaking. Book online with Housecall Pro or call (954) 931-7997.',
     h1: 'Wine Cooler Repair in South Florida',
+    image: '/images/service/wine-cooler-service.webp',
+    imageAlt: 'Built-in stainless steel wine cooler with wood shelving and glass door',
     intro: 'Top Speed Appliance provides wine cooler repair across South Florida. We restore cooling and temperature control in built-in and freestanding wine coolers, fix fan and compressor faults, and repair door seal and thermostat problems.',
     problems: ['Wine cooler not cooling', 'Temperature fluctuating', 'Compressor running constantly', 'Fan not spinning', 'Door not sealing', 'Water leaking inside', 'Display or control panel errors'],
     brands: ['Sub-Zero', 'Wolf', 'Viking', 'Whirlpool', 'Frigidaire', 'GE', 'Haier', 'Danby', 'EdgeStar', 'NewAir'],
