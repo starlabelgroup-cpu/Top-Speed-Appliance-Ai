@@ -1,0 +1,70 @@
+.photo-band {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 360px;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 6vw, 80px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.photo-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.photo-band-content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.photo-band-eyebrow {
+  color: #d10000;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.photo-band h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: 14px;
+}
+
+.photo-band p {
+  color: #eee;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+.photo-band-services {
+  background-image: url(/images/service/hero-expert-team.webp);
+}
+
+.photo-band-city {
+  background-image: url(/images/service/hero-expert-team.webp);
+}
+
+.photo-band-finish {
+  background-image: url(/images/service/hero-expert-team.webp);
+}
+
+@media (max-width: 600px) {
+  .photo-band {
+    min-height: 280px;
+    padding: 50px 20px;
+  }
+  .photo-band h2 {
+    font-size: 1.6rem;
+  }
+  .photo-band .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+}

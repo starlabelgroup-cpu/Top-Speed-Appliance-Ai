@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+# TopSpeed Appliance Network Sitemaps
+# Main Authority Site
+Sitemap: https://topspeedappliance.com/sitemap.xml
+
+# Satellite Sites - Network Authority Boost
+Sitemap: https://appliancepro.net/sitemap.xml
+Sitemap: https://appliancereferral.com/sitemap.xml
+Sitemap: https://primehomeconnect.com/sitemap.xml
+Sitemap: https://applianceconnect.com/sitemap.xml

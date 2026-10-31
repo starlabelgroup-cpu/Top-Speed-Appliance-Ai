@@ -1,0 +1,275 @@
+ZIP CodeTypeCommon CitiesCountyArea Codes
+32003StandardFleming Island, Fleming Isle, Orange ParkClay CountyArea Code 904
+32004PO BoxPonte Vedra Beach, Ponte VedraSt. Johns CountyArea Code 904
+32006PO BoxFleming Island, Fleming Isle, Orange ParkClay CountyArea Code 904
+32007PO BoxBostwickPutnam CountyArea Code 386
+32008StandardBranfordSuwannee CountyArea Code 352
+Area Code 386
+32009StandardBrycevilleNassau CountyArea Code 904
+Area Code 912
+32011StandardCallahanNassau CountyArea Code 904
+32013PO BoxDayLafayette CountyArea Code 386
+32024StandardLake CityColumbia CountyArea Code 386
+32025StandardLake CityColumbia CountyArea Code 386
+Area Code 904
+32026UniqueRaifordUnion CountyArea Code 386
+Area Code 904
+32030PO BoxDoctors InletClay CountyArea Code 904
+32033StandardElktonSt. Johns CountyArea Code 386
+Area Code 904
+32034StandardFernandina Beach, Amelia Island, Fern Bch, Fernandina, Fer...Nassau CountyArea Code 904
+Area Code 912
+32035PO BoxFernandina Beach, Fern Bch, Fernandina, Fernandina BchNassau CountyArea Code 904
+32038StandardFort WhiteColumbia CountyArea Code 386
+32040StandardGlen Saint Mary, Glen St MaryBaker CountyArea Code 386
+Area Code 904
+Area Code 912
+32041PO BoxYuleeNassau CountyArea Code 904
+32042PO BoxGrahamBradford CountyArea Code 352
+32043StandardGreen Cove Springs, Green Cv SpgsClay CountyArea Code 352
+Area Code 386
+Area Code 904
+32044StandardHamptonBradford CountyArea Code 352
+Area Code 904
+32046StandardHilliardNassau CountyArea Code 904
+Area Code 912
+32050PO BoxMiddleburgClay CountyArea Code 904
+32052StandardJasperHamilton CountyArea Code 229
+Area Code 386
+Area Code 448
+Area Code 850
+32053StandardJenningsHamilton CountyArea Code 229
+Area Code 386
+Area Code 448
+Area Code 850
+32054StandardLake ButlerUnion CountyArea Code 352
+Area Code 386
+Area Code 904
+32055StandardLake CityColumbia CountyArea Code 386
+Area Code 904
+32056PO BoxLake CityColumbia CountyArea Code 386
+32058StandardLawteyBradford CountyArea Code 386
+Area Code 904
+32059StandardLeeMadison CountyArea Code 386
+Area Code 448
+Area Code 850
+32060StandardLive Oak, Dowling ParkSuwannee CountyArea Code 386
+Area Code 448
+Area Code 850
+32061StandardLuluColumbia CountyArea Code 386
+32062StandardMc AlpinSuwannee CountyArea Code 386
+32063StandardMacclennyBaker CountyArea Code 904
+Area Code 912
+32064StandardLive Oak, Boys Ranch, Dowling ParkSuwannee CountyArea Code 386
+Area Code 448
+Area Code 850
+32065StandardOrange ParkClay CountyArea Code 904
+32066StandardMayoLafayette CountyArea Code 352
+Area Code 386
+Area Code 448
+Area Code 850
+32067PO BoxOrange ParkClay CountyArea Code 904
+32068StandardMiddleburgClay CountyArea Code 352
+Area Code 904
+32071StandardO BrienSuwannee CountyArea Code 386
+32072PO BoxOlusteeBaker CountyArea Code 386
+Area Code 904
+32073StandardOrange ParkClay CountyArea Code 904
+32079PO BoxPenney FarmsClay CountyArea Code 904
+32080StandardSaint Augustine, Anastasia Is, Anastasia Island, Saint Au...St. Johns CountyArea Code 386
+Area Code 904
+32081StandardPonte Vedra, Ponte Vedra Beach, Tn Of Nocatee, Town O...St. Johns CountyArea Code 904
+32082StandardPonte Vedra Beach, Ponte VedraSt. Johns CountyArea Code 904
+32083StandardRaifordUnion CountyArea Code 386
+Area Code 904
+32084StandardSaint Augustine, Saint Augustine Beach, St Aug Beach, St ...St. Johns CountyArea Code 904
+32085PO BoxSaint Augustine, St AugustineSt. Johns CountyArea Code 904
+32086StandardSaint Augustine, Saint Augustine Beach, St Aug Beach, St ...St. Johns CountyArea Code 386
+Area Code 904
+32087StandardSandersonBaker CountyArea Code 904
+Area Code 912
+32091StandardStarke, Kingsley Lake, Kngsly LkBradford CountyArea Code 352
+Area Code 386
+Area Code 904
+32092StandardSaint Augustine, St AugustineSt. Johns CountyArea Code 386
+Area Code 904
+32094StandardWellbornSuwannee CountyArea Code 386
+32095StandardSaint Augustine, St AugustineSt. Johns CountyArea Code 904
+32096StandardWhite SpringsHamilton CountyArea Code 229
+Area Code 386
+32097StandardYulee, WildlightNassau CountyArea Code 904
+Area Code 912
+32099StandardJacksonvilleDuval CountyArea Code 904
+32102StandardAstorLake CountyArea Code 352
+Area Code 386
+32105PO BoxBarbervilleVolusia CountyArea Code 386
+32110StandardBunnellFlagler CountyArea Code 386
+32111PO BoxCandlerMarion CountyArea Code 352
+32112StandardCrescent City, WelakaPutnam CountyArea Code 386
+32113StandardCitraMarion CountyArea Code 352
+32114StandardDaytona BeachVolusia CountyArea Code 386
+32115PO BoxDaytona BeachVolusia CountyArea Code 386
+32116PO BoxDaytona Beach, Dayt Bch Sh, Daytona Beach ShoresVolusia CountyArea Code 386
+32117StandardDaytona Beach, Holly HillVolusia CountyArea Code 386
+32118StandardDaytona Beach, Dayt Bch Sh, Daytona Beach ShoresVolusia CountyArea Code 386
+32119StandardDaytona Beach, S Daytona, S Daytona Bch, South DaytonaVolusia CountyArea Code 386
+32120PO BoxDaytona BeachVolusia CountyArea Code 386
+32121PO BoxDaytona Beach, South DaytonaVolusia CountyArea Code 386
+32122PO BoxDaytona BeachVolusia CountyArea Code 386
+32123PO BoxPort Orange, Allandale, Daytona Beach, Pt OrangeVolusia CountyArea Code 386
+32124StandardDaytona BeachVolusia CountyArea Code 386
+32125PO BoxDaytona Beach, Holly HillVolusia CountyArea Code 386
+32126PO BoxDaytona BeachVolusia CountyArea Code 386
+32127StandardPort Orange, Ponce Inlet, Pt Orange, Wilbur By Sea, W...Volusia CountyArea Code 386
+32128StandardPort Orange, Pt OrangeVolusia CountyArea Code 386
+32129StandardPort Orange, Pt OrangeVolusia CountyArea Code 386
+32130StandardDe Leon Springs, De Leon SpgsVolusia CountyArea Code 352
+Area Code 386
+32131StandardEast PalatkaPutnam CountyArea Code 386
+Area Code 904
+32132StandardEdgewaterVolusia CountyArea Code 386
+32133PO BoxEastlake WeirMarion CountyArea Code 352
+32134StandardFort Mc Coy, Palatka, Salt SpringsMarion CountyArea Code 352
+Area Code 386
+32135PO BoxPalm CoastFlagler CountyArea Code 386
+32136StandardFlagler Beach, Beverly BeachFlagler CountyArea Code 386
+32137StandardPalm CoastFlagler CountyArea Code 386
+Area Code 904
+32138PO BoxGrandinPutnam CountyArea Code 386
+32139StandardGeorgetownPutnam CountyArea Code 386
+32140StandardFlorahomePutnam CountyArea Code 352
+Area Code 386
+32141StandardEdgewaterVolusia CountyArea Code 386
+32142PO BoxPalm CoastFlagler CountyArea Code 386
+32143PO BoxPalm CoastFlagler CountyArea Code 386
+32145StandardHastingsSt. Johns CountyArea Code 386
+Area Code 904
+32147PO BoxHollisterPutnam CountyArea Code 386
+32148StandardInterlachenPutnam CountyArea Code 352
+Area Code 386
+32149PO BoxInterlachenPutnam CountyArea Code 386
+32157PO BoxLake ComoPutnam CountyArea Code 386
+32158PO BoxLady LakeLake CountyArea Code 352
+32159StandardLady Lake, The VillagesLake CountyArea Code 352
+32160PO BoxLake GenevaClay CountyArea Code 352
+32162StandardThe Villages, Lady LakeSumter CountyArea Code 352
+32163StandardThe VillagesSumter CountyArea Code 352
+32164StandardPalm CoastFlagler CountyArea Code 386
+32168StandardNew Smyrna Beach, New SmyrnaVolusia CountyArea Code 321
+Area Code 386
+Area Code 407
+Area Code 689
+32169StandardNew Smyrna Beach, New SmyrnaVolusia CountyArea Code 386
+32170PO BoxNew Smyrna Beach, New SmyrnaVolusia CountyArea Code 386
+32173PO BoxOrmond BeachVolusia CountyArea Code 386
+32174StandardOrmond BeachVolusia CountyArea Code 386
+32175PO BoxOrmond BeachVolusia CountyArea Code 386
+32176StandardOrmond BeachVolusia CountyArea Code 386
+32177StandardPalatkaPutnam CountyArea Code 352
+Area Code 386
+Area Code 904
+32178PO BoxPalatkaPutnam CountyArea Code 386
+32179StandardOcklawahaMarion CountyArea Code 352
+32180StandardPiersonVolusia CountyArea Code 386
+32181StandardPomona Park, WelakaPutnam CountyArea Code 386
+32182PO BoxOrange Springs, Orange SpgsMarion CountyArea Code 352
+Area Code 386
+32183PO BoxOcklawahaMarion CountyArea Code 352
+32185PO BoxPutnam HallPutnam CountyArea Code 352
+32187StandardSan MateoPutnam CountyArea Code 386
+32189StandardSatsumaPutnam CountyArea Code 386
+32190StandardSevilleVolusia CountyArea Code 386
+32192PO BoxSparrMarion CountyArea Code 352
+32193StandardWelaka, Crescent City, Pomona ParkPutnam CountyArea Code 386
+32195StandardWeirsdaleMarion CountyArea Code 352
+32198UniqueDaytona BeachVolusia CountyArea Code 386
+32201PO BoxJacksonvilleDuval CountyArea Code 904
+32202StandardJacksonvilleDuval CountyArea Code 904
+32203PO BoxJacksonvilleDuval CountyArea Code 904
+32204StandardJacksonvilleDuval CountyArea Code 904
+32205StandardJacksonvilleDuval CountyArea Code 904
+32206StandardJacksonvilleDuval CountyArea Code 904
+32207StandardJacksonvilleDuval CountyArea Code 904
+32208StandardJacksonvilleDuval CountyArea Code 904
+32209StandardJacksonvilleDuval CountyArea Code 904
+32210StandardJacksonvilleDuval CountyArea Code 904
+32211StandardJacksonvilleDuval CountyArea Code 904
+32212StandardJacksonville, Jacksonville Nas, Jax Naval AirDuval CountyArea Code 904
+32214UniqueJacksonvilleDuval CountyArea Code 904
+32215PO BoxJacksonvilleDuval CountyArea Code 904
+32216StandardJacksonvilleDuval CountyArea Code 904
+32217StandardJacksonvilleDuval CountyArea Code 904
+32218StandardJacksonvilleDuval CountyArea Code 904
+32219StandardJacksonville, DinsmoreDuval CountyArea Code 904
+32220StandardJacksonvilleDuval CountyArea Code 904
+32221StandardJacksonvilleDuval CountyArea Code 904
+32222StandardJacksonvilleDuval CountyArea Code 904
+32223StandardJacksonvilleDuval CountyArea Code 904
+32224StandardJacksonvilleDuval CountyArea Code 904
+32225StandardJacksonvilleDuval CountyArea Code 904
+32226StandardJacksonvilleDuval CountyArea Code 904
+32227StandardJacksonvilleDuval CountyArea Code 904
+32228PO BoxJacksonville, Mayport Naval Station, Mayport NavyDuval CountyArea Code 904
+32229PO BoxJacksonvilleDuval CountyArea Code 904
+32230PO BoxJacksonvilleDuval CountyArea Code 904
+32231PO BoxJacksonvilleDuval CountyArea Code 904
+32232PO BoxJacksonvilleDuval CountyArea Code 904
+32233StandardAtlantic Beach, Atlantic Bch, Jacksonville, MayportDuval CountyArea Code 904
+32234StandardJacksonville, Baldwin, MaxvilleDuval CountyArea Code 386
+Area Code 904
+32235PO BoxJacksonvilleDuval CountyArea Code 904
+32236PO BoxJacksonvilleDuval CountyArea Code 904
+32237PO BoxJacksonvilleDuval CountyArea Code 904
+32238PO BoxJacksonvilleDuval CountyArea Code 904
+32239PO BoxJacksonvilleDuval CountyArea Code 904
+32240PO BoxJacksonville Beach, Jacksonville, Jax BchDuval CountyArea Code 904
+32241PO BoxJacksonvilleDuval CountyArea Code 904
+32244StandardJacksonvilleDuval CountyArea Code 904
+32245PO BoxJacksonvilleDuval CountyArea Code 904
+32246StandardJacksonvilleDuval CountyArea Code 904
+32247PO BoxJacksonvilleDuval CountyArea Code 904
+32250StandardJacksonville Beach, Jacksonville, Jax BchDuval CountyArea Code 904
+32254StandardJacksonvilleDuval CountyArea Code 904
+32255PO BoxJacksonvilleDuval CountyArea Code 904
+32256StandardJacksonvilleDuval CountyArea Code 904
+32257StandardJacksonvilleDuval CountyArea Code 904
+32258StandardJacksonvilleDuval CountyArea Code 904
+32259StandardSaint Johns, Fruit Cove, Jacksonville, Julington Cree...St. Johns CountyArea Code 904
+32260PO BoxJacksonville, Saint Johns, St JohnsDuval CountyArea Code 904
+32266StandardNeptune Beach, JacksonvilleDuval CountyArea Code 904
+32267StandardJacksonvilleDuval CountyArea Code 904
+32277StandardJacksonvilleDuval CountyArea Code 904
+32290UniqueJacksonville, Homeside Lending IncDuval CountyArea Code 904
+32301StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+32302PO BoxTallahasseeLeon CountyArea Code 850
+32303StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+32304StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+32305StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+32306UniqueTallahasseeLeon CountyArea Code 448
+Area Code 850
+32307UniqueTallahasseeLeon CountyArea Code 448
+Area Code 850
+32308StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+32309StandardTallahassee, MiccosukeeLeon CountyArea Code 229
+Area Code 448
+Area Code 850
+32310StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+32311StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+32312StandardTallahasseeLeon CountyArea Code 229
+Area Code 448
+Area Code 850
+32313UniqueTallahasseeLeon CountyArea Code 448
+Area Code 850
+32314PO BoxTallahasseeLeon CountyArea Code 850
+32315PO BoxTallahasseeLeon CountyArea Code 850
+32316PO BoxTallahasseeLeon CountyArea Code 850
+32317StandardTallahasseeLeon CountyArea Code 448
+Area Code 850
+...
