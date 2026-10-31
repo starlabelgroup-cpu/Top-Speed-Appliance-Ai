@@ -7,6 +7,7 @@ import Services from './components/Services'
 import Keywords from './components/Keywords'
 import HomeCityGrid from './components/HomeCityGrid'
 import PhotoBand from './components/PhotoBand'
+import PageMeta from './components/PageMeta'
 import Reveal from './components/Reveal'
 import Footer from './components/Footer'
 import ErrorBoundary from './components/ErrorBoundary'
@@ -187,6 +188,7 @@ function App() {
     <ErrorBoundary>
       <Router>
         <SEOSchema />
+        <PageMeta />
         <Header />
         <Suspense fallback={null}>
           <Routes>
