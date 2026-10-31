@@ -30,6 +30,7 @@ function Services() {
     {
       type: 'Microwave',
       title: 'Microwave Repair Near Me',
+      image: '/images/service/microwave-service.webp',
       desc: 'Microwave repair near me for built-in, over-the-range, and countertop models. We fix heating failures, control panels, turntables, and door faults.',
     },
     {

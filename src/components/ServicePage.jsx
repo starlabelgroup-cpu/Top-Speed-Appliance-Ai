@@ -136,6 +136,8 @@ const SERVICE_CONFIG = {
     seoTitle: 'Microwave Repair in Fort Lauderdale | $99 Service Fee',
     metaDescription: 'Microwave repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
     h1: 'Microwave Repair in Fort Lauderdale, FL',
+    image: '/images/service/microwave-service.webp',
+    imageAlt: 'Built-in stainless steel Sharp microwave drawer in a white kitchen',
     intro: 'Top Speed Appliance provides microwave repair in Fort Lauderdale and nearby areas. We fix heating failures, control panel problems, turntable issues, and door faults on built-in and countertop models.',
     problems: ['Not heating', 'Turntable not turning', 'Control panel not responding', 'Door not closing properly', 'Sparking or arcing', 'Loud humming', 'Error codes'],
     brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Panasonic', 'Sharp', 'Frigidaire', 'Kenmore', 'Bosch', 'KitchenAid'],
