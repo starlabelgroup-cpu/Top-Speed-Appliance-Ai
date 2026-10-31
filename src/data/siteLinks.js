@@ -13,6 +13,7 @@ const SITE_LINKS = [
   { keywords: ['oven', 'stove'], label: 'Oven & Stove Repair', href: '/oven-stove-repair' },
   { keywords: ['dishwasher'], label: 'Dishwasher Repair', href: '/dishwasher-repair' },
   { keywords: ['microwave'], label: 'Microwave Repair', href: '/microwave-repair' },
+  { keywords: ['garbage disposal', 'disposal', 'insinkerator'], label: 'Garbage Disposal Repair', href: '/garbage-disposal-repair' },
   { keywords: ['walk-in', 'walk in', 'commercial refrigerat', 'ice machine'], label: 'Commercial Refrigeration Repair', href: '/commercial-refrigeration-repair' },
   { keywords: ['fryer', 'griddle', 'commercial oven', 'commercial cooking', 'commercial range'], label: 'Commercial Cooking Equipment Repair', href: '/commercial-cooking-equipment-repair' },
   { keywords: ['commercial dishwasher', 'sanitiz'], label: 'Commercial Dishwasher Repair', href: '/commercial-dishwasher-repair' },

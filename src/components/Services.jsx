@@ -32,6 +32,11 @@ function Services() {
       title: 'Microwave Repair Near Me',
       desc: 'Microwave repair near me for built-in, over-the-range, and countertop models. We fix heating failures, control panels, turntables, and door faults.',
     },
+    {
+      type: 'GarbageDisposal',
+      title: 'Garbage Disposal Repair Near Me',
+      desc: 'Garbage disposal repair near me for jams, leaks, and units that hum without turning. We clear blockages and replace failed motors and switches on most brands.',
+    },
   ]
 
   return (

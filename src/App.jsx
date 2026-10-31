@@ -263,6 +263,7 @@ function App() {
             <Route path="/oven-stove-repair" element={<ServicePage service="oven" />} />
             <Route path="/dishwasher-repair" element={<ServicePage service="dishwasher" />} />
             <Route path="/microwave-repair" element={<ServicePage service="microwave" />} />
+            <Route path="/garbage-disposal-repair" element={<ServicePage service="garbageDisposal" />} />
             <Route path="/home-appliance-repair" element={<ServicePage service="home" />} />
             <Route path="/commercial-appliance-repair" element={<ServicePage service="commercial" />} />
             <Route path="/appliance-installation" element={<ServicePage service="installation" />} />

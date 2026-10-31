@@ -46,6 +46,14 @@ const ICON_PATHS = {
       <line x1="18" y1="9" x2="18" y2="15" />
     </>
   ),
+  GarbageDisposal: (
+    <>
+      <path d="M5 4h14v4a7 7 0 0 1-14 0V4z" />
+      <line x1="5" y1="8" x2="19" y2="8" />
+      <line x1="12" y1="15" x2="12" y2="21" />
+      <line x1="9" y1="21" x2="15" y2="21" />
+    </>
+  ),
   HVAC: (
     <>
       <rect x="2" y="4" width="20" height="8" rx="2" />

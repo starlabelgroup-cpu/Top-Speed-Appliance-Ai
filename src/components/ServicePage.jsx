@@ -146,6 +146,21 @@ const SERVICE_CONFIG = {
       { question: 'Can you come out the same day?', answer: 'Same-day service is available in most areas. Book online or call to check availability.' }
     ]
   },
+  garbageDisposal: {
+    name: 'Garbage Disposal',
+    seoTitle: 'Garbage Disposal Repair in South Florida | Book Online',
+    metaDescription: 'Garbage disposal repair in South Florida for jammed, leaking, and non-working units. Book online with Housecall Pro or call (954) 931-7997.',
+    h1: 'Garbage Disposal Repair in South Florida',
+    intro: 'Top Speed Appliance provides garbage disposal repair across South Florida. We clear jams, stop leaks, and replace failed motors and switches on most major brands, so your kitchen sink drains properly again.',
+    problems: ['Disposal humming but not turning', 'Jammed or stuck blades', 'Leaking from the unit', 'Slow draining sink', 'Disposal not turning on', 'Foul odors', 'Constant tripping of the reset button'],
+    brands: ['InSinkErator', 'Waste King', 'Moen', 'Kitchenaid', 'Frigidaire', 'GE', 'Whirlpool', 'Bosch', 'Badger', 'Emerson'],
+    faqs: [
+      { question: 'Why is my garbage disposal humming but not spinning?', answer: 'This is often a jam or a stuck flywheel. We clear the blockage and test the motor before recommending any parts.' },
+      { question: 'Is it cheaper to repair or replace a garbage disposal?', answer: 'We diagnose the fault first so you can decide whether repair or replacement makes more sense.' },
+      { question: 'Do you repair all garbage disposal brands?', answer: 'Yes, we service major brands including InSinkErator and Waste King.' },
+      { question: 'Can you come out the same day?', answer: 'Same-day service is available in most areas. Book online or call to check availability.' }
+    ]
+  },
   commercial: {
     name: 'Commercial Appliance',
     seoTitle: 'Commercial Appliance Repair in South Florida | Book Online',
