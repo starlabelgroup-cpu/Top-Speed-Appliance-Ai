@@ -13,6 +13,13 @@ const PHONE_DISPLAY = BOOKING_CONFIG.PHONE_NUMBER
 const PHONE_HREF = BOOKING_CONFIG.PHONE_LINK
 const BOOKING_URL = BOOKING_CONFIG.BOOKING_URL
 
+const DEFAULT_BENEFITS = [
+  `${SERVICE_FEE} service fee, quoted upfront`,
+  'Same-day service available in most areas',
+  'Licensed and insured technicians',
+  '12-month warranty on repairs'
+]
+
 const SERVICE_CONFIG = {
   washer: {
     name: 'Washer',
@@ -103,11 +110,77 @@ const SERVICE_CONFIG = {
       { question: 'Do you repair built-in microwaves?', answer: 'Yes, we service built-in, over-the-range, and countertop microwaves.' },
       { question: 'Can you come out the same day?', answer: 'Same-day service is available in most areas. Book online or call to check availability.' }
     ]
+  },
+  commercial: {
+    name: 'Commercial Appliance',
+    seoTitle: 'Commercial Appliance Repair in South Florida | Book Online',
+    metaDescription: 'Commercial appliance repair in South Florida for restaurants, hotels, and businesses. Book online with Housecall Pro or call (954) 931-7997.',
+    h1: 'Commercial Appliance Repair in South Florida',
+    intro: 'Top Speed Appliance provides commercial appliance repair for restaurants, hotels, apartment complexes, and offices across South Florida. We keep commercial kitchen and laundry equipment running with fast response and clear quotes.',
+    problems: ['Commercial refrigerator not cooling', 'Walk-in cooler issues', 'Commercial oven not heating', 'Dishwasher not sanitizing', 'Ice machine not producing ice', 'Commercial washer or dryer breakdowns', 'Gas burner problems'],
+    brands: ['Hobart', 'True', 'Traulsen', 'Beverage-Air', 'Viking', 'Blodgett', 'Frymaster', 'Manitowoc', 'Speed Queen', 'Electrolux'],
+    ctaTitle: 'Ready to Book Commercial Service?',
+    pricing: {
+      label: 'Pricing',
+      amount: 'Custom Quote',
+      note: 'Commercial repairs are quoted after diagnosis, and you approve the quote before work begins. Book online or call to schedule a visit.'
+    },
+    benefits: ['Quotes provided before work begins', 'Scheduling around your business hours', 'Licensed and insured technicians', '12-month warranty on repairs'],
+    faqs: [
+      { question: 'Do you repair restaurant equipment?', answer: 'Yes, we service commercial kitchen equipment including refrigeration, cooking, and dishwashing appliances.' },
+      { question: 'How are commercial repairs priced?', answer: 'Commercial repairs are quoted after diagnosis, and you approve the quote before any work begins.' },
+      { question: 'Can you schedule visits around my business hours?', answer: 'Yes, call us to discuss a schedule that fits your business.' },
+      { question: 'Can you respond to an urgent breakdown?', answer: 'Call (954) 931-7997 and we will check availability for urgent repairs.' }
+    ]
+  },
+  home: {
+    name: 'Home Appliance',
+    seoTitle: 'Home Appliance Repair in South Florida | $99 Service Fee',
+    metaDescription: 'Home appliance repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    h1: 'Home Appliance Repair in South Florida',
+    intro: 'Top Speed Appliance repairs the appliances in your home across South Florida, including washers, dryers, refrigerators, ovens, dishwashers, and microwaves. Book online or call to get your appliance working again.',
+    problems: ['Appliance not turning on', 'Not heating or cooling', 'Leaks and drainage problems', 'Strange noises', 'Error codes', 'Control panel problems'],
+    brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Maytag', 'Kenmore', 'Frigidaire', 'Bosch', 'Electrolux', 'KitchenAid'],
+    faqs: [
+      { question: 'Which home appliances do you repair?', answer: 'We repair washers, dryers, refrigerators, ovens and stoves, dishwashers, and microwaves.' },
+      { question: 'How much does a home appliance repair cost?', answer: `The ${SERVICE_FEE} service fee covers the technician visit and diagnosis. Parts and labor are quoted before any work begins.` },
+      { question: 'Do you offer same-day service?', answer: 'Same-day service is available in most areas. Book online or call to check availability.' },
+      { question: 'Do you offer a warranty?', answer: 'Yes, all repairs come with a 12-month warranty on parts and labor.' }
+    ]
+  },
+  installation: {
+    name: 'Appliance Installation',
+    seoTitle: 'Appliance Installation in South Florida | Book Online',
+    metaDescription: 'Professional appliance installation in South Florida. Book online with Housecall Pro or call (954) 931-7997 for a quote.',
+    h1: 'Appliance Installation in South Florida',
+    intro: 'Top Speed Appliance installs washers, dryers, refrigerators, ranges, dishwashers, and microwaves in South Florida homes and businesses. We connect each appliance to its water, gas, or electrical lines and confirm it runs correctly before we leave.',
+    listTitle: 'Installation Services We Provide',
+    problems: ['Washer and dryer hookup', 'Refrigerator and ice maker water line', 'Range and oven connection', 'Dishwasher installation', 'Built-in microwave installation'],
+    brands: ['Samsung', 'LG', 'Whirlpool', 'GE', 'Maytag', 'Kenmore', 'Frigidaire', 'Bosch', 'Electrolux', 'KitchenAid'],
+    ctaTitle: 'Ready to Schedule Your Installation?',
+    pricing: {
+      label: 'Pricing',
+      amount: 'Custom Quote',
+      note: 'Installation is quoted based on your appliance and the hookups it needs. Book online or call for an exact price.'
+    },
+    benefits: ['Installation quoted before work begins', 'Licensed and insured technicians', 'Same-day service available in most areas'],
+    faqs: [
+      { question: 'How much does appliance installation cost?', answer: 'Installation is quoted based on the appliance and the hookups it requires. Book online or call for an exact price.' },
+      { question: 'What is included in an installation?', answer: 'Installation connects the appliance to its water, gas, or electrical lines and confirms it runs correctly.' },
+      { question: 'Can you install an appliance I bought elsewhere?', answer: 'Call us with the appliance model and we will confirm whether we can install it.' },
+      { question: 'Can you schedule installation the same day?', answer: 'Same-day installation is available in most areas. Book online or call to check availability.' }
+    ]
   }
 }
 
 const ServicePageComponent = ({ service }) => {
   const config = SERVICE_CONFIG[service] || SERVICE_CONFIG.washer
+  const pricing = config.pricing || {
+    label: 'Service Fee',
+    amount: SERVICE_FEE,
+    note: `Covers the technician visit and diagnosis for your ${config.name.toLowerCase()}. Parts and labor are quoted before any work begins.`
+  }
+  const benefits = config.benefits || DEFAULT_BENEFITS
 
   useEffect(() => {
     document.title = config.seoTitle
@@ -164,17 +237,15 @@ const ServicePageComponent = ({ service }) => {
 
       <section className="service-section service-pricing">
         <div className="service-price-card">
-          <p className="service-price-label">Service Fee</p>
-          <p className="service-price-amount">{SERVICE_FEE}</p>
-          <p className="service-price-note">
-            Covers the technician visit and diagnosis for your {config.name.toLowerCase()}. Parts and labor are quoted before any work begins.
-          </p>
+          <p className="service-price-label">{pricing.label}</p>
+          <p className="service-price-amount">{pricing.amount}</p>
+          <p className="service-price-note">{pricing.note}</p>
           {bookingButtons('service-price-cta')}
         </div>
       </section>
 
       <section className="service-section">
-        <h2>Common {config.name} Problems We Fix</h2>
+        <h2>{config.listTitle || `Common ${config.name} Problems We Fix`}</h2>
         <ul className="problems-list">
           {config.problems.map((problem) => (
             <li key={problem}>{problem}</li>
@@ -190,10 +261,9 @@ const ServicePageComponent = ({ service }) => {
       <section className="service-section">
         <h2>Why Choose Top Speed Appliance</h2>
         <ul className="benefits-list">
-          <li>{SERVICE_FEE} service fee, quoted upfront</li>
-          <li>Same-day service available in most areas</li>
-          <li>Licensed and insured technicians</li>
-          <li>12-month warranty on repairs</li>
+          {benefits.map((benefit) => (
+            <li key={benefit}>{benefit}</li>
+          ))}
         </ul>
       </section>
 
@@ -213,7 +283,7 @@ const ServicePageComponent = ({ service }) => {
       </section>
 
       <section className="service-cta-middle">
-        <h2>Ready to Book Your {config.name} Repair?</h2>
+        <h2>{config.ctaTitle || `Ready to Book Your ${config.name} Repair?`}</h2>
         {bookingButtons('service-middle-cta')}
       </section>
 
@@ -231,7 +301,7 @@ const ServicePageComponent = ({ service }) => {
 
       <section className="service-final-cta">
         <h2>Contact Top Speed Appliance Today</h2>
-        <p>{SERVICE_FEE} service fee. Book online or call {PHONE_DISPLAY}.</p>
+        <p>Book online or call {PHONE_DISPLAY}.</p>
         {bookingButtons('service-final-book')}
       </section>
     </div>
