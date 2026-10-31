@@ -145,6 +145,11 @@ const CityPageComponent = ({ city }) => {
           <li><a href="/dryer-repair">Dryer Repair</a></li>
           <li><a href="/refrigerator-repair">Refrigerator Repair</a></li>
           <li><a href="/oven-stove-repair">Oven & Stove Repair</a></li>
+          <li><a href="/dishwasher-repair">Dishwasher Repair</a></li>
+          <li><a href="/microwave-repair">Microwave Repair</a></li>
+          <li><a href="/home-appliance-repair">Home Appliance Repair</a></li>
+          <li><a href="/commercial-appliance-repair">Commercial Appliance Repair</a></li>
+          <li><a href="/appliance-installation">Appliance Installation</a></li>
         </ul>
       </section>
 
