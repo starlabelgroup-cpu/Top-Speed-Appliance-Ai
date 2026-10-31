@@ -23,7 +23,7 @@ function Contact() {
             <span className="info-icon">📍</span>
             <div>
               <h3>Address</h3>
-              <p>10120 NW 53rd St<br/>South Florida, 33351</p>
+              <p>6810 N State Rd 7, Suite 341<br/>Coconut Creek, FL 33073</p>
             </div>
           </div>
           <div className="info-item">
