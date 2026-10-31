@@ -7,7 +7,7 @@ function Services() {
       type: 'Refrigerator',
       title: 'Refrigerator Repair Near Me',
       desc: 'Expert refrigerator repair near me with fast response times. We handle cooling issues, compressor problems, leaks, and more. All major brands serviced.',
-      image: 'https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F1691e9f9d0fc4588b5c7637ec821851a?alt=media&token=0420f7d6-0cdd-4fed-876d-7b10cabb3e8f&apiKey=a186f40324f047e6b518d0ea27bf7f66',
+      image: '/images/service/refrigerator-service.webp',
     },
     {
       type: 'Washer',
@@ -25,7 +25,7 @@ function Services() {
       type: 'Dishwasher',
       title: 'Dishwasher Repair Near Me',
       desc: 'Dishwasher repair near me with certified technicians. We fix cleaning issues, drainage problems, leaks, and power issues same-day on all brands.',
-      image: 'https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fa6d48478690c4c47af4a4dd6cecfdc07?alt=media&token=17cefb88-93ad-4b2d-9956-e04e2944c45c&apiKey=a186f40324f047e6b518d0ea27bf7f66',
+      image: '/images/service/dishwasher-service.webp',
     },
   ]
 
