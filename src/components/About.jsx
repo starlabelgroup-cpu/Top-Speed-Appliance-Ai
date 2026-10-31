@@ -4,7 +4,7 @@ function About() {
   return (
     <section id="about" className="about">
       <h2>About Us</h2>
-      <img src="https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc593bf5c5ea049c987a8ce14d83a1a44?format=webp&width=800" alt="Professional technician" className="about-image" />
+      <img src="/images/site/about-uploaded.webp" alt="Professional technician" className="about-image" />
       <p>
         At <strong>Top Speed Appliance</strong>, we specialize in fast, professional, and affordable appliance repair services throughout South Florida. Our certified technicians are trained to handle all major brands and models, ensuring your appliances are fixed right the first time.
       </p>
