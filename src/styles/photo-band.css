@@ -44,15 +44,15 @@
 }
 
 .photo-band-services {
-  background-image: url(https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F6881a045f6634f8bbedd6b773356b55b?alt=media&token=f826d06a-5971-4415-ae13-f53c76a08822&apiKey=a186f40324f047e6b518d0ea27bf7f66);
+  background-image: url(/images/service/hero-expert-team.webp);
 }
 
 .photo-band-city {
-  background-image: url(https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F9f140fa9052a469a9c42771bb7028f06?alt=media&token=d2126d2c-ffa2-4465-aec1-ff9a110165b8&apiKey=a186f40324f047e6b518d0ea27bf7f66);
+  background-image: url(/images/service/hero-expert-team.webp);
 }
 
 .photo-band-finish {
-  background-image: url(https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F1dc9503f6a2b4965b4144a180288500e?alt=media&token=922aede6-27cf-41bf-a99b-008a8fe42a28&apiKey=a186f40324f047e6b518d0ea27bf7f66);
+  background-image: url(/images/service/hero-expert-team.webp);
 }
 
 @media (max-width: 600px) {
