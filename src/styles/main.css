@@ -452,6 +452,8 @@ section {
 
 .hero-bg {
   background-image: url(https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fef0d6c67b0a74ca995fcc5df23ad3bca?alt=media&token=db32c4f8-e60f-4844-9c16-982e8a5c28dd&apiKey=a186f40324f047e6b518d0ea27bf7f66);
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-overlay {
