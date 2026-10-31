@@ -459,7 +459,7 @@ section {
 
 .hero-banner-image {
   display: block;
-  width: 800px;
+  width: 100%;
   max-width: 100%;
   height: auto;
   margin: 24px auto;
