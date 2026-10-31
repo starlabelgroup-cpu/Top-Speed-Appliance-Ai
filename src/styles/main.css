@@ -460,9 +460,9 @@ section {
 .hero-banner-image {
   display: block;
   width: 100%;
-  max-width: 100%;
+  max-width: 420px;
   height: auto;
-  margin: 24px auto;
+  margin: 16px 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
@@ -545,6 +545,7 @@ section {
     padding: 40px 20px;
   }
   .hero-content { text-align: center }
+  .hero-banner-image { margin: 16px auto }
   .hero .cta-button {
     width: 100%;
     text-align: center;
