@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import SeoLeadCaptureForm from '../components/SeoLeadCaptureForm'
+import SeoLocationMap from '../components/SeoLocationMap'
+import SeoDirectoryKit from '../components/SeoDirectoryKit'
 import ZipDirectory from '../components/ZipDirectory'
+import { useSeoLocations } from '../hooks/useSeoLocations'
 import {
   SEO_COUNTIES,
   SEO_CITIES_BY_COUNTY,
@@ -66,6 +70,16 @@ export default function ServiceAreasPage() {
     event.stopPropagation()
   }
 
+  const { status, source, locations } = useSeoLocations()
+  const [selectedSlug, setSelectedSlug] = useState(null)
+  const kitSlug = selectedSlug || locations[0]?.slug || ''
+
+  const sourceLabel = status === 'loading'
+    ? 'Loading service areas...'
+    : source === 'supabase'
+      ? 'Live service area data'
+      : 'Built-in service area data'
+
   return (
     <main className="seo-leads-page">
       <section className="seo-leads-hero">
@@ -81,6 +95,14 @@ export default function ServiceAreasPage() {
             <a className="cta-button seo-leads-hero-cta secondary" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
             <Link className="cta-button seo-leads-hero-cta secondary" to="/service-request">Service Request</Link>
           </div>
+        </div>
+      </section>
+
+      <section className="seo-leads-content">
+        <div className="seo-leads-panel seo-leads-map-panel">
+          <h2 className="seo-leads-panel-title">Service Area Map</h2>
+          <p className="seo-leads-panel-text">Select a marker to load that city's page URL and QR code below. {sourceLabel}.</p>
+          <SeoLocationMap locations={locations} selectedSlug={kitSlug} onSelect={setSelectedSlug} />
         </div>
       </section>
 
@@ -159,16 +181,19 @@ export default function ServiceAreasPage() {
               ))}
             </div>
 
-            <div className="seo-leads-directory-box">
-              <h3 className="seo-leads-directory-title">Directory Posting Tip</h3>
-              <p className="seo-leads-directory-text">
-                When listing your business on directories, paste a city page URL (example: <span className="seo-leads-mono">/appliance-repair-fort-lauderdale</span>)
-                and include your booking link on flyers and stickers.
-              </p>
-            </div>
           </div>
 
           <SeoLeadCaptureForm source="seo" contextLabel="Service Areas Hub" defaultIssue="" />
+        </div>
+      </section>
+
+      <section className="seo-leads-content">
+        <div className="seo-leads-panel seo-leads-kit-panel">
+          <h2 className="seo-leads-panel-title">Directory &amp; QR Kit</h2>
+          <p className="seo-leads-panel-text">Copy a city page URL for directory listings, or download its QR code for stickers and flyers.</p>
+          {locations.length > 0 && (
+            <SeoDirectoryKit locations={locations} selectedSlug={kitSlug} onSelect={setSelectedSlug} />
+          )}
         </div>
       </section>
 

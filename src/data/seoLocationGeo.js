@@ -1,0 +1,22 @@
+export const SEO_CITY_COORDS = {
+  'west-palm-beach': { lat: 26.7153, lng: -80.0534 },
+  'boca-raton': { lat: 26.3683, lng: -80.1289 },
+  'delray-beach': { lat: 26.4615, lng: -80.0728 },
+  'boynton-beach': { lat: 26.5253, lng: -80.0662 },
+  jupiter: { lat: 26.9342, lng: -80.0942 },
+  'palm-beach-gardens': { lat: 26.8234, lng: -80.1387 },
+  wellington: { lat: 26.6618, lng: -80.2684 },
+  'fort-lauderdale': { lat: 26.1224, lng: -80.1373 },
+  hollywood: { lat: 26.0112, lng: -80.1495 },
+  'pembroke-pines': { lat: 26.0078, lng: -80.2963 },
+  'coral-springs': { lat: 26.2712, lng: -80.2706 },
+  'pompano-beach': { lat: 26.2379, lng: -80.1248 },
+  sunrise: { lat: 26.167, lng: -80.2564 },
+  'deerfield-beach': { lat: 26.3184, lng: -80.0998 },
+  miami: { lat: 25.7617, lng: -80.1918 },
+  hialeah: { lat: 25.8576, lng: -80.2781 },
+  'miami-beach': { lat: 25.7907, lng: -80.13 },
+  doral: { lat: 25.8195, lng: -80.3553 },
+  kendall: { lat: 25.6794, lng: -80.317 },
+  homestead: { lat: 25.4687, lng: -80.4776 }
+}
