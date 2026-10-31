@@ -13,13 +13,13 @@ function Services() {
       type: 'Washer',
       title: 'Washer & Dryer Repair Near Me',
       desc: 'Professional washer and dryer repair near me with same-day service available. We fix drainage, spinning, heating, drum, and electrical problems.',
-      image: 'https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc9d67e2d48244d9d886a692c06ddbfe3?alt=media&token=54389edc-ccc1-4be4-8875-6db695844930&apiKey=a186f40324f047e6b518d0ea27bf7f66',
+      image: '/images/service/washer-dryer-stack.webp',
     },
     {
       type: 'Oven',
       title: 'Oven & Stove Repair Near Me',
       desc: 'Oven and stove repair near me for all major brands. We repair heating elements, ignition systems, controls, and burner issues quickly and affordably.',
-      image: 'https://cdn.builder.io/o/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Ffba3ebb96d20467ba02605ca464b41aa?alt=media&token=800168f6-772d-4f35-8372-6c3e28052765&apiKey=a186f40324f047e6b518d0ea27bf7f66',
+      image: '/images/service/oven-stove-range.webp',
     },
     {
       type: 'Dishwasher',
