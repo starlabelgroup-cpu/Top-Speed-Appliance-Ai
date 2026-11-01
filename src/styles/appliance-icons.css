@@ -1,0 +1,17 @@
+.appliance-icon {
+  display: block;
+  width: 44px;
+  height: 44px;
+  color: #d10000;
+  flex-shrink: 0;
+}
+
+.service-card .appliance-icon,
+.keyword-card .appliance-icon {
+  margin: 25px 25px 0;
+}
+
+.service-card > .appliance-icon + h3,
+.keyword-card > .appliance-icon + h3 {
+  padding-top: 12px;
+}

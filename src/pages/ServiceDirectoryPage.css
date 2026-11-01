@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap');
+
+.ts-directory {
+  --ts-navy: #102b4c;
+  --ts-blue: #174d80;
+  --ts-accent: #e7a72d;
+  --ts-ink: #182536;
+  --ts-muted: #637083;
+  --ts-line: #e2e8ef;
+  color: var(--ts-ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  background: #fff;
+  width: 100%;
+}
+.ts-directory * { box-sizing: border-box; }
+.ts-directory a { color: inherit; }
+.ts-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ts-navy); }
+.ts-brand-mark { display:grid; place-items:center; width:44px; height:44px; border-radius:10px; background:var(--ts-navy); color:#fff; font:900 16px Montserrat,sans-serif; border:2px solid var(--ts-accent); }
+.ts-brand strong,.ts-brand small { display:block; letter-spacing:.08em; }
+.ts-brand strong { font:900 16px Montserrat,sans-serif; }
+.ts-brand small { font-size:9px; font-weight:800; margin-top:3px; }
+.ts-hero { background:linear-gradient(115deg,rgba(9,31,56,.98),rgba(20,67,108,.94)),radial-gradient(circle at 85% 25%,#4d7191,transparent 42%); color:#fff; padding:clamp(58px,8vw,112px) clamp(20px,8vw,112px); display:flex; justify-content:space-between; align-items:center; gap:40px; min-height:410px; }
+.ts-hero-content { max-width:720px; }
+.ts-eyebrow { display:block; color:#b17a19; font-size:10px; font-weight:900; letter-spacing:.17em; margin-bottom:13px; }
+.ts-eyebrow-light { color:#f3c56e; }
+.ts-hero h1 { font:900 clamp(40px,6vw,70px)/1.03 Montserrat,sans-serif; letter-spacing:-.055em; margin:0 0 18px; }
+.ts-hero h1 em { color:#f1bb51; font-style:normal; }
+.ts-hero p { max-width:590px; color:#dbe5ef; font-size:17px; line-height:1.7; }
+.ts-hero-actions { display:flex; align-items:center; gap:22px; margin-top:28px; flex-wrap:wrap; }
+.ts-button { border:0; border-radius:7px; padding:14px 20px; font:800 13px "DM Sans",sans-serif; text-decoration:none; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:10px; }
+.ts-button-primary { background:var(--ts-navy); color:#fff; }
+.ts-button-light { background:#f3bd57; color:#172b42; }
+.ts-button:disabled { opacity:.6; cursor:wait; }
+.ts-hero-phone { color:#fff; font-weight:800; text-decoration:none; }
+.ts-hero-badge { width:230px; min-width:190px; height:230px; border:2px solid rgba(255,255,255,.55); outline:7px solid rgba(255,255,255,.08); border-radius:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; transform:rotate(-8deg); color:#fff; text-align:center; }
+.ts-hero-badge span { color:#f4c05d; font:900 13px Montserrat,sans-serif; letter-spacing:.18em; }
+.ts-hero-badge strong { font:900 25px/1.1 Montserrat,sans-serif; margin:8px 0; }
+.ts-hero-badge small { font-size:8px; letter-spacing:.2em; }
+.ts-search-wrap { width:min(1120px,calc(100% - 36px)); margin:-35px auto 0; position:relative; background:#fff; border:1px solid var(--ts-line); border-radius:14px; box-shadow:0 18px 50px rgba(13,36,61,.12); padding:26px; display:grid; grid-template-columns:.7fr 1.6fr; gap:28px; align-items:center; }
+.ts-search-intro h2,.ts-section-heading h2 { font:800 clamp(24px,3vw,34px) Montserrat,sans-serif; letter-spacing:-.04em; margin:0 0 8px; color:var(--ts-navy); }
+.ts-search-intro p,.ts-section-heading p { color:var(--ts-muted); margin:0; font-size:14px; line-height:1.6; }
+.ts-search-panel { display:grid; grid-template-columns:1fr 1fr auto; gap:12px; align-items:end; }
+.ts-field { display:flex; flex-direction:column; gap:7px; min-width:0; }
+.ts-field label { color:#31445b; font-size:12px; font-weight:800; }
+.ts-field input,.ts-field select,.ts-field textarea { width:100%; min-height:46px; border:1px solid #d5dee8; border-radius:6px; background:#fff; padding:11px 12px; color:var(--ts-ink); font:500 13px "DM Sans",sans-serif; }
+.ts-field textarea { resize:vertical; }
+.ts-field input:focus,.ts-field select:focus,.ts-field textarea:focus { outline:2px solid #8db6db; border-color:var(--ts-blue); }
+.ts-search-note { grid-column:1/-1; color:#788597; font-size:10px; margin:0; }
+.ts-section { padding:76px clamp(18px,6vw,80px); }
+.ts-section-heading { text-align:center; max-width:680px; margin:0 auto 34px; }
+.ts-card-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; max-width:1120px; margin:auto; }
+.ts-service-card { border:1px solid var(--ts-line); border-radius:11px; padding:23px; background:#fff; transition:transform .2s,box-shadow .2s; }
+.ts-service-card:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(17,43,72,.08); }
+.ts-service-icon { width:45px; height:45px; display:grid; place-items:center; border-radius:9px; background:#edf3f8; color:var(--ts-blue); font-size:14px; font-weight:800; }
+.ts-service-card h3 { font:800 17px Montserrat,sans-serif; margin:17px 0 8px; color:var(--ts-navy); }
+.ts-service-card p { color:var(--ts-muted); font-size:13px; line-height:1.6; min-height:42px; }
+.ts-text-button { padding:0; border:0; background:none; color:#174d80; font:800 12px "DM Sans",sans-serif; cursor:pointer; text-decoration:none; }
+.ts-city-section { background:#f5f8fb; }
+.ts-city-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; max-width:1000px; margin:auto; }
+.ts-city-link { display:flex; justify-content:space-between; align-items:center; text-align:left; border:1px solid #e0e7ef; background:#fff; border-radius:8px; padding:15px 17px; cursor:pointer; color:var(--ts-navy); text-decoration:none; }
+.ts-city-link strong,.ts-city-link small { display:block; }
+.ts-city-link strong { font-size:13px; }
+.ts-city-link small { color:var(--ts-muted); font-size:10px; margin-top:4px; }
+.ts-city-link > span:last-child { font-size:19px; color:#b17a19; }
+.ts-steps { max-width:1120px; margin:auto; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.ts-step { border-top:2px solid var(--ts-accent); padding:18px 4px; }
+.ts-step b { color:#b17a19; font:900 12px Montserrat,sans-serif; }
+.ts-step h3 { color:var(--ts-navy); font:800 15px Montserrat,sans-serif; margin:12px 0 7px; }
+.ts-step p { color:var(--ts-muted); font-size:12px; line-height:1.6; margin:0; }
+.ts-booking-section { display:grid; grid-template-columns:.8fr 1.2fr; background:#f3f6f9; }
+.ts-booking-aside { background:var(--ts-navy); color:#fff; padding:clamp(32px,6vw,75px); }
+.ts-booking-aside h2 { font:900 clamp(27px,3.5vw,40px)/1.15 Montserrat,sans-serif; letter-spacing:-.04em; }
+.ts-booking-aside p { color:#d5e0eb; line-height:1.7; font-size:14px; }
+.ts-booking-aside a { color:#f3c56e; font-weight:800; text-decoration:none; }
+.ts-booking-main { padding:clamp(25px,5vw,62px); }
+.ts-booking-form { max-width:760px; margin:auto; background:#fff; border:1px solid var(--ts-line); border-radius:12px; padding:clamp(20px,4vw,36px); box-shadow:0 10px 35px rgba(14,40,68,.06); }
+.ts-form-heading h2 { color:var(--ts-navy); font:900 27px Montserrat,sans-serif; margin:0 0 8px; }
+.ts-form-heading p { color:var(--ts-muted); font-size:13px; line-height:1.6; margin:0 0 24px; }
+.ts-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+.ts-field-full { grid-column:1/-1; }
+.ts-consent { display:flex; gap:10px; align-items:flex-start; margin:19px 0; color:#59697c; font-size:11px; line-height:1.5; }
+.ts-consent input { margin-top:2px; }
+.ts-submit { width:100%; min-height:49px; }
+.ts-privacy { color:#8490a0; font-size:10px; line-height:1.5; }
+.ts-alert { color:#8a4c00; background:#fff4dd; border-radius:6px; padding:10px; font-size:12px; margin-bottom:18px; }
+.ts-empty { color:var(--ts-muted); font-size:14px; text-align:center; grid-column:1/-1; }
+
+@media(max-width:850px) {
+  .ts-hero-badge { width:165px; min-width:165px; height:165px; }
+  .ts-hero-badge strong { font-size:18px; }
+  .ts-search-wrap { grid-template-columns:1fr; }
+  .ts-search-panel { grid-template-columns:1fr 1fr; }
+  .ts-search-panel .ts-button { grid-column:1/-1; }
+  .ts-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ts-city-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ts-booking-section { grid-template-columns:1fr; }
+}
+@media(max-width:560px) {
+  .ts-brand strong { font-size:13px; }
+  .ts-brand small { font-size:8px; }
+  .ts-hero { min-height:0; padding:55px 22px 75px; }
+  .ts-hero-badge { display:none; }
+  .ts-hero p { font-size:14px; }
+  .ts-search-wrap { width:calc(100% - 24px); padding:19px; margin-top:-30px; }
+  .ts-search-panel,.ts-form-grid { grid-template-columns:1fr; }
+  .ts-field-full { grid-column:auto; }
+  .ts-card-grid,.ts-city-grid { grid-template-columns:1fr; }
+  .ts-section { padding:55px 18px; }
+  .ts-steps { grid-template-columns:1fr 1fr; }
+}

@@ -1,0 +1,193 @@
+.location-service-page {
+  background: linear-gradient(135deg, #0f0f10 0%, #1a1a1c 100%);
+  color: #fff;
+  min-height: 100vh;
+  padding: 50px 20px 80px;
+}
+
+.location-hero {
+  margin: 0 auto 40px;
+  max-width: 1100px;
+  text-align: left;
+}
+
+.location-eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.location-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.location-lede {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  max-width: 780px;
+}
+
+.location-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.location-content {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.location-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-card,
+.location-sidebar-card {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.location-card h2,
+.location-sidebar-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.location-card ul {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.location-card li {
+  margin-bottom: 6px;
+}
+
+.location-chip-row,
+.location-chip-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.location-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  padding: 6px 14px;
+}
+
+.location-areas {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.location-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.location-faq {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.location-faq summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.location-faq p {
+  color: rgba(255, 255, 255, 0.82);
+  margin: 10px 0 0;
+}
+
+.location-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.location-sidebar-note {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+.location-map-wrapper iframe {
+  border-radius: 12px;
+}
+
+.location-links-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.location-links-card li {
+  margin-bottom: 8px;
+}
+
+.location-links-card a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.location-links-card a:hover {
+  color: #d10000;
+}
+
+@media (max-width: 960px) {
+  .location-content {
+    grid-template-columns: 1fr;
+  }
+
+  .location-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .location-sidebar-card {
+    flex: 1 1 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .location-service-page {
+    padding: 40px 16px 60px;
+  }
+
+  .location-hero-actions {
+    flex-direction: column;
+  }
+
+  .location-sidebar {
+    flex-direction: column;
+  }
+}
