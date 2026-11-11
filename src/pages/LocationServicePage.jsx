@@ -8,7 +8,7 @@ import * as googleAdsTracking from '../utils/googleAdsTracking'
 import '../styles/location-service-page.css'
 
 function safeOrigin() {
-  if (typeof window === 'undefined') return 'https://topspeedappliance.com'
+  if (typeof window === 'undefined') return 'https://topspeedappliance.net'
   return window.location.origin
 }
 

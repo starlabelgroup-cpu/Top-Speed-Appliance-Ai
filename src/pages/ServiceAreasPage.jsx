@@ -15,10 +15,11 @@ import {
   getCitySlug
 } from '../data/seoLeadData'
 import { useSeo } from '../utils/useSeo'
+import { getPageMeta } from '../data/pageMeta'
 import '../styles/seo-leads.css'
 
 function safeOrigin() {
-  if (typeof window === 'undefined') return 'https://topspeedappliance.com'
+  if (typeof window === 'undefined') return 'https://topspeedappliance.net'
   return window.location.origin
 }
 
@@ -26,8 +27,7 @@ export default function ServiceAreasPage() {
   const canonicalPath = '/service-areas'
   const origin = safeOrigin()
 
-  const title = 'Service Areas & SEO Lead Generator | Top Speed Appliance'
-  const description = 'Browse service areas, city pages, common appliance problems, and quick booking links. Built for local search, online directories, and QR marketing.'
+  const { title, description } = getPageMeta(canonicalPath)
 
   const schema = {
     '@context': 'https://schema.org',

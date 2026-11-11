@@ -5,6 +5,8 @@ import { leadsDatabase } from '../services/leadsDatabase'
 import { storageGetItem, storageSetJson } from '../utils/storage'
 import '../styles/service-request.css'
 
+const SERVICE_OS_API_URL = import.meta.env.VITE_API_URL
+
 export default function ServiceRequestPage() {
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState(() => ({
@@ -191,8 +193,45 @@ export default function ServiceRequestPage() {
 
       storageSetJson(`serviceRequest_${requestData.id}`, requestData)
 
+      const params = new URLSearchParams(window.location.search)
+
+      if (SERVICE_OS_API_URL) {
+        try {
+          const response = await fetch(`${SERVICE_OS_API_URL}/api/v1/bookings`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: formData.customerName,
+              email: formData.customerEmail,
+              phone: formData.customerPhone,
+              appliance: formData.applianceType,
+              brand: formData.brand,
+              model: formData.model,
+              age: formData.age,
+              symptoms: formData.symptoms,
+              description: formData.description,
+              serviceAddress: formData.serviceAddress,
+              preferredDate: formData.preferredDate,
+              preferredTime: formData.preferredTime,
+              urgency: formData.urgency,
+              source: params.get('src') || 'service-request',
+              termsAccepted: formData.consent
+            })
+          })
+
+          if (!response.ok) {
+            throw new Error(`Booking request failed with status ${response.status}`)
+          }
+        } catch {
+          setNotification({
+            type: 'warning',
+            message: 'We could not send your request. Please call (954) 931-7997 to book.'
+          })
+          return
+        }
+      }
+
       try {
-        const params = new URLSearchParams(window.location.search)
         await leadsDatabase.createLead({
           name: formData.customerName,
           phone: formData.customerPhone,

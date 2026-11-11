@@ -1,5 +1,6 @@
 import React from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import ServiceReserveButton from './ServiceReserveButton'
 
 const commercialServices = [
   {
@@ -43,6 +44,7 @@ function CommercialServices() {
             <a href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer" className="service-booking-btn">
               Book Now
             </a>
+            <ServiceReserveButton source="services-commercial" className="service-booking-btn" />
           </div>
         ))}
       </div>

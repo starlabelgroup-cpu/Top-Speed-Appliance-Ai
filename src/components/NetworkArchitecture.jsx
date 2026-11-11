@@ -148,7 +148,7 @@ AppliancePro.net | Referral Program | PrimeHomeConnect | Lead Requests
             <h3>2. Robots.txt Coordination</h3>
             <p>All 5 sitemaps are declared in a centralized robots.txt, signaling to search engines to crawl and index the entire network.</p>
             <code className="code-block">
-Sitemap: https://topspeedappliance.com/sitemap.xml
+Sitemap: https://topspeedappliance.net/sitemap.xml
 Sitemap: https://appliancepro.net/sitemap.xml
 Sitemap: https://appliancereferral.com/sitemap.xml
 Sitemap: https://primehomeconnect.com/sitemap.xml

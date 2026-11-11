@@ -6,11 +6,11 @@ export default function SEOSchema() {
     const mainSchema = {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': 'https://topspeedappliance.com',
+      '@id': 'https://topspeedappliance.net',
       name: BOOKING_CONFIG.BUSINESS_NAME,
       image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800',
       description: 'Top Speed Appliance provides professional appliance repair services in South Florida. Expert technicians, fast service, affordable prices.',
-      url: 'https://topspeedappliance.com',
+      url: 'https://topspeedappliance.net',
       telephone: BOOKING_CONFIG.PHONE_NUMBER,
       email: 'service@topspeedappliance.net',
       address: {
@@ -72,7 +72,7 @@ export default function SEOSchema() {
       isPartOf: {
         '@type': 'Organization',
         name: 'TopSpeed Appliance Network',
-        url: 'https://topspeedappliance.com',
+        url: 'https://topspeedappliance.net',
         description: 'Interconnected appliance service ecosystem featuring service dispatch, mobile apps, referral programs, and lead generation.',
         sameAs: [
           'https://appliancepro.net',
@@ -87,7 +87,7 @@ export default function SEOSchema() {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'TopSpeed Appliance Network',
-      url: 'https://topspeedappliance.com',
+      url: 'https://topspeedappliance.net',
       logo: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800',
       description: 'A comprehensive appliance service network including service dispatch, mobile booking app, referral program, home service platform, and lead generation.',
       sameAs: [

@@ -8,7 +8,7 @@ export default function SeoDirectoryKit({ locations, selectedSlug, onSelect }) {
   const [copied, setCopied] = useState(false)
 
   const selected = locations.find(location => location.slug === selectedSlug) || locations[0]
-  const origin = typeof window === 'undefined' ? 'https://topspeedappliance.com' : window.location.origin
+  const origin = typeof window === 'undefined' ? 'https://topspeedappliance.net' : window.location.origin
   const pagePath = selected ? `/${buildServiceLocationSlug('appliance-repair', selected.slug)}` : ''
   const pageUrl = `${origin}${pagePath}`
 

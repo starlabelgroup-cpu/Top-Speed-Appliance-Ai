@@ -44,15 +44,15 @@
 }
 
 .photo-band-services {
-  background-image: url(/images/service/hero-expert-team.webp);
+  background-image: url(/images/service/expert-team-banner.webp);
 }
 
 .photo-band-city {
-  background-image: url(/images/service/hero-expert-team.webp);
+  background-image: url(/images/service/expert-team-banner.webp);
 }
 
 .photo-band-finish {
-  background-image: url(/images/service/hero-expert-team.webp);
+  background-image: url(/images/service/expert-team-banner.webp);
 }
 
 @media (max-width: 600px) {

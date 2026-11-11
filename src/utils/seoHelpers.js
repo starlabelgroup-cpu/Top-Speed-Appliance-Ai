@@ -50,7 +50,7 @@ export const organizationSchema = {
     postalCode: '33000',
     addressCountry: 'US'
   },
-  url: 'https://topspeedappliance.com',
+  url: 'https://topspeedappliance.net',
   sameAs: [
     'https://www.facebook.com/topspeedappliance',
     'https://www.instagram.com/topspeedappliance'
@@ -60,10 +60,10 @@ export const organizationSchema = {
 export const serviceSchema = (title, description, areaServed) => ({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': `https://topspeedappliance.com/#${title.replace(/\s+/g, '-')}`,
+  '@id': `https://topspeedappliance.net/#${title.replace(/\s+/g, '-')}`,
   name: `Top Speed Appliance - ${title}`,
   description,
   areaServed,
   telephone: '+1-954-931-7997',
-  url: 'https://topspeedappliance.com'
+  url: 'https://topspeedappliance.net'
 })

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import '../styles/service-and-city-pages.css'
+import ServiceReserveButton from './ServiceReserveButton'
 
 /**
  * ServicePage Component
@@ -425,13 +426,6 @@ const ServicePageComponent = ({ service }) => {
   const benefits = config.benefits || DEFAULT_BENEFITS
 
   useEffect(() => {
-    document.title = config.seoTitle
-
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute('content', config.metaDescription)
-    }
-
     if (window.gtag) {
       window.gtag('event', 'page_view', {
         page_title: config.seoTitle,
@@ -461,6 +455,7 @@ const ServicePageComponent = ({ service }) => {
       >
         Book Online with Housecall Pro
       </a>
+      <ServiceReserveButton source="service-page" className={`cta-button cta-primary ${className}`} />
       <a href={PHONE_HREF} className="cta-button cta-secondary" onClick={() => trackEvent('click_call')}>
         Call to Book: {PHONE_DISPLAY}
       </a>

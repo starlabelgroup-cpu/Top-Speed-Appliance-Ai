@@ -20,7 +20,7 @@ import { useSeo } from '../utils/useSeo'
 import '../styles/seo-leads.css'
 
 function safeOrigin() {
-  if (typeof window === 'undefined') return 'https://topspeedappliance.com'
+  if (typeof window === 'undefined') return 'https://topspeedappliance.net'
   return window.location.origin
 }
 

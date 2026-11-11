@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react'
-import L from 'leaflet'
+import { useEffect, useRef, useState } from 'react'
 import 'leaflet/dist/leaflet.css'
 
 const SOUTH_FLORIDA_CENTER = [26.4, -80.2]
@@ -8,29 +7,42 @@ export default function SeoLocationMap({ locations, selectedSlug, onSelect }) {
   const containerRef = useRef(null)
   const mapRef = useRef(null)
   const layerRef = useRef(null)
+  const leafletRef = useRef(null)
   const fittedRef = useRef(false)
+  const [mapReady, setMapReady] = useState(false)
 
   useEffect(() => {
-    const map = L.map(containerRef.current, { scrollWheelZoom: false }).setView(SOUTH_FLORIDA_CENTER, 9)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors',
-      maxZoom: 18
-    }).addTo(map)
-    mapRef.current = map
-    layerRef.current = L.layerGroup().addTo(map)
+    let cancelled = false
+
+    import('leaflet').then(({ default: L }) => {
+      if (cancelled) return
+      const map = L.map(containerRef.current, { scrollWheelZoom: false }).setView(SOUTH_FLORIDA_CENTER, 9)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 18
+      }).addTo(map)
+      mapRef.current = map
+      leafletRef.current = L
+      layerRef.current = L.layerGroup().addTo(map)
+      setMapReady(true)
+    })
 
     return () => {
-      map.remove()
+      cancelled = true
+      mapRef.current?.remove()
       mapRef.current = null
       layerRef.current = null
+      leafletRef.current = null
       fittedRef.current = false
+      setMapReady(false)
     }
   }, [])
 
   useEffect(() => {
     const map = mapRef.current
     const layer = layerRef.current
-    if (!map || !layer) return
+    const L = leafletRef.current
+    if (!mapReady || !map || !layer || !L) return
 
     layer.clearLayers()
     const points = []
@@ -57,7 +69,7 @@ export default function SeoLocationMap({ locations, selectedSlug, onSelect }) {
       map.fitBounds(points, { padding: [24, 24] })
       fittedRef.current = true
     }
-  }, [locations, selectedSlug, onSelect])
+  }, [mapReady, locations, selectedSlug, onSelect])
 
   return (
     <div

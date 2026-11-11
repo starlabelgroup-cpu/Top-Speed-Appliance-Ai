@@ -1,5 +1,6 @@
 import React from 'react'
 import ApplianceIcon from './ApplianceIcon'
+import ServiceReserveButton from './ServiceReserveButton'
 
 function Services() {
   const services = [
@@ -61,6 +62,7 @@ function Services() {
             <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="service-booking-btn">
               Book Now
             </a>
+            <ServiceReserveButton source="services-residential" className="service-booking-btn" />
           </div>
         ))}
       </div>

@@ -20,7 +20,7 @@ Crawl-delay: 1
 
 # TopSpeed Appliance Network Sitemaps
 # Main Authority Site
-Sitemap: https://topspeedappliance.com/sitemap.xml
+Sitemap: https://topspeedappliance.net/sitemap.xml
 
 # Satellite Sites - Network Authority Boost
 Sitemap: https://appliancepro.net/sitemap.xml

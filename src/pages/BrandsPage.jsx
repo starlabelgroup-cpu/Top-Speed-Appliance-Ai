@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { SEO_BRANDS } from '../data/seoLeadData'
 import '../styles/brands-page.css'
 
 const HOUSECALL_BOOKING_URL = 'https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true'
 
 function BrandsPage() {
-  useEffect(() => {
-    document.title = 'Appliance Brands We Repair | Top Speed Appliance'
-  }, [])
-
   return (
     <main className="brands-page">
       <section className="brands-hero">

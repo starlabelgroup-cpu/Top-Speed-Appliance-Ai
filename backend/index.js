@@ -325,7 +325,7 @@ app.post('/api/generate-ads', async (req, res) => {
             ad.headline3,
             ad.description1,
             ad.description2,
-            ad.finalUrl || 'https://topspeedappliance.com',
+            ad.finalUrl || 'https://topspeedappliance.net',
             ad.status,
             ad.platform
           ]
@@ -389,8 +389,8 @@ app.post('/api/google-ads/create-campaign', async (req, res) => {
         await googleAdsManager.createAd(campaignRes.rows[0].id, {
           headline: ad.headline1,
           description: ad.description1,
-          finalUrl: ad.finalUrl || 'https://topspeedappliance.com',
-          displayUrl: 'topspeedappliance.com'
+          finalUrl: ad.finalUrl || 'https://topspeedappliance.net',
+          displayUrl: 'topspeedappliance.net'
         })
       } catch (adErr) {
         console.warn('Could not create ad:', adErr)

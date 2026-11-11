@@ -6,9 +6,16 @@ import './styles/main.css'
 import './styles/dashboard.css'
 import './styles/service-request.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+const app = (
   <React.StrictMode>
     <App />
     <Analytics />
   </React.StrictMode>
 )
+
+if (container.hasChildNodes()) {
+  ReactDOM.hydrateRoot(container, app)
+} else {
+  ReactDOM.createRoot(container).render(app)
+}

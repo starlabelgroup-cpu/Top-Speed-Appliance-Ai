@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { blogPosts, getCategoryOptions } from '../data/blogData'
 
@@ -17,18 +17,9 @@ function Blog() {
     filteredPosts = [...filteredPosts].reverse()
   }
 
-  // Update page title and meta tags
-  useEffect(() => {
-    document.title = 'Appliance Repair Blog | Top Speed Appliance'
-    const metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Read our appliance repair blog for tips, guides, and advice on keeping your refrigerator, washer, dryer, oven, and dishwasher in top condition.')
-    }
-  }, [])
-
   return (
     <section id="blog" className="blog">
-      <h2>Appliance Repair Blog</h2>
+      <h1>Appliance Repair Blog</h1>
       <p className="blog-subtitle">Tips, guides, and advice for keeping your appliances in top condition</p>
 
       <div className="blog-controls">

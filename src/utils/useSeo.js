@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { SITE_URL } from '../data/pageMeta'
 
 function ensureMetaByName(name) {
   let meta = document.head.querySelector(`meta[name="${name}"]`)
@@ -31,8 +32,7 @@ function ensureCanonical() {
 }
 
 function safeOrigin() {
-  if (typeof window === 'undefined') return 'https://topspeedappliance.com'
-  return window.location.origin
+  return SITE_URL
 }
 
 export function useSeo({

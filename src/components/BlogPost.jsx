@@ -42,14 +42,14 @@ function BlogPost() {
         author: {
           '@type': 'Organization',
           name: post.author,
-          url: 'https://topspeedappliance.com'
+          url: 'https://topspeedappliance.net'
         },
         publisher: {
           '@type': 'Organization',
           name: 'Top Speed Appliance',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://topspeedappliance.com/logo.png'
+            url: 'https://topspeedappliance.net/logo.png'
           }
         }
       })

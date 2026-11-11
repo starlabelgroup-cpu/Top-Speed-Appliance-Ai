@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import ServiceReserveButton from './ServiceReserveButton'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -69,6 +70,7 @@ function Header() {
           >
             Book Now
           </a>
+          <ServiceReserveButton source="header" className="book-now-btn" />
           <button
             data-token='8d8427149b1b4af097d0fa3874bcf202'
             data-orgname='TopSpeed-Appliance'
@@ -95,6 +97,10 @@ function Header() {
         <nav className={`nav ${open ? 'open' : ''}`}>
           <NavLink to="/" end className={navLinkClass}>Home</NavLink>
           <Link to="/#services" className="nav-link nav-pill">Services</Link>
+          <NavLink to="/commercial-appliance-repair" className={navLinkClass}>Commercial</NavLink>
+          <NavLink to="/pricing" className={navLinkClass}>Pricing</NavLink>
+          <NavLink to="/warranty" className={navLinkClass}>Warranty</NavLink>
+          <NavLink to="/reviews" className={navLinkClass}>Reviews</NavLink>
           <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
           <NavLink to="/service-directory" className={navLinkClass}>Directory</NavLink>
           <NavLink to="/service-request" className={navLinkClass}>Service Request</NavLink>
