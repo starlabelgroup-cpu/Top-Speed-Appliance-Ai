@@ -83,34 +83,39 @@ function Header() {
           </button>
         </div>
       </div>
-      <div className="container">
-        <img src="https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800" alt="Top Speed Appliance" className="logo" />
+      <div className="header-main-os">
+        <div className="container">
+          <Link to="/" className="os-logo" aria-label="Top Speed Appliance — home">
+            <span className="os-logo-top">TOP SPEED</span>
+            <span className="os-logo-sub">APPLIANCE</span>
+          </Link>
 
-        <button
-          className="menu-toggle"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((s) => !s)}
-        >
-          <span className={`hamburger ${open ? 'open' : ''}`}></span>
-        </button>
+          <button
+            className="menu-toggle"
+            aria-label="Toggle navigation"
+            onClick={() => setOpen((s) => !s)}
+          >
+            <span className={`hamburger ${open ? 'open' : ''}`}></span>
+          </button>
 
-        <nav className={`nav ${open ? 'open' : ''}`}>
-          <NavLink to="/" end className={navLinkClass}>Home</NavLink>
-          <Link to="/#services" className="nav-link nav-pill">Services</Link>
-          <NavLink to="/commercial-appliance-repair" className={navLinkClass}>Commercial</NavLink>
-          <NavLink to="/pricing" className={navLinkClass}>Pricing</NavLink>
-          <NavLink to="/warranty" className={navLinkClass}>Warranty</NavLink>
-          <NavLink to="/reviews" className={navLinkClass}>Reviews</NavLink>
-          <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
-          <NavLink to="/service-directory" className={navLinkClass}>Directory</NavLink>
-          <NavLink to="/service-request" className={navLinkClass}>Service Request</NavLink>
-          <NavLink to="/blog" className={navLinkClass}>Blog</NavLink>
-          <NavLink to="/account" className={navLinkClass}>Account</NavLink>
-          <NavLink to="/brands" className={navLinkClass}>Brands</NavLink>
-          <Link to="/#about" className="nav-link nav-pill">About</Link>
-          <Link to="/#booking" className="nav-link nav-pill">Booking</Link>
-
-        </nav>
+          <nav className={`nav os-nav ${open ? 'open' : ''}`}>
+            <Link to="/#services" className="nav-link">Services</Link>
+            <NavLink to="/commercial-appliance-repair" className={navLinkClass}>Commercial</NavLink>
+            <a
+              href="https://topspeedserviceos.com/property-managers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              Property Managers
+            </a>
+            <NavLink to="/track" className={navLinkClass}>Track My Tech</NavLink>
+            <NavLink to="/reviews" className={navLinkClass}>Reviews</NavLink>
+            <NavLink to="/media-os" className={navLinkClass}>Media OS</NavLink>
+            <NavLink to="/account" className={navLinkClass}>Account</NavLink>
+            <Link to="/service-request" className="os-btn os-btn-red os-book-btn">BOOK SERVICE</Link>
+          </nav>
+        </div>
       </div>
     </header>
   )

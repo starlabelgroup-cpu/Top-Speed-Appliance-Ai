@@ -2,9 +2,38 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { leadsDatabase } from '../services/leadsDatabase'
 import { storageGetItem, storageSetJson } from '../utils/storage'
-import { bookGuest, preferredWindowFor, extractZip, citiesForZip, SERVICE_CITIES } from '../lib/serviceOs'
+import { bookGuest, preferredWindowFor, extractZip, citiesForZip, SERVICE_CITIES, SERVICE_OS_LINKS } from '../lib/serviceOs'
 import TrackMyTech from '../components/TrackMyTech'
+import { SpeedyPanel, SPEEDY_PREFILL_KEY } from '../components/SpeedyPanel'
+import MobileStickyBar from '../components/MobileStickyBar'
 import '../styles/service-request.css'
+
+/**
+ * Smart Booking — Figma frame 02 "Smart Booking + Speedy AI".
+ *
+ * Same real booking path as Phase 1: submit books a guest job into the
+ * Top Speed Service OS (POST /speedy/book, source FLAGSHIP_NET) and the
+ * Supabase lead mirror is kept as a secondary record. Steps follow the
+ * design's segment order: Contact → Location → Appliance → Schedule →
+ * Review.
+ */
+
+const STEP_LABELS = ['Contact', 'Location', 'Appliance', 'Schedule', 'Review']
+
+const APPLIANCE_ICONS = {
+  'Refrigerator': '🧊',
+  'Washer': '🌀',
+  'Dryer': '👕',
+  'Oven/Range': '🔥',
+  'Dishwasher': '🍽️',
+  'Microwave': '♨️',
+  'HVAC': '🌡️',
+  'Water Heater': '🚿',
+  'Garbage Disposal': '🗑️',
+  'Other': '🔧',
+  'Freezer/Ice Maker': '❄️',
+  'Installation': '🔧',
+}
 
 export default function ServiceRequestPage() {
   const [step, setStep] = useState(1)
@@ -68,6 +97,38 @@ export default function ServiceRequestPage() {
     '4:00 PM - 6:00 PM'
   ]
 
+  const windowLabel = (slot) =>
+    slot.replace(':00 ', ' ').replace(' - ', '–').replace(' AM', ' AM').replace(' PM', ' PM')
+
+  // Speedy / homepage prefill: an issue typed into a Speedy entry point
+  // (or an appliance tile on the homepage) lands in the form.
+  useEffect(() => {
+    let prefill = null
+    try {
+      const raw = window.sessionStorage.getItem(SPEEDY_PREFILL_KEY)
+      if (raw) {
+        prefill = JSON.parse(raw)
+        window.sessionStorage.removeItem(SPEEDY_PREFILL_KEY)
+      }
+    } catch {
+      // storage unavailable — nothing to prefill
+    }
+    const params = new URLSearchParams(window.location.search)
+    const issue = params.get('issue') || prefill?.issue || ''
+    const appliance = params.get('appliance') || prefill?.appliance || ''
+    if (issue || appliance) {
+      setFormData((prev) => ({
+        ...prev,
+        ...(issue && !prev.description ? { description: issue } : {}),
+        ...(appliance && !prev.applianceType ? { applianceType: appliance } : {}),
+      }))
+      if (issue) {
+        setNotification({ type: 'info', message: 'Speedy added that to your booking — review it and pick a window.' })
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }))
     if (errors[field]) {
@@ -126,6 +187,45 @@ export default function ServiceRequestPage() {
     }))
   }
 
+  const handleUseMyLocation = () => {
+    if (!('geolocation' in navigator)) {
+      setNotification({ type: 'warning', message: 'Location is not available in this browser — enter your ZIP instead.' })
+      return
+    }
+    setNotification({ type: 'info', message: 'Finding your location…' })
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`
+          )
+          const data = await res.json()
+          const addr = data.address || {}
+          const zip = String(addr.postcode || '').slice(0, 5)
+          if (zip) handleZipChange(zip)
+          const cityName = addr.city || addr.town || addr.village || ''
+          if (SERVICE_CITIES.includes(cityName)) handleInputChange('city', cityName)
+          if (data.display_name) handleInputChange('serviceAddress', data.display_name)
+          setNotification({ type: 'success', message: 'Location filled in — double-check your city and ZIP before continuing.' })
+        } catch {
+          setNotification({ type: 'warning', message: 'Could not look up that location — enter your ZIP instead.' })
+        }
+      },
+      () => setNotification({ type: 'warning', message: 'Location permission was not granted — enter your ZIP instead.' }),
+      { timeout: 10000 }
+    )
+  }
+
+  const handleSpeedyPrefill = ({ issue, appliance }) => {
+    setFormData((prev) => ({
+      ...prev,
+      description: issue || prev.description,
+      applianceType: appliance || prev.applianceType,
+      symptoms: appliance && appliance !== prev.applianceType ? [] : prev.symptoms,
+    }))
+    setNotification({ type: 'success', message: 'Speedy added that to your booking form — review it and continue.' })
+  }
+
   const validateStep = (currentStep) => {
     const newErrors = {}
 
@@ -137,17 +237,21 @@ export default function ServiceRequestPage() {
         newErrors.customerEmail = 'Invalid email'
       }
     } else if (currentStep === 2) {
+      if (!formData.serviceAddress.trim()) newErrors.serviceAddress = 'Service address required'
+      if (!formData.city || !SERVICE_CITIES.includes(formData.city)) newErrors.city = 'Select your city'
+      if (!/^\d{5}$/.test(formData.zip || '')) newErrors.zip = 'Enter your 5-digit ZIP'
+    } else if (currentStep === 3) {
       if (!formData.applianceType) newErrors.applianceType = 'Select appliance type'
       if (!formData.brand.trim()) newErrors.brand = 'Brand required'
-    } else if (currentStep === 3) {
-      if (formData.symptoms.length === 0) newErrors.symptoms = 'Select at least one symptom'
+      // Symptoms are only required when the appliance has a known list —
+      // "Other" / prefilled canonical types describe the issue in text.
+      if (commonSymptoms[formData.applianceType]?.length && formData.symptoms.length === 0) {
+        newErrors.symptoms = 'Select at least one symptom'
+      }
       if (!formData.description.trim()) newErrors.description = 'Describe the issue'
     } else if (currentStep === 4) {
       if (!formData.preferredDate) newErrors.preferredDate = 'Select preferred date'
       if (!formData.preferredTime) newErrors.preferredTime = 'Select time slot'
-      if (!formData.serviceAddress.trim()) newErrors.serviceAddress = 'Service address required'
-      if (!formData.city || !SERVICE_CITIES.includes(formData.city)) newErrors.city = 'Select your city'
-      if (!/^\d{5}$/.test(formData.zip || '')) newErrors.zip = 'Enter your 5-digit ZIP'
     } else if (currentStep === 5) {
       if (!formData.consent) newErrors.consent = 'Please accept terms'
     }
@@ -174,7 +278,7 @@ export default function ServiceRequestPage() {
 
     setShowAiHelper(true)
     setNotification({ type: 'info', message: 'Analyzing your appliance issue...' })
-    
+
     setTimeout(() => {
       const suggestionMap = {
         'Refrigerator': {
@@ -297,541 +401,506 @@ export default function ServiceRequestPage() {
     setNotification({ type: 'success', message: `Request booked! Your booking reference is ${booking.referenceCode}.` })
   }
 
+  const displayAppliances =
+    formData.applianceType && !appliances.includes(formData.applianceType)
+      ? [...appliances, formData.applianceType]
+      : appliances
+
+  const symptomList = commonSymptoms[formData.applianceType] || []
+
   if (submitted) {
     return (
-      <section className="service-request-page">
-        <div className="service-request-container">
-          <Link to="/" className="back-link">← Back to Home</Link>
-          
-          <div className="success-message">
-            <div className="success-icon">✅</div>
-            <h2>You're Booked!</h2>
-            <p>Your service request is in our system. A Service Setter will confirm your appointment shortly — keep your booking reference handy.</p>
+      <div className="os-page os-has-stickybar">
+        <div className="os-wrap" style={{ paddingTop: 30, paddingBottom: 60 }}>
+          <Link to="/" className="os-btn os-btn-ghost" style={{ paddingLeft: 0 }}>← Back to Home</Link>
 
-            <div className="success-details">
-              <div className="detail-item">
-                <span className="detail-label">Booking Reference:</span>
-                <span className="detail-value">{bookingRef}</span>
-              </div>
-              <div className="detail-item">
-                <span className="detail-label">Appliance:</span>
-                <span className="detail-value">{formData.applianceType} ({formData.brand})</span>
-              </div>
-              <div className="detail-item">
-                <span className="detail-label">Preferred Service Date:</span>
-                <span className="detail-value">{formData.preferredDate}</span>
-              </div>
+          {notification && <div className={`os-notice os-notice-${notification.type}`}>{notification.message}</div>}
+
+          <div className="os-success-card">
+            <div className="os-success-check" aria-hidden="true">✓</div>
+            <div className="os-success-text">
+              <h2>Booked — Reference {bookingRef}</h2>
+              <p>
+                Confirmation text + email sent. Your job is in the Service Setters queue; a setter
+                confirms your window, then Track My Tech goes live.
+              </p>
             </div>
+            <div className="os-success-actions">
+              <Link
+                className="os-btn os-btn-navy"
+                to={`/track?ref=${encodeURIComponent(bookingRef)}&phone=${encodeURIComponent(formData.customerPhone)}`}
+              >
+                Track My Tech
+              </Link>
+              <a className="os-btn os-btn-blue" href={SERVICE_OS_LINKS.garage} target="_blank" rel="noopener noreferrer">
+                My Appliances
+              </a>
+            </div>
+          </div>
 
-            <div className="next-steps">
+          <div className="os-form-card" style={{ marginBottom: 26 }}>
+            <div className="os-review-group">
+              <h3>Your Booking</h3>
+              <div className="os-review-item"><span className="label">Appliance:</span><span className="value">{formData.applianceType} ({formData.brand})</span></div>
+              <div className="os-review-item"><span className="label">Preferred Date:</span><span className="value">{formData.preferredDate}</span></div>
+              <div className="os-review-item"><span className="label">Window:</span><span className="value">{formData.preferredTime}</span></div>
+              <div className="os-review-item"><span className="label">City:</span><span className="value">{formData.city} {formData.zip}</span></div>
+            </div>
+            <div className="os-review-group" style={{ marginBottom: 0 }}>
               <h3>What's Next?</h3>
-              <ol>
+              <ol style={{ margin: 0, paddingLeft: 20, color: '#5d7188', fontSize: 14, lineHeight: 1.7 }}>
                 <li>A Service Setter reviews your request and confirms your appointment</li>
                 <li>We'll send a confirmation email to {formData.customerEmail}</li>
-                <li>Track your technician below with your booking reference</li>
+                <li>Track your technician with your booking reference</li>
                 <li>We'll arrive within your preferred time window</li>
               </ol>
             </div>
-
-            <Link to="/" className="return-home-btn">Return to Home</Link>
           </div>
 
           <TrackMyTech initialReference={bookingRef} initialPhone={formData.customerPhone} />
         </div>
-      </section>
+        <MobileStickyBar />
+      </div>
     )
   }
 
   return (
-    <section className="service-request-page">
-      <div className="service-request-container">
-        <Link to="/" className="back-link">← Back to Home</Link>
-
-        {notification && (
-          <div className={`notification notification-${notification.type}`}>
-            {notification.message}
+    <div className="os-page os-has-stickybar">
+      <div className="os-wrap">
+        <div className="os-book-head">
+          <div>
+            <h1 className="os-h1">Book in under a minute — or let Speedy do it.</h1>
+            <p className="os-sub">
+              Every booking lands in the Service OS: CRM customer, Book OS setter queue,
+              confirmation by text + email, and a Track My Tech link.
+            </p>
           </div>
-        )}
-
-        <div className="form-header">
-          <div className="header-content">
-            <h1>🏁 Service Request Form</h1>
-            <p>Fast • Reliable • Local Repair</p>
-          </div>
-          <div className="progress-indicator">
-            <span className="step-number">Step {step} of 5</span>
-            <div className="progress-bar">
-              <div className="progress-fill" style={{ width: `${(step / 5) * 100}%` }}></div>
-            </div>
-          </div>
+          <span className="mono-tag">SMART BOOKING &nbsp;•&nbsp; BOOK OS</span>
         </div>
 
-        <form onSubmit={handleSubmit} className="service-form">
-          {/* Step 1: Customer Information */}
-          {step === 1 && (
-            <div className="form-step">
-              <h2>Step 1: Your Information</h2>
-              <div className="section-divider"></div>
+        {notification && <div className={`os-notice os-notice-${notification.type}`}>{notification.message}</div>}
 
-              <div className="form-group">
-                <label htmlFor="name">Full Name *</label>
-                <input
-                  id="name"
-                  type="text"
-                  value={formData.customerName}
-                  onChange={(e) => handleInputChange('customerName', e.target.value)}
-                  placeholder="First & Last Name"
-                  className={errors.customerName ? 'input-error' : ''}
-                />
-                {errors.customerName && <span className="error-text">{errors.customerName}</span>}
-              </div>
+        <div className="os-book-grid">
+          <div className="os-form-card">
+            <h2 className="os-form-title">Service OS Booking</h2>
 
-              <div className="form-group">
-                <label htmlFor="email">Email Address *</label>
-                <input
-                  id="email"
-                  type="email"
-                  value={formData.customerEmail}
-                  onChange={(e) => handleInputChange('customerEmail', e.target.value)}
-                  placeholder="your@email.com"
-                  className={errors.customerEmail ? 'input-error' : ''}
-                />
-                {errors.customerEmail && <span className="error-text">{errors.customerEmail}</span>}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="phone">Phone Number *</label>
-                <input
-                  id="phone"
-                  type="tel"
-                  value={formData.customerPhone}
-                  onChange={(e) => handleInputChange('customerPhone', e.target.value)}
-                  placeholder="(954) 000-0000"
-                  className={errors.customerPhone ? 'input-error' : ''}
-                />
-                {errors.customerPhone && <span className="error-text">{errors.customerPhone}</span>}
-              </div>
-
-              <div className="form-actions">
-                <button type="button" className="btn-next" onClick={handleNext}>
-                  Continue to Appliance Details →
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Step 2: Appliance Details */}
-          {step === 2 && (
-            <div className="form-step">
-              <h2>Step 2: Appliance Details</h2>
-              <div className="section-divider"></div>
-
-              <div className="form-group">
-                <label htmlFor="appliance">Appliance Type *</label>
-                <select
-                  id="appliance"
-                  value={formData.applianceType}
-                  onChange={(e) => {
-                    handleInputChange('applianceType', e.target.value)
-                    handleInputChange('symptoms', [])
-                  }}
-                  className={errors.applianceType ? 'input-error' : ''}
-                >
-                  <option value="">Select an appliance...</option>
-                  {appliances.map(app => (
-                    <option key={app} value={app}>{app}</option>
-                  ))}
-                </select>
-                {errors.applianceType && <span className="error-text">{errors.applianceType}</span>}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="brand">Brand *</label>
-                <input
-                  id="brand"
-                  type="text"
-                  value={formData.brand}
-                  onChange={(e) => handleInputChange('brand', e.target.value)}
-                  placeholder="e.g., LG, Samsung, Whirlpool"
-                  className={errors.brand ? 'input-error' : ''}
-                />
-                {errors.brand && <span className="error-text">{errors.brand}</span>}
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="model">Model (optional)</label>
-                  <input
-                    id="model"
-                    type="text"
-                    value={formData.model}
-                    onChange={(e) => handleInputChange('model', e.target.value)}
-                    placeholder="Model number"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="age">Age of Appliance (optional)</label>
-                  <select
-                    id="age"
-                    value={formData.age}
-                    onChange={(e) => handleInputChange('age', e.target.value)}
-                  >
-                    <option value="">Select age...</option>
-                    <option value="less-1">Less than 1 year</option>
-                    <option value="1-3">1-3 years</option>
-                    <option value="3-5">3-5 years</option>
-                    <option value="5-10">5-10 years</option>
-                    <option value="10plus">More than 10 years</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-actions">
-                <button type="button" className="btn-back" onClick={handleBack}>
-                  ← Back
-                </button>
-                <button type="button" className="btn-next" onClick={handleNext}>
-                  Continue to Symptoms →
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Step 3: Issue Description */}
-          {step === 3 && (
-            <div className="form-step">
-              <h2>Step 3: Describe the Issue</h2>
-              <div className="section-divider"></div>
-
-              {formData.applianceType && (
-                <div className="symptoms-section">
-                  <label>Common Symptoms (Select any that apply) *</label>
-                  <div className="checkbox-grid">
-                    {commonSymptoms[formData.applianceType]?.map(symptom => (
-                      <label key={symptom} className="checkbox-item">
-                        <input
-                          type="checkbox"
-                          checked={formData.symptoms.includes(symptom)}
-                          onChange={() => handleSymptomToggle(symptom)}
-                        />
-                        <span>{symptom}</span>
-                      </label>
-                    ))}
+            <div className="os-segments" aria-label={`Step ${step} of 5`}>
+              {STEP_LABELS.map((label, i) => {
+                const n = i + 1
+                return (
+                  <div key={label} className={`os-segment ${n < step ? 'done' : n === step ? 'now' : ''}`}>
+                    <div className="bar" />
+                    <div className="lbl">{n < step ? `✓ ${label}` : label}</div>
                   </div>
-                  {errors.symptoms && <span className="error-text">{errors.symptoms}</span>}
+                )
+              })}
+            </div>
+
+            <form onSubmit={handleSubmit}>
+              {/* Step 1: Contact */}
+              {step === 1 && (
+                <div>
+                  <div className="os-field">
+                    <label htmlFor="name">Full Name *</label>
+                    <input
+                      id="name"
+                      type="text"
+                      value={formData.customerName}
+                      onChange={(e) => handleInputChange('customerName', e.target.value)}
+                      placeholder="First & Last Name"
+                      className={`os-input ${errors.customerName ? 'input-error' : ''}`}
+                    />
+                    {errors.customerName && <span className="os-error-text">{errors.customerName}</span>}
+                  </div>
+
+                  <div className="os-field">
+                    <label htmlFor="email">Email Address *</label>
+                    <input
+                      id="email"
+                      type="email"
+                      value={formData.customerEmail}
+                      onChange={(e) => handleInputChange('customerEmail', e.target.value)}
+                      placeholder="your@email.com"
+                      className={`os-input ${errors.customerEmail ? 'input-error' : ''}`}
+                    />
+                    {errors.customerEmail && <span className="os-error-text">{errors.customerEmail}</span>}
+                  </div>
+
+                  <div className="os-field">
+                    <label htmlFor="phone">Phone Number *</label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      value={formData.customerPhone}
+                      onChange={(e) => handleInputChange('customerPhone', e.target.value)}
+                      placeholder="(954) 000-0000"
+                      className={`os-input ${errors.customerPhone ? 'input-error' : ''}`}
+                    />
+                    {errors.customerPhone && <span className="os-error-text">{errors.customerPhone}</span>}
+                  </div>
+
+                  <div className="os-form-actions">
+                    <span />
+                    <button type="button" className="os-btn os-btn-black" onClick={handleNext}>
+                      Continue →
+                    </button>
+                  </div>
                 </div>
               )}
 
-              <div className="form-group">
-                <label htmlFor="description">Additional Details *</label>
-                <textarea
-                  id="description"
-                  value={formData.description}
-                  onChange={(e) => handleInputChange('description', e.target.value)}
-                  placeholder="Describe the issue in detail (leaks, noises, error codes, etc.)"
-                  rows="5"
-                  className={errors.description ? 'input-error' : ''}
-                />
-                {errors.description && <span className="error-text">{errors.description}</span>}
-              </div>
-
-              <div className="ai-helper-section">
-                <button
-                  type="button"
-                  className="ai-helper-btn"
-                  onClick={handleGetAiHelp}
-                >
-                  🤖 Get AI Diagnosis Help
-                </button>
-                
-                {aiSuggestions && (
-                  <div className="ai-suggestions">
-                    <h4>AI Suggestions:</h4>
-                    <ul>
-                      {Object.entries(aiSuggestions).map(([symptom, suggestion]) => (
-                        <li key={symptom}><strong>{symptom}:</strong> {suggestion}</li>
-                      ))}
-                    </ul>
+              {/* Step 2: Location */}
+              {step === 2 && (
+                <div>
+                  <div className="os-field">
+                    <label htmlFor="address">Service Address *</label>
+                    <textarea
+                      id="address"
+                      value={formData.serviceAddress}
+                      onChange={(e) => handleAddressChange(e.target.value)}
+                      placeholder="Where should our technician visit?"
+                      rows="3"
+                      className={`os-textarea ${errors.serviceAddress ? 'input-error' : ''}`}
+                    />
+                    {errors.serviceAddress && <span className="os-error-text">{errors.serviceAddress}</span>}
                   </div>
-                )}
-              </div>
 
-              <div className="photo-upload-section">
-                <label>Upload Photos (Optional - Max 5)</label>
-                <div className="file-input-wrapper">
-                  <input
-                    type="file"
-                    id="photos"
-                    multiple
-                    accept="image/*"
-                    onChange={handlePhotoUpload}
-                  />
-                  <label htmlFor="photos" className="file-label">
-                    📸 Click to upload or drag & drop
-                  </label>
+                  <div className="os-row2">
+                    <div className="os-field">
+                      <label htmlFor="city">City *</label>
+                      <select
+                        id="city"
+                        value={formData.city}
+                        onChange={(e) => handleInputChange('city', e.target.value)}
+                        className={`os-select ${errors.city ? 'input-error' : ''}`}
+                      >
+                        <option value="">Select your city...</option>
+                        {SERVICE_CITIES.map(city => (
+                          <option key={city} value={city}>{city}</option>
+                        ))}
+                      </select>
+                      {errors.city && <span className="os-error-text">{errors.city}</span>}
+                    </div>
+
+                    <div className="os-field">
+                      <label htmlFor="zip">ZIP Code *</label>
+                      <input
+                        id="zip"
+                        type="text"
+                        inputMode="numeric"
+                        autoComplete="postal-code"
+                        value={formData.zip}
+                        onChange={(e) => handleZipChange(e.target.value)}
+                        placeholder="e.g., 33313"
+                        className={`os-input ${errors.zip ? 'input-error' : ''}`}
+                      />
+                      {errors.zip && <span className="os-error-text">{errors.zip}</span>}
+                    </div>
+                  </div>
+
+                  <div className="os-loc-row">
+                    <button type="button" className="os-btn os-btn-white" style={{ border: '1px solid #d9e2ec', minHeight: 38, fontSize: 12.5 }} onClick={handleUseMyLocation}>
+                      📍 Use my location
+                    </button>
+                    <span className="os-loc-note">ZIP + city verified against the 12-city service area before anything is booked.</span>
+                  </div>
+
+                  <div className="os-form-actions">
+                    <button type="button" className="os-btn os-btn-ghost" onClick={handleBack}>← Back</button>
+                    <button type="button" className="os-btn os-btn-black" onClick={handleNext}>
+                      Continue →
+                    </button>
+                  </div>
                 </div>
-                
-                {formData.photos.length > 0 && (
-                  <div className="photos-preview">
-                    {formData.photos.map((photo, idx) => (
-                      <div key={idx} className="photo-item">
-                        <span>{photo.name}</span>
+              )}
+
+              {/* Step 3: Appliance + Issue */}
+              {step === 3 && (
+                <div>
+                  <div className="os-field">
+                    <label className="os-label-red">Which Appliance? *</label>
+                    <div className="os-tiles">
+                      {displayAppliances.map(app => (
                         <button
+                          key={app}
                           type="button"
-                          onClick={() => removePhoto(idx)}
-                          className="remove-photo"
+                          className={`os-tile ${formData.applianceType === app ? 'selected' : ''}`}
+                          onClick={() => {
+                            handleInputChange('applianceType', app)
+                            handleInputChange('symptoms', [])
+                          }}
+                          aria-pressed={formData.applianceType === app}
                         >
-                          ✕
+                          <span className="icon" aria-hidden="true">{APPLIANCE_ICONS[app] || '🔧'}</span>
+                          <span className="name">{app}</span>
                         </button>
+                      ))}
+                    </div>
+                    {errors.applianceType && <span className="os-error-text">{errors.applianceType}</span>}
+                  </div>
+
+                  <div className="os-row2">
+                    <div className="os-field">
+                      <label htmlFor="brand">Brand *</label>
+                      <input
+                        id="brand"
+                        type="text"
+                        value={formData.brand}
+                        onChange={(e) => handleInputChange('brand', e.target.value)}
+                        placeholder="e.g., LG, Samsung, Whirlpool"
+                        className={`os-input ${errors.brand ? 'input-error' : ''}`}
+                      />
+                      {errors.brand && <span className="os-error-text">{errors.brand}</span>}
+                    </div>
+
+                    <div className="os-field">
+                      <label htmlFor="model">Model (optional)</label>
+                      <input
+                        id="model"
+                        type="text"
+                        value={formData.model}
+                        onChange={(e) => handleInputChange('model', e.target.value)}
+                        placeholder="Model number"
+                        className="os-input"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="os-field">
+                    <label htmlFor="age">Age of Appliance (optional)</label>
+                    <select
+                      id="age"
+                      value={formData.age}
+                      onChange={(e) => handleInputChange('age', e.target.value)}
+                      className="os-select"
+                    >
+                      <option value="">Select age...</option>
+                      <option value="less-1">Less than 1 year</option>
+                      <option value="1-3">1-3 years</option>
+                      <option value="3-5">3-5 years</option>
+                      <option value="5-10">5-10 years</option>
+                      <option value="10plus">More than 10 years</option>
+                    </select>
+                  </div>
+
+                  {symptomList.length > 0 && (
+                    <div className="os-field">
+                      <label className="os-label-red">Common Symptoms *</label>
+                      <div className="os-sym-grid">
+                        {symptomList.map(symptom => (
+                          <button
+                            key={symptom}
+                            type="button"
+                            className={`os-sym ${formData.symptoms.includes(symptom) ? 'selected' : ''}`}
+                            onClick={() => handleSymptomToggle(symptom)}
+                            aria-pressed={formData.symptoms.includes(symptom)}
+                          >
+                            {symptom}
+                          </button>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                      {errors.symptoms && <span className="os-error-text">{errors.symptoms}</span>}
+                    </div>
+                  )}
 
-              <div className="form-actions">
-                <button type="button" className="btn-back" onClick={handleBack}>
-                  ← Back
-                </button>
-                <button type="button" className="btn-next" onClick={handleNext}>
-                  Continue to Scheduling →
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Step 4: Scheduling */}
-          {step === 4 && (
-            <div className="form-step">
-              <h2>Step 4: Schedule Service</h2>
-              <div className="section-divider"></div>
-
-              <div className="form-group">
-                <label htmlFor="address">Service Address *</label>
-                <textarea
-                  id="address"
-                  value={formData.serviceAddress}
-                  onChange={(e) => handleAddressChange(e.target.value)}
-                  placeholder="Where should our technician visit?"
-                  rows="3"
-                  className={errors.serviceAddress ? 'input-error' : ''}
-                />
-                {errors.serviceAddress && <span className="error-text">{errors.serviceAddress}</span>}
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="city">City *</label>
-                  <select
-                    id="city"
-                    value={formData.city}
-                    onChange={(e) => handleInputChange('city', e.target.value)}
-                    className={errors.city ? 'input-error' : ''}
-                  >
-                    <option value="">Select your city...</option>
-                    {SERVICE_CITIES.map(city => (
-                      <option key={city} value={city}>{city}</option>
-                    ))}
-                  </select>
-                  {errors.city && <span className="error-text">{errors.city}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="zip">ZIP Code *</label>
-                  <input
-                    id="zip"
-                    type="text"
-                    inputMode="numeric"
-                    autoComplete="postal-code"
-                    value={formData.zip}
-                    onChange={(e) => handleZipChange(e.target.value)}
-                    placeholder="e.g., 33313"
-                    className={errors.zip ? 'input-error' : ''}
-                  />
-                  {errors.zip && <span className="error-text">{errors.zip}</span>}
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="date">Preferred Date *</label>
-                  <input
-                    id="date"
-                    type="date"
-                    value={formData.preferredDate}
-                    onChange={(e) => handleInputChange('preferredDate', e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
-                    className={errors.preferredDate ? 'input-error' : ''}
-                  />
-                  {errors.preferredDate && <span className="error-text">{errors.preferredDate}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="time">Time Slot *</label>
-                  <select
-                    id="time"
-                    value={formData.preferredTime}
-                    onChange={(e) => handleInputChange('preferredTime', e.target.value)}
-                    className={errors.preferredTime ? 'input-error' : ''}
-                  >
-                    <option value="">Select time...</option>
-                    {timeSlots.map(slot => (
-                      <option key={slot} value={slot}>{slot}</option>
-                    ))}
-                  </select>
-                  {errors.preferredTime && <span className="error-text">{errors.preferredTime}</span>}
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label>Urgency Level</label>
-                <div className="radio-group">
-                  <label className="radio-item">
-                    <input
-                      type="radio"
-                      name="urgency"
-                      value="normal"
-                      checked={formData.urgency === 'normal'}
-                      onChange={(e) => handleInputChange('urgency', e.target.value)}
+                  <div className="os-field">
+                    <label className="os-label-red" htmlFor="description">What's Happening? *</label>
+                    <textarea
+                      id="description"
+                      value={formData.description}
+                      onChange={(e) => handleInputChange('description', e.target.value)}
+                      placeholder="Not cooling. Freezer is warm and food is thawing…"
+                      rows="4"
+                      className={`os-textarea ${errors.description ? 'input-error' : ''}`}
                     />
-                    <span>⏰ Normal (3-7 days)</span>
-                  </label>
-                  <label className="radio-item">
+                    {errors.description && <span className="os-error-text">{errors.description}</span>}
+                  </div>
+
+                  <div className="os-field">
+                    <button type="button" className="os-btn os-btn-white" style={{ border: '1px solid #d9e2ec' }} onClick={handleGetAiHelp}>
+                      🤖 Get AI Diagnosis Help
+                    </button>
+                    {showAiHelper && aiSuggestions && (
+                      <div className="os-note" style={{ marginTop: 14 }}>
+                        <strong>AI Suggestions:</strong>
+                        <ul style={{ margin: '8px 0 0', paddingLeft: 18 }}>
+                          {Object.entries(aiSuggestions).map(([symptom, suggestion]) => (
+                            <li key={symptom}><strong>{symptom}:</strong> {suggestion}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="os-field">
+                    <label>Upload Photos (Optional — Max 5)</label>
+                    <input type="file" id="photos" multiple accept="image/*" onChange={handlePhotoUpload} />
+                    {formData.photos.length > 0 && (
+                      <div style={{ marginTop: 10, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        {formData.photos.map((photo, idx) => (
+                          <span key={idx} className="os-pill os-pill-soft">
+                            {photo.name}
+                            <button
+                              type="button"
+                              onClick={() => removePhoto(idx)}
+                              aria-label={`Remove ${photo.name}`}
+                              style={{ border: 'none', background: 'transparent', cursor: 'pointer', fontWeight: 700 }}
+                            >
+                              ✕
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="os-form-actions">
+                    <button type="button" className="os-btn os-btn-ghost" onClick={handleBack}>← Back</button>
+                    <button type="button" className="os-btn os-btn-black" onClick={handleNext}>
+                      Continue →
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Step 4: Schedule */}
+              {step === 4 && (
+                <div>
+                  <div className="os-field">
+                    <label htmlFor="date">Preferred Date *</label>
                     <input
-                      type="radio"
-                      name="urgency"
-                      value="urgent"
-                      checked={formData.urgency === 'urgent'}
-                      onChange={(e) => handleInputChange('urgency', e.target.value)}
+                      id="date"
+                      type="date"
+                      value={formData.preferredDate}
+                      onChange={(e) => handleInputChange('preferredDate', e.target.value)}
+                      min={new Date().toISOString().split('T')[0]}
+                      className={`os-input ${errors.preferredDate ? 'input-error' : ''}`}
                     />
-                    <span>⚡ Urgent (1-2 days)</span>
-                  </label>
-                  <label className="radio-item">
+                    {errors.preferredDate && <span className="os-error-text">{errors.preferredDate}</span>}
+                  </div>
+
+                  <div className="os-field">
+                    <label className="os-label-red">Pick a Window *</label>
+                    <div className="os-windows">
+                      {timeSlots.map(slot => (
+                        <button
+                          key={slot}
+                          type="button"
+                          className={`os-window ${formData.preferredTime === slot ? 'selected' : ''}`}
+                          onClick={() => handleInputChange('preferredTime', slot)}
+                          aria-pressed={formData.preferredTime === slot}
+                        >
+                          {windowLabel(slot)}
+                        </button>
+                      ))}
+                    </div>
+                    {errors.preferredTime && <span className="os-error-text">{errors.preferredTime}</span>}
+                  </div>
+
+                  <div className="os-field">
+                    <label className="os-label-red">Urgency Level</label>
+                    <div className="os-windows">
+                      {[
+                        ['normal', '⏰ Normal (3-7 days)'],
+                        ['urgent', '⚡ Urgent (1-2 days)'],
+                        ['emergency', '🚨 Emergency (Same day)'],
+                      ].map(([value, label]) => (
+                        <button
+                          key={value}
+                          type="button"
+                          className={`os-window ${formData.urgency === value ? 'selected' : ''}`}
+                          onClick={() => handleInputChange('urgency', value)}
+                          aria-pressed={formData.urgency === value}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="os-note">
+                    <strong>$99 diagnostic</strong> — collected at booking, credited in full toward
+                    your repair. No charge for the visit if you approve the repair.
+                  </div>
+
+                  <div className="os-form-actions">
+                    <button type="button" className="os-btn os-btn-ghost" onClick={handleBack}>← Back</button>
+                    <button type="button" className="os-btn os-btn-black" onClick={handleNext}>
+                      Continue →
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Step 5: Review & Submit */}
+              {step === 5 && (
+                <div>
+                  <div className="os-review-group">
+                    <h3>Customer Information</h3>
+                    <div className="os-review-item"><span className="label">Name:</span><span className="value">{formData.customerName}</span></div>
+                    <div className="os-review-item"><span className="label">Email:</span><span className="value">{formData.customerEmail}</span></div>
+                    <div className="os-review-item"><span className="label">Phone:</span><span className="value">{formData.customerPhone}</span></div>
+                  </div>
+
+                  <div className="os-review-group">
+                    <h3>Service Location</h3>
+                    <div className="os-review-item"><span className="label">Address:</span><span className="value">{formData.serviceAddress}</span></div>
+                    <div className="os-review-item"><span className="label">City:</span><span className="value">{formData.city}</span></div>
+                    <div className="os-review-item"><span className="label">ZIP:</span><span className="value">{formData.zip}</span></div>
+                  </div>
+
+                  <div className="os-review-group">
+                    <h3>Appliance & Issue</h3>
+                    <div className="os-review-item"><span className="label">Appliance:</span><span className="value">{formData.applianceType} ({formData.brand} {formData.model})</span></div>
+                    <div className="os-review-item"><span className="label">Symptoms:</span><span className="value">{formData.symptoms.join(', ')}</span></div>
+                    <div className="os-review-item"><span className="label">Description:</span><span className="value">{formData.description}</span></div>
+                  </div>
+
+                  <div className="os-review-group">
+                    <h3>Service Schedule</h3>
+                    <div className="os-review-item"><span className="label">Preferred Date:</span><span className="value">{formData.preferredDate}</span></div>
+                    <div className="os-review-item"><span className="label">Time Slot:</span><span className="value">{formData.preferredTime}</span></div>
+                    <div className="os-review-item"><span className="label">Urgency:</span><span className="value">{formData.urgency.toUpperCase()}</span></div>
+                  </div>
+
+                  {formData.photos.length > 0 && (
+                    <div className="os-review-group">
+                      <h3>Uploaded Photos</h3>
+                      <span className="value">{formData.photos.length} photo(s) attached</span>
+                    </div>
+                  )}
+
+                  <div className="os-note">
+                    <strong>$99 diagnostic</strong> — collected at booking, credited in full toward
+                    your repair.
+                  </div>
+
+                  <label className="os-consent">
                     <input
-                      type="radio"
-                      name="urgency"
-                      value="emergency"
-                      checked={formData.urgency === 'emergency'}
-                      onChange={(e) => handleInputChange('urgency', e.target.value)}
+                      type="checkbox"
+                      checked={formData.consent}
+                      onChange={(e) => handleInputChange('consent', e.target.checked)}
                     />
-                    <span>🚨 Emergency (Same day)</span>
+                    <span>
+                      I authorize Top Speed Appliance to diagnose and repair my appliance. I understand that a service technician will contact me to confirm the appointment and that terms and conditions apply.
+                    </span>
                   </label>
-                </div>
-              </div>
+                  {errors.consent && <span className="os-error-text">{errors.consent}</span>}
 
-              <div className="form-actions">
-                <button type="button" className="btn-back" onClick={handleBack}>
-                  ← Back
-                </button>
-                <button type="button" className="btn-next" onClick={handleNext}>
-                  Continue to Review →
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Step 5: Review & Submit */}
-          {step === 5 && (
-            <div className="form-step">
-              <h2>Step 5: Review & Submit</h2>
-              <div className="section-divider"></div>
-
-              <div className="review-section">
-                <div className="review-group">
-                  <h3>Customer Information</h3>
-                  <div className="review-item">
-                    <span className="label">Name:</span>
-                    <span className="value">{formData.customerName}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">Email:</span>
-                    <span className="value">{formData.customerEmail}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">Phone:</span>
-                    <span className="value">{formData.customerPhone}</span>
+                  <div className="os-form-actions">
+                    <button type="button" className="os-btn os-btn-ghost" onClick={handleBack}>← Back</button>
+                    <button type="submit" className="os-btn os-btn-red">
+                      ✓ Confirm Booking
+                    </button>
                   </div>
                 </div>
+              )}
+            </form>
+          </div>
 
-                <div className="review-group">
-                  <h3>Appliance & Issue</h3>
-                  <div className="review-item">
-                    <span className="label">Appliance:</span>
-                    <span className="value">{formData.applianceType} ({formData.brand} {formData.model})</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">Symptoms:</span>
-                    <span className="value">{formData.symptoms.join(', ')}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">Description:</span>
-                    <span className="value">{formData.description}</span>
-                  </div>
-                </div>
-
-                <div className="review-group">
-                  <h3>Service Schedule</h3>
-                  <div className="review-item">
-                    <span className="label">Preferred Date:</span>
-                    <span className="value">{formData.preferredDate}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">Time Slot:</span>
-                    <span className="value">{formData.preferredTime}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">Urgency:</span>
-                    <span className="value">{formData.urgency.toUpperCase()}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">Address:</span>
-                    <span className="value">{formData.serviceAddress}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">City:</span>
-                    <span className="value">{formData.city}</span>
-                  </div>
-                  <div className="review-item">
-                    <span className="label">ZIP:</span>
-                    <span className="value">{formData.zip}</span>
-                  </div>
-                </div>
-
-                {formData.photos.length > 0 && (
-                  <div className="review-group">
-                    <h3>Uploaded Photos</h3>
-                    <span className="value">{formData.photos.length} photo(s) attached</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="consent-section">
-                <label className="consent-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={formData.consent}
-                    onChange={(e) => handleInputChange('consent', e.target.checked)}
-                  />
-                  <span>
-                    I authorize Top Speed Appliance to diagnose and repair my appliance. I understand that a service technician will contact me to confirm the appointment and that terms and conditions apply.
-                  </span>
-                </label>
-                {errors.consent && <span className="error-text">{errors.consent}</span>}
-              </div>
-
-              <div className="form-actions">
-                <button type="button" className="btn-back" onClick={handleBack}>
-                  ← Back
-                </button>
-                <button type="submit" className="btn-submit">
-                  🏁 Submit & Book Service
-                </button>
-              </div>
-            </div>
-          )}
-        </form>
+          <SpeedyPanel onPrefill={handleSpeedyPrefill} />
+        </div>
       </div>
-    </section>
+      <MobileStickyBar />
+    </div>
   )
 }

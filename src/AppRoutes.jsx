@@ -1,27 +1,19 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import CommercialServices from './components/CommercialServices'
-import InstallationServices from './components/InstallationServices'
-import Keywords from './components/Keywords'
-import HomeCityGrid from './components/HomeCityGrid'
-import PhotoBand from './components/PhotoBand'
 import PageMeta from './components/PageMeta'
-import Reveal from './components/Reveal'
 import Footer from './components/Footer'
 import SEOSchema from './components/SEOSchema'
 import ServiceReserveScript from './components/ServiceReserveScript'
-import ServiceReserveEmbed from './components/ServiceReserveEmbed'
+import HomePage from './pages/HomePage'
 
-const About = lazy(() => import('./components/About'))
-const Contact = lazy(() => import('./components/Contact'))
 const Blog = lazy(() => import('./components/Blog'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
 const Privacy = lazy(() => import('./components/Privacy'))
-const Dashboard = lazy(() => import('./components/Dashboard'))
 const ServiceRequestPage = lazy(() => import('./pages/ServiceRequestPage'))
+const TrackPage = lazy(() => import('./pages/TrackPage'))
+const AccountPage = lazy(() => import('./pages/AccountPage'))
+const MediaPage = lazy(() => import('./pages/MediaPage'))
 const ServiceAreasPage = lazy(() => import('./pages/ServiceAreasPage'))
 const SeoLandingPage = lazy(() => import('./pages/SeoLandingPage'))
 const LocationServicePage = lazy(() => import('./pages/LocationServicePage'))
@@ -53,60 +45,6 @@ function DeferredMount({ children, timeoutMs = 1500 }) {
   return mounted ? children : null
 }
 
-function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Reveal>
-        <Services />
-      </Reveal>
-      <Reveal>
-        <CommercialServices />
-      </Reveal>
-      <Reveal>
-        <InstallationServices />
-      </Reveal>
-      <PhotoBand
-        className="photo-band-services"
-        eyebrow="Same-Day Service"
-        title="Fast Appliance Repair Across South Florida"
-        text="Certified technicians with experience across all major appliance brands."
-        ctaLabel="Book Online"
-      />
-      <Reveal>
-        <HomeCityGrid />
-      </Reveal>
-      <PhotoBand
-        className="photo-band-city"
-        eyebrow="Local Experts"
-        title="Serving Miami-Dade, Broward, and Palm Beach Counties"
-        text="Pick your city and appliance to see local repair options."
-        ctaLabel="View All Service Areas"
-        ctaHref="/service-areas"
-      />
-      <Reveal>
-        <Keywords />
-      </Reveal>
-
-      <DeferredMount>
-        <Suspense fallback={null}>
-          <About />
-          <ServiceReserveEmbed />
-          <Contact />
-        </Suspense>
-      </DeferredMount>
-      <PhotoBand
-        className="photo-band-finish"
-        eyebrow="Top Speed Appliance"
-        title="Fast Response Times on Every Repair"
-        text="Refrigerators, washers, dryers, ovens, and dishwashers serviced by our team."
-        ctaLabel="Call (954) 931-7997"
-        ctaHref="tel:9549317997"
-      />
-    </>
-  )
-}
-
 function AppRoutes() {
   return (
     <>
@@ -118,6 +56,8 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/service-request" element={<ServiceRequestPage />} />
+          <Route path="/track" element={<TrackPage />} />
+          <Route path="/media-os" element={<MediaPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/service-directory" element={<ServiceDirectoryPage />} />
           <Route path="/network" element={<NetworkArchitecture />} />
@@ -208,7 +148,7 @@ function AppRoutes() {
           <Route path="/appliance-repair-jupiter-fl" element={<CityPage city="jupiter-fl" />} />
           <Route path="/appliance-repair-palm-beach-gardens-fl" element={<CityPage city="palm-beach-gardens-fl" />} />
 
-          <Route path="/account" element={<Dashboard />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/leads" element={<AdminLeadsPage />} />
           <Route path="/:seoSlug" element={<SeoLandingPage />} />

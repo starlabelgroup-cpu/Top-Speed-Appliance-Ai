@@ -10,6 +10,25 @@
 
 export const SERVICE_OS_API_BASE = 'https://top-speed-service-os.vercel.app/api/v1'
 
+/** The Service OS flagship — where the live customer/staff apps live. */
+export const SERVICE_OS_WEB = 'https://topspeedserviceos.com'
+
+export const SERVICE_OS_LINKS = {
+  home: SERVICE_OS_WEB,
+  app: `${SERVICE_OS_WEB}/app`,
+  signup: `${SERVICE_OS_WEB}/signup`,
+  garage: `${SERVICE_OS_WEB}/garage`,
+  connectProApp: `${SERVICE_OS_WEB}/connect-pro-app`,
+  appliancePro: `${SERVICE_OS_WEB}/appliance-pro`,
+  propertyManagers: `${SERVICE_OS_WEB}/property-managers`,
+  offers: `${SERVICE_OS_WEB}/offers-rewards`,
+  local: `${SERVICE_OS_WEB}/local`,
+  ads: `${SERVICE_OS_WEB}/ads`,
+  advertise: `${SERVICE_OS_WEB}/advertise`,
+  book: `${SERVICE_OS_WEB}/book`,
+  providerNetwork: 'https://topspeedapplianceservice.com',
+}
+
 // Service area — mirrors apps/api/src/config/serviceAreas.js in the
 // Service OS (12 Broward County cities; the API re-validates every ZIP).
 export const SERVICE_AREAS = [
@@ -121,4 +140,17 @@ export function trackBooking(reference, phone) {
   const ref = encodeURIComponent(String(reference || '').trim().toUpperCase())
   const ph = encodeURIComponent(String(phone || '').trim())
   return api(`/bookings/track/${ref}?phone=${ph}`)
+}
+
+/**
+ * Track My Tech via a secure per-job tracking link (?t=<token>).
+ * The token is issued by Service Setters from the Track Console; only
+ * its SHA-256 hash is stored server-side, links expire 7 days after
+ * issue (and 24h after completion), and the response carries a live
+ * technicianLocation only while the tech is en route and sharing GPS.
+ * Resolves with the same tracking shape as trackBooking.
+ */
+export function trackByToken(token) {
+  const t = encodeURIComponent(String(token || '').trim())
+  return api(`/tracking/by-token/${t}`)
 }

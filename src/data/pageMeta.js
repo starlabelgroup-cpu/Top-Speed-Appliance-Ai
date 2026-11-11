@@ -15,6 +15,18 @@ const PAGE_META = {
     title: 'Request Appliance Repair Service | Top Speed Appliance',
     description: 'Request appliance repair in South Florida. Tell us your appliance and issue, and our team will follow up.',
   },
+  '/track': {
+    title: 'Track My Tech — Live Job Tracking | Top Speed Appliance',
+    description: 'Follow your appliance repair live through all eight stages, from request received to repair completed — with a live map when your technician is en route.',
+  },
+  '/account': {
+    title: 'Your Top Speed Account — Appliance Connect | Top Speed Appliance',
+    description: 'One account for your whole home: sign in to the Top Speed Service OS for your appliance garage, service history, offers and referrals.',
+  },
+  '/media-os': {
+    title: 'Media OS — Top Speed 360 | Top Speed Appliance',
+    description: 'Top Speed 360 is the media company built on the Service OS: repair know-how, local stories, live demonstrations and The Fast Lane newsletter. Now in design.',
+  },
   '/brands': {
     title: 'Appliance Brands We Repair | Top Speed Appliance',
     description: 'Appliance repair for Samsung, LG, GE, Whirlpool, Bosch, Sub-Zero, Miele, and more. Book online or by email.',

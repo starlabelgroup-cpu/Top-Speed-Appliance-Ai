@@ -5,6 +5,7 @@ import App from './App.jsx'
 import './styles/main.css'
 import './styles/dashboard.css'
 import './styles/service-request.css'
+import './styles/net-os.css'
 
 const container = document.getElementById('root')
 const app = (

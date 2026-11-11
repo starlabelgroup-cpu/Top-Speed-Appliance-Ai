@@ -3,8 +3,34 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <footer className="footer">
-      <p>© {new Date().getFullYear()} Top Speed Appliance. All Rights Reserved.</p>
+    <footer className="footer footer-os">
+      <a
+        href="https://topspeedserviceos.com/advertise"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="os-ad-strip"
+      >
+        YOUR BUSINESS HERE — Advertise on Top Speed
+      </a>
+      <p className="os-foot-nav">
+        <Link to="/#services">Services</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/commercial-appliance-repair">Commercial</Link> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/property-managers" target="_blank" rel="noopener noreferrer">Property Managers</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedapplianceservice.com" target="_blank" rel="noopener noreferrer">Provider Network</a> &nbsp;•&nbsp;{' '}
+        <Link to="/track">Track My Tech</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/media-os">Media OS</Link>
+      </p>
+      <p className="os-foot-nav">
+        <Link to="/pricing">Pricing</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/warranty">Warranty</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/service-areas">Service Areas</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/service-directory">Directory</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/blog">Blog</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/brands">Brands</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/account">Account</Link>
+      </p>
+      <p className="os-foot-contact">(954) 931-7997 &nbsp;•&nbsp; service@topspeedappliance.net</p>
+      <p>© {new Date().getFullYear()} Top Speed Appliance LLC — The Faster, The Better.</p>
       <p>Fast • Reliable • Professional</p>
       <p>6810 N State Rd 7, Suite 341, Coconut Creek, FL 33073</p>
 
