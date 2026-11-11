@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { leadsDatabase } from '../services/leadsDatabase'
 import { storageGetItem, storageSetJson } from '../utils/storage'
+import { bookGuest, preferredWindowFor, extractZip, citiesForZip, SERVICE_CITIES } from '../lib/serviceOs'
+import TrackMyTech from '../components/TrackMyTech'
 import '../styles/service-request.css'
-
-const SERVICE_OS_API_URL = import.meta.env.VITE_API_URL
 
 export default function ServiceRequestPage() {
   const [step, setStep] = useState(1)
@@ -24,11 +23,14 @@ export default function ServiceRequestPage() {
     preferredTime: '',
     urgency: 'normal',
     serviceAddress: storageGetItem('customerServiceAddress', ''),
+    city: '',
+    zip: '',
     consent: false
   }))
 
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const [bookingRef, setBookingRef] = useState('')
   const [notification, setNotification] = useState(null)
   const [showAiHelper, setShowAiHelper] = useState(false)
   const [aiSuggestions, setAiSuggestions] = useState(null)
@@ -74,6 +76,25 @@ export default function ServiceRequestPage() {
         delete newErrors[field]
         return newErrors
       })
+    }
+  }
+
+  const handleZipChange = (value) => {
+    const zip = String(value).replace(/\D/g, '').slice(0, 5)
+    handleInputChange('zip', zip)
+    // A ZIP that belongs to exactly one service city can pre-pick it.
+    if (zip.length === 5 && !formData.city) {
+      const cities = citiesForZip(zip)
+      if (cities.length === 1) handleInputChange('city', cities[0])
+    }
+  }
+
+  const handleAddressChange = (value) => {
+    handleInputChange('serviceAddress', value)
+    // If the typed address already carries a ZIP, offer it as the ZIP.
+    if (!formData.zip) {
+      const zip = extractZip(value)
+      if (zip) handleZipChange(zip)
     }
   }
 
@@ -125,6 +146,8 @@ export default function ServiceRequestPage() {
       if (!formData.preferredDate) newErrors.preferredDate = 'Select preferred date'
       if (!formData.preferredTime) newErrors.preferredTime = 'Select time slot'
       if (!formData.serviceAddress.trim()) newErrors.serviceAddress = 'Service address required'
+      if (!formData.city || !SERVICE_CITIES.includes(formData.city)) newErrors.city = 'Select your city'
+      if (!/^\d{5}$/.test(formData.zip || '')) newErrors.zip = 'Enter your 5-digit ZIP'
     } else if (currentStep === 5) {
       if (!formData.consent) newErrors.consent = 'Please accept terms'
     }
@@ -177,93 +200,101 @@ export default function ServiceRequestPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (!validateStep(5)) {
       return
     }
 
     setNotification({ type: 'info', message: 'Submitting your request...' })
 
-    setTimeout(async () => {
-      const requestData = {
-        id: `SR-${Date.now()}`,
-        timestamp: new Date().toLocaleString(),
-        ...formData
-      }
+    const requestData = {
+      id: `SR-${Date.now()}`,
+      timestamp: new Date().toLocaleString(),
+      ...formData
+    }
 
-      storageSetJson(`serviceRequest_${requestData.id}`, requestData)
+    storageSetJson(`serviceRequest_${requestData.id}`, requestData)
 
-      const params = new URLSearchParams(window.location.search)
+    const params = new URLSearchParams(window.location.search)
 
-      if (SERVICE_OS_API_URL) {
-        try {
-          const response = await fetch(`${SERVICE_OS_API_URL}/api/v1/bookings`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: formData.customerName,
-              email: formData.customerEmail,
-              phone: formData.customerPhone,
-              appliance: formData.applianceType,
-              brand: formData.brand,
-              model: formData.model,
-              age: formData.age,
-              symptoms: formData.symptoms,
-              description: formData.description,
-              serviceAddress: formData.serviceAddress,
-              preferredDate: formData.preferredDate,
-              preferredTime: formData.preferredTime,
-              urgency: formData.urgency,
-              source: params.get('src') || 'service-request',
-              termsAccepted: formData.consent
-            })
-          })
+    const issueText = [
+      formData.brand ? `Brand: ${formData.brand}` : null,
+      formData.model ? `Model: ${formData.model}` : null,
+      formData.age ? `Age: ${formData.age}` : null,
+      formData.symptoms?.length ? `Symptoms: ${formData.symptoms.join(', ')}` : null,
+      formData.description ? `Description: ${formData.description}` : null,
+      formData.preferredDate ? `Preferred Date: ${formData.preferredDate}` : null,
+      formData.preferredTime ? `Preferred Time: ${formData.preferredTime}` : null,
+      formData.urgency ? `Urgency: ${formData.urgency}` : null,
+      formData.photos?.length ? `Photos: ${formData.photos.map(p => p.name).join(', ')}` : null
+    ].filter(Boolean).join('\n')
 
-          if (!response.ok) {
-            throw new Error(`Booking request failed with status ${response.status}`)
-          }
-        } catch {
-          setNotification({
-            type: 'warning',
-            message: 'We could not send your request. Please call (954) 931-7997 to book.'
-          })
-          return
-        }
-      }
+    // Attribution: carry the campaign/source params into the booking so
+    // the Service Setters can see where the request came from.
+    const viaParts = []
+    if (params.get('src')) viaParts.push(params.get('src'))
+    const campaignId = params.get('campaignid') || params.get('campaign_id')
+    if (campaignId) viaParts.push(`campaign:${campaignId}`)
+    if (params.get('keyword')) viaParts.push(`kw:${params.get('keyword')}`)
+    const issue = viaParts.length ? `${issueText} [via: ${viaParts.join(' ')}]` : issueText
 
-      try {
-        await leadsDatabase.createLead({
-          name: formData.customerName,
-          phone: formData.customerPhone,
-          email: formData.customerEmail,
-          address: formData.serviceAddress,
-          service_type: formData.applianceType,
-          issue_description: [
-            formData.brand ? `Brand: ${formData.brand}` : null,
-            formData.model ? `Model: ${formData.model}` : null,
-            formData.age ? `Age: ${formData.age}` : null,
-            formData.symptoms?.length ? `Symptoms: ${formData.symptoms.join(', ')}` : null,
-            formData.description ? `Description: ${formData.description}` : null,
-            formData.preferredDate ? `Preferred Date: ${formData.preferredDate}` : null,
-            formData.preferredTime ? `Preferred Time: ${formData.preferredTime}` : null,
-            formData.urgency ? `Urgency: ${formData.urgency}` : null,
-            formData.photos?.length ? `Photos: ${formData.photos.map(p => p.name).join(', ')}` : null
-          ].filter(Boolean).join('\n'),
-          lead_source: params.get('src') || 'service-request',
-          campaign_id: params.get('campaignid') || params.get('campaign_id') || null,
-          keyword: params.get('keyword') || null
+    // Primary path: book into the Top Speed Service OS — the booking
+    // lands in the Service Setters queue in Book OS with a real
+    // reference the customer can track.
+    let booking
+    try {
+      booking = await bookGuest({
+        customer: {
+          name: formData.customerName.trim(),
+          phone: formData.customerPhone.trim(),
+          email: formData.customerEmail.trim() || undefined,
+          address: formData.serviceAddress.trim() || undefined
+        },
+        city: formData.city,
+        zip: formData.zip,
+        appliance: formData.applianceType,
+        issue,
+        preferredWindow: preferredWindowFor(formData.preferredTime),
+        source: 'FLAGSHIP_NET'
+      })
+    } catch (err) {
+      if (err.status === 422) {
+        // Outside the service area — show the API's message plainly.
+        setNotification({
+          type: 'error',
+          message: err.serviceCities?.length
+            ? `${err.message}. We currently serve: ${err.serviceCities.join(', ')}.`
+            : err.message
         })
-      } catch {
-        // Non-critical: localStorage already captured the request
+      } else {
+        setNotification({
+          type: 'error',
+          message: `${err.message || 'We could not send your request.'} Please call (954) 931-7997 to book.`
+        })
       }
+      return
+    }
 
-      setSubmitted(true)
-      setNotification({ type: 'success', message: 'Request submitted! Redirecting to booking...' })
+    // Secondary mirror: keep the Supabase lead record as before.
+    try {
+      await leadsDatabase.createLead({
+        name: formData.customerName,
+        phone: formData.customerPhone,
+        email: formData.customerEmail,
+        address: formData.serviceAddress,
+        service_type: formData.applianceType,
+        issue_description: issueText,
+        lead_source: params.get('src') || 'service-request',
+        campaign_id: campaignId,
+        keyword: params.get('keyword') || null
+      })
+    } catch {
+      // Non-critical: the Service OS booking above is the real record.
+    }
 
-      setTimeout(() => {
-        window.open(BOOKING_CONFIG.BOOKING_URL, '_blank')
-      }, 2000)
-    }, 1500)
+    setBookingRef(booking.referenceCode)
+    setSubmitted(true)
+    setNotification({ type: 'success', message: `Request booked! Your booking reference is ${booking.referenceCode}.` })
   }
 
   if (submitted) {
@@ -274,13 +305,13 @@ export default function ServiceRequestPage() {
           
           <div className="success-message">
             <div className="success-icon">✅</div>
-            <h2>Service Request Submitted!</h2>
-            <p>Your request has been recorded and you'll be redirected to our booking system.</p>
-            
+            <h2>You're Booked!</h2>
+            <p>Your service request is in our system. A Service Setter will confirm your appointment shortly — keep your booking reference handy.</p>
+
             <div className="success-details">
               <div className="detail-item">
-                <span className="detail-label">Request ID:</span>
-                <span className="detail-value">{formData.customerName}</span>
+                <span className="detail-label">Booking Reference:</span>
+                <span className="detail-value">{bookingRef}</span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Appliance:</span>
@@ -295,19 +326,17 @@ export default function ServiceRequestPage() {
             <div className="next-steps">
               <h3>What's Next?</h3>
               <ol>
-                <li>You'll be taken to our booking page to confirm your appointment</li>
+                <li>A Service Setter reviews your request and confirms your appointment</li>
                 <li>We'll send a confirmation email to {formData.customerEmail}</li>
-                <li>Our technician will contact you 24 hours before service</li>
+                <li>Track your technician below with your booking reference</li>
                 <li>We'll arrive within your preferred time window</li>
               </ol>
             </div>
 
-            <button className="book-now-btn" onClick={() => window.open(BOOKING_CONFIG.BOOKING_URL, '_blank')}>
-              🏁 Complete Booking in HouseCall Pro
-            </button>
-
             <Link to="/" className="return-home-btn">Return to Home</Link>
           </div>
+
+          <TrackMyTech initialReference={bookingRef} initialPhone={formData.customerPhone} />
         </div>
       </section>
     )
@@ -583,12 +612,45 @@ export default function ServiceRequestPage() {
                 <textarea
                   id="address"
                   value={formData.serviceAddress}
-                  onChange={(e) => handleInputChange('serviceAddress', e.target.value)}
+                  onChange={(e) => handleAddressChange(e.target.value)}
                   placeholder="Where should our technician visit?"
                   rows="3"
                   className={errors.serviceAddress ? 'input-error' : ''}
                 />
                 {errors.serviceAddress && <span className="error-text">{errors.serviceAddress}</span>}
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="city">City *</label>
+                  <select
+                    id="city"
+                    value={formData.city}
+                    onChange={(e) => handleInputChange('city', e.target.value)}
+                    className={errors.city ? 'input-error' : ''}
+                  >
+                    <option value="">Select your city...</option>
+                    {SERVICE_CITIES.map(city => (
+                      <option key={city} value={city}>{city}</option>
+                    ))}
+                  </select>
+                  {errors.city && <span className="error-text">{errors.city}</span>}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="zip">ZIP Code *</label>
+                  <input
+                    id="zip"
+                    type="text"
+                    inputMode="numeric"
+                    autoComplete="postal-code"
+                    value={formData.zip}
+                    onChange={(e) => handleZipChange(e.target.value)}
+                    placeholder="e.g., 33313"
+                    className={errors.zip ? 'input-error' : ''}
+                  />
+                  {errors.zip && <span className="error-text">{errors.zip}</span>}
+                </div>
               </div>
 
               <div className="form-row">
@@ -725,6 +787,14 @@ export default function ServiceRequestPage() {
                   <div className="review-item">
                     <span className="label">Address:</span>
                     <span className="value">{formData.serviceAddress}</span>
+                  </div>
+                  <div className="review-item">
+                    <span className="label">City:</span>
+                    <span className="value">{formData.city}</span>
+                  </div>
+                  <div className="review-item">
+                    <span className="label">ZIP:</span>
+                    <span className="value">{formData.zip}</span>
                   </div>
                 </div>
 
