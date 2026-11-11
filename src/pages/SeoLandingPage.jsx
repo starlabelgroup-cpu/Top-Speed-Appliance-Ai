@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import SeoLeadCaptureForm from '../components/SeoLeadCaptureForm'
+import { SERVICE_CITIES, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import {
   SEO_BRANDS,
   SEO_COUNTIES,
@@ -173,6 +174,7 @@ function buildRelatedCityLinks(cityName, serviceSlug) {
 
 export default function SeoLandingPage() {
   const { seoSlug } = useParams()
+  const attrQs = useAttributionSearch()
   const origin = safeOrigin()
   const canonicalPath = `/${seoSlug}`
 
@@ -368,6 +370,23 @@ export default function SeoLandingPage() {
     return ''
   })()
 
+  // Prefill the lead form's booking fields from the page's own context
+  // when they map onto the Service OS service area / appliances.
+  const leadDefaultCity = (() => {
+    const candidate =
+      pageModel.type === 'city' ? pageModel.cityName
+      : pageModel.type === 'service-location' ? pageModel.locationName
+      : ''
+    return SERVICE_CITIES.includes(candidate) ? candidate : ''
+  })()
+
+  const leadDefaultAppliance = (() => {
+    if (pageModel.type === 'service' || pageModel.type === 'service-location') {
+      return pageModel.service?.name === 'Appliance Installation' ? 'Installation' : ''
+    }
+    return ''
+  })()
+
   const serviceLocationLinks = pageModel.type === 'service-location' && pageModel.locationType === 'city'
     ? buildRelatedCityLinks(pageModel.locationName, pageModel.service.slug)
     : null
@@ -494,7 +513,13 @@ export default function SeoLandingPage() {
             </div>
           </article>
 
-          <SeoLeadCaptureForm source="seo" contextLabel={leadContext} defaultIssue={leadDefaultIssue} />
+          <SeoLeadCaptureForm
+            source="seo"
+            contextLabel={leadContext}
+            defaultIssue={leadDefaultIssue}
+            defaultCity={leadDefaultCity}
+            defaultAppliance={leadDefaultAppliance}
+          />
         </div>
       </section>
 
@@ -505,7 +530,7 @@ export default function SeoLandingPage() {
           <div className="seo-landing-actions">
             <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
             <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
-            <Link className="cta-button secondary-btn" to="/service-request">Service Request Form</Link>
+            <Link className="cta-button secondary-btn" to={withAttribution('/service-request', attrQs)}>Service Request Form</Link>
           </div>
         </div>
       </section>

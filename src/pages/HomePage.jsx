@@ -203,6 +203,14 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <p className="os-sub" style={{ marginTop: 20, fontSize: 13.5 }}>
+            Reviews are earned job by job — every completed repair fires an automatic review
+            request, routed to Google. See how it works in the{' '}
+            <a href={SERVICE_OS_LINKS.localReviews} target="_blank" rel="noopener noreferrer">
+              Local OS reviews engine
+            </a>
+            .
+          </p>
           <div className="os-cities">
             {SERVICE_CITIES.map((city) => (
               <Link key={city} className="os-city-chip" to="/service-areas">{city}</Link>

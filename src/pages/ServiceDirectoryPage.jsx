@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { SERVICE_OS_LINKS, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import './ServiceDirectoryPage.css'
 
 const BOOKING_URL = 'https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true'
@@ -32,6 +33,7 @@ function pushDataLayer(event, payload = {}) {
 }
 
 function ServiceDirectoryPage() {
+  const attrQs = useAttributionSearch()
   const [filters, setFilters] = useState({ service: '', city: '' })
   const [draftFilters, setDraftFilters] = useState({ service: '', city: '' })
 
@@ -117,7 +119,7 @@ function ServiceDirectoryPage() {
               <div className="ts-service-icon" aria-hidden="true">{s.code}</div>
               <h3>{s.label}</h3>
               <p>{s.text}</p>
-              <Link className="ts-text-button" to={s.to}>View service details</Link>
+              <Link className="ts-text-button" to={withAttribution(s.to, attrQs)}>View service details</Link>
             </article>
           ))}
         </div>
@@ -132,7 +134,7 @@ function ServiceDirectoryPage() {
         <div className="ts-city-grid">
           {visibleCities.length === 0 && <p className="ts-empty">No cities match this filter.</p>}
           {visibleCities.map((c) => (
-            <Link className="ts-city-link" key={c.value} to={c.to}>
+            <Link className="ts-city-link" key={c.value} to={withAttribution(c.to, attrQs)}>
               <span>
                 <strong>{c.label}</strong>
                 <small>{c.county}</small>
@@ -169,6 +171,27 @@ function ServiceDirectoryPage() {
             <h3>Call if needed</h3>
             <p>Call (954) 931-7997 with questions about your visit.</p>
           </div>
+        </div>
+      </section>
+
+      <section className="ts-section">
+        <div className="ts-section-heading">
+          <span className="ts-eyebrow">TOP SPEED LOCAL OS</span>
+          <h2>Also in the Local OS Directory</h2>
+          <p>
+            This directory lives inside Top Speed Local OS too — the Service OS home for our
+            listings, service directory and reviews engine, built on the areas we actually
+            serve. Bookings started there carry their source with them, same as bookings
+            started here.
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a className="ts-button ts-button-primary" href={SERVICE_OS_LINKS.localDirectory} target="_blank" rel="noopener noreferrer">
+            Open the Local OS Directory
+          </a>
+          <a className="ts-button ts-button-primary" href={SERVICE_OS_LINKS.localReviews} target="_blank" rel="noopener noreferrer">
+            See the Reviews Engine
+          </a>
         </div>
       </section>
 

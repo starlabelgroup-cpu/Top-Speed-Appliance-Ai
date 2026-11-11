@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/service-and-city-pages.css'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import ServiceReserveButton from '../components/ServiceReserveButton'
+import { SERVICE_OS_LINKS } from '../lib/serviceOs'
 
 const INFO_PAGES = {
   pricing: {
@@ -81,6 +82,28 @@ function InfoPage({ page }) {
           </ul>
         </section>
       ))}
+
+      {page === 'reviews' && (
+        <section className="service-section">
+          <h2>Reviews Live in the Local OS Reviews Engine</h2>
+          <p>
+            Every completed job fires an automatic review request inside the Service OS,
+            routed to Google — reviews land on the Google Business Profile, where future
+            customers and Google both see them. We don't host a copy here; the reviews
+            engine in Top Speed Local OS is where the loop is tracked.
+          </p>
+          <p style={{ marginTop: 14 }}>
+            <a
+              className="cta-button cta-primary"
+              href={SERVICE_OS_LINKS.localReviews}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open the Reviews Engine
+            </a>
+          </p>
+        </section>
+      )}
 
       {config.faqs.length > 0 && (
         <section className="service-section">

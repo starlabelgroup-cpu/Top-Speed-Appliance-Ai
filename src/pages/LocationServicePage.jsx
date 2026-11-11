@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useMemo, useEffect, useRef } from 'react'
 import { LOCATION_SERVICE_PAGES } from '../data/locationServicePages'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { SERVICE_OS_LINKS, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import { useSeo } from '../utils/useSeo'
 import * as ga4Events from '../utils/ga4Events'
 import * as googleAdsTracking from '../utils/googleAdsTracking'
@@ -46,6 +47,7 @@ function buildFaqSchema({ origin, canonicalPath, faqs, serviceName, cityName }) 
 }
 
 function NotFoundSection() {
+  const attrQs = useAttributionSearch()
   return (
     <main className="location-service-page">
       <section className="location-hero">
@@ -53,7 +55,7 @@ function NotFoundSection() {
         <h1>We could not find that city + service combination.</h1>
         <p className="location-lede">Use the quick links below to keep browsing available services.</p>
         <div className="location-hero-actions">
-          <Link className="cta-button primary-btn" to="/service-areas">View Service Areas</Link>
+          <Link className="cta-button primary-btn" to={withAttribution('/service-areas', attrQs)}>View Service Areas</Link>
           <a className="cta-button secondary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
         </div>
       </section>
@@ -62,6 +64,7 @@ function NotFoundSection() {
 }
 
 export default function LocationServicePage({ citySlug: citySlugProp, serviceSlug: serviceSlugProp } = {}) {
+  const attrQs = useAttributionSearch()
   const params = useParams()
   const citySlug = citySlugProp ?? params.citySlug
   const serviceSlug = serviceSlugProp ?? params.serviceSlug
@@ -329,13 +332,16 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
             <h3>Explore Related Services</h3>
             <ul>
               <li>
-                <Link to="/locations/miami/washer-repair">Washer Repair in Miami</Link>
+                <Link to={withAttribution('/locations/miami/washer-repair', attrQs)}>Washer Repair in Miami</Link>
               </li>
               <li>
-                <Link to="/locations/miami/oven-repair">Oven Repair in Miami</Link>
+                <Link to={withAttribution('/locations/miami/oven-repair', attrQs)}>Oven Repair in Miami</Link>
               </li>
               <li>
-                <Link to="/services/dryer-repair">Dryer Repair Service Overview</Link>
+                <Link to={withAttribution('/services/dryer-repair', attrQs)}>Dryer Repair Service Overview</Link>
+              </li>
+              <li>
+                <a href={SERVICE_OS_LINKS.localDirectory} target="_blank" rel="noopener noreferrer">Top Speed Local OS Directory</a>
               </li>
             </ul>
           </div>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SERVICE_OS_LINKS, attributionSearch, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import '../styles/service-and-city-pages.css'
 
 /**
@@ -10,6 +11,7 @@ import '../styles/service-and-city-pages.css'
 
 const CityPageComponent = ({ city }) => {
   const navigate = useNavigate()
+  const attrQs = useAttributionSearch()
 
   // City configuration
   const cityConfig = {
@@ -116,7 +118,7 @@ const CityPageComponent = ({ city }) => {
         event_label: `city_${city}`
       })
     }
-    navigate('/service-request')
+    navigate(withAttribution('/service-request', attributionSearch()))
   }
 
   return (
@@ -141,15 +143,15 @@ const CityPageComponent = ({ city }) => {
       <section className="city-section">
         <h2>Our Services in {config.displayName}</h2>
         <ul className="services-list">
-          <li><a href="/washer-repair">Washer Repair</a></li>
-          <li><a href="/dryer-repair">Dryer Repair</a></li>
-          <li><a href="/refrigerator-repair">Refrigerator Repair</a></li>
-          <li><a href="/oven-stove-repair">Oven & Stove Repair</a></li>
-          <li><a href="/dishwasher-repair">Dishwasher Repair</a></li>
-          <li><a href="/microwave-repair">Microwave Repair</a></li>
-          <li><a href="/home-appliance-repair">Home Appliance Repair</a></li>
-          <li><a href="/commercial-appliance-repair">Commercial Appliance Repair</a></li>
-          <li><a href="/appliance-installation">Appliance Installation</a></li>
+          <li><a href={withAttribution('/washer-repair', attrQs)}>Washer Repair</a></li>
+          <li><a href={withAttribution('/dryer-repair', attrQs)}>Dryer Repair</a></li>
+          <li><a href={withAttribution('/refrigerator-repair', attrQs)}>Refrigerator Repair</a></li>
+          <li><a href={withAttribution('/oven-stove-repair', attrQs)}>Oven & Stove Repair</a></li>
+          <li><a href={withAttribution('/dishwasher-repair', attrQs)}>Dishwasher Repair</a></li>
+          <li><a href={withAttribution('/microwave-repair', attrQs)}>Microwave Repair</a></li>
+          <li><a href={withAttribution('/home-appliance-repair', attrQs)}>Home Appliance Repair</a></li>
+          <li><a href={withAttribution('/commercial-appliance-repair', attrQs)}>Commercial Appliance Repair</a></li>
+          <li><a href={withAttribution('/appliance-installation', attrQs)}>Appliance Installation</a></li>
         </ul>
       </section>
 
@@ -178,7 +180,7 @@ const CityPageComponent = ({ city }) => {
           {['fort-lauderdale', 'hollywood-fl', 'plantation-fl', 'pembroke-pines-fl', 'delray-beach-fl', 'boynton-beach-fl', 'jupiter-fl', 'palm-beach-gardens-fl'].map(c => (
             c !== city && (
               <li key={c}>
-                <a href={`/appliance-repair-${c}`}>
+                <a href={withAttribution(`/appliance-repair-${c}`, attrQs)}>
                   Appliance Repair in {cityConfig[c].displayName}
                 </a>
               </li>
@@ -230,6 +232,13 @@ const CityPageComponent = ({ city }) => {
         <a href="tel:+19549317997" className="cta-button cta-primary" onClick={handleCallClick}>
           📞 Call Now: (954) 931-7997
         </a>
+        <p style={{ marginTop: 14 }}>
+          Or find Top Speed Appliance in the{' '}
+          <a href={SERVICE_OS_LINKS.localDirectory} target="_blank" rel="noopener noreferrer">
+            Top Speed Local OS directory
+          </a>{' '}
+          — listings, reviews and local offers on the Service OS.
+        </p>
       </section>
     </div>
   )

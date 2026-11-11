@@ -4,10 +4,12 @@ import { SERVICE_OS_LINKS } from '../lib/serviceOs'
 /**
  * Media OS / Top Speed 360 — Figma frame 05.
  *
- * Presented honestly as a build-out: Top Speed 360 is a full public
- * media company in design. Its domains are a separate purchase step
- * and it has NOT launched as a standalone company yet — this hub is
- * the front door while publishing is built on the Service OS.
+ * Phase 4 linkage: the Media OS itself is LIVE on the Service OS
+ * (topspeedserviceos.com/media with /videos, /live, /publishing,
+ * /news and /social), so this hub's cards link into those real pages.
+ * Top Speed 360 as a standalone brand/company is still in design —
+ * its domains are a separate purchase step and it has NOT launched
+ * as a standalone company yet.
  */
 
 const VIDEOS = [
@@ -32,13 +34,13 @@ export default function MediaPage() {
             <span className="sub">MEDIA OS</span>
           </div>
           <nav className="os-media-nav" aria-label="Media OS">
-            <a href="#watch">Watch</a>
-            <a href="#newsroom">Learn</a>
-            <a href="#newsroom">News</a>
-            <a href="#live">Live Events</a>
+            <a href={SERVICE_OS_LINKS.mediaVideos} target="_blank" rel="noopener noreferrer">Watch</a>
+            <a href={SERVICE_OS_LINKS.mediaPublishing} target="_blank" rel="noopener noreferrer">Learn</a>
+            <a href={SERVICE_OS_LINKS.mediaNews} target="_blank" rel="noopener noreferrer">News</a>
+            <a href={SERVICE_OS_LINKS.mediaLive} target="_blank" rel="noopener noreferrer">Live Events</a>
             <a href="#fast-lane">Newsletter</a>
           </nav>
-          <span className="os-pill os-pill-design">In Design</span>
+          <span className="os-pill os-pill-design">Top Speed 360 — In Design</span>
         </div>
       </div>
 
@@ -52,12 +54,24 @@ export default function MediaPage() {
             Repair know-how, local stories, live demonstrations and the Top Speed world — published
             from the same platform that runs the service business.
           </p>
+          <p>
+            Media OS is live on the Service OS —{' '}
+            <a href={SERVICE_OS_LINKS.media} target="_blank" rel="noopener noreferrer">
+              open topspeedserviceos.com/media →
+            </a>
+          </p>
         </div>
 
         <h2 className="os-media-kicker" id="watch">VIDEO KNOWLEDGE BASE</h2>
         <div className="os-vid-grid">
           {VIDEOS.map((v) => (
-            <article key={v.title} className="os-vid-card">
+            <a
+              key={v.title}
+              className="os-vid-card"
+              href={SERVICE_OS_LINKS.mediaVideos}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="os-vid-thumb">
                 <span aria-hidden="true">▶</span>
                 <span className="os-pill os-pill-design tag">In Production</span>
@@ -66,7 +80,7 @@ export default function MediaPage() {
                 <h3>{v.title}</h3>
                 <span className="meta">{v.meta}</span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
 
@@ -74,10 +88,16 @@ export default function MediaPage() {
           <div className="os-news-card" id="newsroom">
             <h2 className="os-media-kicker">DIGITAL NEWSROOM</h2>
             {NEWS.map((n) => (
-              <div key={n.headline} className="os-news-row">
+              <a
+                key={n.headline}
+                className="os-news-row"
+                href={SERVICE_OS_LINKS.mediaNews}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="cat">{n.cat}</span>
                 <div className="headline">{n.headline}</div>
-              </div>
+              </a>
             ))}
           </div>
           <div className="os-live-card" id="live">
@@ -87,7 +107,7 @@ export default function MediaPage() {
               Watch a real diagnosis live, ask questions in chat, and book the same service for
               your home — straight into Book OS.
             </p>
-            <a className="os-btn os-btn-white" href="#fast-lane">See the schedule</a>
+            <a className="os-btn os-btn-white" href={SERVICE_OS_LINKS.mediaLive} target="_blank" rel="noopener noreferrer">See the schedule on Media OS Live</a>
           </div>
         </div>
 
@@ -117,8 +137,14 @@ export default function MediaPage() {
         </div>
 
         <p className="os-media-status">
-          MEDIA OS STATUS — design phase. Publishing runs on Service OS accounts, bookings and CRM;
-          Top Speed 360 domains are a separate purchase step.
+          MEDIA OS STATUS — live on the Service OS:{' '}
+          <a href={SERVICE_OS_LINKS.mediaVideos} target="_blank" rel="noopener noreferrer">videos</a>,{' '}
+          <a href={SERVICE_OS_LINKS.mediaLive} target="_blank" rel="noopener noreferrer">live events</a>,{' '}
+          <a href={SERVICE_OS_LINKS.mediaPublishing} target="_blank" rel="noopener noreferrer">publishing</a>,{' '}
+          <a href={SERVICE_OS_LINKS.mediaNews} target="_blank" rel="noopener noreferrer">news</a> and{' '}
+          <a href={SERVICE_OS_LINKS.mediaSocial} target="_blank" rel="noopener noreferrer">social</a>.
+          Publishing runs on Service OS accounts, bookings and CRM. Top Speed 360 as a standalone
+          brand is still in design — its domains are a separate purchase step.
         </p>
         <p className="os-media-flywheel">
           Every video, story and event ends in the same flywheel: watch → learn → book → track →

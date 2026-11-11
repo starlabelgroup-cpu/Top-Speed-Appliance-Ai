@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { leadsDatabase } from '../services/leadsDatabase'
 import { storageGetItem, storageSetJson } from '../utils/storage'
-import { bookGuest, preferredWindowFor, extractZip, citiesForZip, SERVICE_CITIES, SERVICE_OS_LINKS } from '../lib/serviceOs'
+import { bookGuest, preferredWindowFor, extractZip, citiesForZip, attributionParams, buildViaTag, SERVICE_CITIES, SERVICE_OS_LINKS } from '../lib/serviceOs'
 import TrackMyTech from '../components/TrackMyTech'
 import { SpeedyPanel, SPEEDY_PREFILL_KEY } from '../components/SpeedyPanel'
 import MobileStickyBar from '../components/MobileStickyBar'
@@ -319,7 +319,7 @@ export default function ServiceRequestPage() {
 
     storageSetJson(`serviceRequest_${requestData.id}`, requestData)
 
-    const params = new URLSearchParams(window.location.search)
+    const params = attributionParams()
 
     const issueText = [
       formData.brand ? `Brand: ${formData.brand}` : null,
@@ -334,13 +334,12 @@ export default function ServiceRequestPage() {
     ].filter(Boolean).join('\n')
 
     // Attribution: carry the campaign/source params into the booking so
-    // the Service Setters can see where the request came from.
-    const viaParts = []
-    if (params.get('src')) viaParts.push(params.get('src'))
+    // the Service Setters can see where the request came from. Params
+    // captured on arrival (sessionStorage first-touch) fill in when
+    // this page's own URL no longer carries them.
     const campaignId = params.get('campaignid') || params.get('campaign_id')
-    if (campaignId) viaParts.push(`campaign:${campaignId}`)
-    if (params.get('keyword')) viaParts.push(`kw:${params.get('keyword')}`)
-    const issue = viaParts.length ? `${issueText} [via: ${viaParts.join(' ')}]` : issueText
+    const via = buildViaTag(params)
+    const issue = via ? `${issueText} [via: ${via}]` : issueText
 
     // Primary path: book into the Top Speed Service OS — the booking
     // lands in the Service Setters queue in Book OS with a real

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SERVICE_OS_LINKS } from '../lib/serviceOs'
+import { SERVICE_OS_LINKS, attributionSearch, withAttribution } from '../lib/serviceOs'
 
 /**
  * Speedy AI entry points for topspeedappliance.net (Figma frames 01/02).
@@ -73,7 +73,7 @@ export function SpeedyCard() {
     } catch {
       // storage unavailable — the booking form still opens normally
     }
-    navigate('/service-request')
+    navigate(withAttribution('/service-request', attributionSearch()))
   }
 
   return (
@@ -123,7 +123,7 @@ export function SpeedyPanel({ onPrefill }) {
       } catch {
         // ignore — navigation still works
       }
-      navigate('/service-request')
+      navigate(withAttribution('/service-request', attributionSearch()))
     }
     setText('')
   }

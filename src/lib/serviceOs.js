@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 /**
  * Top Speed Service OS — API client for topspeedappliance.net
  *
@@ -23,6 +25,14 @@ export const SERVICE_OS_LINKS = {
   propertyManagers: `${SERVICE_OS_WEB}/property-managers`,
   offers: `${SERVICE_OS_WEB}/offers-rewards`,
   local: `${SERVICE_OS_WEB}/local`,
+  localDirectory: `${SERVICE_OS_WEB}/local#directory`,
+  localReviews: `${SERVICE_OS_WEB}/local#reviews`,
+  media: `${SERVICE_OS_WEB}/media`,
+  mediaVideos: `${SERVICE_OS_WEB}/videos`,
+  mediaLive: `${SERVICE_OS_WEB}/live`,
+  mediaPublishing: `${SERVICE_OS_WEB}/publishing`,
+  mediaNews: `${SERVICE_OS_WEB}/news`,
+  mediaSocial: `${SERVICE_OS_WEB}/social`,
   ads: `${SERVICE_OS_WEB}/ads`,
   advertise: `${SERVICE_OS_WEB}/advertise`,
   book: `${SERVICE_OS_WEB}/book`,
@@ -142,6 +152,105 @@ export function trackBooking(reference, phone) {
   return api(`/bookings/track/${ref}?phone=${ph}`)
 }
 
+/* ------------------------------------------------------------------ */
+/* Attribution                                                         */
+/*                                                                     */
+/* Campaign/source params (?src=, utm_*, campaign ids, keywords) are   */
+/* captured on arrival, kept in sessionStorage as a first-touch        */
+/* fallback, forwarded across internal navigation, and folded into     */
+/* the booking's [via: …] tag so Service Setters can see where a       */
+/* request came from — the same attribution the Service OS Local OS    */
+/* directory uses when it books with ?src=local-directory.             */
+/* ------------------------------------------------------------------ */
+
+export const ATTRIBUTION_PARAMS = [
+  'src',
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+  'campaignid',
+  'campaign_id',
+  'keyword',
+  'gclid',
+  'fbclid',
+]
+
+const ATTRIBUTION_STORAGE_KEY = 'ts_attribution'
+
+/**
+ * The visitor's attribution params as a URLSearchParams: the current
+ * URL wins; when the URL carries none (e.g. after internal navigation
+ * dropped them), the values captured on arrival fill in. Reading also
+ * captures fresh URL params into sessionStorage. Client-only — returns
+ * an empty set during prerendering.
+ */
+export function attributionParams() {
+  const merged = new URLSearchParams()
+  if (typeof window === 'undefined') return merged
+  try {
+    const fromUrl = new URLSearchParams(window.location.search)
+    let found = false
+    for (const key of ATTRIBUTION_PARAMS) {
+      const value = fromUrl.get(key)
+      if (value) {
+        merged.set(key, value)
+        found = true
+      }
+    }
+    if (found) {
+      try {
+        window.sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, merged.toString())
+      } catch {
+        // storage unavailable — URL params still apply to this page
+      }
+      return merged
+    }
+    const stored = window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY)
+    if (stored) {
+      const fromStore = new URLSearchParams(stored)
+      for (const key of ATTRIBUTION_PARAMS) {
+        const value = fromStore.get(key)
+        if (value) merged.set(key, value)
+      }
+    }
+  } catch {
+    // storage/URL unavailable — no attribution
+  }
+  return merged
+}
+
+/** '?src=…&utm_source=…' for the current visitor, or '' when none. */
+export function attributionSearch() {
+  const qs = attributionParams().toString()
+  return qs ? `?${qs}` : ''
+}
+
+/**
+ * The [via: …] tag body for a booking issue, from attribution params.
+ * Format for the long-standing params is unchanged ('src campaign:X
+ * kw:Y'); utm values fold in when present.
+ */
+export function buildViaTag(params) {
+  const parts = []
+  if (params.get('src')) parts.push(params.get('src'))
+  const campaignId = params.get('campaignid') || params.get('campaign_id') || params.get('utm_campaign')
+  if (campaignId) parts.push(`campaign:${campaignId}`)
+  if (params.get('keyword')) parts.push(`kw:${params.get('keyword')}`)
+  const utmBits = [params.get('utm_source'), params.get('utm_medium')].filter(Boolean)
+  if (utmBits.length) parts.push(`utm:${utmBits.join('/')}`)
+  if (params.get('utm_term')) parts.push(`term:${params.get('utm_term')}`)
+  return parts.join(' ')
+}
+
+/** Append an attribution query string ('?a=b' or '') to an internal path. */
+export function withAttribution(path, qs) {
+  if (!qs) return path
+  const glue = path.includes('?') ? '&' : '?'
+  return `${path}${glue}${qs.replace(/^\?/, '')}`
+}
+
 /**
  * Track My Tech via a secure per-job tracking link (?t=<token>).
  * The token is issued by Service Setters from the Track Console; only
@@ -153,4 +262,18 @@ export function trackBooking(reference, phone) {
 export function trackByToken(token) {
   const t = encodeURIComponent(String(token || '').trim())
   return api(`/tracking/by-token/${t}`)
+}
+
+/**
+ * React hook: the attribution query string for internal links. Starts
+ * empty (matching the prerendered HTML) and fills in after mount, so
+ * hydrated pages never mismatch. Using it also captures the params
+ * for the rest of the session.
+ */
+export function useAttributionSearch() {
+  const [qs, setQs] = useState('')
+  useEffect(() => {
+    setQs(attributionSearch())
+  }, [])
+  return qs
 }

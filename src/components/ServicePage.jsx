@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
+import { useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import '../styles/service-and-city-pages.css'
 import ServiceReserveButton from './ServiceReserveButton'
 
@@ -417,6 +418,7 @@ const SERVICE_CONFIG = {
 }
 
 const ServicePageComponent = ({ service }) => {
+  const attrQs = useAttributionSearch()
   const config = SERVICE_CONFIG[service] || SERVICE_CONFIG.washer
   const pricing = config.pricing || {
     label: 'Service Fee',
@@ -496,7 +498,7 @@ const ServicePageComponent = ({ service }) => {
           <h2>Explore Our {config.name} Services</h2>
           <ul className="cities-list">
             {config.relatedLinks.map((link) => (
-              <li key={link.href}><a href={link.href}>{link.label}</a></li>
+              <li key={link.href}><a href={withAttribution(link.href, attrQs)}>{link.label}</a></li>
             ))}
           </ul>
         </section>
@@ -520,14 +522,14 @@ const ServicePageComponent = ({ service }) => {
         <h2>Service Areas</h2>
         <p>We service appliance repair in:</p>
         <ul className="cities-list">
-          <li><a href="/appliance-repair-fort-lauderdale">Appliance Repair in Fort Lauderdale</a></li>
-          <li><a href="/appliance-repair-hollywood-fl">Appliance Repair in Hollywood</a></li>
-          <li><a href="/appliance-repair-plantation-fl">Appliance Repair in Plantation</a></li>
-          <li><a href="/appliance-repair-pembroke-pines-fl">Appliance Repair in Pembroke Pines</a></li>
-          <li><a href="/appliance-repair-delray-beach-fl">Appliance Repair in Delray Beach</a></li>
-          <li><a href="/appliance-repair-boynton-beach-fl">Appliance Repair in Boynton Beach</a></li>
-          <li><a href="/appliance-repair-jupiter-fl">Appliance Repair in Jupiter</a></li>
-          <li><a href="/appliance-repair-palm-beach-gardens-fl">Appliance Repair in Palm Beach Gardens</a></li>
+          <li><a href={withAttribution('/appliance-repair-fort-lauderdale', attrQs)}>Appliance Repair in Fort Lauderdale</a></li>
+          <li><a href={withAttribution('/appliance-repair-hollywood-fl', attrQs)}>Appliance Repair in Hollywood</a></li>
+          <li><a href={withAttribution('/appliance-repair-plantation-fl', attrQs)}>Appliance Repair in Plantation</a></li>
+          <li><a href={withAttribution('/appliance-repair-pembroke-pines-fl', attrQs)}>Appliance Repair in Pembroke Pines</a></li>
+          <li><a href={withAttribution('/appliance-repair-delray-beach-fl', attrQs)}>Appliance Repair in Delray Beach</a></li>
+          <li><a href={withAttribution('/appliance-repair-boynton-beach-fl', attrQs)}>Appliance Repair in Boynton Beach</a></li>
+          <li><a href={withAttribution('/appliance-repair-jupiter-fl', attrQs)}>Appliance Repair in Jupiter</a></li>
+          <li><a href={withAttribution('/appliance-repair-palm-beach-gardens-fl', attrQs)}>Appliance Repair in Palm Beach Gardens</a></li>
         </ul>
       </section>
 

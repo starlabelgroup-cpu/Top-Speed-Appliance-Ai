@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import SeoLeadCaptureForm from '../components/SeoLeadCaptureForm'
+import { useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import SeoLocationMap from '../components/SeoLocationMap'
 import SeoDirectoryKit from '../components/SeoDirectoryKit'
 import ZipDirectory from '../components/ZipDirectory'
@@ -24,6 +25,7 @@ function safeOrigin() {
 }
 
 export default function ServiceAreasPage() {
+  const attrQs = useAttributionSearch()
   const canonicalPath = '/service-areas'
   const origin = safeOrigin()
 
@@ -93,7 +95,7 @@ export default function ServiceAreasPage() {
           <div className="seo-leads-hero-actions">
             <a className="cta-button seo-leads-hero-cta" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
             <a className="cta-button seo-leads-hero-cta secondary" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
-            <Link className="cta-button seo-leads-hero-cta secondary" to="/service-request">Service Request</Link>
+            <Link className="cta-button seo-leads-hero-cta secondary" to={withAttribution('/service-request', attrQs)}>Service Request</Link>
           </div>
         </div>
       </section>
@@ -173,7 +175,7 @@ export default function ServiceAreasPage() {
 
             <div className="seo-leads-problem-grid">
               {SEO_PROBLEMS.map(problem => (
-                <Link key={problem.slug} to={`/${problem.slug}`} className="seo-leads-problem-card">
+                <Link key={problem.slug} to={withAttribution(`/${problem.slug}`, attrQs)} className="seo-leads-problem-card">
                   <h3 className="seo-leads-problem-title">{problem.title}</h3>
                   <p className="seo-leads-problem-text">{problem.summary}</p>
                   <span className="seo-leads-problem-cta">View page →</span>

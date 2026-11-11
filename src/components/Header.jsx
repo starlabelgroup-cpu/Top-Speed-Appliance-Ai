@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ServiceReserveButton from './ServiceReserveButton'
+import { useAttributionSearch, withAttribution } from '../lib/serviceOs'
 
 function Header() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
+  const attrQs = useAttributionSearch()
 
   useEffect(() => {
     setOpen(false)
@@ -113,7 +115,7 @@ function Header() {
             <NavLink to="/reviews" className={navLinkClass}>Reviews</NavLink>
             <NavLink to="/media-os" className={navLinkClass}>Media OS</NavLink>
             <NavLink to="/account" className={navLinkClass}>Account</NavLink>
-            <Link to="/service-request" className="os-btn os-btn-red os-book-btn">BOOK SERVICE</Link>
+            <Link to={withAttribution('/service-request', attrQs)} className="os-btn os-btn-red os-book-btn">BOOK SERVICE</Link>
           </nav>
         </div>
       </div>
