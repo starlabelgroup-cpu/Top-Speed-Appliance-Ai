@@ -189,11 +189,6 @@ export default function RecommendationMode({ sessionId, onNotify }) {
                   </div>
                 )}
 
-                {rec.rating && (
-                  <div className="rec-rating">
-                    <strong>Customer Rating:</strong> {rec.rating}/5 ⭐
-                  </div>
-                )}
 
                 <div className="rec-actions">
                   <button className="view-btn" onClick={() => onNotify(`Viewing ${rec.brand} ${rec.model}`)}>

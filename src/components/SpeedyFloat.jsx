@@ -66,6 +66,10 @@ export default function SpeedyFloat() {
   const [typing, setTyping] = useState(false)
   const [pendingBook, setPendingBook] = useState(null)
   const [bookedRef, setBookedRef] = useState('')
+  const [bookedPhone, setBookedPhone] = useState('')
+  const [listening, setListening] = useState(false)
+  const fileRef = useRef(null)
+  const recogRef = useRef(null)
   const historyRef = useRef([])
   const bodyRef = useRef(null)
   const inputRef = useRef(null)
@@ -165,6 +169,7 @@ export default function SpeedyFloat() {
       })
       const ref = (j.data && j.data.referenceCode) || j.referenceCode || 'received'
       setBookedRef(ref)
+      setBookedPhone(d.phone)
       setMsgs((m) => [
         ...m,
         {
@@ -182,6 +187,106 @@ export default function SpeedyFloat() {
       ])
     }
   }, [pendingBook])
+
+
+  const sendReceipt = useCallback(
+    async (channel) => {
+      if (!bookedRef || !bookedPhone) return
+      try {
+        const j = await postJson('/speedy/send-receipt', {
+          reference: bookedRef,
+          phone: bookedPhone,
+          channel,
+        })
+        const msg = (j.data && j.data.message) || 'Done.'
+        setMsgs((m) => [...m, { role: 'bot', text: `🧾 ${msg}` }])
+      } catch (e) {
+        setMsgs((m) => [
+          ...m,
+          { role: 'bot', text: `🧾 That didn't go through: ${e.message}. Call 954-931-7997 and we'll send it by phone.` },
+        ])
+      }
+    },
+    [bookedRef, bookedPhone]
+  )
+
+  const onPhoto = useCallback((e) => {
+    const f = e.target.files && e.target.files[0]
+    e.target.value = ''
+    if (!f) return
+    setMsgs((m) => [...m, { role: 'me', text: '📸 Sent a photo of my appliance' }])
+    setTyping(true)
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      const img = new Image()
+      img.onload = async () => {
+        try {
+          const mx = 1280
+          const sc = Math.min(1, mx / Math.max(img.naturalWidth, img.naturalHeight))
+          const cv = document.createElement('canvas')
+          cv.width = Math.round(img.naturalWidth * sc)
+          cv.height = Math.round(img.naturalHeight * sc)
+          cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height)
+          const j = await postJson('/speedy/diagnose', {
+            imageDataUrl: cv.toDataURL('image/jpeg', 0.82),
+            note: 'Photo sent by a customer chatting on topspeedappliance.net',
+          })
+          const rep = (j.data && (j.data.reply || j.data.summary || j.data.text)) || ''
+          setTyping(false)
+          setMsgs((m) => [
+            ...m,
+            {
+              role: 'bot',
+              text: rep
+                ? `📸 Speedy's first look: ${rep} A technician confirms the diagnosis on site — Speedy never certifies a repair is safe. Want me to book the $99 diagnostic visit?`
+                : "📸 I received your photo but couldn't read it clearly — a technician will review it in person. Want me to book the $99 diagnostic visit?",
+            },
+          ])
+        } catch {
+          setTyping(false)
+          setMsgs((m) => [
+            ...m,
+            { role: 'bot', text: "📸 Speedy couldn't read that photo just now — book the visit and the technician will diagnose on site, or call 954-931-7997." },
+          ])
+        }
+      }
+      img.src = ev.target.result
+    }
+    reader.readAsDataURL(f)
+  }, [])
+
+  const toggleMic = useCallback(() => {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition
+    if (!SR) {
+      setMsgs((m) => [
+        ...m,
+        { role: 'bot', text: "🎤 Voice isn't supported in this browser — type instead, and I'll book you the same way. (Voice works in Chrome on desktop and Android.)" },
+      ])
+      return
+    }
+    if (listening) {
+      recogRef.current && recogRef.current.stop()
+      setListening(false)
+      return
+    }
+    try {
+      const rec = new SR()
+      recogRef.current = rec
+      rec.lang = 'en-US'
+      rec.interimResults = false
+      rec.onresult = (ev) => {
+        const t = ev.results[0][0].transcript
+        setListening(false)
+        send(t)
+      }
+      rec.onend = () => setListening(false)
+      rec.onerror = () => setListening(false)
+      rec.start()
+      setListening(true)
+    } catch {
+      setListening(false)
+    }
+  }, [listening, send])
 
   return (
     <>
@@ -268,6 +373,18 @@ export default function SpeedyFloat() {
                 </button>
               </div>
             )}
+            {bookedRef && (
+              <div className="os-bubble os-bubble-bot os-float-book">
+                <b>Your booking tools</b>
+                <br />
+                <button type="button" className="os-btn" onClick={() => sendReceipt('email')}>
+                  📧 Email me my receipt
+                </button>{' '}
+                <button type="button" className="os-btn" onClick={() => sendReceipt('sms')}>
+                  💬 Text me my tracking link
+                </button>
+              </div>
+            )}
           </div>
 
           <form
@@ -278,11 +395,26 @@ export default function SpeedyFloat() {
             }}
           >
             <input
+              ref={fileRef}
+              type="file"
+              accept="image/*"
+              style={{ display: 'none' }}
+              onChange={onPhoto}
+              aria-hidden="true"
+              tabIndex={-1}
+            />
+            <button type="button" onClick={() => fileRef.current && fileRef.current.click()} aria-label="Send a photo for diagnosis" title="Send a photo — Speedy will take a first look">
+              📸
+            </button>
+            <button type="button" className={listening ? 'os-mic-on' : ''} onClick={toggleMic} aria-label={listening ? 'Stop voice input' : 'Book by voice'} title="Book by voice">
+              {listening ? '🔴' : '🎤'}
+            </button>
+            <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about repairs, pricing, areas…"
+              placeholder={listening ? 'Listening… speak now' : 'Ask about repairs, pricing, areas…'}
               aria-label="Message Speedy"
               autoComplete="off"
             />

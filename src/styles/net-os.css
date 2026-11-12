@@ -143,7 +143,7 @@
 /* ---------- header (design frame 01) ---------- */
 
 .header .header-main-os {
-  background: var(--os-navy);
+  background: #000;
 }
 
 .header .header-main-os .container {
@@ -1597,3 +1597,19 @@
   .os-float-panel { bottom: 148px; }
   .os-float-body { height: 220px; }
 }
+
+/* Phase E — standardized brand header (matches topspeedapplianceservice.com):
+   black bar, logo + lockup, red Call pill. The logo art has a black
+   background, so on the black bar it blends seamlessly. */
+.os-lockup { display: flex; flex-direction: column; line-height: 1.15; margin-left: 12px; min-width: 0; }
+.os-lockup b { color: #fff; font-size: 16.5px; letter-spacing: .01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.os-lockup small { color: #B9CFF2; font-size: 12px; white-space: nowrap; }
+.os-call-btn { flex: none; background: #E8322E; color: #fff !important; border-radius: 999px; padding: 10px 18px; font-weight: 800; text-decoration: none !important; display: inline-flex; align-items: center; gap: 6px; }
+@media (max-width: 860px) {
+  .os-call-btn { margin-left: auto; padding: 9px 14px; }
+  .os-lockup b { font-size: 14px; max-width: 132px; }
+  .os-lockup small { display: none; }
+}
+
+/* Phase D+ — voice input listening state in the Speedy panel */
+.os-float-input .os-mic-on { background: #E8322E !important; color: #fff !important; animation: os-pulse 1.2s ease-in-out infinite; }

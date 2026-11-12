@@ -33,7 +33,7 @@ section {
 }
 
 .header-top {
-  background-color: #d10000;
+  background-color: #000;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;

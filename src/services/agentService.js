@@ -65,7 +65,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['French Door', 'Ice Maker', 'Fingerprint Resistant'],
       warranty: '1 year parts & labor',
-      rating: 4.6
     },
     {
       brand: 'LG',
@@ -75,7 +74,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Smart Home', 'Door-in-Door', 'Ice Maker', 'Water Dispenser'],
       warranty: '1 year parts & labor',
-      rating: 4.7
     },
     {
       brand: 'GE',
@@ -84,7 +82,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['French Door', 'Humidity Controlled Crispers', 'LED Lighting'],
       warranty: '1 year parts & labor',
-      rating: 4.5
     },
     {
       brand: 'Samsung',
@@ -94,7 +91,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Smart Home', 'FlexZone', 'Ice Maker', 'Water Dispenser'],
       warranty: '1 year parts & labor',
-      rating: 4.4
     },
     {
       brand: 'Frigidaire',
@@ -103,7 +99,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Side-by-Side', 'Ice Maker Ready', 'Water Dispenser'],
       warranty: '1 year parts & labor',
-      rating: 4.3
     }
   ],
   washer: [
@@ -115,7 +110,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Steam Clean', 'Large Capacity', 'Smart Connect'],
       warranty: '1 year parts & labor',
-      rating: 4.7
     },
     {
       brand: 'Whirlpool',
@@ -124,7 +118,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Quiet Operation', 'Steam Clean', 'Adaptive Wash'],
       warranty: '1 year parts & labor',
-      rating: 4.5
     },
     {
       brand: 'Samsung',
@@ -133,7 +126,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Large Capacity', 'Smart Connect', 'Self Clean+'],
       warranty: '1 year parts & labor',
-      rating: 4.4
     },
     {
       brand: 'GE',
@@ -142,7 +134,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Sanitize Cycle', 'Large Capacity', 'OdorBlock'],
       warranty: '1 year parts & labor',
-      rating: 4.3
     },
     {
       brand: 'Maytag',
@@ -152,7 +143,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Extra Power', 'Steam Clean', 'Rapid Wash'],
       warranty: '10-year limited parts (select components)',
-      rating: 4.6
     }
   ],
   dryer: [
@@ -163,7 +153,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Smart Sensing', 'Steam Refresh', 'Sanitize Cycle'],
       warranty: '1 year parts & labor',
-      rating: 4.7
     },
     {
       brand: 'Whirlpool',
@@ -172,7 +161,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Wrinkle Shield', 'Quick Dry', 'Quiet Operation'],
       warranty: '1 year parts & labor',
-      rating: 4.5
     },
     {
       brand: 'Samsung',
@@ -181,7 +169,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Smart Sensing', 'Steam Sanitize', 'Sensor Dry'],
       warranty: '1 year parts & labor',
-      rating: 4.4
     },
     {
       brand: 'GE',
@@ -190,7 +177,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Sanitize Cycle', 'Steam', 'Damp Alert'],
       warranty: '1 year parts & labor',
-      rating: 4.3
     },
     {
       brand: 'Maytag',
@@ -199,7 +185,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Extra Power', 'Quick Dry', 'Wrinkle Prevent'],
       warranty: '10-year limited parts (select components)',
-      rating: 4.6
     }
   ],
   oven: [
@@ -210,7 +195,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Self-Cleaning', 'Multiple Racks', 'Fast Preheat'],
       warranty: '1 year parts & labor',
-      rating: 4.5
     },
     {
       brand: 'Samsung',
@@ -220,7 +204,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Convection', 'Self-Cleaning', 'Wifi Control'],
       warranty: '1 year parts & labor',
-      rating: 4.4
     },
     {
       brand: 'Whirlpool',
@@ -229,7 +212,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Self-Cleaning', 'Warm Zone', 'Hidden Bake Element'],
       warranty: '1 year parts & labor',
-      rating: 4.3
     },
     {
       brand: 'Frigidaire',
@@ -238,7 +220,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Quick Boil', 'Self-Cleaning', 'Large Capacity'],
       warranty: '1 year parts & labor',
-      rating: 4.2
     },
     {
       brand: 'LG',
@@ -248,7 +229,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Convection', 'Air Fry', 'Smart Home'],
       warranty: '1 year parts & labor',
-      rating: 4.6
     }
   ],
   dishwasher: [
@@ -260,7 +240,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Quiet Operation', 'Soil Sensors', 'Auto Cycle'],
       warranty: '1 year parts & labor',
-      rating: 4.8
     },
     {
       brand: 'Whirlpool',
@@ -269,7 +248,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Third Rack', 'Quiet Operation', 'Heated Dry'],
       warranty: '1 year parts & labor',
-      rating: 4.5
     },
     {
       brand: 'GE',
@@ -278,7 +256,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Steam Prewash', 'Multiple Cycles', 'Dry Boost'],
       warranty: '1 year parts & labor',
-      rating: 4.3
     },
     {
       brand: 'Samsung',
@@ -287,7 +264,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Quiet Operation', 'Smart Control', 'StormWash'],
       warranty: '1 year parts & labor',
-      rating: 4.2
     },
     {
       brand: 'Frigidaire',
@@ -296,7 +272,6 @@ const fallbackCatalog = {
       energy_rating: 'Energy Star',
       features: ['Multiple Cycles', 'Heated Dry', 'Quick Wash'],
       warranty: '1 year parts & labor',
-      rating: 4.1
     }
   ],
   microwave: [
@@ -308,7 +283,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Inverter Tech', 'Sensor Cooking', 'Turbo Defrost'],
       warranty: '1 year parts & labor',
-      rating: 4.7
     },
     {
       brand: 'GE',
@@ -317,7 +291,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Compact Size', 'Auto Cook', 'Turntable'],
       warranty: '1 year parts & labor',
-      rating: 4.4
     },
     {
       brand: 'Samsung',
@@ -326,7 +299,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Sensor Cooking', 'Smart Presets', 'Ceramic Enamel'],
       warranty: '1 year parts & labor',
-      rating: 4.5
     },
     {
       brand: 'Whirlpool',
@@ -335,7 +307,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Compact Size', 'Quick Reheat', 'Popcorn Preset'],
       warranty: '1 year parts & labor',
-      rating: 4.2
     },
     {
       brand: 'LG',
@@ -344,7 +315,6 @@ const fallbackCatalog = {
       energy_rating: 'Standard',
       features: ['Smart Presets', 'EasyClean', 'Quiet Operation'],
       warranty: '1 year parts & labor',
-      rating: 4.3
     }
   ]
 }

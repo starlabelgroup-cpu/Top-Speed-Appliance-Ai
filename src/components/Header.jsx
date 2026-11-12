@@ -95,6 +95,10 @@ function Header() {
               width="500"
               height="217"
             />
+            <span className="os-lockup">
+              <b>Top Speed Appliance Repair</b>
+              <small>Serving South Florida</small>
+            </span>
           </Link>
 
           <button
@@ -122,6 +126,10 @@ function Header() {
             <NavLink to="/account" className={navLinkClass}>Account</NavLink>
             <Link to={withAttribution('/service-request', attrQs)} className="os-btn os-btn-red os-book-btn">BOOK SERVICE</Link>
           </nav>
+
+          <a className="os-call-btn" href="tel:9549317997" aria-label="Call Top Speed Appliance Repair at 954-931-7997">
+            <span aria-hidden="true">📞</span> Call
+          </a>
         </div>
       </div>
     </header>
