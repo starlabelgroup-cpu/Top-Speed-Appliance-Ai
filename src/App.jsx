@@ -4,7 +4,6 @@ import './lib/builder' // Initialize Builder.io
 import AppRoutes from './AppRoutes'
 import ErrorBoundary from './components/ErrorBoundary'
 import { initializeAnalytics, setupPerformanceMonitoring } from './utils/analytics'
-import { startHealthCheck, stopHealthCheck } from './services/agentService'
 import validateConfig from './utils/configValidator'
 
 function App() {
@@ -81,12 +80,6 @@ function App() {
         .catch(() => {})
     }
 
-    // Health check disabled - no backend agent available
-    // startHealthCheck()
-
-    return () => {
-      // stopHealthCheck()
-    }
   }, [])
 
   return (

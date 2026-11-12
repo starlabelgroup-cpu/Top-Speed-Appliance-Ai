@@ -272,7 +272,7 @@
 
 .os-hero {
   position: relative;
-  background: var(--os-deep);
+  background: #000000;
   overflow: hidden;
 }
 
@@ -296,10 +296,16 @@
 }
 
 .os-hero-pill {
-  background: var(--os-blue);
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
   margin-bottom: 20px;
 }
+
+/* Monochrome actions on the black hero band */
+.os-hero-ctas .os-btn-red { background: #ffffff; color: #000000; }
+.os-hero-ctas .os-btn-red:hover { background: #e8e8e8; }
+.os-hero-ctas .os-btn-navy { background: transparent; color: #ffffff; box-shadow: inset 0 0 0 2px #ffffff; }
+.os-hero-ctas .os-btn-navy:hover { background: rgba(255, 255, 255, 0.12); }
 
 .os-hero-title {
   font-family: 'Michroma', sans-serif;
@@ -310,7 +316,7 @@
   margin: 0 0 20px;
 }
 
-.os-hero-title .accent { color: var(--os-red); }
+.os-hero-title .accent { color: #ffffff; }
 
 .os-hero-copy {
   color: var(--os-soft);
@@ -1504,12 +1510,17 @@
   .os-book-head { flex-direction: column; gap: 4px; }
 }
 
-/* ---------- floating Speedy (Phase D) ---------- */
+/* ---------- floating Speedy (redesign — Figma "Speedy Popup — Desktop + Mobile") ----------
+   The panel renders ABOVE the sticky site header (.header is z-index 1000):
+   launcher 1190, panel 1200. Height is capped by the visible viewport
+   (dvh-aware) and the message/recs region scrolls INSIDE the panel, so the
+   top of the panel can never slide under the header again. Open/close is a
+   short transform/opacity fade-rise — no layout animation. */
 .os-float-btn {
   position: fixed;
   right: 16px;
   bottom: 22px;
-  z-index: 90;
+  z-index: 1190;
   background: var(--os-red);
   color: #fff;
   border: none;
@@ -1529,16 +1540,29 @@
 .os-float-panel {
   position: fixed;
   right: 16px;
-  bottom: 86px;
-  z-index: 91;
-  width: min(384px, calc(100vw - 24px));
+  bottom: 22px;
+  z-index: 1200;
+  width: min(400px, calc(100vw - 24px));
+  max-height: min(720px, calc(100dvh - 108px));
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid var(--os-line);
   border-radius: 20px;
-  box-shadow: 0 18px 44px rgba(10, 38, 92, 0.22);
+  box-shadow: 0 18px 44px rgba(10, 38, 92, 0.28);
   overflow: hidden;
+  animation: osPanelIn 0.18s ease-out;
+}
+@keyframes osPanelIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .os-float-panel { animation: none; }
+  .os-float-btn { animation: none; }
 }
 .os-float-head {
+  flex: none;
   background: var(--os-deep, #071a40);
   color: #fff;
   padding: 13px 16px;
@@ -1552,16 +1576,28 @@
   display: flex; align-items: center; justify-content: center;
   font-size: 18px;
 }
-.os-float-head b { font-size: 16px; display: block; line-height: 1.1; }
+.os-float-head b { font-family: 'Sora', sans-serif; font-size: 16px; display: block; line-height: 1.1; }
 .os-float-head small { color: #b9cff2; font-size: 12px; }
 .os-float-head button {
   margin-left: auto; background: none; border: none; color: #fff;
-  font-size: 22px; line-height: 1; cursor: pointer;
+  font-size: 22px; line-height: 1; cursor: pointer; padding: 6px 8px;
 }
-.os-float-quick { display: flex; gap: 7px; flex-wrap: wrap; padding: 10px 12px 0; }
+.os-float-quick { flex: none; display: flex; gap: 7px; flex-wrap: wrap; padding: 10px 12px; border-bottom: 1px solid var(--os-line); }
 .os-float-quick button {
   border: 1.5px solid var(--os-line); background: #fff; color: var(--os-ink);
   border-radius: 999px; padding: 6px 11px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.os-float-quick button:active { transform: scale(0.97); }
+/* Single internal scroll region: updates + recommendations + messages */
+.os-float-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: #f3f6fb;
+  display: flex;
+  flex-direction: column;
 }
 .os-float-recs { padding: 10px 12px 2px; display: flex; flex-direction: column; gap: 7px; }
 .os-float-rec-h {
@@ -1575,13 +1611,13 @@
 .os-float-rec.upd { background: #eaf6ef; border-color: #bfe6cf; }
 .os-float-rec a { font-weight: 800; color: var(--os-blue); white-space: nowrap; }
 .os-float-body {
-  height: 260px; overflow: auto; padding: 12px;
-  display: flex; flex-direction: column; background: #f3f6fb;
+  padding: 12px;
+  display: flex; flex-direction: column;
 }
 .os-float-body .os-bubble { margin-bottom: 8px; }
 .os-float-book .os-btn { margin-top: 10px; }
 .os-float-book-note { font-size: 12.5px; }
-.os-float-input { display: flex; gap: 8px; padding: 11px; }
+.os-float-input { flex: none; display: flex; gap: 8px; padding: 11px; background: #fff; border-top: 1px solid var(--os-line); }
 .os-float-input input {
   flex: 1; min-width: 0; padding: 11px 13px;
   border: 1.5px solid var(--os-line); border-radius: 12px;
@@ -1591,11 +1627,37 @@
   background: var(--os-red); color: #fff; border: none; border-radius: 11px;
   padding: 0 16px; font-weight: 700; cursor: pointer;
 }
-.os-float-fine { font-size: 11.5px; color: var(--os-muted); line-height: 1.5; margin: 0; padding: 0 12px 12px; }
+.os-float-fine { flex: none; font-size: 11.5px; color: var(--os-muted); line-height: 1.5; margin: 0; padding: 0 12px 12px; background: #fff; }
+/* Tablet portrait/landscape: same capped measure, anchored bottom-right */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .os-float-panel { width: min(420px, calc(100vw - 24px)); }
+}
+/* Short viewports (phone landscape, small laptop windows): the panel hugs
+   the viewport edges and can never exceed the visible height */
+@media (max-height: 560px) {
+  .os-float-panel {
+    top: 8px;
+    bottom: 8px;
+    max-height: calc(100dvh - 16px);
+  }
+}
+@media (max-width: 640px) and (max-height: 560px) {
+  .os-float-panel { max-height: calc(100dvh - 16px); }
+}
 @media (max-width: 640px) {
   .os-float-btn { bottom: 88px; padding: 12px 16px; font-size: 14.5px; }
-  .os-float-panel { bottom: 148px; }
-  .os-float-body { height: 220px; }
+  /* Mobile: full-width bottom sheet with its own close control, clear of the
+     sticky bar, with safe-area padding on the input row */
+  .os-float-panel {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: calc(100dvh - 48px);
+    border-radius: 24px 24px 0 0;
+    border-bottom: none;
+  }
+  .os-float-input { padding-bottom: calc(11px + env(safe-area-inset-bottom)); }
 }
 
 /* Phase E — standardized brand header (matches topspeedapplianceservice.com):

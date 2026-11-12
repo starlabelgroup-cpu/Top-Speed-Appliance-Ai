@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SERVICE_OS_LINKS, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import './ServiceDirectoryPage.css'
+import { openSpeedy } from '../lib/serviceOs'
 
-const BOOKING_URL = 'https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true'
 
 const SERVICES = [
   { value: 'washer', label: 'Washer Repair', code: 'WA', to: '/washer-repair', text: 'Diagnosis and repair for top-load and front-load washers.' },
@@ -58,7 +58,7 @@ function ServiceDirectoryPage() {
           <h1>Find <em>Appliance Repair</em> Near You</h1>
           <p>Choose your appliance and city to find the right repair page, then book online or call our team.</p>
           <div className="ts-hero-actions">
-            <a className="ts-button ts-button-light" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
+            <button type="button" className="ts-button ts-button-light" onClick={openSpeedy}>Book Online</button>
             <a className="ts-hero-phone" href="tel:9549317997">Call (954) 931-7997</a>
           </div>
         </div>
@@ -207,9 +207,9 @@ function ServiceDirectoryPage() {
               <h2>Book Your Appointment</h2>
               <p>Pick your appliance, address, and preferred time in our online booking system.</p>
             </div>
-            <a className="ts-button ts-button-primary ts-submit" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-              Book Online with Housecall Pro
-            </a>
+            <button type="button" className="ts-button ts-button-primary ts-submit" onClick={openSpeedy}>
+              Book Online with Speedy
+            </button>
           </div>
         </div>
       </section>

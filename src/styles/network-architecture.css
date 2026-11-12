@@ -7,7 +7,7 @@
 
 /* Hero Section */
 .network-hero {
-  background: linear-gradient(135deg, #d10000 0%, #a00000 100%);
+  background: linear-gradient(135deg, #161616 0%, #000000 100%);
   color: #fff;
   padding: 60px 20px;
   text-align: center;
@@ -19,6 +19,7 @@
 }
 
 .network-hero h1 {
+  color: #ffffff;
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 12px;

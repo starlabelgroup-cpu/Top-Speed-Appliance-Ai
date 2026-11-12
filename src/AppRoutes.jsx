@@ -20,31 +20,12 @@ const SeoLandingPage = lazy(() => import('./pages/SeoLandingPage'))
 const LocationServicePage = lazy(() => import('./pages/LocationServicePage'))
 const AdminLogin = lazy(() => import('./components/AdminLogin'))
 const AdminLeadsPage = lazy(() => import('./pages/AdminLeadsPage'))
-const AdvancedAIAgent = lazy(() => import('./components/AdvancedAIAgent'))
 const ServicePage = lazy(() => import('./components/ServicePage'))
 const CityPage = lazy(() => import('./components/CityPage'))
 const NetworkArchitecture = lazy(() => import('./components/NetworkArchitecture'))
 const BrandsPage = lazy(() => import('./pages/BrandsPage'))
 const ServiceDirectoryPage = lazy(() => import('./pages/ServiceDirectoryPage'))
 const InfoPage = lazy(() => import('./pages/InfoPage'))
-
-function DeferredMount({ children, timeoutMs = 1500 }) {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    const mount = () => setMounted(true)
-
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      const id = window.requestIdleCallback(mount, { timeout: timeoutMs })
-      return () => window.cancelIdleCallback?.(id)
-    }
-
-    const timerId = window.setTimeout(mount, 250)
-    return () => window.clearTimeout(timerId)
-  }, [timeoutMs])
-
-  return mounted ? children : null
-}
 
 function AppRoutes() {
   return (
@@ -157,11 +138,6 @@ function AppRoutes() {
         </Routes>
       </Suspense>
       <Footer />
-      <DeferredMount>
-        <Suspense fallback={null}>
-          <AdvancedAIAgent />
-        </Suspense>
-      </DeferredMount>
     </>
   )
 }

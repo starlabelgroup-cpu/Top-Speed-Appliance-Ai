@@ -261,6 +261,13 @@ export function withAttribution(path, qs) {
  * technicianLocation only while the tech is en route and sharing GPS.
  * Resolves with the same tracking shape as trackBooking.
  */
+/** Open the floating Speedy panel (SpeedyFloat listens for this event). */
+export function openSpeedy() {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('ts-open-speedy'))
+  }
+}
+
 export function trackByToken(token) {
   const t = encodeURIComponent(String(token || '').trim())
   return api(`/tracking/by-token/${t}`)

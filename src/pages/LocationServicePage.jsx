@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useMemo, useEffect, useRef } from 'react'
 import { LOCATION_SERVICE_PAGES } from '../data/locationServicePages'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
-import { SERVICE_OS_LINKS, useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { SERVICE_OS_LINKS, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import { useSeo } from '../utils/useSeo'
 import * as ga4Events from '../utils/ga4Events'
 import * as googleAdsTracking from '../utils/googleAdsTracking'
@@ -56,7 +56,7 @@ function NotFoundSection() {
         <p className="location-lede">Use the quick links below to keep browsing available services.</p>
         <div className="location-hero-actions">
           <Link className="cta-button primary-btn" to={withAttribution('/service-areas', attrQs)}>View Service Areas</Link>
-          <a className="cta-button secondary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
+          <button type="button" className="cta-button secondary-btn" onClick={openSpeedy}>Book Online</button>
         </div>
       </section>
     </main>
@@ -231,7 +231,7 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
         <h1>Professional {page.serviceName} Services in {page.cityName}, FL</h1>
         <p className="location-lede">{page.hero.intro}</p>
         <div className="location-hero-actions">
-          <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick('book_now')}>{page.hero.ctaLabel}</a>
+          <button type="button" className="cta-button primary-btn" onClick={() => { handleCTAClick('book_now'); openSpeedy() }}>{page.hero.ctaLabel}</button>
           <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK} onClick={() => handleCTAClick('call_now')}>{page.hero.secondaryCtaLabel}</a>
         </div>
       </section>
@@ -306,7 +306,7 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
             <h3>Schedule Dryer Repair</h3>
             <p>Call or click to confirm your appointment instantly.</p>
             <div className="location-sidebar-actions">
-              <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick('sidebar_book_online')}>Book Online</a>
+              <button type="button" className="cta-button primary-btn" onClick={() => { handleCTAClick('sidebar_book_online'); openSpeedy() }}>Book Online</button>
               <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK} onClick={() => handleCTAClick('sidebar_call')}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
             </div>
             <p className="location-sidebar-note">Serving {page.county} and nearby cities.</p>

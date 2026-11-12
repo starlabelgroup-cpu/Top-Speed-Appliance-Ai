@@ -14,7 +14,7 @@
    ============================================ */
 
 .service-hero, .city-hero {
-  background: linear-gradient(135deg, #d10000 0%, #990000 100%);
+  background: linear-gradient(135deg, #161616 0%, #000000 100%);
   color: white;
   padding: 60px 40px;
   text-align: center;
@@ -34,6 +34,15 @@
   margin: 32px auto 0;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.service-hero h1, .city-hero h1 {
+  color: #ffffff;
+}
+
+.service-hero .cta-primary, .city-hero .cta-primary,
+.service-final-cta .cta-primary, .city-final-cta .cta-primary {
+  color: #000000;
 }
 
 .service-hero h1, .city-hero h1 {
@@ -269,7 +278,7 @@
    ============================================ */
 
 .service-final-cta, .city-final-cta {
-  background: linear-gradient(135deg, #d10000 0%, #990000 100%);
+  background: linear-gradient(135deg, #161616 0%, #000000 100%);
   color: white;
   padding: 50px 40px;
   text-align: center;

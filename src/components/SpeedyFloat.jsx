@@ -82,7 +82,7 @@ export default function SpeedyFloat() {
           ...m,
           {
             role: 'bot',
-            text: "Hey, I'm Speedy 🏎️ — Top Speed's assistant. Ask me about the $99 diagnostic, your city, a broken appliance, or type \"book\" and I'll walk you to an appointment.",
+            text: "Hey, I'm Speedy 🏎️ — Top Speed's AI assistant. I can diagnose appliance issues (send a photo 📸 or describe the problem), recommend the right fix, schedule maintenance, and book real visits — or just answer your questions. What can I do for you?",
           },
         ])
       }
@@ -290,15 +290,17 @@ export default function SpeedyFloat() {
 
   return (
     <>
-      <button
-        type="button"
-        className="os-float-btn"
-        onClick={() => (open ? setOpen(false) : openPanel())}
-        aria-haspopup="dialog"
-        aria-expanded={open}
-      >
-        💬 Ask Speedy
-      </button>
+      {!open && (
+        <button
+          type="button"
+          className="os-float-btn"
+          onClick={openPanel}
+          aria-haspopup="dialog"
+          aria-expanded={open}
+        >
+          💬 Ask Speedy
+        </button>
+      )}
 
       {open && (
         <div className="os-float-panel" role="dialog" aria-label="Ask Speedy chat assistant">
@@ -312,11 +314,13 @@ export default function SpeedyFloat() {
           </div>
 
           <div className="os-float-quick">
-            <button type="button" onClick={() => send('How much is the diagnostic?')}>💲 Diagnostic cost</button>
-            <button type="button" onClick={() => send('My fridge is not cooling')}>🧊 Fridge help</button>
-            <button type="button" onClick={() => send('I want to book')}>📅 Book me</button>
+            <button type="button" onClick={() => send('Can you help diagnose my appliance problem?')}>🔧 Diagnose</button>
+            <button type="button" onClick={() => send('What do you recommend for my appliance?')}>✦ Recommend</button>
+            <button type="button" onClick={() => send("I'd like to schedule maintenance")}>🛠 Maintenance</button>
+            <button type="button" onClick={() => send('I want to book a repair visit')}>📅 Book a visit</button>
           </div>
 
+          <div className="os-float-scroll" ref={bodyRef}>
           <div className="os-float-recs">
             <div className="os-float-rec-h">🔔 Updates</div>
             {GUEST_UPDATES.map((u) => (
@@ -339,7 +343,7 @@ export default function SpeedyFloat() {
             ))}
           </div>
 
-          <div className="os-float-body" ref={bodyRef}>
+          <div className="os-float-body">
             {msgs.map((m, i) => (
               <div key={i} className={`os-bubble ${m.role === 'me' ? 'os-bubble-user' : 'os-bubble-bot'}`}>
                 {m.text}
@@ -385,6 +389,8 @@ export default function SpeedyFloat() {
                 </button>
               </div>
             )}
+          </div>
+
           </div>
 
           <form

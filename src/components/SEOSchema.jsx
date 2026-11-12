@@ -46,7 +46,7 @@ export default function SEOSchema() {
         '@type': 'ReserveAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: BOOKING_CONFIG.BOOKING_URL,
+          urlTemplate: 'https://www.topspeedappliance.net/service-request',
           actionPlatform: [
             'http://schema.org/DesktopWebPlatform',
             'http://schema.org/MobileWebPlatform'

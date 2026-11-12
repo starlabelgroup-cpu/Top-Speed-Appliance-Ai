@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
-import { useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import '../styles/service-and-city-pages.css'
 import ServiceReserveButton from './ServiceReserveButton'
 
 /**
  * ServicePage Component
- * Reusable appliance repair page with the $99 service fee, Housecall Pro booking, and phone booking.
+ * Reusable appliance repair page with the $99 service fee, Speedy booking, and phone booking.
  * Usage: <Route path="/washer-repair" element={<ServicePage service="washer" />} />
  */
 
 const SERVICE_FEE = '$99'
 const PHONE_DISPLAY = BOOKING_CONFIG.PHONE_NUMBER
 const PHONE_HREF = BOOKING_CONFIG.PHONE_LINK
-const BOOKING_URL = BOOKING_CONFIG.BOOKING_URL
 
 const DEFAULT_BENEFITS = [
   `${SERVICE_FEE} service fee, quoted upfront`,
@@ -57,7 +56,7 @@ const SERVICE_CONFIG = {
   washer: {
     name: 'Washer',
     seoTitle: 'Washer Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Washer repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Washer repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
     h1: 'Washer Repair in Fort Lauderdale, FL',
     image: '/images/service/washer-dryer-stack.webp',
     imageAlt: 'Stacked LG washer and dryer in a laundry room',
@@ -74,7 +73,7 @@ const SERVICE_CONFIG = {
   dryer: {
     name: 'Dryer',
     seoTitle: 'Dryer Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Dryer repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Dryer repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
     h1: 'Dryer Repair in Fort Lauderdale, FL',
     intro: 'Top Speed Appliance provides professional dryer repair for all brands in Fort Lauderdale. We handle heating problems, noise, and malfunctions for both gas and electric dryers.',
     problems: ['Dryer not heating', 'Long drying times', 'Loud noises', 'Gas/electric ignition problems', 'Random shutdowns', 'Thermal fuse issues', 'Belt problems'],
@@ -89,7 +88,7 @@ const SERVICE_CONFIG = {
   refrigerator: {
     name: 'Refrigerator',
     seoTitle: 'Refrigerator Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Refrigerator repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Refrigerator repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
     h1: 'Refrigerator Repair in Fort Lauderdale, FL',
     intro: 'Top Speed Appliance provides expert refrigerator repair in Fort Lauderdale. We fix cooling issues, ice makers, leaks, and compressor problems. Call or book online so spoiled food does not become an expensive problem.',
     problems: ['Not cooling', 'Ice maker not working', 'Water leaks', 'Strange noises', 'Compressor issues', 'Frost accumulation', 'Weak water pressure'],
@@ -104,7 +103,7 @@ const SERVICE_CONFIG = {
   oven: {
     name: 'Oven & Stove',
     seoTitle: 'Oven & Stove Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Oven and stove repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Oven and stove repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
     h1: 'Oven & Stove Repair in Fort Lauderdale, FL',
     image: '/images/service/oven-stove-range.webp',
     imageAlt: 'Freestanding electric range with glass cooktop and digital controls',
@@ -121,7 +120,7 @@ const SERVICE_CONFIG = {
   dishwasher: {
     name: 'Dishwasher',
     seoTitle: 'Dishwasher Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Dishwasher repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Dishwasher repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
     h1: 'Dishwasher Repair in Fort Lauderdale, FL',
     intro: 'Top Speed Appliance provides dishwasher repair in Fort Lauderdale and nearby areas. We fix drainage, leaks, cleaning performance, and control problems on all major dishwasher brands.',
     problems: ['Not draining', 'Leaking water', 'Dishes not getting clean', 'Won\'t start', 'Loud noises', 'Door latch issues', 'Error codes'],
@@ -136,7 +135,7 @@ const SERVICE_CONFIG = {
   microwave: {
     name: 'Microwave',
     seoTitle: 'Microwave Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Microwave repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Microwave repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
     h1: 'Microwave Repair in Fort Lauderdale, FL',
     image: '/images/service/microwave-service.webp',
     imageAlt: 'Built-in stainless steel Sharp microwave drawer in a white kitchen',
@@ -153,7 +152,7 @@ const SERVICE_CONFIG = {
   wineCooler: {
     name: 'Wine Cooler',
     seoTitle: 'Wine Cooler Repair in South Florida | Book Online',
-    metaDescription: 'Wine cooler repair in South Florida for units that are not cooling, humming, or leaking. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Wine cooler repair in South Florida for units that are not cooling, humming, or leaking. Book online with Speedy or call (954) 931-7997.',
     h1: 'Wine Cooler Repair in South Florida',
     image: '/images/service/wine-cooler-service.webp',
     imageAlt: 'Built-in stainless steel wine cooler with wood shelving and glass door',
@@ -170,7 +169,7 @@ const SERVICE_CONFIG = {
   garbageDisposal: {
     name: 'Garbage Disposal',
     seoTitle: 'Garbage Disposal Repair in South Florida | Book Online',
-    metaDescription: 'Garbage disposal repair in South Florida for jammed, leaking, and non-working units. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Garbage disposal repair in South Florida for jammed, leaking, and non-working units. Book online with Speedy or call (954) 931-7997.',
     h1: 'Garbage Disposal Repair in South Florida',
     intro: 'Top Speed Appliance provides garbage disposal repair across South Florida. We clear jams, stop leaks, and replace failed motors and switches on most major brands, so your kitchen sink drains properly again.',
     problems: ['Disposal humming but not turning', 'Jammed or stuck blades', 'Leaking from the unit', 'Slow draining sink', 'Disposal not turning on', 'Foul odors', 'Constant tripping of the reset button'],
@@ -185,7 +184,7 @@ const SERVICE_CONFIG = {
   commercial: {
     name: 'Commercial Appliance',
     seoTitle: 'Commercial Appliance Repair in South Florida | Book Online',
-    metaDescription: 'Commercial appliance repair in South Florida for restaurants, hotels, and businesses. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Commercial appliance repair in South Florida for restaurants, hotels, and businesses. Book online with Speedy or call (954) 931-7997.',
     h1: 'Commercial Appliance Repair in South Florida',
     intro: 'Top Speed Appliance provides commercial appliance repair for restaurants, hotels, apartment complexes, and offices across South Florida. We keep commercial kitchen and laundry equipment running with fast response and clear quotes.',
     problems: ['Commercial refrigerator not cooling', 'Walk-in cooler issues', 'Commercial oven not heating', 'Dishwasher not sanitizing', 'Ice machine not producing ice', 'Commercial washer or dryer breakdowns', 'Gas burner problems'],
@@ -208,7 +207,7 @@ const SERVICE_CONFIG = {
   home: {
     name: 'Home Appliance',
     seoTitle: 'Home Appliance Repair in South Florida | $99 Service Fee',
-    metaDescription: 'Home appliance repair in South Florida with a $99 service fee. Book online with Housecall Pro or call (954) 931-7997.',
+    metaDescription: 'Home appliance repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
     h1: 'Home Appliance Repair in South Florida',
     intro: 'Top Speed Appliance repairs the appliances in your home across South Florida, including washers, dryers, refrigerators, ovens, dishwashers, and microwaves. Book online or call to get your appliance working again.',
     problems: ['Appliance not turning on', 'Not heating or cooling', 'Leaks and drainage problems', 'Strange noises', 'Error codes', 'Control panel problems'],
@@ -223,7 +222,7 @@ const SERVICE_CONFIG = {
   installation: {
     name: 'Appliance Installation',
     seoTitle: 'Appliance Installation in South Florida | Book Online',
-    metaDescription: 'Professional appliance installation in South Florida. Book online with Housecall Pro or call (954) 931-7997 for a quote.',
+    metaDescription: 'Professional appliance installation in South Florida. Book online with Speedy or call (954) 931-7997 for a quote.',
     h1: 'Appliance Installation in South Florida',
     intro: 'Top Speed Appliance installs washers, dryers, refrigerators, ranges, dishwashers, and microwaves in South Florida homes and businesses. We connect each appliance to its water, gas, or electrical lines and confirm it runs correctly before we leave.',
     listTitle: 'Installation Services We Provide',
@@ -448,15 +447,13 @@ const ServicePageComponent = ({ service }) => {
 
   const bookingButtons = (className) => (
     <div className="service-ctas">
-      <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="button"
         className={`cta-button cta-primary ${className}`}
-        onClick={() => trackEvent('schedule_service')}
+        onClick={() => { trackEvent('schedule_service'); openSpeedy() }}
       >
-        Book Online with Housecall Pro
-      </a>
+        Book Online with Speedy
+      </button>
       <ServiceReserveButton source="service-page" className={`cta-button cta-primary ${className}`} />
       <a href={PHONE_HREF} className="cta-button cta-secondary" onClick={() => trackEvent('click_call')}>
         Call to Book: {PHONE_DISPLAY}

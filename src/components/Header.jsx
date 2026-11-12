@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ServiceReserveButton from './ServiceReserveButton'
-import { useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -64,25 +64,18 @@ function Header() {
           </a>
         </div>
         <div className="header-actions">
-          <a
-            href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="book-now-btn"
-          >
+          <button type="button" className="book-now-btn" onClick={openSpeedy}>
             Book Now
-          </a>
+          </button>
           <ServiceReserveButton source="header" className="book-now-btn" />
-          <button
-            data-token='8d8427149b1b4af097d0fa3874bcf202'
-            data-orgname='TopSpeed-Appliance'
-            onClick={() => window.open('https://client.housecallpro.com/customer_portal/request-link?token=8d8427149b1b4af097d0fa3874bcf202', '_blank')}
+          <Link
+            to="/account"
             className="portal-login-btn"
-            aria-label="Log in to customer portal"
+            aria-label="Log in to your Top Speed account"
             title="Access your service history and manage appointments"
           >
             Portal Login
-          </button>
+          </Link>
         </div>
       </div>
       <div className="header-main-os">

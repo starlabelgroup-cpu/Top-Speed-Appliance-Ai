@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import SeoLeadCaptureForm from '../components/SeoLeadCaptureForm'
-import { useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import SeoLocationMap from '../components/SeoLocationMap'
 import SeoDirectoryKit from '../components/SeoDirectoryKit'
 import ZipDirectory from '../components/ZipDirectory'
@@ -93,7 +93,7 @@ export default function ServiceAreasPage() {
           </p>
 
           <div className="seo-leads-hero-actions">
-            <a className="cta-button seo-leads-hero-cta" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
+            <button type="button" className="cta-button seo-leads-hero-cta" onClick={openSpeedy}>Book Online</button>
             <a className="cta-button seo-leads-hero-cta secondary" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
             <Link className="cta-button seo-leads-hero-cta secondary" to={withAttribution('/service-request', attrQs)}>Service Request</Link>
           </div>
@@ -207,7 +207,7 @@ export default function ServiceAreasPage() {
           <p className="seo-leads-footer-text">Call or book online and get fast service across Palm Beach, Broward, and Miami-Dade.</p>
           <div className="seo-leads-footer-actions">
             <a className="cta-button" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
-            <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
+            <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
             <Link className="cta-button secondary-btn" to="/">Back to Home</Link>
           </div>
         </div>

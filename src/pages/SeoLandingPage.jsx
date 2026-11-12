@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import SeoLeadCaptureForm from '../components/SeoLeadCaptureForm'
-import { SERVICE_CITIES, useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { SERVICE_CITIES, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import {
   SEO_BRANDS,
   SEO_COUNTIES,
@@ -84,7 +84,7 @@ function buildServiceSchema({ origin, canonicalPath, service, areaName, areaType
       '@type': 'ReserveAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: BOOKING_CONFIG.BOOKING_URL,
+        urlTemplate: 'https://www.topspeedappliance.net/service-request',
         actionPlatform: [
           'http://schema.org/DesktopWebPlatform',
           'http://schema.org/MobileWebPlatform'
@@ -427,7 +427,7 @@ export default function SeoLandingPage() {
         <p className="seo-landing-subtitle">{pageIntro}</p>
 
         <div className="seo-landing-actions">
-          <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
+          <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
           <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
         </div>
       </section>
@@ -528,7 +528,7 @@ export default function SeoLandingPage() {
           <h2 className="seo-landing-footer-title">Ready to Schedule?</h2>
           <p className="seo-landing-footer-text">Book online or call now for same-day availability.</p>
           <div className="seo-landing-actions">
-            <a className="cta-button primary-btn" href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Online</a>
+            <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
             <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
             <Link className="cta-button secondary-btn" to={withAttribution('/service-request', attrQs)}>Service Request Form</Link>
           </div>

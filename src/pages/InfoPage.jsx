@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/service-and-city-pages.css'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import ServiceReserveButton from '../components/ServiceReserveButton'
-import { SERVICE_OS_LINKS } from '../lib/serviceOs'
+import { SERVICE_OS_LINKS, openSpeedy } from '../lib/serviceOs'
 
 const INFO_PAGES = {
   pricing: {
@@ -131,14 +131,13 @@ function InfoPage({ page }) {
 function BookingButtons({ source }) {
   return (
     <div className="service-ctas">
-      <a
-        href={BOOKING_CONFIG.BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="button"
         className="cta-button cta-primary"
+        onClick={openSpeedy}
       >
-        Book Online with Housecall Pro
-      </a>
+        Book Online with Speedy
+      </button>
       <ServiceReserveButton source={source} className="cta-button cta-primary" />
       <a href={BOOKING_CONFIG.PHONE_LINK} className="cta-button cta-secondary">
         Call to Book: {BOOKING_CONFIG.PHONE_NUMBER}

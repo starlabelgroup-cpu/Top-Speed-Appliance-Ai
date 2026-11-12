@@ -9,7 +9,10 @@ body {
 
 h1, h2, h3 {
   text-transform: uppercase;
-  color: #d10000;
+  color: #111111;
+  font-family: 'Michroma', 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 a {

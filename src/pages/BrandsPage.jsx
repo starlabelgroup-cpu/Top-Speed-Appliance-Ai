@@ -1,15 +1,15 @@
 import React from 'react'
+import { openSpeedy } from '../lib/serviceOs'
 import { SEO_BRANDS } from '../data/seoLeadData'
 import '../styles/brands-page.css'
 
-const HOUSECALL_BOOKING_URL = 'https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true'
 
 function BrandsPage() {
   return (
     <main className="brands-page">
       <section className="brands-hero">
         <h1>Appliance Brands We Repair</h1>
-        <p>Top Speed Appliance repairs major appliance brands across South Florida. Book online with HousecallPro or email us your request.</p>
+        <p>Top Speed Appliance repairs major appliance brands across South Florida. Book online with Speedy or email us your request.</p>
       </section>
 
       <section className="brands-grid-section">
@@ -18,14 +18,13 @@ function BrandsPage() {
             <li key={brand} className="brand-tile">
               <h2>{brand}</h2>
               <div className="brand-booking-actions">
-                <a
-                  href={HOUSECALL_BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={openSpeedy}
                   className="brand-booking-btn"
                 >
-                  Book with HousecallPro
-                </a>
+                  Book with Speedy
+                </button>
                 <a
                   href={`mailto:service@topspeedappliance.net?subject=${encodeURIComponent(`${brand} Appliance Repair Request`)}`}
                   className="brand-email-btn"

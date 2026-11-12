@@ -15,8 +15,9 @@
 }
 
 .seo-leads-hero-badge {
-  background: rgba(209, 0, 0, 0.18);
-  border: 1px solid rgba(209, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
   border-radius: 999px;
   display: inline-flex;
   font-weight: 800;
@@ -26,6 +27,8 @@
 }
 
 .seo-leads-hero-title {
+  font-family: 'Michroma', 'Space Grotesk', sans-serif;
+  font-weight: 400;
   color: #fff;
   font-size: 2.3rem;
   line-height: 1.15;
@@ -52,7 +55,7 @@
 .seo-leads-hero-cta {
   background: #fff;
   border: none;
-  color: #8b0000;
+  color: #000;
   display: inline-flex;
   font-weight: 800;
   justify-content: center;
@@ -764,6 +767,9 @@
 }
 
 .seo-landing-title {
+  font-family: 'Michroma', 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  color: #ffffff;
   color: #fff;
   font-size: 2.2rem;
   line-height: 1.15;
@@ -1018,3 +1024,18 @@
     width: 100%;
   }
 }
+
+/* Dark page: headlines stay white + Michroma (global light-theme rule would darken them) */
+.seo-leads-page h2, .seo-leads-page h3 { color: #ffffff; }
+
+/* Dark pages: booking CTAs in headline areas go monochrome */
+.seo-leads-page .cta-button.primary-btn, .seo-landing-page .cta-button.primary-btn {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+.seo-leads-page .cta-button.primary-btn:hover, .seo-landing-page .cta-button.primary-btn:hover {
+  background: #e8e8e8;
+  color: #000000;
+}
+.seo-landing-page h2, .seo-landing-page h3 { color: #ffffff; }
