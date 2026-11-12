@@ -7,9 +7,10 @@ import { SERVICE_OS_LINKS, attributionSearch, withAttribution } from '../lib/ser
  *
  * Speedy itself lives on the Service OS — this component is the front
  * door: whatever the customer types is carried into the real booking
- * flow (or used to prefill the form when already on it), and the full
- * Talk to Speedy chat is one tap away in the customer app. Bookings
- * always land in Book OS through the same FLAGSHIP_NET guest path.
+ * flow (or used to prefill the form when already on it). The full Talk
+ * to Speedy chat is the standalone chat surface on the flagship
+ * (/speedy) — never the Appliance Pro app. Bookings always land in
+ * Book OS through the same FLAGSHIP_NET guest path.
  */
 
 const APPLIANCE_KEYWORDS = [
@@ -158,7 +159,7 @@ export function SpeedyPanel({ onPrefill }) {
         </p>
         <a
           className="os-btn os-btn-red os-btn-block"
-          href={SERVICE_OS_LINKS.app}
+          href={SERVICE_OS_LINKS.speedy}
           target="_blank"
           rel="noopener noreferrer"
         >

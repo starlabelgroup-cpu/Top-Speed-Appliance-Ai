@@ -243,7 +243,7 @@ export default function TrackPage() {
                       <a className="os-btn os-btn-blue" href="sms:+19549317997">Message</a>
                       <a
                         className="os-btn os-btn-ghost"
-                        href={SERVICE_OS_LINKS.app}
+                        href={SERVICE_OS_LINKS.speedy}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

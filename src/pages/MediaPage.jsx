@@ -123,7 +123,7 @@ export default function MediaPage() {
           <div className="os-newsletter-join">
             <a
               className="os-btn os-btn-red os-btn-block"
-              href={SERVICE_OS_LINKS.app}
+              href={SERVICE_OS_LINKS.signup}
               target="_blank"
               rel="noopener noreferrer"
             >

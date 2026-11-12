@@ -18,6 +18,8 @@ export const SERVICE_OS_WEB = 'https://topspeedserviceos.com'
 export const SERVICE_OS_LINKS = {
   home: SERVICE_OS_WEB,
   app: `${SERVICE_OS_WEB}/app`,
+  speedy: `${SERVICE_OS_WEB}/speedy`,
+  tech: `${SERVICE_OS_WEB}/tech`,
   signup: `${SERVICE_OS_WEB}/signup`,
   garage: `${SERVICE_OS_WEB}/garage`,
   connectProApp: `${SERVICE_OS_WEB}/connect-pro-app`,

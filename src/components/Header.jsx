@@ -87,9 +87,14 @@ function Header() {
       </div>
       <div className="header-main-os">
         <div className="container">
-          <Link to="/" className="os-logo" aria-label="Top Speed Appliance — home">
-            <span className="os-logo-top">TOP SPEED</span>
-            <span className="os-logo-sub">APPLIANCE</span>
+          <Link to="/" className="os-logo" aria-label="Top Speed Appliance Repair — The Faster, The Better. — home">
+            <img
+              src="/logo-header.jpg"
+              alt="Top Speed Appliance Repair — The Faster, The Better."
+              className="os-logo-img"
+              width="500"
+              height="217"
+            />
           </Link>
 
           <button

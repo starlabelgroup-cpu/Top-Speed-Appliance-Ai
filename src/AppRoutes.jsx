@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
+import SpeedyFloat from './components/SpeedyFloat'
 import PageMeta from './components/PageMeta'
 import Footer from './components/Footer'
 import SEOSchema from './components/SEOSchema'
@@ -52,6 +53,7 @@ function AppRoutes() {
       <SEOSchema />
       <PageMeta />
       <Header />
+      <SpeedyFloat />
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />

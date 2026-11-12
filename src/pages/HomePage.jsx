@@ -24,9 +24,9 @@ const SERVICE_TILES = [
 
 const ECO_CARDS = [
   { name: 'Service OS', desc: 'Bookings, CRM, accounts', status: 'Live', href: SERVICE_OS_LINKS.home },
-  { name: 'Speedy AI', desc: 'Chat, voice, photo diagnosis', status: 'Live', href: SERVICE_OS_LINKS.app },
+  { name: 'Speedy AI', desc: 'Chat, voice, photo diagnosis', status: 'Live', href: SERVICE_OS_LINKS.speedy },
   { name: 'Book OS', desc: 'Service Setters dispatch', status: 'Live', href: SERVICE_OS_LINKS.book },
-  { name: 'Appliance Connect', desc: 'Your garage + history', status: 'Live', to: '/account' },
+  { name: 'Appliance Connect Pro', desc: 'Your garage + history — homeowners & property managers', status: 'Live', href: SERVICE_OS_LINKS.connectProApp },
   { name: 'Local OS', desc: 'Directory, reviews, ads', status: 'Live', href: SERVICE_OS_LINKS.local },
   { name: 'Media OS', desc: 'Top Speed 360 hub', status: 'In Design', to: '/media-os' },
 ]

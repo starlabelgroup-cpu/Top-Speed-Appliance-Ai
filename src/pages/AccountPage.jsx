@@ -42,10 +42,10 @@ const DOORS = [
     href: SERVICE_OS_LINKS.appliancePro,
   },
   {
-    name: 'Provider Network',
-    desc: 'Technicians and service companies: join the network on topspeedapplianceservice.com.',
-    go: 'Join the network →',
-    href: SERVICE_OS_LINKS.providerNetwork,
+    name: 'Tech App — Service Providers',
+    desc: 'Technicians: your job offers, route and updates — the separate provider portal.',
+    go: 'Open the Tech App →',
+    href: SERVICE_OS_LINKS.tech,
   },
 ]
 
@@ -81,7 +81,7 @@ export default function AccountPage() {
             </p>
             <a
               className="os-btn os-btn-red os-btn-block"
-              href={SERVICE_OS_LINKS.app}
+              href={SERVICE_OS_LINKS.connectProApp}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -96,7 +96,7 @@ export default function AccountPage() {
             >
               Create Account
             </a>
-            <a href={SERVICE_OS_LINKS.app} target="_blank" rel="noopener noreferrer">
+            <a href={SERVICE_OS_LINKS.connectProApp} target="_blank" rel="noopener noreferrer">
               <button type="button" className="os-google-btn">Continue with Google</button>
             </a>
             <p className="os-signin-note">
@@ -157,7 +157,7 @@ export default function AccountPage() {
                 <div className="os-ref-code">TS-REF-••••••</div>
                 <a
                   className="os-btn os-btn-navy os-btn-block"
-                  href={SERVICE_OS_LINKS.app}
+                  href={SERVICE_OS_LINKS.connectProApp}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
