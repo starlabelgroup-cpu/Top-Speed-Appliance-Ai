@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SERVICE_OS_LINKS } from '../lib/serviceOs'
+import { SERVICE_OS_LINKS, claimSignInLink } from '../lib/serviceOs'
 
 /**
  * Account + Appliance Connect — Figma frame 04.
@@ -48,6 +48,65 @@ const DOORS = [
     href: SERVICE_OS_LINKS.tech,
   },
 ]
+
+
+/**
+ * "Open in my app" — the .net → app bridge (Super Apps build).
+ * This site books as a guest, so there is no session to carry over and
+ * we do not pretend otherwise: the customer proves the booking is
+ * theirs with the reference + phone (the Track My Tech check), and the
+ * Service OS emails a one-time sign-in link — 5 minutes, single use —
+ * for the account matching the booking. The API's message is shown
+ * verbatim: it is honest whether or not an account matched.
+ */
+function ClaimAppCard() {
+  const [reference, setReference] = React.useState('')
+  const [phone, setPhone] = React.useState('')
+  const [phase, setPhase] = React.useState('idle')
+  const [message, setMessage] = React.useState('')
+
+  async function submit(e) {
+    e.preventDefault()
+    setPhase('sending')
+    setMessage('')
+    try {
+      const data = await claimSignInLink(reference, phone)
+      setPhase('sent')
+      setMessage((data && data.message) || 'If an account matches that booking, a sign-in link is on its way to its email.')
+    } catch (err) {
+      setPhase('error')
+      setMessage((err && err.message) || 'No booking found for that reference and phone — check both and try again.')
+    }
+  }
+
+  const inputStyle = {
+    flex: '1 1 200px', padding: '11px 13px', border: '1.5px solid #d8e1ee',
+    borderRadius: 10, font: 'inherit', fontSize: 14.5,
+  }
+
+  return (
+    <div style={{ background: '#f4f7fd', border: '1.5px solid #d8e1ee', borderRadius: 16, padding: '20px 22px', margin: '26px 0' }}>
+      <p className="os-eyebrow" style={{ marginTop: 0 }}>Booked here as a guest?</p>
+      <h3 style={{ margin: '4px 0 8px', fontSize: 20 }}>Open your job in the app</h3>
+      <p className="os-sub" style={{ fontSize: 13.5, maxWidth: 860 }}>
+        This site books as a guest — there is no password to carry over, so instead we email you a
+        one-time sign-in link (good for 5 minutes, works once). Enter your booking reference and the
+        phone number on the booking; if an account matches, the link opens your app already signed
+        in, with this job, its live tracking and its full department trail already there.
+      </p>
+      <form onSubmit={submit} style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 14 }}>
+        <input style={inputStyle} type="text" value={reference} onChange={(e) => setReference(e.target.value.toUpperCase())} placeholder="Booking reference (TS-XXXXXX)" required />
+        <input style={inputStyle} type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone on the booking" required />
+        <button className="os-btn os-btn-blue" type="submit" disabled={phase === 'sending'}>
+          {phase === 'sending' ? 'Sending…' : 'Email my sign-in link'}
+        </button>
+      </form>
+      {message ? (
+        <p style={{ marginTop: 12, fontSize: 13.5, fontWeight: 600, color: phase === 'error' ? '#c0272d' : '#0a265c' }}>{message}</p>
+      ) : null}
+    </div>
+  )
+}
 
 export default function AccountPage() {
   return (
@@ -167,6 +226,8 @@ export default function AccountPage() {
             </div>
           </div>
         </div>
+
+        <ClaimAppCard />
 
         <p className="os-eyebrow">Every Door, One Account</p>
         <div className="os-doors">

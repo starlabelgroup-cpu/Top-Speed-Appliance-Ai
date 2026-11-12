@@ -130,6 +130,11 @@ export default function TrackPage() {
           </span>
         </div>
 
+        <p className="os-sub" style={{ fontSize: 13.5, marginTop: 14 }}>
+          Booked here as a guest? <Link to="/account">Open this job in your app →</Link> — we email
+          you a one-time sign-in link; no password needed.
+        </p>
+
         {!token && (
           <div className="os-form-card os-lookup-card">
             <h2 className="os-form-title">Find your job</h2>

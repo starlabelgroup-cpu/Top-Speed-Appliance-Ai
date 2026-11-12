@@ -154,6 +154,28 @@ export function trackBooking(reference, phone) {
   return api(`/bookings/track/${ref}?phone=${ph}`)
 }
 
+/**
+ * "Open in my app" claim link. This site books as a guest, so there is
+ * no session to carry into the apps. Given a booking reference + the
+ * phone on that booking (the same check Track My Tech uses), the
+ * Service OS emails a one-time sign-in link — 5 minutes, single use —
+ * for the account matching the booking's email/phone. Resolves with
+ * { ok, message }; the message is honest in both directions (account
+ * found → link sent; no account → create one with the same email/phone
+ * and the history connects automatically). Rejects with the API's
+ * message when the reference/phone pair matches no booking.
+ */
+export function claimSignInLink(reference, phone) {
+  return api('/auth/claim-link', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      reference: String(reference || '').trim().toUpperCase(),
+      phone: String(phone || '').trim(),
+    }),
+  })
+}
+
 /* ------------------------------------------------------------------ */
 /* Attribution                                                         */
 /*                                                                     */
