@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { captureReferralCode } from './lib/serviceOs'
 import Header from './components/Header'
 import SpeedyFloat from './components/SpeedyFloat'
 import PageMeta from './components/PageMeta'
@@ -26,10 +27,21 @@ const NetworkArchitecture = lazy(() => import('./components/NetworkArchitecture'
 const BrandsPage = lazy(() => import('./pages/BrandsPage'))
 const ServiceDirectoryPage = lazy(() => import('./pages/ServiceDirectoryPage'))
 const InfoPage = lazy(() => import('./pages/InfoPage'))
+const ReferPage = lazy(() => import('./pages/ReferPage'))
+
+/** ApplianceReferral: capture ?c=CODE on any landing/navigation. */
+function ReferralCapture() {
+  const location = useLocation()
+  useEffect(() => {
+    captureReferralCode()
+  }, [location.search])
+  return null
+}
 
 function AppRoutes() {
   return (
     <>
+      <ReferralCapture />
       <ServiceReserveScript />
       <SEOSchema />
       <PageMeta />
@@ -40,6 +52,7 @@ function AppRoutes() {
           <Route path="/" element={<HomePage />} />
           <Route path="/service-request" element={<ServiceRequestPage />} />
           <Route path="/track" element={<TrackPage />} />
+          <Route path="/refer" element={<ReferPage />} />
           <Route path="/media-os" element={<MediaPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/service-directory" element={<ServiceDirectoryPage />} />

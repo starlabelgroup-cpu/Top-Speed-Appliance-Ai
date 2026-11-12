@@ -114,6 +114,7 @@ function Header() {
               Property Managers
             </a>
             <NavLink to="/track" className={navLinkClass}>Track My Tech</NavLink>
+            <NavLink to="/refer" className={navLinkClass}>Refer &amp; Earn</NavLink>
             <NavLink to="/reviews" className={navLinkClass}>Reviews</NavLink>
             <NavLink to="/media-os" className={navLinkClass}>Media OS</NavLink>
             <NavLink to="/account" className={navLinkClass}>Account</NavLink>

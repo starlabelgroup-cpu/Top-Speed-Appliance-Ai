@@ -18,6 +18,7 @@ function Footer() {
         <a href="https://topspeedserviceos.com/property-managers" target="_blank" rel="noopener noreferrer">Property Managers</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedapplianceservice.com" target="_blank" rel="noopener noreferrer">Provider Network</a> &nbsp;•&nbsp;{' '}
         <Link to="/track">Track My Tech</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/refer">Refer &amp; Earn</Link> &nbsp;•&nbsp;{' '}
         <Link to="/media-os">Media OS</Link>
       </p>
       <p className="os-foot-nav">

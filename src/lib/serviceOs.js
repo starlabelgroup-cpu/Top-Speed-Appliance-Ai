@@ -38,6 +38,7 @@ export const SERVICE_OS_LINKS = {
   ads: `${SERVICE_OS_WEB}/ads`,
   advertise: `${SERVICE_OS_WEB}/advertise`,
   book: `${SERVICE_OS_WEB}/book`,
+  refer: `${SERVICE_OS_WEB}/refer`,
   providerNetwork: 'https://topspeedapplianceservice.com',
 }
 
@@ -136,11 +137,71 @@ async function api(path, options) {
  * Throws an Error with .status (400/422/…) and the API's message on failure.
  */
 export function bookGuest(payload) {
+  const code = referralCode()
+  const body = code && !payload.referralCode ? { ...payload, referralCode: code } : payload
   return api('/speedy/book', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(body),
   })
+}
+
+/* ------------------------------------------------------------------ */
+/* ApplianceReferral — referral-code capture + public program reads    */
+/*                                                                     */
+/* A referral link lands anywhere on this site as ?c=CODE (the same    */
+/* param the flagship /refer page uses). The code is kept in           */
+/* sessionStorage and attached to every guest booking (bookGuest       */
+/* above), so the booking is attributed to the referrer in the         */
+/* Service OS. The two $25s stay distinct: the referrer earns a $25    */
+/* service CREDIT per completed referral; the friend gets the          */
+/* published $25-OFF-first-repair welcome offer.                       */
+/* ------------------------------------------------------------------ */
+
+const REFERRAL_STORAGE_KEY = 'tsos_referral_code'
+
+/**
+ * Capture a referral code from the current URL (?c= or ?ref=) into
+ * sessionStorage and return the stored code ('' when none). Client-only
+ * — returns '' during prerendering.
+ */
+export function captureReferralCode() {
+  if (typeof window === 'undefined') return ''
+  try {
+    const fromUrl = new URLSearchParams(window.location.search)
+    const fresh = (fromUrl.get('c') || fromUrl.get('ref') || '').trim().toUpperCase()
+    if (fresh) {
+      try {
+        window.sessionStorage.setItem(REFERRAL_STORAGE_KEY, fresh)
+      } catch {
+        // storage unavailable — the code still applies to this page view
+      }
+      return fresh
+    }
+    return window.sessionStorage.getItem(REFERRAL_STORAGE_KEY) || ''
+  } catch {
+    return ''
+  }
+}
+
+/** The visitor's referral code, capturing from the URL first. */
+export function referralCode() {
+  return captureReferralCode()
+}
+
+/**
+ * Public referral lookup for the "referred by" banner: resolves with
+ * { valid, referrerFirstName, welcomeOffer } or null for a bad code.
+ */
+export function resolveReferral(code) {
+  const c = encodeURIComponent(String(code || '').trim().toUpperCase())
+  if (!c) return Promise.resolve(null)
+  return api(`/referrals/resolve/${c}`).catch(() => null)
+}
+
+/** Public leaderboard: [{ displayName, completedReferrals }] + totalReferrers. */
+export function fetchLeaderboard() {
+  return api('/referrals/leaderboard').catch(() => ({ leaders: [], totalReferrers: 0 }))
 }
 
 /**

@@ -19,6 +19,10 @@ const PAGE_META = {
     title: 'Track My Tech — Live Job Tracking | Top Speed Appliance',
     description: 'Follow your appliance repair live through all eight stages, from request received to repair completed — with a live map when your technician is en route.',
   },
+  '/refer': {
+    title: 'Refer & Earn — ApplianceReferral by Top Speed | Top Speed Appliance',
+    description: 'Share your Top Speed referral code: your friend gets $25 off their first eligible repair, and you earn service credit — $25 per completed referral, rising to $35 and $50, plus milestone bonuses. Businesses and property managers refer on the partner track, same terms.',
+  },
   '/account': {
     title: 'Your Top Speed Account — Appliance Connect | Top Speed Appliance',
     description: 'One account for your whole home: sign in to the Top Speed Service OS for your appliance garage, service history, offers and referrals.',
