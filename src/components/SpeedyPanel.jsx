@@ -94,7 +94,7 @@ export function SpeedyCard() {
         Start with Speedy →
       </button>
       <p className="os-speedy-meta">Voice or text &nbsp;•&nbsp; Photo diagnosis &nbsp;•&nbsp; Books into Book OS</p>
-      <p className="os-stars">★★★★★&nbsp; 4.8 from 2,500+ local reviews</p>
+      <p className="os-stars">Live 8-stage tracking on every booked job</p>
     </div>
   )
 }

@@ -63,11 +63,6 @@ export default function SEOSchema() {
         lowPrice: '99',
         highPrice: '500'
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        reviewCount: '2500'
-      },
       hasMap: 'https://www.google.com/maps/place/Top+Speed+Appliance',
       isPartOf: {
         '@type': 'Organization',

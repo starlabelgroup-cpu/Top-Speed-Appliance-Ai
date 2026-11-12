@@ -42,10 +42,19 @@ const SAMPLE_STAGES = [
   'Repair completed',
 ]
 
-const REVIEWS = [
-  { quote: '“Tech arrived in the window, fixed the fridge the same visit.”', who: '— Coral Springs' },
-  { quote: '“Booked by chat in two minutes. Tracking link was spot on.”', who: '— Sunrise' },
-  { quote: '“Our restaurant\u2019s go-to for commercial repairs.”', who: '— Fort Lauderdale' },
+const PROMISES = [
+  {
+    kicker: '$99 DIAGNOSTIC',
+    text: 'Residential service starts with a $99 diagnostic \u2014 approve the repair and the fee is credited toward the bill.',
+  },
+  {
+    kicker: 'TRACK MY TECH',
+    text: 'Every booking gets a secure tracking link with all eight live stages, from request received to repair completed.',
+  },
+  {
+    kicker: 'ONE DISPATCH TEAM',
+    text: 'Service Setters dispatch every job across our twelve Broward County cities \u2014 and every completed repair is warranty-backed.',
+  },
 ]
 
 export default function HomePage() {
@@ -193,13 +202,12 @@ export default function HomePage() {
       <section className="os-section" style={{ paddingTop: 10 }}>
         <div className="os-wrap">
           <p className="os-eyebrow">Local OS &nbsp;•&nbsp; Reviews + Directory</p>
-          <h2 className="os-h2">Loved across Broward County.</h2>
+          <h2 className="os-h2">Our promise, on every job.</h2>
           <div className="os-reviews-grid">
-            {REVIEWS.map((r) => (
-              <div key={r.who} className="os-review-card">
-                <span className="stars" aria-label="5 stars">★★★★★</span>
-                <p className="quote">{r.quote}</p>
-                <span className="who">{r.who}</span>
+            {PROMISES.map((p) => (
+              <div key={p.kicker} className="os-review-card">
+                <span className="stars">{p.kicker}</span>
+                <p className="quote">{p.text}</p>
               </div>
             ))}
           </div>
@@ -218,7 +226,7 @@ export default function HomePage() {
           </div>
           <p className="os-sub" style={{ marginTop: 24, fontSize: 13.5 }}>
             Find us in the <a href={SERVICE_OS_LINKS.local} target="_blank" rel="noopener noreferrer">Local OS directory</a>,
-            read more <Link to="/reviews">customer reviews</Link>, or put your business in front of
+            see how <Link to="/reviews">customer reviews</Link> are earned, or put your business in front of
             Broward homeowners with <a href={SERVICE_OS_LINKS.ads} target="_blank" rel="noopener noreferrer">Local OS ads</a>.
             {' '}We service {APPLIANCES.length} appliance types across all twelve cities.
           </p>
