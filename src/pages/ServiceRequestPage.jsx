@@ -479,6 +479,14 @@ export default function ServiceRequestPage() {
 
         {notification && <div className={`os-notice os-notice-${notification.type}`}>{notification.message}</div>}
 
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(150px,1fr))', gap: 10, margin: '4px 0 18px' }} aria-hidden="true">
+            <img src="/visuals/visual-refrigerator.jpg" alt="Refrigerator Repair — not cooling? We fix it fast" loading="lazy" style={{ width: '100%', height: 168, objectFit: 'cover', objectPosition: 'top', display: 'block', borderRadius: 12, border: '1.5px solid #D8E2F2' }} />
+            <img src="/visuals/visual-washer-dryer.jpg" alt="Washer or Dryer Not Working? We fix it FAST" loading="lazy" style={{ width: '100%', height: 168, objectFit: 'cover', objectPosition: 'top', display: 'block', borderRadius: 12, border: '1.5px solid #D8E2F2' }} />
+            <img src="/visuals/visual-dryer.jpg" alt="Dryer Repair — dryer not heating?" loading="lazy" style={{ width: '100%', height: 168, objectFit: 'cover', objectPosition: 'top', display: 'block', borderRadius: 12, border: '1.5px solid #D8E2F2' }} />
+            <img src="/visuals/visual-oven-range.jpg" alt="Oven & Range Repair — oven not heating evenly?" loading="lazy" style={{ width: '100%', height: 168, objectFit: 'cover', objectPosition: 'top', display: 'block', borderRadius: 12, border: '1.5px solid #D8E2F2' }} />
+            <img src="/visuals/visual-dishwasher.jpg" alt="Dishwasher Repair — not draining or cleaning?" loading="lazy" style={{ width: '100%', height: 168, objectFit: 'cover', objectPosition: 'top', display: 'block', borderRadius: 12, border: '1.5px solid #D8E2F2' }} />
+        </div>
         <div className="os-book-grid">
           <div className="os-form-card">
             <h2 className="os-form-title">Service OS Booking</h2>

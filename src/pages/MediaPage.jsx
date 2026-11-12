@@ -146,6 +146,36 @@ export default function MediaPage() {
           Publishing runs on Service OS accounts, bookings and CRM. Top Speed 360 as a standalone
           brand is still in design — its domains are a separate purchase step.
         </p>
+
+        <h2 className="os-media-kicker" style={{ marginTop: 44 }}>BRAND VISUALS — THE 2026 POSTER SET</h2>
+        <p className="os-sub" style={{ maxWidth: 720 }}>
+          One consistent high-resolution poster set for the listings, the platform and social —
+          designed in the Top Speed racing-flag system. Every poster carries the real number: 954-931-7997.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 14, marginTop: 16 }}>
+              <img src="/visuals/visual-logo.jpg" alt="Top Speed Appliance Repair logo — The Faster, The Better" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-hero.jpg" alt="Appliance Broken? Book Same-Day Repair — Broward County" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-book-now.jpg" alt="Appliance Broken? Book Now" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-oven.jpg" alt="Book Now Online Today — Affordable Appliance Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-washer-dryer.jpg" alt="Washer or Dryer Not Working? We fix it FAST" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-high-performance.jpg" alt="High-Performance Appliance Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-fast-reliable.jpg" alt="Fast, Reliable, Professional" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-fridge-not-cooling.jpg" alt="Fridge Not Cooling?" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-fix-fast.jpg" alt="Appliance Broken? We Fix It Fast" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-same-day.jpg" alt="Same-Day Appliance Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-refrigerator.jpg" alt="Refrigerator Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-dishwasher.jpg" alt="Dishwasher Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-dryer.jpg" alt="Dryer Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-oven-range.jpg" alt="Oven & Range Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-freezer-ice.jpg" alt="Freezer & Ice Maker" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-microwave-disposal.jpg" alt="Microwave & Disposal Repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-installation.jpg" alt="New Appliance? We Install It Right" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-commercial.jpg" alt="Commercial Appliance Repair — restaurants, hotels, laundromats" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-diagnostic.jpg" alt="$99 Diagnostic — credited toward your repair" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-track.jpg" alt="Track My Tech — live tracking on every job" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-speedy.jpg" alt="Ask Speedy AI — book in about a minute" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-cities.jpg" alt="Serving 12 Broward Cities" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+        </div>
         <p className="os-media-flywheel">
           Every video, story and event ends in the same flywheel: watch → learn → book → track →
           review → refer.

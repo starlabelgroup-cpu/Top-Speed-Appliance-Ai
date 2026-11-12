@@ -133,6 +133,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* ---------- 2026 poster set ---------- */}
+      <section className="os-section" style={{ paddingTop: 6 }}>
+        <div className="os-wrap">
+          <p className="os-eyebrow">From the field &nbsp;•&nbsp; The 2026 Poster Set</p>
+          <h2 className="os-h2">Real repairs. One fast call — 954-931-7997.</h2>
+          <img src="/visuals/visual-hero.jpg" alt="Appliance Broken? Book Same-Day Repair in Broward County — Top Speed Appliance" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 16, border: '1.5px solid #D8E2F2', marginTop: 14 }} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 14, marginTop: 14 }}>
+              <img src="/visuals/visual-book-now.jpg" alt="Appliance Broken? Book Now — Top Speed Appliance poster" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-washer-dryer.jpg" alt="Washer or Dryer Not Working? We fix it FAST — call 954-931-7997" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-fridge-not-cooling.jpg" alt="Fridge Not Cooling? Emergency service available — call 954-931-7997" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-same-day.jpg" alt="Same-Day Appliance Repair — Top Speed Appliance poster" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-diagnostic.jpg" alt="$99 diagnostic, credited toward your repair — Top Speed Appliance" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+              <img src="/visuals/visual-cities.jpg" alt="Serving 12 Broward Cities — Top Speed Appliance" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />
+          </div>
+        </div>
+      </section>
       <div className="os-checker-sm" style={{ height: 20 }} aria-hidden="true" />
 
       {/* ---------- ecosystem band ---------- */}
