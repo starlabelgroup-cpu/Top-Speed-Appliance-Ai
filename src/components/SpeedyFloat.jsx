@@ -54,8 +54,27 @@ async function postJson(path, body) {
     body: JSON.stringify(body),
   })
   const j = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error(j.error || `Request failed (${r.status})`)
+  if (!r.ok) {
+    const err = new Error(j.error || `Request failed (${r.status})`)
+    err.status = r.status
+    throw err
+  }
   return j
+}
+
+/* Chat sends retry ONCE after ~2s on a network error or a 5xx, so a
+ * single dropped request (mobile connection, platform blip) reads as
+ * "still typing" instead of the connection-snag fallback. The snag
+ * shows only when the retry also fails. 4xx errors are not retried —
+ * the server answered, and the answer was no. */
+async function postChatWithRetry(body) {
+  try {
+    return await postJson('/speedy/chat', body)
+  } catch (e) {
+    if (e && e.status && e.status < 500) throw e
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+    return postJson('/speedy/chat', body)
+  }
 }
 
 /* Chat capture: one stable session id per visit, sent with chat,
@@ -186,7 +205,7 @@ export default function SpeedyFloat() {
       historyRef.current.push({ role: 'user', content: text })
       setTyping(true)
       try {
-        const j = await postJson('/speedy/chat', {
+        const j = await postChatWithRetry({
           message: text,
           history: historyRef.current.slice(-10),
           sessionId: speedySessionId(),
