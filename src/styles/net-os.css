@@ -1627,6 +1627,7 @@
   background: var(--os-red); color: #fff; border: none; border-radius: 11px;
   padding: 0 16px; font-weight: 700; cursor: pointer;
 }
+.os-float-input button svg { width: 20px; height: 20px; display: block; filter: drop-shadow(0 0 3px rgba(127, 212, 255, .55)); }
 .os-float-fine { flex: none; font-size: 11.5px; color: var(--os-muted); line-height: 1.5; margin: 0; padding: 0 12px 12px; background: #fff; }
 /* Tablet portrait/landscape: same capped measure, anchored bottom-right */
 @media (min-width: 641px) and (max-width: 1024px) {

@@ -58,6 +58,65 @@ async function postJson(path, body) {
   return j
 }
 
+/* Chat capture: one stable session id per visit, sent with chat,
+ * diagnosis and booking calls so the conversation lands in the
+ * Service OS database for staff Chat Insights (source 'net-float'). */
+function speedySessionId() {
+  try {
+    const k = 'tsos_speedy_session'
+    let v = window.sessionStorage.getItem(k)
+    if (!v) {
+      v =
+        window.crypto && window.crypto.randomUUID
+          ? window.crypto.randomUUID()
+          : `sess-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
+      window.sessionStorage.setItem(k, v)
+    }
+    return v
+  } catch {
+    return undefined
+  }
+}
+
+/* Bot bubbles render Speedy's **bold** markdown as real bold. React
+ * escapes the text segments itself, so model output stays inert. */
+function renderRich(text) {
+  const parts = String(text || '').split(/\*\*([^*]+)\*\*/)
+  return parts.map((part, i) => (i % 2 === 1 ? <strong key={i}>{part}</strong> : part))
+}
+
+/* Futuristic input-row icons (2026-11-12): a scan-frame lens for the
+ * photo button and a voice waveform for the mic — inline SVG in the
+ * brand palette with a soft cyan glow on the red buttons. */
+function ScanIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+      <path
+        d="M4 8.5V6.8A2.8 2.8 0 0 1 6.8 4h1.7M15.5 4h1.7A2.8 2.8 0 0 1 20 6.8v1.7M20 15.5v1.7a2.8 2.8 0 0 1-2.8 2.8h-1.7M8.5 20H6.8A2.8 2.8 0 0 1 4 17.2v-1.7"
+        stroke="#BFE3FF"
+        strokeWidth="1.9"
+        strokeLinecap="round"
+      />
+      <circle cx="12" cy="12" r="3.4" stroke="#FFFFFF" strokeWidth="1.9" />
+      <circle cx="12" cy="12" r="1.15" fill="#FFFFFF" />
+    </svg>
+  )
+}
+
+function WaveIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+      <path
+        d="M4.5 10.2v3.6M8.3 7.4v9.2M15.7 7.4v9.2M19.5 10.2v3.6"
+        stroke="#FFFFFF"
+        strokeWidth="2.1"
+        strokeLinecap="round"
+      />
+      <path d="M12 4.8v14.4" stroke="#BFE3FF" strokeWidth="2.1" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 export default function SpeedyFloat() {
   const [open, setOpen] = useState(false)
   const [greeted, setGreeted] = useState(false)
@@ -130,6 +189,8 @@ export default function SpeedyFloat() {
         const j = await postJson('/speedy/chat', {
           message: text,
           history: historyRef.current.slice(-10),
+          sessionId: speedySessionId(),
+          source: 'net-float',
         })
         const reply = (j.data && j.data.reply) || ''
         if (!reply) throw new Error('empty reply')
@@ -166,6 +227,7 @@ export default function SpeedyFloat() {
         issue: via ? `${d.issue} ${via}` : d.issue,
         preferredWindow: d.preferred_window || undefined,
         source: 'FLAGSHIP_NET',
+        sessionId: speedySessionId(),
       })
       const ref = (j.data && j.data.referenceCode) || j.referenceCode || 'received'
       setBookedRef(ref)
@@ -230,6 +292,8 @@ export default function SpeedyFloat() {
           const j = await postJson('/speedy/diagnose', {
             imageDataUrl: cv.toDataURL('image/jpeg', 0.82),
             note: 'Photo sent by a customer chatting on topspeedappliance.net',
+            sessionId: speedySessionId(),
+            source: 'net-float',
           })
           const rep = (j.data && (j.data.reply || j.data.summary || j.data.text)) || ''
           setTyping(false)
@@ -346,7 +410,7 @@ export default function SpeedyFloat() {
           <div className="os-float-body">
             {msgs.map((m, i) => (
               <div key={i} className={`os-bubble ${m.role === 'me' ? 'os-bubble-user' : 'os-bubble-bot'}`}>
-                {m.text}
+                {m.role === 'me' ? m.text : renderRich(m.text)}
               </div>
             ))}
             {typing && <div className="os-bubble os-bubble-bot">Speedy is typing…</div>}
@@ -410,10 +474,10 @@ export default function SpeedyFloat() {
               tabIndex={-1}
             />
             <button type="button" onClick={() => fileRef.current && fileRef.current.click()} aria-label="Send a photo for diagnosis" title="Send a photo — Speedy will take a first look">
-              📸
+              <ScanIcon />
             </button>
             <button type="button" className={listening ? 'os-mic-on' : ''} onClick={toggleMic} aria-label={listening ? 'Stop voice input' : 'Book by voice'} title="Book by voice">
-              {listening ? '🔴' : '🎤'}
+              <WaveIcon />
             </button>
             <input
               ref={inputRef}
