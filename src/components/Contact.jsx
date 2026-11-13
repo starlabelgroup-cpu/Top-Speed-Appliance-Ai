@@ -50,9 +50,9 @@ function Contact() {
               href={BOOKING_CONFIG.BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="google-btn housecall-pro-btn"
-              title="Book service on HouseCall Pro"
-              aria-label="HouseCall Pro - Book Your Service"
+              className="google-btn service-book-btn"
+              title="Book service with the Top Speed Service Book"
+              aria-label="Top Speed Service Book - Book Your Service"
             >
               <span className="google-icon">📅</span>
               <span className="btn-text">Book Service</span>

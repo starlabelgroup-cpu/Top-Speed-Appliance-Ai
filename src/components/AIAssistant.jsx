@@ -4,12 +4,12 @@ import { leadsDatabase } from '../services/leadsDatabase'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 
 const BOOKING_OPTIONS = [
-  { label: 'Book Online (Housecall Pro)', href: BOOKING_CONFIG.BOOKING_URL },
+  { label: 'Book Online', href: BOOKING_CONFIG.BOOKING_URL },
   { label: `Call ${BOOKING_CONFIG.PHONE_NUMBER}`, href: BOOKING_CONFIG.PHONE_LINK },
   { label: 'Email Us', href: `mailto:${BOOKING_CONFIG.EMAIL}` }
 ]
 
-const CONTACT_INTENT = /\b(book|schedule|appointment|call|phone|email|online|housecall|contact)\b/
+const CONTACT_INTENT = /\b(book|schedule|appointment|call|phone|email|online|contact)\b/
 
 export default function AIAssistant() {
   const [open, setOpen] = useState(false)
@@ -75,8 +75,8 @@ export default function AIAssistant() {
   }
 
   const mainAIResponse = (text) => {
-    if (/\b(online|housecall)\b/.test(text))
-      return "You can book online 24/7 through our Housecall Pro scheduler. Pick a time that works for you."
+    if (/\bonline\b/.test(text))
+      return "You can book online 24/7 through the Top Speed Service Book. Pick a time that works for you."
 
     if (/\b(call|phone)\b/.test(text))
       return `You can call us at ${BOOKING_CONFIG.PHONE_NUMBER} to book a technician right away.`

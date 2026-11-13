@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import ServiceReserveButton from './ServiceReserveButton'
+import ServiceBookButton from './ServiceBookButton'
 import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 
 function Header() {
@@ -67,7 +67,7 @@ function Header() {
           <button type="button" className="book-now-btn" onClick={openSpeedy}>
             Book Now
           </button>
-          <ServiceReserveButton source="header" className="book-now-btn" />
+          <ServiceBookButton source="header" className="book-now-btn" />
           <Link
             to="/account"
             className="portal-login-btn"

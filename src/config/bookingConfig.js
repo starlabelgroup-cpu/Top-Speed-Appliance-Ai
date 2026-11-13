@@ -1,27 +1,29 @@
 /**
  * Centralized Booking Configuration
- * 
- * This file contains all HouseCall Pro booking links and related configuration.
+ *
+ * This file contains the Top Speed Service Book booking link and related
+ * configuration. All booking on this site runs through the Top Speed CRM /
+ * Service OS (Service Book) — there is no third-party booking platform.
  * Keep this file up-to-date to ensure all booking links remain functional.
- * 
+ *
  * IMPORTANT: All components should import BOOKING_URL from here instead of
  * hardcoding the link. This prevents broken bookings if the link ever changes.
  */
 
 export const BOOKING_CONFIG = {
-  // Main HouseCall Pro booking link - Used across all sections
-  BOOKING_URL: 'https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true',
-  
+  // Main Service Book booking link (Top Speed Service OS Smart Booking) - Used across all sections
+  BOOKING_URL: 'https://topspeedserviceos.com/book',
+
   // Phone number for direct calls
   PHONE_NUMBER: '(954) 931-7997',
   PHONE_LINK: 'tel:9549317997',
 
   EMAIL: 'service@topspeedappliance.net',
-  
+
   // Business info
   BUSINESS_NAME: 'Top Speed Appliance',
   SERVICE_AREA: 'South Florida',
-  
+
   // Hours of operation (if needed)
   HOURS: {
     monday: '8:00 AM - 6:00 PM',
@@ -41,8 +43,8 @@ export const BOOKING_CONFIG = {
  */
 export const getBookingLink = (source = null) => {
   if (!source) return BOOKING_CONFIG.BOOKING_URL
-  // Append source for analytics if needed: &source=hero
-  return `${BOOKING_CONFIG.BOOKING_URL}&source=${source}`
+  // Append source for analytics if needed: ?source=hero
+  return `${BOOKING_CONFIG.BOOKING_URL}?source=${source}`
 }
 
 /**

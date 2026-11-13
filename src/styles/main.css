@@ -1339,11 +1339,11 @@ section {
   font-weight: 600;
 }
 
-.housecall-pro-btn {
+.service-book-btn {
   background: linear-gradient(135deg, #0f77cc 0%, #0d5fa8 100%);
 }
 
-.housecall-pro-btn:hover {
+.service-book-btn:hover {
   box-shadow: 0 6px 16px rgba(15, 119, 204, 0.3);
 }
 
@@ -3774,4 +3774,14 @@ button:hover, a:hover {
   h2 {
     font-size: 1.8rem;
   }
+}
+
+/* Mobile header fit: keep the black-bar header inside a phone viewport —
+   contact links and action pills wrap instead of widening the page. */
+@media (max-width: 640px) {
+  .header-top { width: 100%; box-sizing: border-box; padding: 8px 10px; gap: 8px 12px; justify-content: center; }
+  .header-contact { gap: 6px 14px; justify-content: center; }
+  .contact-link { font-size: 0.82rem; }
+  .header-actions { gap: 8px; justify-content: center; }
+  .header-actions .book-now-btn, .header-actions .portal-login-btn { width: 100%; max-width: 100%; box-sizing: border-box; padding: 10px 13px; font-size: 0.8rem; }
 }

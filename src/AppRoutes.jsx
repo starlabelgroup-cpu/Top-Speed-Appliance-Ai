@@ -6,7 +6,6 @@ import SpeedyFloat from './components/SpeedyFloat'
 import PageMeta from './components/PageMeta'
 import Footer from './components/Footer'
 import SEOSchema from './components/SEOSchema'
-import ServiceReserveScript from './components/ServiceReserveScript'
 import HomePage from './pages/HomePage'
 
 const Blog = lazy(() => import('./components/Blog'))
@@ -42,7 +41,6 @@ function AppRoutes() {
   return (
     <>
       <ReferralCapture />
-      <ServiceReserveScript />
       <SEOSchema />
       <PageMeta />
       <Header />

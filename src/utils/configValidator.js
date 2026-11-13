@@ -23,10 +23,8 @@ export const validateConfig = () => {
   // Validate booking URL
   if (!BOOKING_CONFIG.BOOKING_URL) {
     errors.push('BOOKING_URL is missing from bookingConfig')
-  } else if (!BOOKING_CONFIG.BOOKING_URL.includes('housecallpro.com')) {
-    warnings.push('BOOKING_URL does not contain "housecallpro.com"')
-  } else if (!BOOKING_CONFIG.BOOKING_URL.includes('TopSpeed-Appliance')) {
-    errors.push('BOOKING_URL does not contain TopSpeed-Appliance identifier')
+  } else if (!BOOKING_CONFIG.BOOKING_URL.startsWith('https://topspeedserviceos.com/book')) {
+    warnings.push('BOOKING_URL does not point at the Top Speed Service Book')
   }
 
   // Validate phone number

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/photo-band.css'
 
-const BOOKING_URL = 'https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true'
+const BOOKING_URL = 'https://topspeedserviceos.com/book'
 
 function PhotoBand({ className, eyebrow, title, text, ctaLabel, ctaHref = BOOKING_URL }) {
   return (

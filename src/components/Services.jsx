@@ -1,6 +1,6 @@
 import React from 'react'
 import ApplianceIcon from './ApplianceIcon'
-import ServiceReserveButton from './ServiceReserveButton'
+import ServiceBookButton from './ServiceBookButton'
 
 function Services() {
   const services = [
@@ -59,10 +59,10 @@ function Services() {
             <ApplianceIcon type={service.type} />
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
-            <a href="https://book.housecallpro.com/book/TopSpeed-Appliance/0c0fcb09005e47239b0bd7d487e9d468?v2=true" target="_blank" rel="noopener noreferrer" className="service-booking-btn">
+            <a href="https://topspeedserviceos.com/book" target="_blank" rel="noopener noreferrer" className="service-booking-btn">
               Book Now
             </a>
-            <ServiceReserveButton source="services-residential" className="service-booking-btn" />
+            <ServiceBookButton source="services-residential" className="service-booking-btn" />
           </div>
         ))}
       </div>

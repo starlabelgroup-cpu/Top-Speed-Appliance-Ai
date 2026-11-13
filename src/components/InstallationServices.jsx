@@ -1,6 +1,6 @@
 import React from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
-import ServiceReserveButton from './ServiceReserveButton'
+import ServiceBookButton from './ServiceBookButton'
 
 const installationServices = [
   {
@@ -56,7 +56,7 @@ function InstallationServices() {
             <a href={BOOKING_CONFIG.BOOKING_URL} target="_blank" rel="noopener noreferrer" className="service-booking-btn">
               Book Now
             </a>
-            <ServiceReserveButton source="services-installation" className="service-booking-btn" />
+            <ServiceBookButton source="services-installation" className="service-booking-btn" />
           </div>
         ))}
       </div>

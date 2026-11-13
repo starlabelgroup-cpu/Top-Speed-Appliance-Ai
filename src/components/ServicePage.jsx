@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import '../styles/service-and-city-pages.css'
-import ServiceReserveButton from './ServiceReserveButton'
+import ServiceBookButton from './ServiceBookButton'
 
 /**
  * ServicePage Component
@@ -454,7 +454,7 @@ const ServicePageComponent = ({ service }) => {
       >
         Book Online with Speedy
       </button>
-      <ServiceReserveButton source="service-page" className={`cta-button cta-primary ${className}`} />
+      <ServiceBookButton source="service-page" className={`cta-button cta-primary ${className}`} />
       <a href={PHONE_HREF} className="cta-button cta-secondary" onClick={() => trackEvent('click_call')}>
         Call to Book: {PHONE_DISPLAY}
       </a>

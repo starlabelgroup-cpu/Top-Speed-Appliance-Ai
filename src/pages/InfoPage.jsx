@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/service-and-city-pages.css'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
-import ServiceReserveButton from '../components/ServiceReserveButton'
+import ServiceBookButton from '../components/ServiceBookButton'
 import { SERVICE_OS_LINKS, openSpeedy } from '../lib/serviceOs'
 
 const INFO_PAGES = {
@@ -138,7 +138,7 @@ function BookingButtons({ source }) {
       >
         Book Online with Speedy
       </button>
-      <ServiceReserveButton source={source} className="cta-button cta-primary" />
+      <ServiceBookButton source={source} className="cta-button cta-primary" />
       <a href={BOOKING_CONFIG.PHONE_LINK} className="cta-button cta-secondary">
         Call to Book: {BOOKING_CONFIG.PHONE_NUMBER}
       </a>
