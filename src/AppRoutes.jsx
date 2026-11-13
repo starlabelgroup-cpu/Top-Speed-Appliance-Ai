@@ -16,6 +16,7 @@ const TrackPage = lazy(() => import('./pages/TrackPage'))
 const AccountPage = lazy(() => import('./pages/AccountPage'))
 const MediaPage = lazy(() => import('./pages/MediaPage'))
 const ServiceAreasPage = lazy(() => import('./pages/ServiceAreasPage'))
+const MarketingOsPage = lazy(() => import('./pages/MarketingOsPage'))
 const SeoLandingPage = lazy(() => import('./pages/SeoLandingPage'))
 const LocationServicePage = lazy(() => import('./pages/LocationServicePage'))
 const AdminLogin = lazy(() => import('./components/AdminLogin'))
@@ -53,6 +54,10 @@ function AppRoutes() {
           <Route path="/refer" element={<ReferPage />} />
           <Route path="/media-os" element={<MediaPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
+          {/* Marketing OS (Page Studio) pages at their canonical paths */}
+          <Route path="/service-areas/:citySlug" element={<MarketingOsPage />} />
+          <Route path="/services/:serviceSlug" element={<MarketingOsPage />} />
+          <Route path="/services/:serviceSlug/:symptomSlug" element={<MarketingOsPage />} />
           <Route path="/service-directory" element={<ServiceDirectoryPage />} />
           <Route path="/network" element={<NetworkArchitecture />} />
           <Route path="/brands" element={<BrandsPage />} />
