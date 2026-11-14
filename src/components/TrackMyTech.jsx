@@ -74,7 +74,7 @@ export default function TrackMyTech({ initialReference = '', initialPhone = '' }
 
   return (
     <div style={styles.card}>
-      <h3 style={styles.heading}>📍 Track My Tech</h3>
+      <h3 style={styles.heading}><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 21.2S5 15.6 5 9.9a7 7 0 0 1 14 0c0 5.7-7 11.3-7 11.3z"/><circle cx="12" cy="9.9" r="2.6" stroke="#E8322E"/><circle cx="12" cy="9.9" r=".9" fill="#E8322E" stroke="none"/></svg> Track My Tech</h3>
       <p style={styles.sub}>
         Enter your booking reference and the phone number on the booking to see where your visit stands.
       </p>
@@ -146,7 +146,7 @@ export default function TrackMyTech({ initialReference = '', initialPhone = '' }
                   fontWeight: i === result.stageIndex ? 700 : 400,
                 }}
               >
-                {i < result.stageIndex ? '✓ ' : i === result.stageIndex ? '● ' : '○ '}
+                {i < result.stageIndex ? '' : i === result.stageIndex ? '● ' : '○ '}
                 {label}
               </li>
             ))}

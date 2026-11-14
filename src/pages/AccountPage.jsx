@@ -12,17 +12,17 @@ import { SERVICE_OS_LINKS, claimSignInLink } from '../lib/serviceOs'
 
 const GARAGE_FEATS = [
   {
-    icon: '🧊',
+    icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M5 9.5h14" stroke="#E8322E"/><path d="M8 6.2v1M8 12.6v3.2" strokeWidth="2.2"/></svg>,
     name: 'Registered Appliances',
     desc: 'Model, serial, install date, warranty — the living record of every appliance in your home.',
   },
   {
-    icon: '🛠️',
+    icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M13.5 5.2a3.6 3.6 0 0 1 4.8-3.3L16.2 4l1.9 1.9 2.1-2.1a3.6 3.6 0 0 1-4.8 4.3L9 14.5a1.7 1.7 0 0 1-2.4 0L5.4 13.3a1.7 1.7 0 0 1 0-2.4z" transform="scale(.92) translate(.6 .4)"/><path d="M14.5 13.5L20.5 19.5M17 11l3.5 3.5-1.8 1.8-3.5-3.5" stroke="#E8322E"/></svg>,
     name: 'Active Service',
     desc: 'Watch live jobs move through Track My Tech, stage by stage, until the repair is complete.',
   },
   {
-    icon: '📋',
+    icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5.5" y="4.5" width="13" height="17" rx="2"/><path d="M9.5 4.5a2.5 2.5 0 0 1 5 0" stroke="#E8322E"/><path d="M9 10.5h6M9 14h6M9 17.5h3.6"/></svg>,
     name: 'Service Records',
     desc: 'Every visit, receipt and warranty in one history — nothing lost in a text thread.',
   },
@@ -128,7 +128,7 @@ export default function AccountPage() {
         <div className="os-acct-grid">
           {/* sign-in card */}
           <div className="os-signin-card">
-            <h2>🔐 Your Top Speed Account</h2>
+            <h2><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="14.6" r="1.5" fill="#E8322E" stroke="none"/><path d="M12 16v1.6" stroke="#E8322E"/></svg> Your Top Speed Account</h2>
             <div className="os-signin-tabs">
               <span className="on">Sign in</span>
               <span className="off">Create account</span>
@@ -195,7 +195,7 @@ export default function AccountPage() {
 
             <div className="os-acct-cards2">
               <div className="os-offers-card">
-                <p className="kicker">🎁 OFFERS + REWARDS</p>
+                <p className="kicker"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M12 10v10M4 14.5h16M12 10a2.6 2.6 0 1 1 2.6-2.6c0 1.7-2.6 2.6-2.6 2.6zm0 0a2.6 2.6 0 1 0-2.6-2.6c0 1.7 2.6 2.6 2.6 2.6z" stroke="#E8322E"/></svg> OFFERS + REWARDS</p>
                 <h3>$25 off your first repair</h3>
                 <p>
                   For new registered customers, on eligible repairs — terms on /offers-rewards.

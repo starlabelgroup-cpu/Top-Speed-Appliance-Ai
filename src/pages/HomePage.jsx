@@ -11,15 +11,15 @@ import MobileStickyBar from '../components/MobileStickyBar'
  */
 
 const SERVICE_TILES = [
-  { icon: '🧊', label: 'Refrigerator', value: 'Refrigerator' },
-  { icon: '🌀', label: 'Washer', value: 'Washer' },
-  { icon: '👕', label: 'Dryer', value: 'Dryer' },
-  { icon: '🔥', label: 'Oven / Range', value: 'Oven/Range' },
-  { icon: '🍽️', label: 'Dishwasher', value: 'Dishwasher' },
-  { icon: '❄️', label: 'Freezer / Ice Maker', value: 'Freezer/Ice Maker' },
-  { icon: '♨️', label: 'Microwave', value: 'Microwave' },
-  { icon: '🗑️', label: 'Garbage Disposal', value: 'Garbage Disposal' },
-  { icon: '🔧', label: 'Installation', value: 'Installation' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M5 9.5h14" stroke="#E8322E"/><path d="M8 6.2v1M8 12.6v3.2" strokeWidth="2.2"/></svg>, label: 'Refrigerator', value: 'Refrigerator' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 12a2 2 0 1 1 2 2 4 4 0 1 1-4-4 6.2 6.2 0 1 1 6.2 6.2" stroke="#E8322E"/><circle cx="12" cy="12" r=".9" fill="#E8322E" stroke="none"/></svg>, label: 'Washer', value: 'Washer' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8.5 4L3.8 7l1.7 3.2 2-1v11h9v-11l2 1L20.2 7 15.5 4a3.5 3.5 0 0 1-7 0z"/><path d="M9.8 13.2h4.4" stroke="#E8322E"/></svg>, label: 'Dryer', value: 'Dryer' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3.5c.8 3-1.6 4.6-2.9 6.1C7.7 11.2 7 12.6 7 14.2A5 5 0 0 0 17 14.2c0-1.2-.5-2.3-1.1-3.3-.5 1-1.2 1.7-2.1 2.1.3-2.7-.4-6.4-1.8-9.5z"/><path d="M12 20.2a2.6 2.6 0 0 1-2.6-2.6c0-1 .5-1.8 1.1-2.5.5-.6 1-1.2 1.5-2 .5.8.9 1.4 1.4 2 .6.7 1.1 1.5 1.1 2.5A2.6 2.6 0 0 1 12 20.2z" stroke="#E8322E"/></svg>, label: 'Oven / Range', value: 'Oven/Range' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6.5 3.5v6M4.2 3.5v3.4a2.3 2.3 0 0 0 4.6 0V3.5M6.5 9.5V20.5" transform="translate(.4 0)"/><path d="M17.2 3.5c1.8 1.4 2.6 3.8 2.6 6 0 2-1 3-2.6 3v8" stroke="#E8322E"/></svg>, label: 'Dishwasher', value: 'Dishwasher' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9M12 3l-2 2.2M12 3l2 2.2M12 21l-2-2.2M12 21l2-2.2" stroke="#E8322E"/></svg>, label: 'Freezer / Ice Maker', value: 'Freezer/Ice Maker' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 20.5c-1.4-2.3 1.4-3.6 0-5.9M12 20.5c-1.4-2.3 1.4-3.6 0-5.9M17 20.5c-1.4-2.3 1.4-3.6 0-5.9" stroke="#E8322E"/><path d="M8.2 9.6c-1-1.8.8-2.8.4-4.6M12.4 9.6c-1-1.8.8-2.8.4-4.6M16.6 9.6c-1-1.8.8-2.8.4-4.6" opacity=".75"/></svg>, label: 'Microwave', value: 'Microwave' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4.5 6.5h15M9.5 6V4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M6.5 6.5l1 13a2 2 0 0 0 2 1.8h5a2 2 0 0 0 2-1.8l1-13"/><path d="M10 10.5v6M14 10.5v6" stroke="#E8322E"/></svg>, label: 'Garbage Disposal', value: 'Garbage Disposal' },
+  { icon: <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg>, label: 'Installation', value: 'Installation' },
 ]
 
 const ECO_CARDS = [
@@ -102,7 +102,7 @@ export default function HomePage() {
               <li>Residential &amp; Commercial</li>
             </ul>
             <div className="os-hero-links">
-              <a className="sms" href="sms:+19549317997">💬 Text Us</a>
+              <a className="sms" href="sms:+19549317997"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg> Text Us</a>
               <a className="wa" href="https://wa.me/19549317997" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>

@@ -184,7 +184,7 @@ export default function SeoLeadCaptureForm({ source, contextLabel, defaultIssue,
 
       {bookingRef ? (
         <div className="seo-lead-form-success" role="status">
-          <div className="seo-lead-form-success-badge">✅ Booked</div>
+          <div className="seo-lead-form-success-badge"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 12.4l2.8 2.8L16.4 9.4" stroke="#E8322E"/></svg> Booked</div>
           <p className="seo-lead-form-success-text">
             Your request is booked into our dispatch queue. A Service Setter will confirm your
             appointment shortly — save your booking reference:

@@ -54,7 +54,7 @@ function AskRow({ value, onChange, onSubmit, placeholder, autoFocus = false }) {
         aria-label="Tell Speedy what's happening with your appliance"
         autoFocus={autoFocus}
       />
-      <span className="mic" aria-hidden="true">🎤</span>
+      <span className="mic" aria-hidden="true"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4.5 10.2v3.6M8.3 7.4v9.2M15.7 7.4v9.2M19.5 10.2v3.6"/><path d="M12 4.8v14.4" stroke="#E8322E"/></svg></span>
     </form>
   )
 }
@@ -79,7 +79,7 @@ export function SpeedyCard() {
 
   return (
     <div className="os-speedy-card">
-      <h3 className="os-speedy-title">✦ Meet Speedy</h3>
+      <h3 className="os-speedy-title"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3l1.9 6.1L20 11l-6.1 1.9L12 19l-1.9-6.1L4 11l6.1-1.9z"/><circle cx="12" cy="11" r="1" fill="#E8322E" stroke="none"/></svg> Meet Speedy</h3>
       <p className="os-speedy-sub">Your AI Service Assistant</p>
       <p className="os-speedy-copy">
         Tell Speedy what's happening. It asks the right questions, checks your service area, and
@@ -132,7 +132,7 @@ export function SpeedyPanel({ onPrefill }) {
   return (
     <aside className="os-speedy-panel" aria-label="Speedy AI assistant">
       <div className="os-speedy-panel-head">
-        <span className="brand">✦ SPEEDY AI</span>
+        <span className="brand"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4.5 10.2v3.6M8.3 7.4v9.2M15.7 7.4v9.2M19.5 10.2v3.6"/><path d="M12 4.8v14.4" stroke="#E8322E"/></svg> SPEEDY AI</span>
         <span className="os-pill os-pill-live">Live</span>
       </div>
 
@@ -163,11 +163,11 @@ export function SpeedyPanel({ onPrefill }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          ✓ Open the full Speedy chat
+          <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Open the full Speedy chat
         </a>
       </div>
 
-      <AskRow value={text} onChange={setText} onSubmit={send} placeholder="Type or tap 🎤 and say it..." />
+      <AskRow value={text} onChange={setText} onSubmit={send} placeholder="Type or tap the mic and say it..." />
 
       <p className="os-speedy-disclaimer">
         Speedy books real jobs into Book OS. It never invents prices or certifies a repair is

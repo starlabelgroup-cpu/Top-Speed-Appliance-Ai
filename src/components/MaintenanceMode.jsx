@@ -188,7 +188,7 @@ export default function MaintenanceMode({ sessionId, onNotify }) {
 
       {step === 3 && schedule && (
         <div className="maintenance-step confirmation">
-          <h3>✅ Maintenance Scheduled</h3>
+          <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 12.4l2.8 2.8L16.4 9.4" stroke="#E8322E"/></svg> Maintenance Scheduled</h3>
 
           <div className="confirmation-details">
             <div className="detail-row">
@@ -238,7 +238,7 @@ export default function MaintenanceMode({ sessionId, onNotify }) {
           </div>
 
           <div className="next-steps">
-            <h4>📋 What's Next?</h4>
+            <h4><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5.5" y="4.5" width="13" height="17" rx="2"/><path d="M9.5 4.5a2.5 2.5 0 0 1 5 0" stroke="#E8322E"/><path d="M9 10.5h6M9 14h6M9 17.5h3.6"/></svg> What's Next?</h4>
             <ol>
               <li>A confirmation email will be sent to your registered email</li>
               <li>We'll call 24 hours before your appointment</li>

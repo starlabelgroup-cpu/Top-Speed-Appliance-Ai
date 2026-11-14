@@ -49,7 +49,7 @@ export const validateConfig = () => {
   // Print results
   if (errors.length > 0) {
     console.error(
-      '%c❌ Configuration Errors',
+      '%c Configuration Errors',
       'color: #ff0000; font-weight: bold; font-size: 12px;'
     )
     errors.forEach(error => {
@@ -60,7 +60,7 @@ export const validateConfig = () => {
 
   if (warnings.length > 0) {
     console.warn(
-      '%c⚠️  Configuration Warnings',
+      '%c  Configuration Warnings',
       'color: #ff9900; font-weight: bold; font-size: 12px;'
     )
     warnings.forEach(warning => {
@@ -70,7 +70,7 @@ export const validateConfig = () => {
 
   if (errors.length === 0 && warnings.length === 0) {
     console.log(
-      '%c✅ Configuration Valid',
+      '%c Configuration Valid',
       'color: #00aa00; font-weight: bold; font-size: 12px;'
     )
     console.log('Booking URL:', BOOKING_CONFIG.BOOKING_URL)

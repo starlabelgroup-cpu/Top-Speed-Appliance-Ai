@@ -140,7 +140,7 @@ function Dashboard() {
 
                 <div className="sign-up-methods">
                   <button className="google-sign-up-btn" onClick={handleGoogleSignUp}>
-                    <span>🔐</span> Sign Up with HouseCall Pro
+                    <span><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="14.6" r="1.5" fill="#E8322E" stroke="none"/><path d="M12 16v1.6" stroke="#E8322E"/></svg></span> Sign Up with HouseCall Pro
                   </button>
                   <div className="divider">or</div>
                 </div>
@@ -425,7 +425,7 @@ function Dashboard() {
 
               <div className="ai-features-grid">
                 <div className="ai-feature-card">
-                  <div className="feature-icon">🔧</div>
+                  <div className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg></div>
                   <h3>Appliance Diagnostics</h3>
                   <p>Diagnose issues with your appliances and get repair recommendations</p>
                   <button className="feature-btn" onClick={() => setAiMode('diagnostic')}>
@@ -434,7 +434,7 @@ function Dashboard() {
                 </div>
 
                 <div className="ai-feature-card">
-                  <div className="feature-icon">🛒</div>
+                  <div className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 4h2.4l2.2 11h10.4l1.8-8.4H6.2"/><circle cx="9.6" cy="19.4" r="1.5"/><circle cx="16.6" cy="19.4" r="1.5"/><path d="M9.4 9l.6 3.4M13.4 8.8l-.5 3.4M17.4 8.6l-.9 3.4" stroke="#E8322E"/></svg></div>
                   <h3>Product Recommendations</h3>
                   <p>Get personalized appliance recommendations based on your preferences</p>
                   <button className="feature-btn" onClick={() => setAiMode('recommendation')}>
@@ -443,7 +443,7 @@ function Dashboard() {
                 </div>
 
                 <div className="ai-feature-card">
-                  <div className="feature-icon">📅</div>
+                  <div className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M7.5 3.5v4M16.5 3.5v4" stroke="#E8322E"/><path d="M7.4 14h2.2M11 14h2.2M14.6 14h2.2M7.4 17h2.2M11 17h2.2" strokeWidth="2"/></svg></div>
                   <h3>Maintenance Scheduling</h3>
                   <p>Schedule preventive maintenance to keep appliances running smoothly</p>
                   <button className="feature-btn" onClick={() => setAiMode('maintenance')}>
@@ -452,7 +452,7 @@ function Dashboard() {
                 </div>
 
                 <div className="ai-feature-card">
-                  <div className="feature-icon">💬</div>
+                  <div className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg></div>
                   <h3>Chat with AI Assistant</h3>
                   <p>Ask questions about appliances and get personalized assistance</p>
                   <button className="feature-btn" onClick={() => setAiMode('chat')}>
@@ -464,12 +464,12 @@ function Dashboard() {
               <div className="ai-benefits">
                 <h3>Why Use AI Assistant?</h3>
                 <ul className="benefits-list">
-                  <li>✓ Get instant diagnosis of appliance problems</li>
-                  <li>✓ Receive personalized product recommendations</li>
-                  <li>✓ Schedule maintenance at your convenience</li>
-                  <li>✓ Chat with AI for expert advice anytime</li>
-                  <li>✓ Save money on unnecessary repairs</li>
-                  <li>✓ Extend appliance lifespan with proper maintenance</li>
+                  <li><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Get instant diagnosis of appliance problems</li>
+                  <li><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Receive personalized product recommendations</li>
+                  <li><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Schedule maintenance at your convenience</li>
+                  <li><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Chat with AI for expert advice anytime</li>
+                  <li><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Save money on unnecessary repairs</li>
+                  <li><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Extend appliance lifespan with proper maintenance</li>
                 </ul>
               </div>
             </div>
@@ -499,7 +499,7 @@ function Dashboard() {
 
                       <div className="appointment-details">
                         <div className="detail-row">
-                          <span className="detail-label">📅 Date:</span>
+                          <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M7.5 3.5v4M16.5 3.5v4" stroke="#E8322E"/><path d="M7.4 14h2.2M11 14h2.2M14.6 14h2.2M7.4 17h2.2M11 17h2.2" strokeWidth="2"/></svg> Date:</span>
                           <span className="detail-value">{appointment.date}</span>
                         </div>
                         <div className="detail-row">
@@ -507,22 +507,22 @@ function Dashboard() {
                           <span className="detail-value">{appointment.time}</span>
                         </div>
                         <div className="detail-row">
-                          <span className="detail-label">👨‍🔧 Technician:</span>
+                          <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="8.2" r="3.8"/><path d="M4.8 20.2a7.4 7.4 0 0 1 14.4 0" stroke="#E8322E"/></svg>‍<svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg> Technician:</span>
                           <span className="detail-value">{appointment.technician}</span>
                         </div>
                         <div className="detail-row">
-                          <span className="detail-label">📍 Address:</span>
+                          <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 21.2S5 15.6 5 9.9a7 7 0 0 1 14 0c0 5.7-7 11.3-7 11.3z"/><circle cx="12" cy="9.9" r="2.6" stroke="#E8322E"/><circle cx="12" cy="9.9" r=".9" fill="#E8322E" stroke="none"/></svg> Address:</span>
                           <span className="detail-value">{appointment.address}</span>
                         </div>
 
                         {appointment.status === 'completed' ? (
                           <div className="detail-row">
-                            <span className="detail-label">💰 Cost:</span>
+                            <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9.4 3.8h5.2M10 3.8c0 2-1.2 3-2.4 4.2C5.9 9.7 5 11.4 5 13.5A6.9 5.9 0 0 0 12 19.4a6.9 5.9 0 0 0 7-5.9c0-2.1-.9-3.8-2.6-5.5C15.2 6.8 14 5.8 14 3.8"/><path d="M12 9.4v6.4M14 11.2a2.6 2.6 0 0 0-2-1 2.3 2.3 0 0 0-2.3 2c0 2.9 4.6 1.6 4.6 3.9 0 1.1-1 1.7-2.3 1.7a2.8 2.8 0 0 1-2.3-1.1" stroke="#E8322E"/></svg> Cost:</span>
                             <span className="detail-value">{appointment.actualCost}</span>
                           </div>
                         ) : (
                           <div className="detail-row">
-                            <span className="detail-label">💰 Estimated Cost:</span>
+                            <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9.4 3.8h5.2M10 3.8c0 2-1.2 3-2.4 4.2C5.9 9.7 5 11.4 5 13.5A6.9 5.9 0 0 0 12 19.4a6.9 5.9 0 0 0 7-5.9c0-2.1-.9-3.8-2.6-5.5C15.2 6.8 14 5.8 14 3.8"/><path d="M12 9.4v6.4M14 11.2a2.6 2.6 0 0 0-2-1 2.3 2.3 0 0 0-2.3 2c0 2.9 4.6 1.6 4.6 3.9 0 1.1-1 1.7-2.3 1.7a2.8 2.8 0 0 1-2.3-1.1" stroke="#E8322E"/></svg> Estimated Cost:</span>
                             <span className="detail-value">{appointment.estimatedCost}</span>
                           </div>
                         )}
@@ -578,7 +578,7 @@ function Dashboard() {
 
                       <div className="appointment-details">
                         <div className="detail-row">
-                          <span className="detail-label">📅 Date:</span>
+                          <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M7.5 3.5v4M16.5 3.5v4" stroke="#E8322E"/><path d="M7.4 14h2.2M11 14h2.2M14.6 14h2.2M7.4 17h2.2M11 17h2.2" strokeWidth="2"/></svg> Date:</span>
                           <span className="detail-value">{appointment.date}</span>
                         </div>
                         <div className="detail-row">
@@ -586,22 +586,22 @@ function Dashboard() {
                           <span className="detail-value">{appointment.time}</span>
                         </div>
                         <div className="detail-row">
-                          <span className="detail-label">👨‍🔧 Technician:</span>
+                          <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="8.2" r="3.8"/><path d="M4.8 20.2a7.4 7.4 0 0 1 14.4 0" stroke="#E8322E"/></svg>‍<svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg> Technician:</span>
                           <span className="detail-value">{appointment.technician}</span>
                         </div>
                         <div className="detail-row">
-                          <span className="detail-label">📍 Address:</span>
+                          <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 21.2S5 15.6 5 9.9a7 7 0 0 1 14 0c0 5.7-7 11.3-7 11.3z"/><circle cx="12" cy="9.9" r="2.6" stroke="#E8322E"/><circle cx="12" cy="9.9" r=".9" fill="#E8322E" stroke="none"/></svg> Address:</span>
                           <span className="detail-value">{appointment.address}</span>
                         </div>
 
                         {appointment.status === 'completed' ? (
                           <div className="detail-row">
-                            <span className="detail-label">💰 Cost:</span>
+                            <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9.4 3.8h5.2M10 3.8c0 2-1.2 3-2.4 4.2C5.9 9.7 5 11.4 5 13.5A6.9 5.9 0 0 0 12 19.4a6.9 5.9 0 0 0 7-5.9c0-2.1-.9-3.8-2.6-5.5C15.2 6.8 14 5.8 14 3.8"/><path d="M12 9.4v6.4M14 11.2a2.6 2.6 0 0 0-2-1 2.3 2.3 0 0 0-2.3 2c0 2.9 4.6 1.6 4.6 3.9 0 1.1-1 1.7-2.3 1.7a2.8 2.8 0 0 1-2.3-1.1" stroke="#E8322E"/></svg> Cost:</span>
                             <span className="detail-value">{appointment.actualCost}</span>
                           </div>
                         ) : (
                           <div className="detail-row">
-                            <span className="detail-label">💰 Estimated Cost:</span>
+                            <span className="detail-label"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9.4 3.8h5.2M10 3.8c0 2-1.2 3-2.4 4.2C5.9 9.7 5 11.4 5 13.5A6.9 5.9 0 0 0 12 19.4a6.9 5.9 0 0 0 7-5.9c0-2.1-.9-3.8-2.6-5.5C15.2 6.8 14 5.8 14 3.8"/><path d="M12 9.4v6.4M14 11.2a2.6 2.6 0 0 0-2-1 2.3 2.3 0 0 0-2.3 2c0 2.9 4.6 1.6 4.6 3.9 0 1.1-1 1.7-2.3 1.7a2.8 2.8 0 0 1-2.3-1.1" stroke="#E8322E"/></svg> Estimated Cost:</span>
                             <span className="detail-value">{appointment.estimatedCost}</span>
                           </div>
                         )}
@@ -644,7 +644,7 @@ function Dashboard() {
 
               <div className="portal-features">
                 <div className="feature-item">
-                  <span className="feature-icon">📋</span>
+                  <span className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5.5" y="4.5" width="13" height="17" rx="2"/><path d="M9.5 4.5a2.5 2.5 0 0 1 5 0" stroke="#E8322E"/><path d="M9 10.5h6M9 14h6M9 17.5h3.6"/></svg></span>
                   <div>
                     <h3>Service History</h3>
                     <p>View all past and upcoming service appointments</p>
@@ -652,7 +652,7 @@ function Dashboard() {
                 </div>
 
                 <div className="feature-item">
-                  <span className="feature-icon">📅</span>
+                  <span className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M7.5 3.5v4M16.5 3.5v4" stroke="#E8322E"/><path d="M7.4 14h2.2M11 14h2.2M14.6 14h2.2M7.4 17h2.2M11 17h2.2" strokeWidth="2"/></svg></span>
                   <div>
                     <h3>Manage Appointments</h3>
                     <p>Reschedule or cancel appointments online</p>
@@ -660,7 +660,7 @@ function Dashboard() {
                 </div>
 
                 <div className="feature-item">
-                  <span className="feature-icon">💵</span>
+                  <span className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2.8" y="7" width="18.4" height="10.5" rx="2"/><circle cx="12" cy="12.2" r="2.6" stroke="#E8322E"/><path d="M6 10.2h.01M18 14.2h.01" strokeWidth="2.4"/></svg></span>
                   <div>
                     <h3>View Invoices</h3>
                     <p>Access and download your service invoices</p>
@@ -668,7 +668,7 @@ function Dashboard() {
                 </div>
 
                 <div className="feature-item">
-                  <span className="feature-icon">💬</span>
+                  <span className="feature-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg></span>
                   <div>
                     <h3>Contact Support</h3>
                     <p>Message our team directly through the portal</p>
@@ -681,7 +681,7 @@ function Dashboard() {
                 onClick={() => window.open('https://client.housecallpro.com/customer_portal/request-link?token=8d8427149b1b4af097d0fa3874bcf202', '_blank')}
                 aria-label="Log in to HouseCall Pro customer portal"
               >
-                <span>🔐</span> Log In to Portal
+                <span><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="14.6" r="1.5" fill="#E8322E" stroke="none"/><path d="M12 16v1.6" stroke="#E8322E"/></svg></span> Log In to Portal
               </button>
             </div>
           </div>

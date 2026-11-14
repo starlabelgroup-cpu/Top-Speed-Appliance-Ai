@@ -138,7 +138,7 @@ export default function BookingCalendar() {
     return (
       <div className="booking-confirmation">
         <div className="confirmation-card">
-          <div className="success-icon">✓</div>
+          <div className="success-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg></div>
           <h2>Booking Confirmed!</h2>
           <p>Your appointment request has been received.</p>
           <p className="confirmation-details">

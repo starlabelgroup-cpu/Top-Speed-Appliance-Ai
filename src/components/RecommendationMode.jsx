@@ -102,9 +102,9 @@ export default function RecommendationMode({ sessionId, onNotify }) {
                       className={`energy-btn ${formData.energyEfficiency === level ? 'selected' : ''}`}
                       onClick={() => setFormData({ ...formData, energyEfficiency: level })}
                     >
-                      {level === 'low' && '💚 Standard'}
-                      {level === 'medium' && '💛 Energy Efficient'}
-                      {level === 'high' && '💚 Premium Efficient'}
+                      {level === 'low' && 'Standard'}
+                      {level === 'medium' && 'Energy Efficient'}
+                      {level === 'high' && 'Premium Efficient'}
                     </button>
                   ))}
                 </div>
@@ -126,7 +126,7 @@ export default function RecommendationMode({ sessionId, onNotify }) {
                         }))
                       }}
                     >
-                      ✓ {feature}
+                      <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> {feature}
                     </button>
                   ))}
                 </div>
@@ -155,7 +155,7 @@ export default function RecommendationMode({ sessionId, onNotify }) {
               <div key={idx} className="recommendation-card">
                 <div className="rec-header">
                   <h4>{rec.brand} {rec.model}</h4>
-                  {idx === 0 && <span className="top-pick-badge">🏆 Best Match</span>}
+                  {idx === 0 && <span className="top-pick-badge"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 5.5H4.2a2.8 2.8 0 0 0 2.9 4.4M17 5.5h2.8a2.8 2.8 0 0 1-2.9 4.4M12 14v3M8.5 20.4h7M12 17l-1.2 3.4h2.4z" stroke="#E8322E"/></svg> Best Match</span>}
                 </div>
 
                 <div className="rec-price">
@@ -177,7 +177,7 @@ export default function RecommendationMode({ sessionId, onNotify }) {
                     <h5>Key Features:</h5>
                     <ul>
                       {rec.features.slice(0, 5).map((feature, i) => (
-                        <li key={i}>✓ {feature}</li>
+                        <li key={i}><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> {feature}</li>
                       ))}
                     </ul>
                   </div>
@@ -203,7 +203,7 @@ export default function RecommendationMode({ sessionId, onNotify }) {
           </div>
 
           <div className="recommendation-tips">
-            <h4>💡 Tips for Buying</h4>
+            <h4><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9.2 17.8a5.8 5.8 0 1 1 5.6 0c-.6.5-.8.9-.8 1.7h-4c0-.8-.2-1.2-.8-1.7z"/><path d="M10 21.2h4M12 7.2v4.4M10.2 9.4l1.8 1.8 1.8-1.8" stroke="#E8322E"/></svg> Tips for Buying</h4>
             <ul>
               <li>Compare warranties across brands</li>
               <li>Check installation costs</li>

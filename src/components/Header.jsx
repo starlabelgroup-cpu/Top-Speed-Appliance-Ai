@@ -122,7 +122,7 @@ function Header() {
           </nav>
 
           <a className="os-call-btn" href="tel:9549317997" aria-label="Call Top Speed Appliance Repair at 954-931-7997">
-            <span aria-hidden="true">📞</span> Call
+            <span aria-hidden="true"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.2 4h3.4l1.4 4.2-2.1 1.7a13.5 13.5 0 0 0 6.2 6.2l1.7-2.1L20 15.4v3.4a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.2 6.1 2 2 0 0 1 5.2 4z"/><path d="M15.5 3.5a7 7 0 0 1 5 5M15.5 6.8a3.8 3.8 0 0 1 1.7 1.7" stroke="#E8322E"/></svg></span> Call
           </a>
         </div>
       </div>

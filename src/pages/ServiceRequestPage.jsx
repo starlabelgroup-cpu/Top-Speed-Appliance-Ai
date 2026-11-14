@@ -21,18 +21,18 @@ import '../styles/service-request.css'
 const STEP_LABELS = ['Contact', 'Location', 'Appliance', 'Schedule', 'Review']
 
 const APPLIANCE_ICONS = {
-  'Refrigerator': '🧊',
-  'Washer': '🌀',
-  'Dryer': '👕',
-  'Oven/Range': '🔥',
-  'Dishwasher': '🍽️',
-  'Microwave': '♨️',
-  'HVAC': '🌡️',
-  'Water Heater': '🚿',
-  'Garbage Disposal': '🗑️',
-  'Other': '🔧',
-  'Freezer/Ice Maker': '❄️',
-  'Installation': '🔧',
+  'Refrigerator': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M5 9.5h14" stroke="#E8322E"/><path d="M8 6.2v1M8 12.6v3.2" strokeWidth="2.2"/></svg>,
+  'Washer': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 12a2 2 0 1 1 2 2 4 4 0 1 1-4-4 6.2 6.2 0 1 1 6.2 6.2" stroke="#E8322E"/><circle cx="12" cy="12" r=".9" fill="#E8322E" stroke="none"/></svg>,
+  'Dryer': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8.5 4L3.8 7l1.7 3.2 2-1v11h9v-11l2 1L20.2 7 15.5 4a3.5 3.5 0 0 1-7 0z"/><path d="M9.8 13.2h4.4" stroke="#E8322E"/></svg>,
+  'Oven/Range': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3.5c.8 3-1.6 4.6-2.9 6.1C7.7 11.2 7 12.6 7 14.2A5 5 0 0 0 17 14.2c0-1.2-.5-2.3-1.1-3.3-.5 1-1.2 1.7-2.1 2.1.3-2.7-.4-6.4-1.8-9.5z"/><path d="M12 20.2a2.6 2.6 0 0 1-2.6-2.6c0-1 .5-1.8 1.1-2.5.5-.6 1-1.2 1.5-2 .5.8.9 1.4 1.4 2 .6.7 1.1 1.5 1.1 2.5A2.6 2.6 0 0 1 12 20.2z" stroke="#E8322E"/></svg>,
+  'Dishwasher': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6.5 3.5v6M4.2 3.5v3.4a2.3 2.3 0 0 0 4.6 0V3.5M6.5 9.5V20.5" transform="translate(.4 0)"/><path d="M17.2 3.5c1.8 1.4 2.6 3.8 2.6 6 0 2-1 3-2.6 3v8" stroke="#E8322E"/></svg>,
+  'Microwave': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 20.5c-1.4-2.3 1.4-3.6 0-5.9M12 20.5c-1.4-2.3 1.4-3.6 0-5.9M17 20.5c-1.4-2.3 1.4-3.6 0-5.9" stroke="#E8322E"/><path d="M8.2 9.6c-1-1.8.8-2.8.4-4.6M12.4 9.6c-1-1.8.8-2.8.4-4.6M16.6 9.6c-1-1.8.8-2.8.4-4.6" opacity=".75"/></svg>,
+  'HVAC': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 4a2.2 2.2 0 0 1 4 0v8.3a4.4 4.4 0 1 1-4 0z"/><circle cx="12" cy="17.3" r="1.7" fill="#E8322E" stroke="none"/><path d="M12 15.6V8" stroke="#E8322E"/></svg>,
+  'Water Heater': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4h6.5a5 5 0 0 1 5 5v1.5"/><path d="M13 10.5h5.5l-.8 3.5h-3.9z" stroke="#E8322E"/><path d="M14.5 17.5v.01M17.5 17.5v.01M14.5 20.5v.01M17.5 20.5v.01" strokeWidth="2.4"/></svg>,
+  'Garbage Disposal': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4.5 6.5h15M9.5 6V4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M6.5 6.5l1 13a2 2 0 0 0 2 1.8h5a2 2 0 0 0 2-1.8l1-13"/><path d="M10 10.5v6M14 10.5v6" stroke="#E8322E"/></svg>,
+  'Other': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg>,
+  'Freezer/Ice Maker': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9M12 3l-2 2.2M12 3l2 2.2M12 21l-2-2.2M12 21l2-2.2" stroke="#E8322E"/></svg>,
+  'Installation': <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg>,
 }
 
 export default function ServiceRequestPage() {
@@ -416,7 +416,7 @@ export default function ServiceRequestPage() {
           {notification && <div className={`os-notice os-notice-${notification.type}`}>{notification.message}</div>}
 
           <div className="os-success-card">
-            <div className="os-success-check" aria-hidden="true">✓</div>
+            <div className="os-success-check" aria-hidden="true"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg></div>
             <div className="os-success-text">
               <h2>Booked — Reference {bookingRef}</h2>
               <p>
@@ -497,7 +497,7 @@ export default function ServiceRequestPage() {
                 return (
                   <div key={label} className={`os-segment ${n < step ? 'done' : n === step ? 'now' : ''}`}>
                     <div className="bar" />
-                    <div className="lbl">{n < step ? `✓ ${label}` : label}</div>
+                    <div className="lbl">{n < step ? ` ${label}` : label}</div>
                   </div>
                 )
               })}
@@ -606,7 +606,7 @@ export default function ServiceRequestPage() {
 
                   <div className="os-loc-row">
                     <button type="button" className="os-btn os-btn-white" style={{ border: '1px solid #d9e2ec', minHeight: 38, fontSize: 12.5 }} onClick={handleUseMyLocation}>
-                      📍 Use my location
+                      Use my location
                     </button>
                     <span className="os-loc-note">ZIP + city verified against the 12-city service area before anything is booked.</span>
                   </div>
@@ -637,7 +637,7 @@ export default function ServiceRequestPage() {
                           }}
                           aria-pressed={formData.applianceType === app}
                         >
-                          <span className="icon" aria-hidden="true">{APPLIANCE_ICONS[app] || '🔧'}</span>
+                          <span className="icon" aria-hidden="true">{APPLIANCE_ICONS[app] || <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg>}</span>
                           <span className="name">{app}</span>
                         </button>
                       ))}
@@ -724,7 +724,7 @@ export default function ServiceRequestPage() {
 
                   <div className="os-field">
                     <button type="button" className="os-btn os-btn-white" style={{ border: '1px solid #d9e2ec' }} onClick={handleGetAiHelp}>
-                      🤖 Get AI Diagnosis Help
+                      <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="4.5" y="8.5" width="15" height="11" rx="3"/><path d="M12 8.5V4.8M12 4.8h.01" stroke="#E8322E"/><path d="M8.8 13.4h.01M15.2 13.4h.01" strokeWidth="2.6"/><path d="M9.4 16.6h5.2M2.8 12.5v3M21.2 12.5v3"/></svg> Get AI Diagnosis Help
                     </button>
                     {showAiHelper && aiSuggestions && (
                       <div className="os-note" style={{ marginTop: 14 }}>
@@ -752,7 +752,7 @@ export default function ServiceRequestPage() {
                               aria-label={`Remove ${photo.name}`}
                               style={{ border: 'none', background: 'transparent', cursor: 'pointer', fontWeight: 700 }}
                             >
-                              ✕
+                              <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/><path d="M4 4h3M4 4v3M20 20h-3M20 20v-3" stroke="#E8322E"/></svg>
                             </button>
                           </span>
                         ))}
@@ -808,8 +808,8 @@ export default function ServiceRequestPage() {
                     <div className="os-windows">
                       {[
                         ['normal', '⏰ Normal (3-7 days)'],
-                        ['urgent', '⚡ Urgent (1-2 days)'],
-                        ['emergency', '🚨 Emergency (Same day)'],
+                        ['urgent', 'Urgent (1-2 days)'],
+                        ['emergency', 'Emergency (Same day)'],
                       ].map(([value, label]) => (
                         <button
                           key={value}
@@ -896,7 +896,7 @@ export default function ServiceRequestPage() {
                   <div className="os-form-actions">
                     <button type="button" className="os-btn os-btn-ghost" onClick={handleBack}>← Back</button>
                     <button type="submit" className="os-btn os-btn-red">
-                      ✓ Confirm Booking
+                      <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Confirm Booking
                     </button>
                   </div>
                 </div>

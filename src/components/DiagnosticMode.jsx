@@ -145,7 +145,7 @@ export default function DiagnosticMode({ sessionId, onNotify }) {
           <h3>Diagnosis Results</h3>
 
           <div className="diagnosis-section">
-            <h4>🎯 Likely Causes</h4>
+            <h4> Likely Causes</h4>
             <ol>
               {diagnosis.likely_causes?.map((cause, idx) => (
                 <li key={idx}>
@@ -159,7 +159,7 @@ export default function DiagnosticMode({ sessionId, onNotify }) {
           </div>
 
           <div className="diagnosis-section">
-            <h4>⚠️ Severity</h4>
+            <h4> Severity</h4>
             <p className={`severity-badge severity-${diagnosis.severity}`}>
               {diagnosis.severity?.toUpperCase()}
             </p>
@@ -167,7 +167,7 @@ export default function DiagnosticMode({ sessionId, onNotify }) {
 
           {diagnosis.immediate_actions && diagnosis.immediate_actions.length > 0 && (
             <div className="diagnosis-section">
-              <h4>🚨 Immediate Actions</h4>
+              <h4> Immediate Actions</h4>
               <ul>
                 {diagnosis.immediate_actions.map((action, idx) => (
                   <li key={idx}>{action}</li>
@@ -178,7 +178,7 @@ export default function DiagnosticMode({ sessionId, onNotify }) {
 
           {diagnosis.safety_warnings && diagnosis.safety_warnings.length > 0 && (
             <div className="diagnosis-section warning">
-              <h4>⚠️ Safety Warnings</h4>
+              <h4> Safety Warnings</h4>
               <ul>
                 {diagnosis.safety_warnings.map((warning, idx) => (
                   <li key={idx}>{warning}</li>
@@ -188,9 +188,9 @@ export default function DiagnosticMode({ sessionId, onNotify }) {
           )}
 
           <div className="diagnosis-section">
-            <h4>🔧 Repair Complexity</h4>
+            <h4> Repair Complexity</h4>
             <p>
-              <strong>DIY Possible:</strong> {diagnosis.diy_possible ? '✅ Yes' : '❌ No'}
+              <strong>DIY Possible:</strong> {diagnosis.diy_possible ? <><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 12.4l2.8 2.8L16.4 9.4" stroke="#E8322E"/></svg> Yes</> : <><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#E8322E"/></svg> No</>}
             </p>
             <p>
               <strong>Estimated Time:</strong> {diagnosis.estimated_repair_time}
@@ -199,7 +199,7 @@ export default function DiagnosticMode({ sessionId, onNotify }) {
 
           {diagnosis.parts_needed && diagnosis.parts_needed.length > 0 && (
             <div className="diagnosis-section">
-              <h4>🛠️ Parts Needed</h4>
+              <h4> Parts Needed</h4>
               <ul>
                 {diagnosis.parts_needed.map((part, idx) => (
                   <li key={idx}>{part}</li>

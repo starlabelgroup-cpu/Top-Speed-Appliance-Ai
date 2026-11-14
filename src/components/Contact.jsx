@@ -20,21 +20,21 @@ function Contact() {
       <div className="contact-content">
         <div className="contact-info">
           <div className="info-item">
-            <span className="info-icon">📍</span>
+            <span className="info-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 21.2S5 15.6 5 9.9a7 7 0 0 1 14 0c0 5.7-7 11.3-7 11.3z"/><circle cx="12" cy="9.9" r="2.6" stroke="#E8322E"/><circle cx="12" cy="9.9" r=".9" fill="#E8322E" stroke="none"/></svg></span>
             <div>
               <h3>Address</h3>
               <p>6810 N State Rd 7, Suite 341<br/>Coconut Creek, FL 33073</p>
             </div>
           </div>
           <div className="info-item">
-            <span className="info-icon">📞</span>
+            <span className="info-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.2 4h3.4l1.4 4.2-2.1 1.7a13.5 13.5 0 0 0 6.2 6.2l1.7-2.1L20 15.4v3.4a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.2 6.1 2 2 0 0 1 5.2 4z"/><path d="M15.5 3.5a7 7 0 0 1 5 5M15.5 6.8a3.8 3.8 0 0 1 1.7 1.7" stroke="#E8322E"/></svg></span>
             <div>
               <h3>Phone</h3>
               <p>(954) 931-7997</p>
             </div>
           </div>
           <div className="info-item">
-            <span className="info-icon">📧</span>
+            <span className="info-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12.5" rx="2.2"/><path d="M3.8 7.4L12 13l8.2-5.6" stroke="#E8322E"/></svg></span>
             <div>
               <h3>Email</h3>
               <p>service@topspeedappliance.net</p>
@@ -54,7 +54,7 @@ function Contact() {
               title="Book service with the Top Speed Service Book"
               aria-label="Top Speed Service Book - Book Your Service"
             >
-              <span className="google-icon">📅</span>
+              <span className="google-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M7.5 3.5v4M16.5 3.5v4" stroke="#E8322E"/><path d="M7.4 14h2.2M11 14h2.2M14.6 14h2.2M7.4 17h2.2M11 17h2.2" strokeWidth="2"/></svg></span>
               <span className="btn-text">Book Service</span>
             </a>
 
@@ -66,7 +66,7 @@ function Contact() {
               title="Leave a review on Google"
               aria-label="Google Reviews - Leave a Review"
             >
-              <span className="google-icon">⭐</span>
+              <span className="google-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.7.7-4.2 4 1.1 5.6L12 16.4l-5.1 2.7 1.1-5.6-4.2-4 5.7-.7z"/><circle cx="12" cy="11.4" r="1" fill="#E8322E" stroke="none"/></svg></span>
               <span className="btn-text">Google Reviews</span>
             </a>
 
@@ -78,7 +78,7 @@ function Contact() {
               title="Share our business on Google"
               aria-label="Google Share - Share Top Speed Appliance"
             >
-              <span className="google-icon">📤</span>
+              <span className="google-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 14.5v3.7A1.8 1.8 0 0 0 5.8 20h12.4a1.8 1.8 0 0 0 1.8-1.8v-3.7"/><path d="M12 3.5v10M7.8 6.4L12 2.9l4.2 3.5" transform="translate(0 .8)"/><path d="M4 14.5h4.2l1.2 1.8h5.2l1.2-1.8H20" stroke="#E8322E"/></svg></span>
               <span className="btn-text">Share Us</span>
             </a>
 
@@ -90,7 +90,7 @@ function Contact() {
               title="Visit our Google Business Profile"
               aria-label="Google Business - View Profile"
             >
-              <span className="google-icon">🔍</span>
+              <span className="google-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="M15.4 15.4L21 21M8.4 10.8h4.8" stroke="#E8322E"/></svg></span>
               <span className="btn-text">Google Business</span>
             </a>
           </div>

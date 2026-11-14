@@ -37,7 +37,7 @@
 }
 
 .form-header::before {
-  content: '🏁 🏁 🏁';
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 24' width='54' height='18' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 21V4h13l-2.4 3.4L19 10.8H6'/%3E%3Cpath d='M30 21V4h13l-2.4 3.4L43 10.8H30'/%3E%3Cpath d='M54 21V4h13l-2.4 3.4L67 10.8H54'/%3E%3C/svg%3E");
   position: absolute;
   top: 10px;
   right: 20px;

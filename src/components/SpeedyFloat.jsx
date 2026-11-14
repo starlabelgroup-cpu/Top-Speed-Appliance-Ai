@@ -160,7 +160,7 @@ export default function SpeedyFloat() {
           ...m,
           {
             role: 'bot',
-            text: "Hey, I'm Speedy 🏎️ — Top Speed's AI assistant. I can diagnose appliance issues (send a photo 📸 or describe the problem), recommend the right fix, schedule maintenance, and book real visits — or just answer your questions. What can I do for you?",
+            text: "Hey, I'm Speedy — Top Speed's AI assistant. I can diagnose appliance issues (send a photo or describe the problem), recommend the right fix, schedule maintenance, and book real visits — or just answer your questions. What can I do for you?",
           },
         ])
       }
@@ -255,7 +255,7 @@ export default function SpeedyFloat() {
         ...m,
         {
           role: 'bot',
-          text: `✅ Booked! Your reference is ${ref}. A Service Setter will text ${d.phone} to confirm your window. You can track it any time on the Track My Tech page.`,
+          text: `Booked! Your reference is ${ref}. A Service Setter will text ${d.phone} to confirm your window. You can track it any time on the Track My Tech page.`,
         },
       ])
     } catch (e) {
@@ -280,11 +280,11 @@ export default function SpeedyFloat() {
           channel,
         })
         const msg = (j.data && j.data.message) || 'Done.'
-        setMsgs((m) => [...m, { role: 'bot', text: `🧾 ${msg}` }])
+        setMsgs((m) => [...m, { role: 'bot', text: `${msg}` }])
       } catch (e) {
         setMsgs((m) => [
           ...m,
-          { role: 'bot', text: `🧾 That didn't go through: ${e.message}. Call 954-931-7997 and we'll send it by phone.` },
+          { role: 'bot', text: `That didn't go through: ${e.message}. Call 954-931-7997 and we'll send it by phone.` },
         ])
       }
     },
@@ -295,7 +295,7 @@ export default function SpeedyFloat() {
     const f = e.target.files && e.target.files[0]
     e.target.value = ''
     if (!f) return
-    setMsgs((m) => [...m, { role: 'me', text: '📸 Sent a photo of my appliance' }])
+    setMsgs((m) => [...m, { role: 'me', text: 'Sent a photo of my appliance' }])
     setTyping(true)
     const reader = new FileReader()
     reader.onload = (ev) => {
@@ -321,15 +321,15 @@ export default function SpeedyFloat() {
             {
               role: 'bot',
               text: rep
-                ? `📸 Speedy's first look: ${rep} A technician confirms the diagnosis on site — Speedy never certifies a repair is safe. Want me to book the $99 diagnostic visit?`
-                : "📸 I received your photo but couldn't read it clearly — a technician will review it in person. Want me to book the $99 diagnostic visit?",
+                ? `Speedy's first look: ${rep} A technician confirms the diagnosis on site — Speedy never certifies a repair is safe. Want me to book the $99 diagnostic visit?`
+                : "I received your photo but couldn't read it clearly — a technician will review it in person. Want me to book the $99 diagnostic visit?",
             },
           ])
         } catch {
           setTyping(false)
           setMsgs((m) => [
             ...m,
-            { role: 'bot', text: "📸 Speedy couldn't read that photo just now — book the visit and the technician will diagnose on site, or call 954-931-7997." },
+            { role: 'bot', text: "Speedy couldn't read that photo just now — book the visit and the technician will diagnose on site, or call 954-931-7997." },
           ])
         }
       }
@@ -343,7 +343,7 @@ export default function SpeedyFloat() {
     if (!SR) {
       setMsgs((m) => [
         ...m,
-        { role: 'bot', text: "🎤 Voice isn't supported in this browser — type instead, and I'll book you the same way. (Voice works in Chrome on desktop and Android.)" },
+        { role: 'bot', text: "Voice isn't supported in this browser — type instead, and I'll book you the same way. (Voice works in Chrome on desktop and Android.)" },
       ])
       return
     }
@@ -381,14 +381,14 @@ export default function SpeedyFloat() {
           aria-haspopup="dialog"
           aria-expanded={open}
         >
-          💬 Ask Speedy
+          <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg> Ask Speedy
         </button>
       )}
 
       {open && (
         <div className="os-float-panel" role="dialog" aria-label="Ask Speedy chat assistant">
           <div className="os-float-head">
-            <span className="av" aria-hidden="true">🏎️</span>
+            <span className="av" aria-hidden="true"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 15.5l1.6-4.4A2 2 0 0 1 6.5 9.7h3.1l1.8-2.4h5.4l2.6 3.4 1.6 4.8M3 15.5h18M3 15.5a2.4 2.4 0 0 0 2.4 2.4h1M21 15.5a2.4 2.4 0 0 1-2.4 2.4h-1"/><circle cx="7.6" cy="17.9" r="1.8"/><circle cx="16.4" cy="17.9" r="1.8"/><path d="M11.3 9.7h6" stroke="#E8322E"/></svg></span>
             <span>
               <b>Speedy</b>
               <small>Top Speed AI assistant • Live</small>
@@ -397,22 +397,22 @@ export default function SpeedyFloat() {
           </div>
 
           <div className="os-float-quick">
-            <button type="button" onClick={() => send('Can you help diagnose my appliance problem?')}>🔧 Diagnose</button>
-            <button type="button" onClick={() => send('What do you recommend for my appliance?')}>✦ Recommend</button>
-            <button type="button" onClick={() => send("I'd like to schedule maintenance")}>🛠 Maintenance</button>
-            <button type="button" onClick={() => send('I want to book a repair visit')}>📅 Book a visit</button>
+            <button type="button" onClick={() => send('Can you help diagnose my appliance problem?')}><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.4 4.4 0 0 1 5.9-4L18 4.9l2.3 2.3 2.7-2.6a4.4 4.4 0 0 1-5.9 5.2L8 18.9a2 2 0 0 1-2.9 0l-1.2-1.2a2 2 0 0 1 0-2.9z" transform="translate(-1.2 .6) scale(.94)"/></svg> Diagnose</button>
+            <button type="button" onClick={() => send('What do you recommend for my appliance?')}><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3l1.9 6.1L20 11l-6.1 1.9L12 19l-1.9-6.1L4 11l6.1-1.9z"/><circle cx="12" cy="11" r="1" fill="#E8322E" stroke="none"/></svg> Recommend</button>
+            <button type="button" onClick={() => send("I'd like to schedule maintenance")}><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M13.5 5.2a3.6 3.6 0 0 1 4.8-3.3L16.2 4l1.9 1.9 2.1-2.1a3.6 3.6 0 0 1-4.8 4.3L9 14.5a1.7 1.7 0 0 1-2.4 0L5.4 13.3a1.7 1.7 0 0 1 0-2.4z" transform="scale(.92) translate(.6 .4)"/><path d="M14.5 13.5L20.5 19.5M17 11l3.5 3.5-1.8 1.8-3.5-3.5" stroke="#E8322E"/></svg> Maintenance</button>
+            <button type="button" onClick={() => send('I want to book a repair visit')}><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M7.5 3.5v4M16.5 3.5v4" stroke="#E8322E"/><path d="M7.4 14h2.2M11 14h2.2M14.6 14h2.2M7.4 17h2.2M11 17h2.2" strokeWidth="2"/></svg> Book a visit</button>
           </div>
 
           <div className="os-float-scroll" ref={bodyRef}>
           <div className="os-float-recs">
-            <div className="os-float-rec-h">🔔 Updates</div>
+            <div className="os-float-rec-h"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 16v-5.2a6 6 0 0 1 12 0V16l1.2 2.8H4.8z"/><path d="M10 21a2.2 2.2 0 0 0 4 0" stroke="#E8322E"/><path d="M12 3.4a2 2 0 0 1 2 2" opacity=".7"/></svg> Updates</div>
             {GUEST_UPDATES.map((u) => (
               <div className="os-float-rec upd" key={u.t}>
                 <b>{u.t}</b> — {u.d}{' '}
                 <a href={u.href} target="_blank" rel="noopener noreferrer">{u.c} →</a>
               </div>
             ))}
-            <div className="os-float-rec-h">✦ Speedy recommends</div>
+            <div className="os-float-rec-h"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3l1.9 6.1L20 11l-6.1 1.9L12 19l-1.9-6.1L4 11l6.1-1.9z"/><circle cx="12" cy="11" r="1" fill="#E8322E" stroke="none"/></svg> Speedy recommends</div>
             {GUEST_RECS.map((r) => (
               <div className="os-float-rec" key={r.t}>
                 <b>{r.t}</b> — {r.d}
@@ -456,7 +456,7 @@ export default function SpeedyFloat() {
                 </span>
                 <br />
                 <button type="button" className="os-btn os-btn-red" onClick={bookIt}>
-                  ✓ Book my visit
+                  <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> Book my visit
                 </button>
               </div>
             )}
@@ -465,10 +465,10 @@ export default function SpeedyFloat() {
                 <b>Your booking tools</b>
                 <br />
                 <button type="button" className="os-btn" onClick={() => sendReceipt('email')}>
-                  📧 Email me my receipt
+                  <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12.5" rx="2.2"/><path d="M3.8 7.4L12 13l8.2-5.6" stroke="#E8322E"/></svg> Email me my receipt
                 </button>{' '}
                 <button type="button" className="os-btn" onClick={() => sendReceipt('sms')}>
-                  💬 Text me my tracking link
+                  <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg> Text me my tracking link
                 </button>
               </div>
             )}

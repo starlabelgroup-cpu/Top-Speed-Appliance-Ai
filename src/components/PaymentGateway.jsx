@@ -114,7 +114,7 @@ export default function PaymentGateway({ amount = 89, description = 'Service Dia
     return (
       <div className="payment-success">
         <div className="success-card">
-          <div className="success-checkmark">✓</div>
+          <div className="success-checkmark"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg></div>
           <h2>Payment Successful!</h2>
           <p>Your payment of ${amount.toFixed(2)} has been processed.</p>
           <p className="receipt-info">A receipt has been sent to your email.</p>

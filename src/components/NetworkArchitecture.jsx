@@ -100,32 +100,32 @@ export default function NetworkArchitecture() {
         <div className="benefits-grid">
           
           <div className="benefit-card">
-            <h3>🔗 Interconnected Authority</h3>
+            <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10.2 13.8a4 4 0 0 0 5.7 0l3-3a4.02 4.02 0 1 0-5.7-5.7l-1.4 1.4"/><path d="M13.8 10.2a4 4 0 0 0-5.7 0l-3 3a4.02 4.02 0 1 0 5.7 5.7l1.4-1.4" stroke="#E8322E"/></svg> Interconnected Authority</h3>
             <p>Cross-domain interlinking distributes SEO authority across all 5 properties, boosting search visibility and organic rankings.</p>
           </div>
 
           <div className="benefit-card">
-            <h3>📊 Unified Analytics</h3>
+            <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4v16.5h16.5"/><path d="M8.5 16.5v-5M12.5 16.5V8M16.5 16.5v-8.5" stroke="#E8322E"/></svg> Unified Analytics</h3>
             <p>Cross-domain GA4 tracking monitors user journeys across the entire network, enabling precise attribution and optimization.</p>
           </div>
 
           <div className="benefit-card">
-            <h3>👥 Multi-Channel Conversion</h3>
+            <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="9" cy="8.6" r="3.4"/><path d="M3.4 19.8a5.6 5.6 0 0 1 11.2 0"/><path d="M15.4 5.6a3.4 3.4 0 0 1 0 6.2M17.6 14.4a5.6 5.6 0 0 1 3 5.4" stroke="#E8322E"/></svg> Multi-Channel Conversion</h3>
             <p>Users can engage through their preferred channel—direct booking, app, referral, or lead generation—increasing conversion opportunities.</p>
           </div>
 
           <div className="benefit-card">
-            <h3>🎯 Local SEO Dominance</h3>
+            <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="4.8" stroke="#E8322E"/><circle cx="12" cy="12" r="1.3" fill="#E8322E" stroke="none"/></svg> Local SEO Dominance</h3>
             <p>Multiple properties targeting local keywords create comprehensive coverage in local search results and Google Maps.</p>
           </div>
 
           <div className="benefit-card">
-            <h3>🚀 Rapid Scaling</h3>
+            <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2.8c2.8 2.2 4.2 5.6 4.2 9.4l-4.2 4.2-4.2-4.2c0-3.8 1.4-7.2 4.2-9.4z"/><circle cx="12" cy="9" r="1.9" stroke="#E8322E"/><path d="M7.8 13.4L5 18l3-.8M16.2 13.4L19 18l-3-.8M10.6 18.6c.4 1 .9 1.9 1.4 2.6.5-.7 1-1.6 1.4-2.6" stroke="#E8322E"/></svg> Rapid Scaling</h3>
             <p>Satellite platforms enable feature expansion without burdening the main site, improving scalability and user experience.</p>
           </div>
 
           <div className="benefit-card">
-            <h3>💰 Revenue Diversification</h3>
+            <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9.4 3.8h5.2M10 3.8c0 2-1.2 3-2.4 4.2C5.9 9.7 5 11.4 5 13.5A6.9 5.9 0 0 0 12 19.4a6.9 5.9 0 0 0 7-5.9c0-2.1-.9-3.8-2.6-5.5C15.2 6.8 14 5.8 14 3.8"/><path d="M12 9.4v6.4M14 11.2a2.6 2.6 0 0 0-2-1 2.3 2.3 0 0 0-2.3 2c0 2.9 4.6 1.6 4.6 3.9 0 1.1-1 1.7-2.3 1.7a2.8 2.8 0 0 1-2.3-1.1" stroke="#E8322E"/></svg> Revenue Diversification</h3>
             <p>Referral program, SaaS platform, and lead generation create multiple revenue streams beyond direct service bookings.</p>
           </div>
 
@@ -184,7 +184,7 @@ Sitemap: https://applianceconnect.com/sitemap.xml
         <div className="timeline">
           <div className="timeline-phase">
             <h3>Phase 1: Foundation (Week 1-2)</h3>
-            <p className="timeline-status">✅ Complete</p>
+            <p className="timeline-status"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 12.4l2.8 2.8L16.4 9.4" stroke="#E8322E"/></svg> Complete</p>
             <ul>
               <li>Footer interlinking deployed</li>
               <li>Robots.txt updated with all sitemaps</li>
@@ -194,7 +194,7 @@ Sitemap: https://applianceconnect.com/sitemap.xml
 
           <div className="timeline-phase">
             <h3>Phase 2: Satellite Setup (Week 3-4)</h3>
-            <p className="timeline-status">🔄 In Progress</p>
+            <p className="timeline-status"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 9a7.5 7.5 0 0 1 12.7-2.4L20 8.5M20 4.6v4h-4M18.5 15a7.5 7.5 0 0 1-12.7 2.4L4 15.5M4 19.4v-4h4" stroke="#E8322E"/></svg> In Progress</p>
             <ul>
               <li>Configure each satellite domain</li>
               <li>Add TopSpeed footer links</li>
@@ -214,7 +214,7 @@ Sitemap: https://applianceconnect.com/sitemap.xml
 
           <div className="timeline-phase">
             <h3>Phase 4: Optimization (Month 2-3)</h3>
-            <p className="timeline-status">📊 Monitoring</p>
+            <p className="timeline-status"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4v16.5h16.5"/><path d="M8.5 16.5v-5M12.5 16.5V8M16.5 16.5v-8.5" stroke="#E8322E"/></svg> Monitoring</p>
             <ul>
               <li>Track GA4 cross-domain traffic</li>
               <li>Monitor Search Console rankings</li>

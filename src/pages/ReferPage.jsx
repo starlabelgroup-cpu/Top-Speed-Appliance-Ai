@@ -63,7 +63,7 @@ export default function ReferPage() {
             role="status"
           >
             <h2 className="os-form-title" style={{ marginTop: 0 }}>
-              {referredBy.referrerFirstName} sent you 👋
+              {referredBy.referrerFirstName} sent you <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 12.5V6.2a1.6 1.6 0 0 1 3.2 0V4.6a1.6 1.6 0 0 1 3.2 0v7M14.4 5.4a1.6 1.6 0 0 1 3.2.4l.6 6.5c.3 3.6-1.4 6.4-4.4 7.4-2.8.9-5.8.1-7.7-2.2L3.9 14a1.7 1.7 0 0 1 2.7-1.9L8 14z" transform="translate(.6 .4) scale(.95)"/></svg>
             </h2>
             <p style={{ margin: 0 }}>
               Your welcome offer is waiting: <strong>$25 off your first eligible repair</strong> —

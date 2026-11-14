@@ -141,7 +141,7 @@
 }
 
 .network-features li::before {
-  content: '✓ ';
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='13' height='13' fill='none' stroke='%23E8322E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.8l5.2 5.2L20 6.8'/%3E%3Ccircle cx='19' cy='17.5' r='1.6' fill='%23E8322E' stroke='none'/%3E%3C/svg%3E");
   color: #d10000;
   font-weight: 700;
   margin-right: 6px;

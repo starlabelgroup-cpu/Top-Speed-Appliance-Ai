@@ -61,8 +61,8 @@ function Privacy() {
             <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
             <div className="contact-info">
               <p><strong>Top Speed Appliance</strong></p>
-              <p>📞 <a href="tel:9549317997">(954) 931-7997</a></p>
-              <p>📧 <a href="mailto:service@topspeedappliance.net">service@topspeedappliance.net</a></p>
+              <p><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.2 4h3.4l1.4 4.2-2.1 1.7a13.5 13.5 0 0 0 6.2 6.2l1.7-2.1L20 15.4v3.4a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.2 6.1 2 2 0 0 1 5.2 4z"/><path d="M15.5 3.5a7 7 0 0 1 5 5M15.5 6.8a3.8 3.8 0 0 1 1.7 1.7" stroke="#E8322E"/></svg> <a href="tel:9549317997">(954) 931-7997</a></p>
+              <p><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12.5" rx="2.2"/><path d="M3.8 7.4L12 13l8.2-5.6" stroke="#E8322E"/></svg> <a href="mailto:service@topspeedappliance.net">service@topspeedappliance.net</a></p>
             </div>
           </section>
 

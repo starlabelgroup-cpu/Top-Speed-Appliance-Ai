@@ -235,7 +235,7 @@ export default function AIAssistant() {
                 Integrations
               </button>
               <button onClick={() => setOpen(false)} className="ai-close-btn" aria-label="Close chat">
-                ✕
+                <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/><path d="M4 4h3M4 4v3M20 20h-3M20 20v-3" stroke="#E8322E"/></svg>
               </button>
             </div>
           </div>

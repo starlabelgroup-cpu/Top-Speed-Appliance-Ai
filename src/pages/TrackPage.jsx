@@ -266,7 +266,7 @@ export default function TrackPage() {
                 </div>
 
                 <div className="os-secure-card">
-                  <h3>🔐 A private link for this job only</h3>
+                  <h3><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="14.6" r="1.5" fill="#E8322E" stroke="none"/><path d="M12 16v1.6" stroke="#E8322E"/></svg> A private link for this job only</h3>
                   <p>
                     Your tracking link is issued per job and expires after completion. No phone
                     number as a password, no public guessing — the pattern ported from the Service
@@ -288,7 +288,7 @@ export default function TrackPage() {
                       const state = i < result.stageIndex ? 'done' : i === result.stageIndex ? 'now' : 'todo'
                       return (
                         <div key={label} className={`os-tl-row ${state}`}>
-                          <span className="os-tl-dot">{state === 'done' ? '✓' : state === 'now' ? '●' : ''}</span>
+                          <span className="os-tl-dot">{state === 'done' ? <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.8"/><circle cx="19" cy="17.5" r="1.15" fill="#E8322E" stroke="none"/></svg> : state === 'now' ? <svg className="fxi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="5.5" fill="currentColor"/><circle cx="12" cy="12" r="9.5" stroke="#E8322E" strokeWidth="1.6" opacity=".65"/></svg> : ''}</span>
                           <div className="os-tl-text">
                             <div className="stage">{label}</div>
                             {stageSub(i) && <div className="sub">{stageSub(i)}</div>}
