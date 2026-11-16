@@ -13,6 +13,7 @@ function Footer() {
         YOUR BUSINESS HERE — Advertise on Top Speed
       </a>
       <p className="os-foot-nav">
+        <a href="https://topspeedserviceos.com" target="_blank" rel="noopener noreferrer">Top Speed Service OS</a> &nbsp;•&nbsp;{' '}
         <Link to="/#services">Services</Link> &nbsp;•&nbsp;{' '}
         <Link to="/commercial-appliance-repair">Commercial</Link> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/property-managers" target="_blank" rel="noopener noreferrer">Property Managers</a> &nbsp;•&nbsp;{' '}
@@ -30,7 +31,7 @@ function Footer() {
         <Link to="/brands">Brands</Link> &nbsp;•&nbsp;{' '}
         <Link to="/account">Account</Link>
       </p>
-      <p className="os-foot-contact">(954) 931-7997 &nbsp;•&nbsp; service@topspeedappliance.net</p>
+      <p className="os-foot-contact"><a href="tel:9549317997">(954) 931-7997</a> &nbsp;•&nbsp; <a href="mailto:service@topspeedappliance.net">service@topspeedappliance.net</a></p>
       <p>© {new Date().getFullYear()} Top Speed Appliance LLC — The Faster, The Better.</p>
       <p>Fast • Reliable • Professional</p>
       <p>6810 N State Rd 7, Suite 341, Coconut Creek, FL 33073</p>

@@ -5,6 +5,7 @@ import Header from './components/Header'
 import SpeedyFloat from './components/SpeedyFloat'
 import PageMeta from './components/PageMeta'
 import Footer from './components/Footer'
+import EcosystemBand from './components/EcosystemBand'
 import SEOSchema from './components/SEOSchema'
 import HomePage from './pages/HomePage'
 
@@ -153,6 +154,7 @@ function AppRoutes() {
           <Route path="/:seoSlug" element={<SeoLandingPage />} />
         </Routes>
       </Suspense>
+      <EcosystemBand />
       <Footer />
     </>
   )

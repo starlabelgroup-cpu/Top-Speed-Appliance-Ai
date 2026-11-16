@@ -268,6 +268,107 @@
   font-size: 13px;
 }
 
+/* ---------- ecosystem band (shared layout, above the footer) ---------- */
+
+.os-eco {
+  background: linear-gradient(180deg, var(--os-navy) 0%, var(--os-deep) 100%);
+  color: var(--os-soft);
+  padding: 36px 0 32px;
+  border-top: 1px solid rgba(233, 242, 255, 0.14);
+}
+
+.os-eco-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.os-eco-lede {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--os-soft);
+  max-width: 860px;
+  margin: 0 0 18px;
+}
+
+.os-eco-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+
+.os-eco-chip {
+  display: inline-flex;
+  align-items: baseline;
+  border: 1px solid rgba(233, 242, 255, 0.38);
+  border-radius: 999px;
+  padding: 7px 14px;
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.os-eco-chip:hover { border-color: var(--os-sky); }
+
+.os-eco-chip-main {
+  background: var(--os-red);
+  border-color: transparent;
+  font-weight: 800;
+}
+
+.os-eco-note {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.78;
+  margin-left: 7px;
+}
+
+.os-eco-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 22px;
+  flex-wrap: wrap;
+}
+
+.os-eco-insight {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--os-soft);
+  margin: 0;
+  max-width: 760px;
+}
+
+.os-eco-insight strong { color: #fff; }
+
+.os-eco-tell {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--os-red);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 19px;
+  font: inherit;
+  font-weight: 800;
+  font-size: 14.5px;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(227, 30, 36, 0.38);
+}
+
+@media (max-width: 640px) {
+  .os-eco { padding: 28px 0 26px; }
+  .os-eco-title { font-size: 22px; }
+  .os-eco-foot { flex-direction: column; align-items: flex-start; }
+}
+
 /* ---------- hero (frame 01) ---------- */
 
 .os-hero {
@@ -1521,6 +1622,9 @@
   right: 16px;
   bottom: 22px;
   z-index: 1190;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   background: var(--os-red);
   color: #fff;
   border: none;

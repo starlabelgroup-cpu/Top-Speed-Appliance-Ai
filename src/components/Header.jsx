@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ServiceBookButton from './ServiceBookButton'
-import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { SERVICE_OS_WEB, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -112,6 +112,14 @@ function Header() {
               className="nav-link"
             >
               Property Managers
+            </a>
+            <a
+              href={SERVICE_OS_WEB}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              Top Speed Service OS
             </a>
             <NavLink to="/track" className={navLinkClass}>Track My Tech</NavLink>
             <NavLink to="/refer" className={navLinkClass}>Refer &amp; Earn</NavLink>

@@ -6,6 +6,7 @@ import {
   attributionParams,
   buildViaTag,
 } from '../lib/serviceOs'
+import SpeedySpark from './SpeedySpark'
 
 /**
  * Floating Speedy (Phase D) — a persistent Speedy button that waits on
@@ -381,7 +382,7 @@ export default function SpeedyFloat() {
           aria-haspopup="dialog"
           aria-expanded={open}
         >
-          <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg> Ask Speedy
+          <SpeedySpark size={22} /> Tell Speedy
         </button>
       )}
 
