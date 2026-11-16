@@ -138,7 +138,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .modal-content input:focus {
@@ -452,7 +452,7 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .setting-checkbox {

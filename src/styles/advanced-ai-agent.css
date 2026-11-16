@@ -409,7 +409,7 @@
   padding: 10px 12px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   resize: none;
   max-height: 100px;
@@ -525,7 +525,7 @@
   padding: 10px 12px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   transition: border-color 0.3s;
 }

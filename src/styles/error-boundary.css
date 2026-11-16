@@ -86,7 +86,7 @@
   overflow-x: auto;
   margin: 10px 0 0 0;
   color: #555;
-  font-family: 'Courier New', monospace;
+  font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .error-retry-btn,

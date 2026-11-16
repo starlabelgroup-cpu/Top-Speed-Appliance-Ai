@@ -263,7 +263,7 @@
   color: #00ff00;
   padding: 12px;
   border-radius: 4px;
-  font-family: 'Courier New', monospace;
+  font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.8rem;
   overflow-x: auto;
   white-space: pre-wrap;

@@ -20,7 +20,7 @@
 }
 
 .mop-hero-title {
-  font-family: 'Michroma', 'Space Grotesk', sans-serif;
+  font-family: 'Orbitron', 'Rajdhani', sans-serif;
   font-size: clamp(1.7rem, 4.5vw, 2.9rem);
   line-height: 1.15;
   margin: 0 0 18px;
@@ -45,7 +45,7 @@
 }
 
 .mop-section h2 {
-  font-family: 'Michroma', 'Space Grotesk', sans-serif;
+  font-family: 'Rajdhani', 'Inter', sans-serif;
   font-size: clamp(1.25rem, 3vw, 1.8rem);
   line-height: 1.25;
   color: #0a265c;
@@ -94,7 +94,7 @@
 }
 
 .mop-cta h2 {
-  font-family: 'Michroma', 'Space Grotesk', sans-serif;
+  font-family: 'Rajdhani', 'Inter', sans-serif;
   font-size: clamp(1.3rem, 3.2vw, 2rem);
   line-height: 1.25;
   margin: 0 0 14px;

@@ -6,6 +6,7 @@ import './styles/main.css'
 import './styles/dashboard.css'
 import './styles/service-request.css'
 import './styles/net-os.css'
+import './styles/fonts.css'
 
 const container = document.getElementById('root')
 const app = (

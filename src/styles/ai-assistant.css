@@ -109,7 +109,7 @@
   border-radius: 10px;
   color: #fff;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.4px;
@@ -319,7 +319,7 @@
   padding: 10px 12px;
   border: 1px solid #d0d0d0;
   border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
