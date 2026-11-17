@@ -28,6 +28,11 @@ function Privacy() {
           </section>
 
           <section className="privacy-section">
+            <h2>Live Video Calls</h2>
+            <p>Live video calls with Speedy are not recorded. We do not record, store, or transcribe live video sessions, in line with our privacy practices. (Photos you choose to send for diagnosis are separate — those are handled as described in this policy.)</p>
+          </section>
+
+          <section className="privacy-section">
             <h2>2. Use of Your Information</h2>
             <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via our website to:</p>
             <ul>
