@@ -12,6 +12,9 @@ function Footer() {
       >
         YOUR BUSINESS HERE — Advertise on Top Speed
       </a>
+      <div className="footer-brand">
+        <img src="/visuals/logo-lockup-a.webp" alt="Top Speed Appliance" loading="lazy" decoding="async" />
+      </div>
       <p className="os-foot-nav">
         <a href="https://topspeedserviceos.com" target="_blank" rel="noopener noreferrer">Top Speed Service OS</a> &nbsp;•&nbsp;{' '}
         <Link to="/#services">Services</Link> &nbsp;•&nbsp;{' '}

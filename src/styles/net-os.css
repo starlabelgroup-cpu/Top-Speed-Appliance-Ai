@@ -449,6 +449,23 @@
 
 .footer.footer-os a { color: var(--os-soft); }
 
+/* Brand lockup (Variant A) — black-background artwork sits in a dark panel so
+   it blends into the footer; natural aspect, never cropped or stretched. */
+.footer-brand {
+  margin: 18px auto 6px;
+  max-width: 324px;
+  background: #05070c;
+  border-radius: 14px;
+  padding: 12px;
+}
+.footer-brand img {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .os-ad-strip {
   display: block;
   font-family: 'Anton', sans-serif;
@@ -2049,5 +2066,20 @@
 }
 @media (max-width: 639px) {
   .os-poster-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Brand lockup strip (Variant B) — full-width dark band directly below the
+   homepage poster grid; artwork centered at natural aspect, never cropped. */
+.os-brand-strip {
+  background: #0C162B;
+  padding: 36px 20px;
+  text-align: center;
+}
+.os-brand-strip-img {
+  display: block;
+  width: 640px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 

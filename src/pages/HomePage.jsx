@@ -148,6 +148,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ---------- brand lockup strip (directly below the poster grid) ---------- */}
+      <section className="os-brand-strip" aria-label="Top Speed Appliance">
+        <img className="os-brand-strip-img" src="/visuals/logo-lockup-b.webp" alt="Top Speed Appliance" loading="lazy" decoding="async" />
+      </section>
       <div className="os-checker-sm" style={{ height: 20 }} aria-hidden="true" />
 
       {/* ---------- need moment (scenario library, below the posters) ---------- */}
