@@ -2028,3 +2028,26 @@
 /* Slim feature graphic for utility pages */
 .ts-poster-slim { max-width: 720px; }
 
+/* Homepage 2026 poster set — exactly the six mockup posters, each rendered
+   WHOLE at natural aspect (baked-text graphics are never cover-cropped).
+   Grid: 3 columns desktop, 2 tablet, 1 phone; fluid, no horizontal overflow. */
+.os-poster-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.os-poster-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1.5px solid #D8E2F2;
+}
+@media (max-width: 1023px) {
+  .os-poster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 639px) {
+  .os-poster-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
