@@ -48,7 +48,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'Can you recommend maintenance or vent cleaning?',
-        answer: 'Yes, we inspect vents during every repair and can bundle dryer vent cleaning or preventive maintenance to improve performance and safety.'
+        answer: 'Yes — we inspect the vent during every dryer repair, and for vent cleaning we refer you to Cleanout Vents, our registered vent partner. Call 954-931-7997 and ask for Cleanout Vents.'
       },
       {
         question: 'How do I schedule or reschedule?',
@@ -304,7 +304,7 @@ export const LOCATION_SERVICE_PAGES = [
     whyChoose: [
       'Broward County specialist with deep local knowledge',
       'Thermal fuse and heating element certified repairs',
-      'Vent cleaning and lint inspection included',
+      'Vent cleaning by Cleanout Vents, our vent partner',
       'Text updates and appointment flexibility'
     ],
     serviceAreas: {
@@ -326,7 +326,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What is a thermal fuse and why does it blow?',
-        answer: 'The thermal fuse protects against overheating. Repeated blowing usually indicates restricted airflow—we clean vents and replace the fuse.'
+        answer: 'The thermal fuse protects against overheating. Repeated blowing usually indicates restricted airflow — we inspect the vent and replace the fuse.'
       },
       {
         question: 'Do you offer warranties on dryer repairs?',
@@ -360,7 +360,7 @@ export const LOCATION_SERVICE_PAGES = [
       'Broward County specialists for fast same-day service',
       'Certified in both washer seal and dryer vent repairs',
       'Warranty-backed parts and workmanship',
-      'Eco-friendly vent cleaning reduces energy use'
+      'Vent cleaning by Cleanout Vents, our vent partner'
     ],
     serviceAreas: {
       neighborhoods: ['Downtown Fort Lauderdale', 'Wilton Manors', 'Las Olas', 'Beach', 'Plantation', 'Dania Beach', 'Pompano Beach'],
@@ -526,7 +526,7 @@ export const LOCATION_SERVICE_PAGES = [
     brands: ['LG', 'Samsung', 'Whirlpool', 'Maytag', 'GE', 'Electrolux', 'Bosch', 'Frigidaire'],
     whyChoose: [
       'Palm Beach County dryer specialist with heat pump experience',
-      'Vent cleaning and moisture sensor calibration',
+      'Moisture sensor calibration; vent cleaning by our partner Cleanout Vents',
       'Premium OEM parts sourced same-day',
       'White-glove service for luxury homes'
     ],
@@ -541,7 +541,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How do I know if my vent is clogged?',
-        answer: 'Long dry times, reduced airflow, or lint at the exterior vent outlet indicate blockage. We inspect and clean for optimal performance.'
+        answer: 'Long dry times, reduced airflow, or lint at the exterior vent outlet indicate blockage. We inspect the vent during your repair; for cleaning, our vent partner Cleanout Vents can help — call 954-931-7997.'
       },
       {
         question: 'What is the lifespan of a dryer?',
@@ -750,7 +750,7 @@ export const LOCATION_SERVICE_PAGES = [
     whyChoose: [
       'West Palm Beach commercial and residential expertise',
       'Gas dryer igniter and valve specialist',
-      'Same-day vent inspection and cleaning',
+      'Same-day service with vent inspection included',
       'Flexible scheduling for busy families and businesses'
     ],
     serviceAreas: {
@@ -1103,12 +1103,12 @@ export const LOCATION_SERVICE_PAGES = [
         answer: 'Yes, clean it after every load to prevent fires and maintain efficiency. Professional vent cleaning is annual.'
       },
       {
-        question: 'How much does dryer vent cleaning cost?',
-        answer: 'Vent cleaning typically costs $100–$150 depending on duct length. We include it with many repairs.'
+        question: 'Do you offer dryer vent cleaning?',
+        answer: 'Vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network — call 954-931-7997 and ask for Cleanout Vents. Our own team focuses on repairing your dryer.'
       },
       {
         question: 'Can I use dryer sheets instead of venting?',
-        answer: 'No. Vent sheets are a fire hazard. Always use a proper vent system. We check and clean vents.'
+        answer: 'No. Vent sheets are a fire hazard. Always use a proper vent system. We check vents during repairs; cleaning is handled by our vent partner, Cleanout Vents — call 954-931-7997.'
       },
       {
         question: 'What\'s the difference between gas and electric repair costs?',
@@ -1479,7 +1479,7 @@ export const LOCATION_SERVICE_PAGES = [
     brands: ['LG', 'Samsung', 'Whirlpool', 'Maytag', 'GE', 'Electrolux', 'Bosch', 'Frigidaire'],
     whyChoose: [
       'Jupiter residential expert',
-      'Vent cleaning and inspection included',
+      'Vent cleaning by Cleanout Vents, our vent partner',
       'Thermal component specialists',
       'Energy efficiency recommendations'
     ],
@@ -1757,7 +1757,7 @@ export const LOCATION_SERVICE_PAGES = [
     brands: ['LG', 'Samsung', 'Whirlpool', 'Maytag', 'GE', 'Electrolux', 'Bosch', 'Frigidaire'],
     whyChoose: [
       'Palm Beach Gardens residential specialist',
-      'Vent cleaning and certification',
+      'Vent cleaning by Cleanout Vents, our vent partner',
       'Thermal component expertise',
       'Same-day service availability'
     ],
@@ -1783,8 +1783,8 @@ export const LOCATION_SERVICE_PAGES = [
         answer: 'Yes, ventless/condenser dryers require different expertise. We handle all types with specialized knowledge.'
       },
       {
-        question: 'What\'s included in your vent cleaning service?',
-        answer: 'Full duct cleaning, exterior vent inspection, damper testing, and airflow certification are all included.'
+        question: 'Do you offer a vent cleaning service?',
+        answer: 'Vent cleaning is not a Top Speed service — it is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network. Call 954-931-7997 and ask for Cleanout Vents.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d897809.8889346032!2d-80.36481945000001!3d26.8185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d918c5c1a33333%3A0x8b02dc91b27e1c26!2sPalm%20Beach%20Gardens%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'

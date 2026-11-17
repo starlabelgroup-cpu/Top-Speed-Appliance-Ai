@@ -86,7 +86,7 @@ const SERVICE_CONFIG = {
       { question: 'How much does dryer repair cost?', answer: `The ${SERVICE_FEE} service fee covers the technician visit and diagnosis. Parts and labor are quoted before any work begins.` },
       { question: 'Do you repair gas and electric dryers?', answer: 'Yes, we service both gas and electric dryers.' },
       { question: 'Why is my dryer taking so long to dry clothes?', answer: 'Clogged vents, failed thermal sensors, or aged heating elements are common causes. We inspect and repair them.' },
-      { question: 'Do you offer vent cleaning?', answer: 'Yes, we offer professional dryer vent cleaning to improve efficiency and safety.' }
+      { question: 'Do you offer vent cleaning?', answer: 'We repair the dryer itself — vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network. Call 954-931-7997 and ask for Cleanout Vents.' }
     ]
   },
   refrigerator: {
