@@ -92,6 +92,9 @@ export default function ServiceAreasPage() {
             Use these pages for Google search, online directories, and QR stickers. Each link is optimized for local intent and includes fast booking options.
           </p>
 
+          <figure className="ts-poster ts-poster-graphic">
+            <img src="/visuals/visual-cities.webp" alt="Top Speed Appliance — serving 12 Broward cities" />
+          </figure>
           <div className="seo-leads-hero-actions">
             <button type="button" className="cta-button seo-leads-hero-cta" onClick={openSpeedy}>Book Online</button>
             <a className="cta-button seo-leads-hero-cta secondary" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>

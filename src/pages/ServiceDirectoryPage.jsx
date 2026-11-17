@@ -69,6 +69,10 @@ function ServiceDirectoryPage() {
         </div>
       </section>
 
+      <figure className="ts-poster ts-poster-graphic">
+        <img src="/visuals/visual-same-day.webp" alt="Top Speed Appliance — same-day appliance repair" />
+      </figure>
+
       <div className="ts-search-wrap">
         <div className="ts-search-intro">
           <h2>Search the directory</h2>

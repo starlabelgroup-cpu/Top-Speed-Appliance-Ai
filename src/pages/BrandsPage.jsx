@@ -10,6 +10,9 @@ function BrandsPage() {
       <section className="brands-hero">
         <h1>Appliance Brands We Repair</h1>
         <p>Top Speed Appliance repairs major appliance brands across South Florida. Book online with Speedy or email us your request.</p>
+        <figure className="ts-poster ts-poster-photo">
+          <img src="/images/service/expert-team-banner.webp" alt="Top Speed Appliance technicians at work" />
+        </figure>
       </section>
 
       <section className="brands-grid-section">

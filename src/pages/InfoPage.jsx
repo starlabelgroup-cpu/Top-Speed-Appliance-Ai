@@ -6,6 +6,9 @@ import { SERVICE_OS_LINKS, openSpeedy } from '../lib/serviceOs'
 
 const INFO_PAGES = {
   pricing: {
+    image: '/visuals/visual-diagnostic.webp',
+    imageAlt: 'Top Speed Appliance $99 diagnostic — credited toward your repair',
+    imageMode: 'poster',
     h1: 'Appliance Repair Pricing in South Florida',
     intro: 'Know what to expect before a technician arrives. Our pricing is quoted upfront, and you approve the price before any work begins.',
     sections: [
@@ -25,6 +28,9 @@ const INFO_PAGES = {
     ],
   },
   warranty: {
+    image: '/visuals/visual-fast-reliable.jpg',
+    imageAlt: 'Top Speed Appliance — fast, reliable appliance repair',
+    imageMode: 'poster',
     h1: 'Appliance Repair Warranty',
     intro: 'Every repair we complete is backed by a written warranty, so you know the work will hold up after the technician leaves.',
     sections: [
@@ -43,6 +49,8 @@ const INFO_PAGES = {
     ],
   },
   reviews: {
+    image: '/images/site/about-technician.webp',
+    imageAlt: 'Top Speed Appliance technician',
     h1: 'Customer Reviews for Top Speed Appliance',
     intro: 'Top Speed Appliance serves South Florida homes and businesses for repair, installation, and commercial service.',
     sections: [
@@ -64,6 +72,11 @@ function InfoPage({ page }) {
 
   return (
     <div className="service-page">
+      {config.image && (
+        <figure className={`ts-poster ${config.imageMode === 'poster' ? 'ts-poster-graphic' : 'ts-poster-photo'}`}>
+          <img src={config.image} alt={config.imageAlt} />
+        </figure>
+      )}
       <section className="service-hero">
         <div className="service-hero-content">
           <h1>{config.h1}</h1>

@@ -1039,3 +1039,30 @@
   color: #000000;
 }
 .seo-landing-page h2, .seo-landing-page h3 { color: #ffffff; }
+
+/* ============================================
+   POSTER BANNERS (image-forward design pass)
+   ============================================ */
+.ts-poster {
+  margin: 28px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  line-height: 0;
+  max-width: 100%;
+}
+.ts-poster img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+/* Baked-text poster graphics: never cropped, natural aspect */
+.ts-poster-graphic img { height: auto; }
+/* Plain photos: deliberate 16:9 banner crop */
+.ts-poster-photo { aspect-ratio: 16 / 9; }
+.ts-poster-photo img { height: 100%; object-fit: cover; }
+/* Slim feature graphic for utility pages */
+.ts-poster-slim { max-width: 720px; }
+
+.seo-landing-header .ts-poster, .seo-leads-hero .ts-poster { margin: 28px auto 0; max-width: 900px; }
+

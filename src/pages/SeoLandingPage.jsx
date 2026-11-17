@@ -398,6 +398,22 @@ export default function SeoLandingPage() {
       }))
     : null
 
+  const banner = (() => {
+    const slug = (pageModel.service?.slug || seoSlug || '').toLowerCase()
+    if (pageModel.type === 'city' || pageModel.type === 'county') return { src: '/visuals/visual-cities.webp', mode: 'graphic' }
+    if (slug.includes('refrigerator') || slug.includes('fridge')) return { src: '/images/service/refrigerator-service.webp', mode: 'photo' }
+    if (slug.includes('dishwasher')) return { src: '/images/service/dishwasher-service.webp', mode: 'photo' }
+    if (slug.includes('oven') || slug.includes('range') || slug.includes('stove')) return { src: '/images/service/oven-stove-service.webp', mode: 'photo' }
+    if (slug.includes('washer')) return { src: '/images/service/washer-dryer-service.webp', mode: 'photo' }
+    if (slug.includes('dryer')) return { src: '/images/service/washer-dryer-stack.webp', mode: 'photo' }
+    if (slug.includes('microwave')) return { src: '/images/service/microwave-service.webp', mode: 'photo' }
+    if (slug.includes('freezer') || slug.includes('ice')) return { src: '/visuals/visual-freezer-ice.jpg', mode: 'graphic' }
+    if (slug.includes('disposal')) return { src: '/images/service/garbage-disposal-service.webp', mode: 'photo' }
+    if (slug.includes('installation')) return { src: '/images/service/appliance-installation-service.webp', mode: 'photo' }
+    if (slug.includes('commercial')) return { src: '/visuals/visual-commercial.jpg', mode: 'graphic' }
+    return { src: '/images/service/expert-team-banner.webp', mode: 'photo' }
+  })()
+
   const pageHeading = (() => {
     if (pageModel.type === 'problem') return pageModel.problem.title
     if (pageModel.type === 'county') return `Appliance Repair in ${pageModel.county.name}`
@@ -430,6 +446,10 @@ export default function SeoLandingPage() {
           <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
           <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
         </div>
+
+        <figure className={`ts-poster ${banner.mode === 'graphic' ? 'ts-poster-graphic' : 'ts-poster-photo'}`}>
+          <img src={banner.src} alt={pageHeading} />
+        </figure>
       </section>
 
       <section className="seo-landing-body">

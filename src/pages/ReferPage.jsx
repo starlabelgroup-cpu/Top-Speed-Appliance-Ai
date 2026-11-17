@@ -44,6 +44,9 @@ export default function ReferPage() {
   return (
     <div className="os-page">
       <div className="os-wrap">
+        <figure className="ts-poster ts-poster-graphic ts-poster-slim">
+          <img src="/visuals/visual-speedy.jpg" alt="Refer a friend to Top Speed Appliance" />
+        </figure>
         <div className="os-book-head">
           <div>
             <h1 className="os-h1" style={{ fontSize: 30 }}>

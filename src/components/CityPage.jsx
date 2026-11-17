@@ -123,6 +123,9 @@ const CityPageComponent = ({ city }) => {
 
   return (
     <div className="city-page">
+      <figure className="ts-poster ts-poster-graphic">
+        <img src="/visuals/visual-cities.webp" alt="Top Speed Appliance — serving 12 Broward cities" />
+      </figure>
       {/* Hero Section */}
       <section className="city-hero">
         <div className="city-hero-content">

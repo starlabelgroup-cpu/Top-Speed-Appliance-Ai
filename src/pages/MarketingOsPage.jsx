@@ -63,7 +63,23 @@ function HeroCta({ label, primary }) {
   )
 }
 
-function Section({ section }) {
+function bannerForPath(path) {
+  if (path.startsWith('/service-areas/')) return { src: '/visuals/visual-cities.webp', mode: 'graphic' }
+  const s = path.toLowerCase()
+  if (s.includes('refrigerator') || s.includes('fridge')) return { src: '/images/service/refrigerator-service.webp', mode: 'photo' }
+  if (s.includes('dishwasher')) return { src: '/images/service/dishwasher-service.webp', mode: 'photo' }
+  if (s.includes('oven') || s.includes('range') || s.includes('stove')) return { src: '/images/service/oven-stove-service.webp', mode: 'photo' }
+  if (s.includes('washer')) return { src: '/images/service/washer-dryer-service.webp', mode: 'photo' }
+  if (s.includes('dryer')) return { src: '/images/service/washer-dryer-stack.webp', mode: 'photo' }
+  if (s.includes('microwave')) return { src: '/images/service/microwave-service.webp', mode: 'photo' }
+  if (s.includes('freezer') || s.includes('ice-maker') || s.includes('ice maker')) return { src: '/visuals/visual-freezer-ice.jpg', mode: 'graphic' }
+  if (s.includes('disposal')) return { src: '/images/service/garbage-disposal-service.webp', mode: 'photo' }
+  if (s.includes('installation')) return { src: '/images/service/appliance-installation-service.webp', mode: 'photo' }
+  if (s.includes('commercial')) return { src: '/visuals/visual-commercial.jpg', mode: 'graphic' }
+  return { src: '/images/service/expert-team-banner.webp', mode: 'photo' }
+}
+
+function Section({ section, banner }) {
   const type = section?.type || ''
   const heading = section?.heading || ''
   const body = section?.body || ''
@@ -80,6 +96,11 @@ function Section({ section }) {
               <HeroCta label={section.secondaryCta} />
               <HeroCta label={section.tertiaryCta} />
             </div>
+            {banner ? (
+              <figure className={`ts-poster ${banner.mode === 'graphic' ? 'ts-poster-graphic' : 'ts-poster-photo'}`}>
+                <img src={banner.src} alt={heading || 'Top Speed Appliance'} />
+              </figure>
+            ) : null}
           </div>
         </section>
       )
@@ -249,7 +270,7 @@ export default function MarketingOsPage() {
   return (
     <main className="mop-page">
       {sections.map((section, i) => (
-        <Section key={i} section={section} />
+        <Section key={i} section={section} banner={section?.type === 'hero' ? bannerForPath(path) : null} />
       ))}
     </main>
   )

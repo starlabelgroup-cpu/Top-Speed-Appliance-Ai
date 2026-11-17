@@ -8,6 +8,14 @@ import * as ga4Events from '../utils/ga4Events'
 import * as googleAdsTracking from '../utils/googleAdsTracking'
 import '../styles/location-service-page.css'
 
+const LOCATION_BANNERS = {
+  'dryer-repair': '/images/service/washer-dryer-service.webp',
+  'washer-dryer-repair': '/images/service/washer-dryer-stack.webp',
+  'refrigerator-repair': '/images/service/refrigerator-service.webp',
+  'oven-stove-repair': '/images/service/oven-stove-service.webp',
+  'dishwasher-repair': '/images/service/dishwasher-service.webp'
+}
+
 function safeOrigin() {
   if (typeof window === 'undefined') return 'https://www.topspeedappliance.net'
   return window.location.origin
@@ -234,6 +242,11 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
           <button type="button" className="cta-button primary-btn" onClick={() => { handleCTAClick('book_now'); openSpeedy() }}>{page.hero.ctaLabel}</button>
           <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK} onClick={() => handleCTAClick('call_now')}>{page.hero.secondaryCtaLabel}</a>
         </div>
+        {LOCATION_BANNERS[page.serviceSlug] && (
+          <figure className="ts-poster ts-poster-photo">
+            <img src={LOCATION_BANNERS[page.serviceSlug]} alt={`${page.serviceName} by Top Speed Appliance`} />
+          </figure>
+        )}
       </section>
 
       <section className="location-content">
