@@ -76,21 +76,28 @@ function buildServiceSchema({ origin, canonicalPath, service, areaName, areaType
     areaServed,
     provider: {
       '@type': 'LocalBusiness',
-      name: BOOKING_CONFIG.BUSINESS_NAME,
+      name: service.partner || BOOKING_CONFIG.BUSINESS_NAME,
       telephone: BOOKING_CONFIG.PHONE_NUMBER,
       url: origin
     },
-    potentialAction: {
-      '@type': 'ReserveAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://www.topspeedappliance.net/service-request',
-        actionPlatform: [
-          'http://schema.org/DesktopWebPlatform',
-          'http://schema.org/MobileWebPlatform'
-        ]
-      }
-    }
+    // Partner-handled services (e.g. dryer vent cleaning by Cleanout Vents)
+    // are never offered as bookable through Top Speed, so they carry no
+    // ReserveAction pointing at the Top Speed booking flow.
+    ...(service.partner
+      ? {}
+      : {
+          potentialAction: {
+            '@type': 'ReserveAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'https://www.topspeedappliance.net/service-request',
+              actionPlatform: [
+                'http://schema.org/DesktopWebPlatform',
+                'http://schema.org/MobileWebPlatform'
+              ]
+            }
+          }
+        })
   }
 }
 
@@ -277,7 +284,9 @@ export default function SeoLandingPage() {
       const { service, locationName, locationType } = pageModel
       const areaLabel = locationType === 'county' ? locationName : `${locationName} FL`
       const title = `${service.name} in ${areaLabel} | Same-Day Service`
-      const description = `${service.short} Serving ${areaLabel}. Call ${BOOKING_CONFIG.PHONE_NUMBER} or book online with Top Speed Appliance.`
+      const description = service.partner
+        ? `${service.short} Serving ${areaLabel}.`
+        : `${service.short} Serving ${areaLabel}. Call ${BOOKING_CONFIG.PHONE_NUMBER} or book online with Top Speed Appliance.`
 
       return {
         title,
@@ -300,7 +309,9 @@ export default function SeoLandingPage() {
 
     if (pageModel.type === 'service') {
       const title = `${pageModel.service.name} Near Me | Top Speed Appliance`
-      const description = `${pageModel.service.short} Serving Broward, Palm Beach, and Miami-Dade. Call ${BOOKING_CONFIG.PHONE_NUMBER} or book online.`
+      const description = pageModel.service.partner
+        ? `${pageModel.service.short} Serving Broward, Palm Beach, and Miami-Dade.`
+        : `${pageModel.service.short} Serving Broward, Palm Beach, and Miami-Dade. Call ${BOOKING_CONFIG.PHONE_NUMBER} or book online.`
 
       return {
         title,
@@ -430,6 +441,11 @@ export default function SeoLandingPage() {
     return 'Top Speed Appliance provides fast, reliable service with same-day availability.'
   })()
 
+  // Services flagged with a partner (dryer vent cleaning → Cleanout Vents)
+  // are presented as partner-handled: phone/partner CTAs only, no Top Speed
+  // booking offer, no lead-capture booking form.
+  const isPartnerService = Boolean(pageModel.service?.partner)
+
   return (
     <main className="seo-landing-page">
       <section className="seo-landing-header">
@@ -443,8 +459,17 @@ export default function SeoLandingPage() {
         <p className="seo-landing-subtitle">{pageIntro}</p>
 
         <div className="seo-landing-actions">
-          <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
-          <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
+          {isPartnerService ? (
+            <>
+              <a className="cta-button primary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER} — Ask for Cleanout Vents</a>
+              <Link className="cta-button secondary-btn" to="/dryer-repair">Dryer Repair by Top Speed</Link>
+            </>
+          ) : (
+            <>
+              <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
+              <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
+            </>
+          )}
         </div>
 
         <figure className={`ts-poster ${banner.mode === 'graphic' ? 'ts-poster-graphic' : 'ts-poster-photo'}`}>
@@ -455,6 +480,18 @@ export default function SeoLandingPage() {
       <section className="seo-landing-body">
         <div className="seo-landing-grid">
           <article className="seo-landing-panel">
+            {isPartnerService && (
+              <div className="seo-landing-section">
+                <h3 className="seo-landing-section-title">Handled by Our Vent Partner, Cleanout Vents</h3>
+                <p className="seo-landing-text">
+                  Dryer vent cleaning is not a Top Speed Appliance service. It is handled by Cleanout Vents, our
+                  registered vent partner in the Top Speed Appliance Service Network. Call {BOOKING_CONFIG.PHONE_NUMBER} and
+                  ask for Cleanout Vents. If your dryer itself needs repair — not heating, noisy, or shutting off
+                  early — Top Speed can help, and we inspect the vent during every dryer repair.
+                </p>
+              </div>
+            )}
+
             <h2 className="seo-landing-panel-title">What to Expect</h2>
             <p className="seo-landing-text">
               Top Speed Appliance serves Broward, Palm Beach, and Miami-Dade County with fast scheduling, clear communication, and professional repair.
@@ -533,25 +570,51 @@ export default function SeoLandingPage() {
             </div>
           </article>
 
-          <SeoLeadCaptureForm
-            source="seo"
-            contextLabel={leadContext}
-            defaultIssue={leadDefaultIssue}
-            defaultCity={leadDefaultCity}
-            defaultAppliance={leadDefaultAppliance}
-          />
+          {isPartnerService ? (
+            <aside className="seo-landing-panel">
+              <h2 className="seo-landing-panel-title">Schedule Vent Cleaning</h2>
+              <p className="seo-landing-text">
+                Vent cleaning is scheduled directly with our partner — Top Speed does not book vent cleaning.
+                Call {BOOKING_CONFIG.PHONE_NUMBER} and ask for Cleanout Vents.
+              </p>
+              <div className="seo-landing-actions">
+                <a className="cta-button primary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
+              </div>
+            </aside>
+          ) : (
+            <SeoLeadCaptureForm
+              source="seo"
+              contextLabel={leadContext}
+              defaultIssue={leadDefaultIssue}
+              defaultCity={leadDefaultCity}
+              defaultAppliance={leadDefaultAppliance}
+            />
+          )}
         </div>
       </section>
 
       <section className="seo-landing-footer">
         <div className="seo-landing-footer-inner">
-          <h2 className="seo-landing-footer-title">Ready to Schedule?</h2>
-          <p className="seo-landing-footer-text">Book online or call now for same-day availability.</p>
-          <div className="seo-landing-actions">
-            <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
-            <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
-            <Link className="cta-button secondary-btn" to={withAttribution('/service-request', attrQs)}>Service Request Form</Link>
-          </div>
+          {isPartnerService ? (
+            <>
+              <h2 className="seo-landing-footer-title">Need Dryer Vent Cleaning?</h2>
+              <p className="seo-landing-footer-text">Vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network.</p>
+              <div className="seo-landing-actions">
+                <a className="cta-button primary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER} — Ask for Cleanout Vents</a>
+                <Link className="cta-button secondary-btn" to="/dryer-repair">Dryer Repair by Top Speed</Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="seo-landing-footer-title">Ready to Schedule?</h2>
+              <p className="seo-landing-footer-text">Book online or call now for same-day availability.</p>
+              <div className="seo-landing-actions">
+                <button type="button" className="cta-button primary-btn" onClick={openSpeedy}>Book Online</button>
+                <a className="cta-button secondary-btn" href={BOOKING_CONFIG.PHONE_LINK}>Call {BOOKING_CONFIG.PHONE_NUMBER}</a>
+                <Link className="cta-button secondary-btn" to={withAttribution('/service-request', attrQs)}>Service Request Form</Link>
+              </div>
+            </>
+          )}
         </div>
       </section>
     </main>

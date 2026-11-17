@@ -84,7 +84,8 @@ export const SEO_SERVICES = [
   {
     slug: 'dryer-vent-cleaning',
     name: 'Dryer Vent Cleaning',
-    short: 'Dryer vent cleaning to improve safety, drying time, and airflow.'
+    short: 'Dryer vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network. Call 954-931-7997 and ask for Cleanout Vents.',
+    partner: 'Cleanout Vents'
   }
 ]
 

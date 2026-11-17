@@ -23,7 +23,7 @@ export default function MaintenanceMode({ sessionId, onNotify }) {
   const commonIssues = {
     'Refrigerator': ['Not cooling properly', 'Strange noises', 'Water leaking', 'Filter needs replacement'],
     'Washer': ['Drain cleaning', 'Hose inspection', 'Door seal check', 'Vibration issues'],
-    'Dryer': ['Vent cleaning', 'Lint filter maintenance', 'Heating check', 'Door alignment'],
+    'Dryer': ['Lint filter maintenance', 'Heating check', 'Door alignment'],
     'Oven': ['Self-cleaning cycle', 'Heating element check', 'Temperature calibration', 'Door seal replacement'],
     'Dishwasher': ['Spray arm cleaning', 'Filter cleaning', 'Seal inspection', 'Detergent dispenser'],
     'Microwave': ['Interior cleaning', 'Turntable check', 'Door seal inspection', 'Safety inspection']
