@@ -237,6 +237,209 @@
   .header .header-main-os { position: relative; }
 }
 
+/* ---------- header top strip (owner's header design) ----------
+   One black strip over the nav row: original logo on the left, the
+   Ask Speedy AI pill in the center (opens the Speedy panel), and
+   Call Now + booking actions on the right. Fluid at every width:
+   the pill wraps to its own full-width row before anything can
+   clip, and the actions wrap under it on narrow phones. */
+
+.header-strip {
+  background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-strip-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.header-strip .os-logo { flex: none; }
+
+.ask-speedy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: 470px;
+  min-width: 0;
+  min-height: 52px;
+  padding: 8px 20px 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: #fff;
+  background: linear-gradient(180deg, #0d3176 0%, var(--os-navy) 55%, var(--os-deep) 100%);
+  border: 1px solid rgba(53, 182, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(18, 128, 255, 0.22), 0 8px 22px rgba(7, 31, 79, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ask-speedy-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(18, 128, 255, 0.4), 0 12px 26px rgba(7, 31, 79, 0.55);
+}
+
+.ask-speedy-pill:focus-visible {
+  outline: 2px solid var(--os-sky);
+  outline-offset: 3px;
+}
+
+.ask-speedy-bot {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.ask-speedy-bot svg { width: 24px; height: 24px; display: block; }
+
+.ask-speedy-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.ask-speedy-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.ask-speedy-badge {
+  background: var(--os-red);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.ask-speedy-sub {
+  font-size: 12px;
+  color: #cfe3ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-strip-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: none;
+}
+
+.call-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.call-now .fxi { width: 24px; height: 24px; flex: none; }
+
+.call-now-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.call-now-copy small {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.call-now-copy b {
+  font-family: 'Space Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--os-gold);
+  white-space: nowrap;
+}
+
+.call-now:hover .call-now-copy b { text-decoration: underline; }
+
+.call-now:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* The strip sits on black: keep the booking button's dark-bar look
+   (its base .book-now-btn style in main.css is the light variant). */
+.header-strip .book-now-btn {
+  background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+.header-strip .book-now-btn:hover {
+  background: linear-gradient(180deg, #2a2a2a 0%, #111 100%);
+}
+
+.header-strip .book-now-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Nav row: with the logo moved up into the strip, the nav gets the
+   full row — it wraps to a second line instead of clipping, and the
+   active Home pill takes the red highlight from the design. */
+.header .nav.os-nav {
+  flex-wrap: wrap;
+  row-gap: 2px;
+  min-width: 0;
+}
+
+.header .nav.os-nav .nav-link.nav-home.active {
+  background: var(--os-red);
+  color: #fff;
+}
+
+@media (max-width: 1080px) {
+  .ask-speedy-pill {
+    order: 3;
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-strip-inner { padding: 10px 14px; gap: 10px 14px; }
+  .header-strip-actions { gap: 8px; }
+  .call-now-copy b { font-size: 17px; }
+  .header-strip .book-now-btn,
+  .header-strip .portal-login-btn { padding: 9px 14px; font-size: 0.8rem; }
+  .ask-speedy-sub { white-space: normal; }
+}
+
 /* ---------- footer (design frame 01) ---------- */
 
 .footer.footer-os {

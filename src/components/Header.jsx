@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ServiceBookButton from './ServiceBookButton'
-import { SERVICE_OS_WEB, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { SERVICE_OS_LINKS, SERVICE_OS_WEB, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -44,42 +44,11 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="header-top">
-        <div className="header-contact">
-          <a href="tel:9549317997" className="contact-link phone-link">
-            <span className="contact-icon" aria-hidden="true">
-              <svg className="header-contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.87 5.11 6.69 2.93a1.5 1.5 0 0 0-2.12 0L3.34 4.16c-.9.9-1.17 2.24-.68 3.41a21.3 21.3 0 0 0 10.77 10.77c1.17.49 2.51.22 3.41-.68l1.23-1.23a1.5 1.5 0 0 0 0-2.12l-2.18-2.18a1.5 1.5 0 0 0-1.62-.33l-1.81.72a1.5 1.5 0 0 1-1.64-.35L8.48 8.54a1.5 1.5 0 0 1-.35-1.64l.72-1.81a1.5 1.5 0 0 0-.33-1.62Z" fill="currentColor"/>
-              </svg>
-            </span>
-            (954) 931-7997
-          </a>
-          <a href="mailto:service@topspeedappliance.net" className="contact-link email-link">
-            <span className="contact-icon" aria-hidden="true">
-              <svg className="header-contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-11Zm2.05-.5 5.67 4.26a1.5 1.5 0 0 0 1.8 0L19.2 6H6.05Zm13.95 2.5-5.58 4.2a3.5 3.5 0 0 1-4.2 0L4 8.5v9A1.5 1.5 0 0 0 5.5 19h13a1.5 1.5 0 0 0 1.5-1.5v-9Z" fill="currentColor"/>
-              </svg>
-            </span>
-            service@topspeedappliance.net
-          </a>
-        </div>
-        <div className="header-actions">
-          <button type="button" className="book-now-btn" onClick={openSpeedy}>
-            Book Now
-          </button>
-          <ServiceBookButton source="header" className="book-now-btn" />
-          <Link
-            to="/account"
-            className="portal-login-btn"
-            aria-label="Log in to your Top Speed account"
-            title="Access your service history and manage appointments"
-          >
-            Portal Login
-          </Link>
-        </div>
-      </div>
-      <div className="header-main-os">
-        <div className="container">
+      {/* Top strip — logo · Ask Speedy AI · Call Now (owner's header design).
+          The Ask Speedy AI pill opens the floating Speedy panel via
+          openSpeedy(), the same mechanism every Speedy button uses. */}
+      <div className="header-strip">
+        <div className="header-strip-inner">
           <Link to="/" className="os-logo" aria-label="Top Speed Appliance Repair — The Faster, The Better. — home">
             <img
               src="/logo-header.jpg"
@@ -95,6 +64,55 @@ function Header() {
           </Link>
 
           <button
+            type="button"
+            className="ask-speedy-pill"
+            onClick={openSpeedy}
+            aria-label="Ask Speedy AI — get repair help, diagnose your issue, book service"
+          >
+            <span className="ask-speedy-bot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="2.6" r="1.1" fill="currentColor" stroke="none" />
+                <path d="M12 3.7v2.3" />
+                <rect x="4.5" y="6" width="15" height="11.5" rx="3.5" />
+                <circle cx="9.2" cy="11.4" r="1.15" fill="currentColor" stroke="none" />
+                <circle cx="14.8" cy="11.4" r="1.15" fill="currentColor" stroke="none" />
+                <path d="M9.4 14.9c.72.62 1.6.93 2.6.93s1.88-.31 2.6-.93" />
+                <path d="M4.5 10.6H2.9M21.1 10.6h-1.6" />
+              </svg>
+            </span>
+            <span className="ask-speedy-copy">
+              <span className="ask-speedy-title">
+                Ask Speedy AI
+                <span className="ask-speedy-badge">24/7</span>
+              </span>
+              <span className="ask-speedy-sub">Get repair help, diagnose your issue, book service.</span>
+            </span>
+          </button>
+
+          <div className="header-strip-actions">
+            <a className="call-now" href="tel:9549317997" aria-label="Call now — 954-931-7997">
+              <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.2 4h3.4l1.4 4.2-2.1 1.7a13.5 13.5 0 0 0 6.2 6.2l1.7-2.1L20 15.4v3.4a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.2 6.1 2 2 0 0 1 5.2 4z"/><path d="M15.5 3.5a7 7 0 0 1 5 5M15.5 6.8a3.8 3.8 0 0 1 1.7 1.7" stroke="#E8322E"/></svg>
+              <span className="call-now-copy">
+                <small>Call Now</small>
+                <b>954-931-7997</b>
+              </span>
+            </a>
+            <ServiceBookButton source="header" className="book-now-btn" />
+            <Link
+              to="/account"
+              className="portal-login-btn"
+              aria-label="Log in to your Top Speed account"
+              title="Access your service history and manage appointments"
+            >
+              Portal Login
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="header-main-os">
+        <div className="container">
+          <button
             className="menu-toggle"
             aria-label="Toggle navigation"
             onClick={() => setOpen((s) => !s)}
@@ -103,10 +121,13 @@ function Header() {
           </button>
 
           <nav className={`nav os-nav ${open ? 'open' : ''}`}>
+            <NavLink to="/" className={({ isActive }) => `nav-link nav-pill nav-home${isActive ? ' active' : ''}`}>Home</NavLink>
             <Link to="/#services" className="nav-link">Services</Link>
+            <NavLink to="/brands" className={navLinkClass}>Repair by Brand</NavLink>
             <NavLink to="/commercial-appliance-repair" className={navLinkClass}>Commercial</NavLink>
+            <NavLink to="/service-areas" className={navLinkClass}>Service Areas</NavLink>
             <a
-              href="https://topspeedserviceos.com/property-managers"
+              href={SERVICE_OS_LINKS.propertyManagers}
               target="_blank"
               rel="noopener noreferrer"
               className="nav-link"
@@ -114,12 +135,20 @@ function Header() {
               Property Managers
             </a>
             <a
+              href={SERVICE_OS_LINKS.app}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              Appliance Connect
+            </a>
+            <a
               href={SERVICE_OS_WEB}
               target="_blank"
               rel="noopener noreferrer"
               className="nav-link"
             >
-              Top Speed Service OS
+              Service OS
             </a>
             <NavLink to="/track" className={navLinkClass}>Track My Tech</NavLink>
             <NavLink to="/refer" className={navLinkClass}>Refer &amp; Earn</NavLink>
