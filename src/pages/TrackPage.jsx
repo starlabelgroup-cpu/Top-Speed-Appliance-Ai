@@ -177,6 +177,22 @@ export default function TrackPage() {
           </div>
         )}
 
+        <section style={{ marginTop: 28, maxWidth: 760 }}>
+          <h2 className="os-h2" style={{ fontSize: 22 }}>From our door to yours</h2>
+          <p className="os-sub" style={{ fontSize: 13.5 }}>
+            When your technician sets out, this page follows the trip — the van on your street is
+            the stage where the live map lights up.
+          </p>
+          <figure style={{ margin: '14px 0 0' }}>
+            <img
+              src="/visuals/scenario/track-van-street.webp"
+              alt="Top Speed service van on the street, on the way to a repair"
+              loading="lazy"
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+            />
+          </figure>
+        </section>
+
         {error && <div className="os-notice os-notice-error">{error}</div>}
 
         {result && (
@@ -317,6 +333,18 @@ export default function TrackPage() {
                   </div>
                   <p className="honest">If GPS is off or stale, the map says so — it never fakes a live pin.</p>
                 </div>
+
+                <figure className="os-updates-card" style={{ margin: 0 }}>
+                  <img
+                    src="/visuals/scenario/track-porch-wave.webp"
+                    alt="Your technician arriving at the front door"
+                    loading="lazy"
+                    style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12 }}
+                  />
+                  <figcaption style={{ marginTop: 10, fontSize: 13, color: '#5d7188' }}>
+                    The arrival step — your technician at the door, tools in hand.
+                  </figcaption>
+                </figure>
               </div>
             </div>
 

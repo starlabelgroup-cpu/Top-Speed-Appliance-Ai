@@ -994,6 +994,26 @@
   padding-bottom: 60px;
 }
 
+/* Scenario library (round one): booking-page side visual. The classic form
+   stays the first grid item; this figure sits in the side column under the
+   Speedy panel on wide screens and simply stacks on narrow ones. */
+.os-scenario-side { margin: 0; }
+.os-scenario-side img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1.5px solid #D8E2F2;
+}
+.os-scenario-side figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #5d7188;
+}
+@media (min-width: 901px) {
+  .os-scenario-side { grid-column: 2; }
+}
+
 .os-form-card {
   background: #fff;
   border: 1px solid var(--os-line);

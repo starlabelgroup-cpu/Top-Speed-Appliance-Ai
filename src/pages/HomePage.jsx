@@ -151,6 +151,30 @@ export default function HomePage() {
       </section>
       <div className="os-checker-sm" style={{ height: 20 }} aria-hidden="true" />
 
+      {/* ---------- need moment (scenario library, below the posters) ---------- */}
+      <section className="os-section" style={{ paddingTop: 10 }}>
+        <div className="os-wrap">
+          <p className="os-eyebrow">The Moment It Breaks</p>
+          <h2 className="os-h2">Dinner is in the oven — and the oven just quit.</h2>
+          <p className="os-sub" style={{ maxWidth: 720 }}>
+            It never breaks on a quiet Tuesday. It breaks with a house full of people and a meal
+            half cooked. That is the moment Top Speed is built for — book in under a minute and a
+            Service Setter confirms your window by phone.
+          </p>
+          <figure style={{ margin: '18px 0 0', maxWidth: 760 }}>
+            <img
+              src="/visuals/scenario/need-oven-dead-dinner.webp"
+              alt="The oven stops heating with dinner inside — time to book a repair"
+              loading="lazy"
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+            />
+          </figure>
+          <p style={{ marginTop: 22 }}>
+            <Link className="os-btn os-btn-red" to="/service-request">Book a Repair</Link>
+          </p>
+        </div>
+      </section>
+
       {/* ---------- ecosystem band ---------- */}
       <section className="os-eco">
         <div className="os-wrap">

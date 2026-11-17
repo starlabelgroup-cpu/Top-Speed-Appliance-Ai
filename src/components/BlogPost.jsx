@@ -102,6 +102,21 @@ function BlogPost() {
           loading="lazy"
         />
 
+        {post.slug === 'how-to-fix-washing-machine-leak' && (
+          <figure style={{ margin: '0 0 40px' }}>
+            <img
+              src="/visuals/scenario/repair-leak-hunt.webp"
+              alt="Hunting a washing machine leak — checking the hoses, pump and door seal"
+              loading="lazy"
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12 }}
+            />
+            <figcaption style={{ marginTop: 10, fontSize: 13.5, color: '#5d7188' }}>
+              The leak hunt: work from the hoses to the pump to the door seal, drying as you go —
+              the last wet spot is rarely where the leak starts.
+            </figcaption>
+          </figure>
+        )}
+
         <div className="post-content">
           {post.content.split('\n\n').map((block, index) => {
             const lines = block.split('\n')

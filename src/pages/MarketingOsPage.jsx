@@ -266,12 +266,37 @@ export default function MarketingOsPage() {
   }
 
   const sections = Array.isArray(page.sections) ? page.sections : []
+  // Symptom guide articles live at /services/:service/:symptom/ — three
+  // path segments under /services/. They get the Speedy symptom-guide
+  // scenario illustration in the content area (never in the hero banner).
+  const pathParts = path.split('/').filter(Boolean)
+  const isSymptomGuide = pathParts[0] === 'services' && pathParts.length === 3
 
   return (
     <main className="mop-page">
       {sections.map((section, i) => (
         <Section key={i} section={section} banner={section?.type === 'hero' ? bannerForPath(path) : null} />
       ))}
+      {isSymptomGuide && (
+        <section className="mop-section">
+          <div className="mop-wrap">
+            <h2>Start with the symptom</h2>
+            <p>
+              Match what your appliance is doing — the sound, the leak, the code on the display —
+              and Speedy helps you check the simple things first, then books a technician if it
+              needs hands on it.
+            </p>
+            <figure style={{ margin: '18px 0 0', maxWidth: 760 }}>
+              <img
+                src="/visuals/scenario/speedy-symptom-guide.webp"
+                alt="Speedy symptom guide — checking an appliance symptom step by step"
+                loading="lazy"
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+              />
+            </figure>
+          </div>
+        </section>
+      )}
     </main>
   )
 }

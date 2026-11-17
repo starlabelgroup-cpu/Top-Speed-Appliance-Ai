@@ -437,6 +437,15 @@ export default function ServiceRequestPage() {
             </div>
           </div>
 
+          <figure style={{ margin: '0 0 26px' }}>
+            <img
+              src="/visuals/scenario/book-confirmation.webp"
+              alt="Booking confirmed — your request is with the Service Setters"
+              loading="lazy"
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+            />
+          </figure>
+
           <div className="os-form-card" style={{ marginBottom: 26 }}>
             <div className="os-review-group">
               <h3>Your Booking</h3>
@@ -905,6 +914,15 @@ export default function ServiceRequestPage() {
           </div>
 
           <SpeedyPanel onPrefill={handleSpeedyPrefill} />
+
+          <figure className="os-scenario-side">
+            <img
+              src="/visuals/scenario/book-form-desktop.webp"
+              alt="Booking a repair on the classic web form"
+              loading="lazy"
+            />
+            <figcaption>The classic booking form — most customers book right here.</figcaption>
+          </figure>
         </div>
       </div>
       <MobileStickyBar />

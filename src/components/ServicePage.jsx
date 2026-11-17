@@ -454,6 +454,40 @@ const SERVICE_CONFIG = {
   }
 }
 
+/**
+ * Scenario library content bands (round one) — flat illustrations that sit
+ * in the content sections of a service page, below the poster hero.
+ * The dryer band is vent information only: no vent price, and vent cleaning
+ * is never offered as a bookable appliance service — Cleanout Vents is the
+ * registered vent partner in the Top Speed network and takes those calls.
+ */
+const SCENARIO_BANDS = {
+  dishwasher: {
+    src: '/visuals/scenario/repair-dishwasher-motor.webp',
+    alt: 'Technician testing a dishwasher circulation motor during a repair',
+    heading: 'Inside a Dishwasher Repair',
+    text: 'When dishes come out gritty or the machine hums and will not spray, the circulation motor and pump are where we look first. We test the motor before quoting any part, so you approve the real fix — not a guess.'
+  },
+  installation: {
+    src: '/visuals/scenario/install-first-run-washer.webp',
+    alt: 'First test run of a newly installed washer, checked level with hoses connected',
+    heading: 'Installed, Then Proven on the First Run',
+    text: 'Every washer installation ends the same way: connections checked, the unit leveled, and a full first cycle run while we are still there — so the first load you wash is not the test.'
+  },
+  washerDryerInstallation: {
+    src: '/visuals/scenario/install-first-run-washer.webp',
+    alt: 'First test run of a newly installed washer, checked level with hoses connected',
+    heading: 'Installed, Then Proven on the First Run',
+    text: 'Every washer installation ends the same way: connections checked, the unit leveled, and a full first cycle run while we are still there — so the first load you wash is not the test.'
+  },
+  dryer: {
+    src: '/visuals/scenario/vent-lint-handful.webp',
+    alt: 'A handful of lint cleared from a dryer vent — the build-up that makes dryers run long',
+    heading: 'Dryer Vents: The Lint You Never See',
+    text: 'When a dryer runs and runs but clothes stay damp, the vent is often the real problem — lint builds up inside the duct, choking airflow and making the dryer work twice as hard. Dryer vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network: call 954-931-7997 and ask for Cleanout Vents.'
+  }
+}
+
 const ServicePageComponent = ({ service }) => {
   const attrQs = useAttributionSearch()
   const config = SERVICE_CONFIG[service] || SERVICE_CONFIG.washer
@@ -531,6 +565,21 @@ const ServicePageComponent = ({ service }) => {
           ))}
         </ul>
       </section>
+
+      {SCENARIO_BANDS[service] && (
+        <section className="service-section">
+          <h2>{SCENARIO_BANDS[service].heading}</h2>
+          <p>{SCENARIO_BANDS[service].text}</p>
+          <figure style={{ margin: '18px 0 0', maxWidth: 760 }}>
+            <img
+              src={SCENARIO_BANDS[service].src}
+              alt={SCENARIO_BANDS[service].alt}
+              loading="lazy"
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+            />
+          </figure>
+        </section>
+      )}
 
       {config.relatedLinks && (
         <section className="service-section">
