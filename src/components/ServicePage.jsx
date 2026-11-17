@@ -455,38 +455,126 @@ const SERVICE_CONFIG = {
 }
 
 /**
- * Scenario library content bands (round one) — flat illustrations that sit
+ * Scenario library content bands (rounds one and two) — flat illustrations that sit
  * in the content sections of a service page, below the poster hero.
  * The dryer band is vent information only: no vent price, and vent cleaning
  * is never offered as a bookable appliance service — Cleanout Vents is the
  * registered vent partner in the Top Speed network and takes those calls.
  */
 const SCENARIO_BANDS = {
-  dishwasher: {
-    src: '/visuals/scenario/repair-dishwasher-motor.webp',
-    alt: 'Technician testing a dishwasher circulation motor during a repair',
-    heading: 'Inside a Dishwasher Repair',
-    text: 'When dishes come out gritty or the machine hums and will not spray, the circulation motor and pump are where we look first. We test the motor before quoting any part, so you approve the real fix — not a guess.'
-  },
-  installation: {
-    src: '/visuals/scenario/install-first-run-washer.webp',
-    alt: 'First test run of a newly installed washer, checked level with hoses connected',
-    heading: 'Installed, Then Proven on the First Run',
-    text: 'Every washer installation ends the same way: connections checked, the unit leveled, and a full first cycle run while we are still there — so the first load you wash is not the test.'
-  },
-  washerDryerInstallation: {
-    src: '/visuals/scenario/install-first-run-washer.webp',
-    alt: 'First test run of a newly installed washer, checked level with hoses connected',
-    heading: 'Installed, Then Proven on the First Run',
-    text: 'Every washer installation ends the same way: connections checked, the unit leveled, and a full first cycle run while we are still there — so the first load you wash is not the test.'
-  },
-  dryer: {
-    src: '/visuals/scenario/vent-lint-handful.webp',
-    alt: 'A handful of lint cleared from a dryer vent — the build-up that makes dryers run long',
-    heading: 'Dryer Vents: The Lint You Never See',
-    text: 'When a dryer runs and runs but clothes stay damp, the vent is often the real problem — lint builds up inside the duct, choking airflow and making the dryer work twice as hard. Dryer vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network: call 954-931-7997 and ask for Cleanout Vents.'
-  }
+  refrigerator: [
+    {
+      src: '/visuals/scenario/repair-fridge-fan.webp',
+      alt: 'Technician replacing a refrigerator evaporator fan during a repair',
+      heading: 'The Fan Behind the Cold Air',
+      text: 'A fridge that runs warm on top and freezes below often points at the evaporator fan — the part that moves cold air from the freezer into the fresh-food side. We test the fan and its motor before quoting the part, so the fix matches the failure.'
+    },
+    {
+      src: '/visuals/scenario/repair-ice-maker-swap.webp',
+      alt: 'Technician swapping a refrigerator ice maker unit',
+      heading: 'Ice Maker Swaps, Done Clean',
+      text: 'When an ice maker stops cycling or its motor burns out, a unit swap is usually faster and more reliable than chasing individual parts. We match the replacement to your model, swap it in, and confirm a full ice cycle before we leave.'
+    },
+    {
+      src: '/visuals/scenario/repair-freezer-thaw.webp',
+      alt: 'Technician thawing a frozen-up freezer evaporator during a repair',
+      heading: 'Freezer Frosted Over? We Find Why',
+      text: 'A freezer packed with frost is not just an eyesore — it chokes airflow and makes the compressor run nonstop. We thaw the coil safely, then find what caused the freeze-up — a defrost heater, a timer, or a door seal — so it does not come back in a month.'
+    }
+  ],
+  washer: [
+    {
+      src: '/visuals/scenario/repair-washer-belt.webp',
+      alt: 'Technician fitting a new drive belt on a washing machine',
+      heading: 'When the Drum Will Not Turn',
+      text: 'A washer that hums but will not spin or agitate often has a worn or snapped drive belt. It is one of the quickest repairs we do — the belt matched to your model, the tension checked, and a full spin cycle run before the job is closed.'
+    }
+  ],
+  dryer: [
+    {
+      src: '/visuals/scenario/repair-dryer-heating.webp',
+      alt: 'Technician testing a dryer heating element during a repair',
+      heading: 'No Heat? We Test the Element First',
+      text: 'A dryer that tumbles but never warms up usually comes down to the heating element, a thermal fuse, or the thermostat. We test each one with a meter before quoting parts — you approve the actual failure, not a guess.'
+    },
+    {
+      src: '/visuals/scenario/vent-lint-handful.webp',
+      alt: 'A handful of lint cleared from a dryer vent — the build-up that makes dryers run long',
+      heading: 'Dryer Vents: The Lint You Never See',
+      text: 'When a dryer runs and runs but clothes stay damp, the vent is often the real problem — lint builds up inside the duct, choking airflow and making the dryer work twice as hard. Dryer vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network: call 954-931-7997 and ask for Cleanout Vents.',
+      moreImages: [
+        { src: '/visuals/scenario/vent-before-after-duct.webp', alt: 'A dryer vent duct before and after a professional cleaning, with the lint build-up cleared' },
+        { src: '/visuals/scenario/vent-airflow-test.webp', alt: 'Technician testing dryer vent airflow after a cleaning' }
+      ]
+    }
+  ],
+  oven: [
+    {
+      src: '/visuals/scenario/repair-oven-igniter.webp',
+      alt: 'Technician replacing a gas oven igniter during a repair',
+      heading: 'The Click With No Flame',
+      text: 'A gas oven that clicks but never lights almost always needs an igniter — it weakens over time until it can no longer open the gas valve safely. We test the igniter draw, swap in the matched part, and confirm a full bake cycle before we go.'
+    }
+  ],
+  dishwasher: [
+    {
+      src: '/visuals/scenario/repair-dishwasher-motor.webp',
+      alt: 'Technician testing a dishwasher circulation motor during a repair',
+      heading: 'Inside a Dishwasher Repair',
+      text: 'When dishes come out gritty or the machine hums and will not spray, the circulation motor and pump are where we look first. We test the motor before quoting any part, so you approve the real fix — not a guess.'
+    },
+    {
+      src: '/visuals/scenario/repair-dishwasher-seal.webp',
+      alt: 'Technician fitting a new door seal on a dishwasher',
+      heading: 'Leaks Start at the Seal',
+      text: 'Puddles in front of the dishwasher usually trace back to a door seal that has gone flat or split. We check the seal, the door latch alignment, and the spray arms together — and only replace what is actually letting the water out.'
+    }
+  ],
+  microwave: [
+    {
+      src: '/visuals/scenario/repair-microwave-door.webp',
+      alt: 'Technician repairing a microwave door latch and switches',
+      heading: 'Door Switches: Small Parts, Dead Microwave',
+      text: 'A microwave that will not start with the door shut usually has a failed door switch — a safety part we test and replace with the matched component, then verify the unit heats and the interlocks work as designed.'
+    }
+  ],
+  garbageDisposal: [
+    {
+      src: '/visuals/scenario/repair-disposal-jam.webp',
+      alt: 'Technician clearing a jammed garbage disposal under a kitchen sink',
+      heading: 'Jammed Disposal? Reset Is Not Always the Fix',
+      text: 'A humming disposal that will not grind is usually jammed at the flywheel. We free it safely, check the splash guard and mounts, and test for leaks — and if the motor itself has failed, we quote the replacement before any work starts.'
+    }
+  ],
+  installation: [
+    {
+      src: '/visuals/scenario/install-first-run-washer.webp',
+      alt: 'First test run of a newly installed washer, checked level with hoses connected',
+      heading: 'Installed, Then Proven on the First Run',
+      text: 'Every washer installation ends the same way: connections checked, the unit leveled, and a full first cycle run while we are still there — so the first load you wash is not the test.'
+    }
+  ],
+  washerDryerInstallation: [
+    {
+      src: '/visuals/scenario/install-first-run-washer.webp',
+      alt: 'First test run of a newly installed washer, checked level with hoses connected',
+      heading: 'Installed, Then Proven on the First Run',
+      text: 'Every washer installation ends the same way: connections checked, the unit leveled, and a full first cycle run while we are still there — so the first load you wash is not the test.'
+    }
+  ]
 }
+
+/**
+ * Installation flow strip (round two) — the three beats of an installation,
+ * in order: measure, hookup, walkthrough. The first-run band in
+ * SCENARIO_BANDS completes the flow and renders right after the strip.
+ */
+const INSTALL_FLOW = [
+  { src: '/visuals/scenario/install-door-measure.webp', alt: 'Technician measuring a doorway and the installation space before delivery', label: '1 · Measure' },
+  { src: '/visuals/scenario/install-washer-hookup.webp', alt: 'Technician connecting water hoses and power during a washer hookup', label: '2 · Hookup' },
+  { src: '/visuals/scenario/install-walkthrough.webp', alt: 'Technician walking the customer through their newly installed appliance', label: '3 · Walkthrough' }
+]
+const INSTALL_FLOW_SERVICES = ['installation', 'washerDryerInstallation']
 
 const ServicePageComponent = ({ service }) => {
   const attrQs = useAttributionSearch()
@@ -566,20 +654,54 @@ const ServicePageComponent = ({ service }) => {
         </ul>
       </section>
 
-      {SCENARIO_BANDS[service] && (
+      {INSTALL_FLOW_SERVICES.includes(service) && (
         <section className="service-section">
-          <h2>{SCENARIO_BANDS[service].heading}</h2>
-          <p>{SCENARIO_BANDS[service].text}</p>
+          <h2>How an Installation Flows</h2>
+          <p>Every installation follows the same three beats — measured first, hooked up and tested, then walked through with you — and finishes with the first full run, shown below.</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, marginTop: 18, maxWidth: 980 }}>
+            {INSTALL_FLOW.map((step) => (
+              <figure key={step.src} style={{ margin: 0 }}>
+                <img
+                  src={step.src}
+                  alt={step.alt}
+                  loading="lazy"
+                  style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+                />
+                <figcaption style={{ marginTop: 8, fontWeight: 600 }}>{step.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {(SCENARIO_BANDS[service] || []).map((band) => (
+        <section className="service-section" key={band.src}>
+          <h2>{band.heading}</h2>
+          <p>{band.text}</p>
           <figure style={{ margin: '18px 0 0', maxWidth: 760 }}>
             <img
-              src={SCENARIO_BANDS[service].src}
-              alt={SCENARIO_BANDS[service].alt}
+              src={band.src}
+              alt={band.alt}
               loading="lazy"
               style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
             />
           </figure>
+          {band.moreImages && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginTop: 16, maxWidth: 760 }}>
+              {band.moreImages.map((extra) => (
+                <figure key={extra.src} style={{ margin: 0 }}>
+                  <img
+                    src={extra.src}
+                    alt={extra.alt}
+                    loading="lazy"
+                    style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+                  />
+                </figure>
+              ))}
+            </div>
+          )}
         </section>
-      )}
+      ))}
 
       {config.relatedLinks && (
         <section className="service-section">

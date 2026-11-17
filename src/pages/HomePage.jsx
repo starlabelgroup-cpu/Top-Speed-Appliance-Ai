@@ -173,6 +173,40 @@ export default function HomePage() {
               style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
             />
           </figure>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginTop: 16, maxWidth: 760 }}>
+            <figure style={{ margin: 0 }}>
+              <img
+                src="/visuals/scenario/need-warm-fridge.webp"
+                alt="A refrigerator standing warm with food inside — the moment to book a repair"
+                loading="lazy"
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+              />
+            </figure>
+            <figure style={{ margin: 0 }}>
+              <img
+                src="/visuals/scenario/need-washer-leak.webp"
+                alt="Water pooling under a leaking washing machine at home"
+                loading="lazy"
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+              />
+            </figure>
+            <figure style={{ margin: 0 }}>
+              <img
+                src="/visuals/scenario/need-dryer-no-heat.webp"
+                alt="A dryer full of damp clothes that will not heat"
+                loading="lazy"
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+              />
+            </figure>
+            <figure style={{ margin: 0 }}>
+              <img
+                src="/visuals/scenario/need-freezer-thaw.webp"
+                alt="A freezer thawing out, with frost melting and food at risk"
+                loading="lazy"
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }}
+              />
+            </figure>
+          </div>
           <p style={{ marginTop: 22 }}>
             <Link className="os-btn os-btn-red" to="/service-request">Book a Repair</Link>
           </p>
