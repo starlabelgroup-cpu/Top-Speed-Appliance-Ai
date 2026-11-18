@@ -21,6 +21,7 @@ export const SERVICE_OS_LINKS = {
   speedy: `${SERVICE_OS_WEB}/speedy`,
   tech: `${SERVICE_OS_WEB}/tech`,
   signup: `${SERVICE_OS_WEB}/signup`,
+  resetPassword: `${SERVICE_OS_WEB}/reset-password`,
   garage: `${SERVICE_OS_WEB}/garage`,
   connectProApp: `${SERVICE_OS_WEB}/connect-pro-app`,
   appliancePro: `${SERVICE_OS_WEB}/appliance-pro`,

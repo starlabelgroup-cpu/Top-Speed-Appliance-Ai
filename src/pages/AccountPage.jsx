@@ -155,6 +155,10 @@ export default function AccountPage() {
             >
               Create Account
             </a>
+            <p className="os-signin-note" style={{ marginTop: 12 }}>
+              <a href={SERVICE_OS_LINKS.resetPassword} target="_blank" rel="noopener noreferrer">Forgot password?</a>
+              {' '}— we'll email you a link to reset it.
+            </p>
             <a href={SERVICE_OS_LINKS.connectProApp} target="_blank" rel="noopener noreferrer">
               <button type="button" className="os-google-btn">Continue with Google</button>
             </a>
