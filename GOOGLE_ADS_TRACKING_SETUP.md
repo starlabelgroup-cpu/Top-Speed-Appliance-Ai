@@ -123,7 +123,7 @@ googleAdsTracking.trackBookingConversion({
 googleAdsTracking.trackPhoneCallConversion({
   service: 'Dryer Repair',
   city: 'Miami',
-  phone: '(954) 931-7997'
+  phone: '(844) 460-7038'
 })
 
 // Track lead submission

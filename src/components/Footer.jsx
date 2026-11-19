@@ -34,7 +34,7 @@ function Footer() {
         <Link to="/brands">Brands</Link> &nbsp;•&nbsp;{' '}
         <Link to="/account">Account</Link>
       </p>
-      <p className="os-foot-contact"><a href="tel:9549317997">(954) 931-7997</a> &nbsp;•&nbsp; <a href="mailto:service@topspeedappliance.net">service@topspeedappliance.net</a></p>
+      <p className="os-foot-contact"><a href="tel:8444607038">(844) 460-7038</a> &nbsp;•&nbsp; <a href="mailto:service@topspeedappliance.net">service@topspeedappliance.net</a></p>
       <p>© {new Date().getFullYear()} Top Speed Appliance LLC — The Faster, The Better.</p>
       <p>Fast • Reliable • Professional</p>
       <p>6810 N State Rd 7, Suite 341, Coconut Creek, FL 33073</p>

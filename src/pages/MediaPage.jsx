@@ -150,7 +150,7 @@ export default function MediaPage() {
         <h2 className="os-media-kicker" style={{ marginTop: 44 }}>BRAND VISUALS — THE 2026 POSTER SET</h2>
         <p className="os-sub" style={{ maxWidth: 720 }}>
           One consistent high-resolution poster set for the listings, the platform and social —
-          designed in the Top Speed racing-flag system. Every poster carries the real number: 954-931-7997.
+          designed in the Top Speed racing-flag system. Every poster carries the real number: 844-460-7038.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 14, marginTop: 16 }}>
               <img src="/visuals/visual-logo.jpg" alt="Top Speed Appliance Repair logo — The Faster, The Better" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 14, border: '1.5px solid #D8E2F2' }} />

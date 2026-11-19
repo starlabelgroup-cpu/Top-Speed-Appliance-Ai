@@ -40,7 +40,7 @@ Top Speed Appliance offers professional appliance repair in Fort Lauderdale, FL.
 Downtown Fort Lauderdale, Las Olas, Victoria Park, Flagler Village, Colee Hammock, Oakland Park
 
 **CTA:**
-📞 Call Now: (954) 931-7997
+📞 Call Now: (844) 460-7038
 🔘 Schedule Service Today
 
 **FAQ:**

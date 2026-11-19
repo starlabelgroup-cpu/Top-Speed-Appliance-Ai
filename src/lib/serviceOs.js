@@ -117,7 +117,7 @@ async function api(path, options) {
   try {
     response = await fetch(`${SERVICE_OS_API_BASE}${path}`, options)
   } catch {
-    const error = new Error('Could not reach the booking system. Please check your connection or call (954) 931-7997.')
+    const error = new Error('Could not reach the booking system. Please check your connection or call (844) 460-7038.')
     error.status = 0
     throw error
   }

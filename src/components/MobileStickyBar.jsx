@@ -8,7 +8,7 @@ export default function MobileStickyBar() {
   return (
     <div className="os-stickybar" aria-label="Quick actions">
       <Link className="b-book" to={withAttribution('/service-request', attrQs)}>Book Online</Link>
-      <a className="b-call" href="tel:9549317997">Call Us</a>
+      <a className="b-call" href="tel:8444607038">Call Us</a>
       <button
         type="button"
         className="b-chat"

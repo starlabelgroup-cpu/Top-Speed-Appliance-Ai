@@ -90,8 +90,8 @@ function Keywords() {
         <h3>Need Appliance Repair Today?</h3>
         <p>Contact Top Speed Appliance for fast, reliable repair service in South Florida</p>
         <a href="https://topspeedserviceos.com/book" target="_blank" rel="noopener noreferrer" className="cta-button">Request Service Now</a>
-        <a href="tel:9549317997" className="cta-button keywords-call-cta">
-          Call (954) 931-7997
+        <a href="tel:8444607038" className="cta-button keywords-call-cta">
+          Call (844) 460-7038
         </a>
       </div>
     </section>

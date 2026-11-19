@@ -171,7 +171,7 @@ export default function PaymentGateway({ amount = 89, description = 'Service Dia
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="(954) 931-7997"
+              placeholder="(844) 460-7038"
             />
           </div>
 

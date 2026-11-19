@@ -93,7 +93,7 @@ Reliable oven and stove repair for temperature problems, igniters, and control f
 **Example Post Format:**
 ```
 Title: Same-Day Washer Repair in Fort Lauderdale
-Text: Washer not spinning? Water leaking? Call Top Speed Appliance for fast, same-day repair. Licensed & insured. Call (954) 931-7997
+Text: Washer not spinning? Water leaking? Call Top Speed Appliance for fast, same-day repair. Licensed & insured. Call (844) 460-7038
 CTA Button: Call Now
 Link: /washer-repair?utm_source=google&utm_medium=organic&utm_campaign=gbp_washer
 ```

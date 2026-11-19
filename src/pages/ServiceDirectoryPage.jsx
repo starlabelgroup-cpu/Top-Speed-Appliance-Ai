@@ -59,7 +59,7 @@ function ServiceDirectoryPage() {
           <p>Choose your appliance and city to find the right repair page, then book online or call our team.</p>
           <div className="ts-hero-actions">
             <button type="button" className="ts-button ts-button-light" onClick={openSpeedy}>Book Online</button>
-            <a className="ts-hero-phone" href="tel:9549317997">Call (954) 931-7997</a>
+            <a className="ts-hero-phone" href="tel:8444607038">Call (844) 460-7038</a>
           </div>
         </div>
         <div className="ts-hero-badge" aria-hidden="true">
@@ -106,7 +106,7 @@ function ServiceDirectoryPage() {
             </select>
           </div>
           <button type="submit" className="ts-button ts-button-primary">Search Directory</button>
-          <p className="ts-search-note">Service coverage varies by city. Call (954) 931-7997 to confirm availability for your address.</p>
+          <p className="ts-search-note">Service coverage varies by city. Call (844) 460-7038 to confirm availability for your address.</p>
         </form>
       </div>
 
@@ -173,7 +173,7 @@ function ServiceDirectoryPage() {
           <div className="ts-step">
             <b>04</b>
             <h3>Call if needed</h3>
-            <p>Call (954) 931-7997 with questions about your visit.</p>
+            <p>Call (844) 460-7038 with questions about your visit.</p>
           </div>
         </div>
       </section>
@@ -203,7 +203,7 @@ function ServiceDirectoryPage() {
         <aside className="ts-booking-aside">
           <h2>Request a Repair Visit</h2>
           <p>Book your appointment online and choose a time that works for you.</p>
-          <p>Prefer to talk? Call <a href="tel:9549317997">(954) 931-7997</a>.</p>
+          <p>Prefer to talk? Call <a href="tel:8444607038">(844) 460-7038</a>.</p>
         </aside>
         <div className="ts-booking-main">
           <div className="ts-booking-form">

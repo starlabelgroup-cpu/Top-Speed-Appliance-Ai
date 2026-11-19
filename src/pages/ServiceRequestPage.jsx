@@ -372,7 +372,7 @@ export default function ServiceRequestPage() {
       } else {
         setNotification({
           type: 'error',
-          message: `${err.message || 'We could not send your request.'} Please call (954) 931-7997 to book.`
+          message: `${err.message || 'We could not send your request.'} Please call (844) 460-7038 to book.`
         })
       }
       return

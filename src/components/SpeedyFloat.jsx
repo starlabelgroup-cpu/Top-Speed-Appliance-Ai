@@ -224,7 +224,7 @@ export default function SpeedyFloat() {
           ...m,
           {
             role: 'bot',
-            text: 'Speedy hit a connection snag just now. For the fastest help, call dispatch at 954-931-7997 — or try me again in a moment.',
+            text: 'Speedy hit a connection snag just now. For the fastest help, call dispatch at 844-460-7038 — or try me again in a moment.',
           },
         ])
       }
@@ -264,7 +264,7 @@ export default function SpeedyFloat() {
         ...m,
         {
           role: 'bot',
-          text: `That booking did not go through (${e.message}). You can use the booking form on this site, or call 954-931-7997.`,
+          text: `That booking did not go through (${e.message}). You can use the booking form on this site, or call 844-460-7038.`,
         },
       ])
     }
@@ -285,7 +285,7 @@ export default function SpeedyFloat() {
       } catch (e) {
         setMsgs((m) => [
           ...m,
-          { role: 'bot', text: `That didn't go through: ${e.message}. Call 954-931-7997 and we'll send it by phone.` },
+          { role: 'bot', text: `That didn't go through: ${e.message}. Call 844-460-7038 and we'll send it by phone.` },
         ])
       }
     },
@@ -330,7 +330,7 @@ export default function SpeedyFloat() {
           setTyping(false)
           setMsgs((m) => [
             ...m,
-            { role: 'bot', text: "Speedy couldn't read that photo just now — book the visit and the technician will diagnose on site, or call 954-931-7997." },
+            { role: 'bot', text: "Speedy couldn't read that photo just now — book the visit and the technician will diagnose on site, or call 844-460-7038." },
           ])
         }
       }

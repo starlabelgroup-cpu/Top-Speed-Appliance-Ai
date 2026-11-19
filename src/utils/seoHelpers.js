@@ -40,7 +40,7 @@ export const organizationSchema = {
   name: 'Top Speed Appliance',
   image: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2Fc593bf5c5ea049c987a8ce14d83a1a44',
   description: 'Professional appliance repair services in South Florida',
-  telephone: '+1-954-931-7997',
+  telephone: '+1-844-460-7038',
   email: 'service@topspeedappliance.net',
   address: {
     '@type': 'PostalAddress',
@@ -64,6 +64,6 @@ export const serviceSchema = (title, description, areaServed) => ({
   name: `Top Speed Appliance - ${title}`,
   description,
   areaServed,
-  telephone: '+1-954-931-7997',
+  telephone: '+1-844-460-7038',
   url: 'https://topspeedappliance.net'
 })

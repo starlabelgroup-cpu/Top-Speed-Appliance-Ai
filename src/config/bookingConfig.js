@@ -15,8 +15,8 @@ export const BOOKING_CONFIG = {
   BOOKING_URL: 'https://topspeedserviceos.com/book',
 
   // Phone number for direct calls
-  PHONE_NUMBER: '(954) 931-7997',
-  PHONE_LINK: 'tel:9549317997',
+  PHONE_NUMBER: '(844) 460-7038',
+  PHONE_LINK: 'tel:8444607038',
 
   EMAIL: 'service@topspeedappliance.net',
 

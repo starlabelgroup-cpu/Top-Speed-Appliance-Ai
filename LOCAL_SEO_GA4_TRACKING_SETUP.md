@@ -8,7 +8,7 @@ Event Name: click_call
 Parameters:
   - event_category: "Contact"
   - event_label: "[service]_repair" or "city_[city]"
-  - phone_number: "(954) 931-7997"
+  - phone_number: "(844) 460-7038"
 ```
 
 ### 2. Schedule Service
@@ -81,7 +81,7 @@ In GA4 → Reports → Acquisition:
 gtag('event', 'click_call', {
   'event_category': 'Contact',
   'event_label': 'washer_repair',
-  'phone_number': '(954) 931-7997'
+  'phone_number': '(844) 460-7038'
 });
 
 // Simulate schedule_service event

@@ -98,7 +98,7 @@ const PAGE_META = {
   },
   '/warranty': {
     title: 'Appliance Repair Warranty | Top Speed Appliance',
-    description: 'Warranty coverage on appliance repairs from Top Speed Appliance in South Florida. Book online or call 954-931-7997.',
+    description: 'Warranty coverage on appliance repairs from Top Speed Appliance in South Florida. Book online or call 844-460-7038.',
   },
   '/reviews': {
     title: 'Customer Reviews | Top Speed Appliance',
@@ -114,35 +114,35 @@ const PAGE_META = {
   },
   '/refrigerator-repair': {
     title: 'Refrigerator Repair Near Me in South Florida | Top Speed Appliance',
-    description: 'Refrigerator repair in South Florida from Top Speed Appliance. Book online or call 954-931-7997 to schedule a visit.',
+    description: 'Refrigerator repair in South Florida from Top Speed Appliance. Book online or call 844-460-7038 to schedule a visit.',
   },
   '/washer-repair': {
     title: 'Washer Repair Near Me in South Florida | Top Speed Appliance',
-    description: 'Washer repair in South Florida from Top Speed Appliance. Book online or call 954-931-7997 to schedule a visit.',
+    description: 'Washer repair in South Florida from Top Speed Appliance. Book online or call 844-460-7038 to schedule a visit.',
   },
   '/dryer-repair': {
     title: 'Dryer Repair Near Me in South Florida | Top Speed Appliance',
-    description: 'Dryer repair in South Florida from Top Speed Appliance. Book online or call 954-931-7997 to schedule a visit.',
+    description: 'Dryer repair in South Florida from Top Speed Appliance. Book online or call 844-460-7038 to schedule a visit.',
   },
   '/dishwasher-repair': {
     title: 'Dishwasher Repair Near Me in South Florida | Top Speed Appliance',
-    description: 'Dishwasher repair in South Florida from Top Speed Appliance. Book online or call 954-931-7997 to schedule a visit.',
+    description: 'Dishwasher repair in South Florida from Top Speed Appliance. Book online or call 844-460-7038 to schedule a visit.',
   },
   '/oven-stove-repair': {
     title: 'Oven and Range Repair Near Me in South Florida | Top Speed Appliance',
-    description: 'Oven and range repair in South Florida from Top Speed Appliance. Book online or call 954-931-7997 to schedule a visit.',
+    description: 'Oven and range repair in South Florida from Top Speed Appliance. Book online or call 844-460-7038 to schedule a visit.',
   },
   '/microwave-repair': {
     title: 'Microwave Repair Near Me in South Florida | Top Speed Appliance',
-    description: 'Microwave repair in South Florida from Top Speed Appliance. Book online or call 954-931-7997 to schedule a visit.',
+    description: 'Microwave repair in South Florida from Top Speed Appliance. Book online or call 844-460-7038 to schedule a visit.',
   },
   '/commercial-appliance-repair': {
     title: 'Commercial Appliance Repair in South Florida | Top Speed Appliance',
-    description: 'Commercial appliance repair in South Florida. Request a quote or call 954-931-7997 to discuss your equipment.',
+    description: 'Commercial appliance repair in South Florida. Request a quote or call 844-460-7038 to discuss your equipment.',
   },
   '/appliance-installation': {
     title: 'Appliance Installation in South Florida | Top Speed Appliance',
-    description: 'Appliance installation in South Florida from Top Speed Appliance. Installation is quoted before work begins. Call 954-931-7997.',
+    description: 'Appliance installation in South Florida from Top Speed Appliance. Installation is quoted before work begins. Call 844-460-7038.',
   },
   ...LOCATION_PAGE_META,
   ...CITY_PAGE_META,

@@ -114,7 +114,7 @@ Features:
 Located in `src/config/bookingConfig.js`:
 ```javascript
 BOOKING_URL: 'https://book.housecallpro.com/book/TopSpeed-Appliance/...'
-PHONE_NUMBER: '(954) 931-7997'
+PHONE_NUMBER: '(844) 460-7038'
 BUSINESS_NAME: 'Top Speed Appliance'
 SERVICE_AREA: 'South Florida'
 ```
@@ -394,7 +394,7 @@ All interactive elements are touch-friendly with adequate spacing (48px minimum 
 
 For questions or issues with the advanced customer account system:
 - Email: service@topspeedappliance.net
-- Phone: (954) 931-7997
+- Phone: (844) 460-7038
 - HouseCall Pro Portal: https://client.housecallpro.com/customer_portal
 
 ## License & Attribution

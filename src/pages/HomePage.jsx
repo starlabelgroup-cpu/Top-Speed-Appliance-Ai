@@ -102,8 +102,8 @@ export default function HomePage() {
               <li>Residential &amp; Commercial</li>
             </ul>
             <div className="os-hero-links">
-              <a className="sms" href="sms:+19549317997"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg> Text Us</a>
-              <a className="wa" href="https://wa.me/19549317997" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a className="sms" href="sms:+18444607038"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 5.5A1.8 1.8 0 0 1 5.8 3.7h12.4A1.8 1.8 0 0 1 20 5.5v8.3a1.8 1.8 0 0 1-1.8 1.8H13l-4.6 3.9v-3.9H5.8A1.8 1.8 0 0 1 4 13.8z"/><path d="M7.6 9.3h.01M12 9.3h.01M16.4 9.3h.01" strokeWidth="2.6" stroke="#E8322E"/></svg> Text Us</a>
+              <a className="wa" href="https://wa.me/18444607038" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
           <div id="meet-speedy">
@@ -137,11 +137,11 @@ export default function HomePage() {
       <section className="os-section" style={{ paddingTop: 6 }}>
         <div className="os-wrap">
           <p className="os-eyebrow">From the field &nbsp;•&nbsp; The 2026 Poster Set</p>
-          <h2 className="os-h2">Real repairs. One fast call — 954-931-7997.</h2>
+          <h2 className="os-h2">Real repairs. One fast call — 844-460-7038.</h2>
           <div className="os-poster-grid">
-              <img className="os-poster-img" src="/visuals/visual-fridge-not-cooling.webp" alt="Fridge Not Cooling? Emergency service available — call 954-931-7997" loading="lazy" />
+              <img className="os-poster-img" src="/visuals/visual-fridge-not-cooling.webp" alt="Fridge Not Cooling? Emergency service available — call 844-460-7038" loading="lazy" />
               <img className="os-poster-img" src="/visuals/visual-same-day.webp" alt="Same-Day Appliance Repair — Top Speed Appliance poster" loading="lazy" />
-              <img className="os-poster-img" src="/visuals/visual-washer-dryer.webp" alt="Washer or Dryer Not Working? We fix it FAST — call 954-931-7997" loading="lazy" />
+              <img className="os-poster-img" src="/visuals/visual-washer-dryer.webp" alt="Washer or Dryer Not Working? We fix it FAST — call 844-460-7038" loading="lazy" />
               <img className="os-poster-img" src="/visuals/visual-ask-speedy.webp" alt="Ask Speedy AI — book in about a minute, photo diagnosis and instant booking" loading="lazy" />
               <img className="os-poster-img" src="/visuals/visual-cities.webp" alt="Serving 12 Broward Cities — Top Speed Appliance" loading="lazy" />
               <img className="os-poster-img" src="/visuals/visual-diagnostic.webp" alt="$99 diagnostic, credited toward your repair — Top Speed Appliance" loading="lazy" />

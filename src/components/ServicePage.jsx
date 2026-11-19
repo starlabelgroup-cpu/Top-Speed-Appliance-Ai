@@ -56,7 +56,7 @@ const SERVICE_CONFIG = {
   washer: {
     name: 'Washer',
     seoTitle: 'Washer Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Washer repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Washer repair in South Florida with a $99 service fee. Book online with Speedy or call (844) 460-7038.',
     h1: 'Washer Repair in Fort Lauderdale, FL',
     image: '/visuals/page-washer.webp',
     imageAlt: 'Top Speed Appliance technician repairing a washer motor',
@@ -74,7 +74,7 @@ const SERVICE_CONFIG = {
   dryer: {
     name: 'Dryer',
     seoTitle: 'Dryer Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Dryer repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Dryer repair in South Florida with a $99 service fee. Book online with Speedy or call (844) 460-7038.',
     h1: 'Dryer Repair in Fort Lauderdale, FL',
     image: '/visuals/page-dryer.webp',
     imageAlt: 'Top Speed Appliance technician repairing a dryer',
@@ -86,13 +86,13 @@ const SERVICE_CONFIG = {
       { question: 'How much does dryer repair cost?', answer: `The ${SERVICE_FEE} service fee covers the technician visit and diagnosis. Parts and labor are quoted before any work begins.` },
       { question: 'Do you repair gas and electric dryers?', answer: 'Yes, we service both gas and electric dryers.' },
       { question: 'Why is my dryer taking so long to dry clothes?', answer: 'Clogged vents, failed thermal sensors, or aged heating elements are common causes. We inspect and repair them.' },
-      { question: 'Do you offer vent cleaning?', answer: 'We repair the dryer itself — vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network. Call 954-931-7997 and ask for Cleanout Vents.' }
+      { question: 'Do you offer vent cleaning?', answer: 'We repair the dryer itself — vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network. Call 844-460-7038 and ask for Cleanout Vents.' }
     ]
   },
   refrigerator: {
     name: 'Refrigerator',
     seoTitle: 'Refrigerator Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Refrigerator repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Refrigerator repair in South Florida with a $99 service fee. Book online with Speedy or call (844) 460-7038.',
     h1: 'Refrigerator Repair in Fort Lauderdale, FL',
     image: '/visuals/page-refrigerator.webp',
     imageAlt: 'Top Speed Appliance technician repairing a refrigerator compressor',
@@ -110,7 +110,7 @@ const SERVICE_CONFIG = {
   oven: {
     name: 'Oven & Stove',
     seoTitle: 'Oven & Stove Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Oven and stove repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Oven and stove repair in South Florida with a $99 service fee. Book online with Speedy or call (844) 460-7038.',
     h1: 'Oven & Stove Repair in Fort Lauderdale, FL',
     image: '/visuals/page-oven.webp',
     imageAlt: 'Top Speed Appliance technician repairing a stove',
@@ -128,7 +128,7 @@ const SERVICE_CONFIG = {
   dishwasher: {
     name: 'Dishwasher',
     seoTitle: 'Dishwasher Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Dishwasher repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Dishwasher repair in South Florida with a $99 service fee. Book online with Speedy or call (844) 460-7038.',
     h1: 'Dishwasher Repair in Fort Lauderdale, FL',
     image: '/visuals/page-dishwasher.webp',
     imageAlt: 'Top Speed Appliance technician repairing a dishwasher pump',
@@ -146,7 +146,7 @@ const SERVICE_CONFIG = {
   microwave: {
     name: 'Microwave',
     seoTitle: 'Microwave Repair in Fort Lauderdale | $99 Service Fee',
-    metaDescription: 'Microwave repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Microwave repair in South Florida with a $99 service fee. Book online with Speedy or call (844) 460-7038.',
     h1: 'Microwave Repair in Fort Lauderdale, FL',
     image: '/images/service/microwave-service.webp',
     imageAlt: 'Built-in stainless steel Sharp microwave drawer in a white kitchen',
@@ -163,7 +163,7 @@ const SERVICE_CONFIG = {
   wineCooler: {
     name: 'Wine Cooler',
     seoTitle: 'Wine Cooler Repair in South Florida | Book Online',
-    metaDescription: 'Wine cooler repair in South Florida for units that are not cooling, humming, or leaking. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Wine cooler repair in South Florida for units that are not cooling, humming, or leaking. Book online with Speedy or call (844) 460-7038.',
     h1: 'Wine Cooler Repair in South Florida',
     image: '/images/service/wine-cooler-service.webp',
     imageAlt: 'Built-in stainless steel wine cooler with wood shelving and glass door',
@@ -180,7 +180,7 @@ const SERVICE_CONFIG = {
   garbageDisposal: {
     name: 'Garbage Disposal',
     seoTitle: 'Garbage Disposal Repair in South Florida | Book Online',
-    metaDescription: 'Garbage disposal repair in South Florida for jammed, leaking, and non-working units. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Garbage disposal repair in South Florida for jammed, leaking, and non-working units. Book online with Speedy or call (844) 460-7038.',
     h1: 'Garbage Disposal Repair in South Florida',
     image: '/images/service/garbage-disposal-service.webp',
     imageAlt: 'Garbage disposal repair under a kitchen sink',
@@ -197,7 +197,7 @@ const SERVICE_CONFIG = {
   commercial: {
     name: 'Commercial Appliance',
     seoTitle: 'Commercial Appliance Repair in South Florida | Book Online',
-    metaDescription: 'Commercial appliance repair in South Florida for restaurants, hotels, and businesses. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Commercial appliance repair in South Florida for restaurants, hotels, and businesses. Book online with Speedy or call (844) 460-7038.',
     h1: 'Commercial Appliance Repair in South Florida',
     image: '/visuals/visual-commercial.jpg',
     imageAlt: 'Top Speed Appliance commercial appliance repair',
@@ -217,13 +217,13 @@ const SERVICE_CONFIG = {
       { question: 'Do you repair restaurant equipment?', answer: 'Yes, we service commercial kitchen equipment including refrigeration, cooking, and dishwashing appliances.' },
       { question: 'How are commercial repairs priced?', answer: 'Commercial repairs are quoted after diagnosis, and you approve the quote before any work begins.' },
       { question: 'Can you schedule visits around my business hours?', answer: 'Yes, call us to discuss a schedule that fits your business.' },
-      { question: 'Can you respond to an urgent breakdown?', answer: 'Call (954) 931-7997 and we will check availability for urgent repairs.' }
+      { question: 'Can you respond to an urgent breakdown?', answer: 'Call (844) 460-7038 and we will check availability for urgent repairs.' }
     ]
   },
   home: {
     name: 'Home Appliance',
     seoTitle: 'Home Appliance Repair in South Florida | $99 Service Fee',
-    metaDescription: 'Home appliance repair in South Florida with a $99 service fee. Book online with Speedy or call (954) 931-7997.',
+    metaDescription: 'Home appliance repair in South Florida with a $99 service fee. Book online with Speedy or call (844) 460-7038.',
     h1: 'Home Appliance Repair in South Florida',
     image: '/images/service/expert-team-banner.webp',
     imageAlt: 'Top Speed Appliance technicians at work',
@@ -240,7 +240,7 @@ const SERVICE_CONFIG = {
   installation: {
     name: 'Appliance Installation',
     seoTitle: 'Appliance Installation in South Florida | Book Online',
-    metaDescription: 'Professional appliance installation in South Florida. Book online with Speedy or call (954) 931-7997 for a quote.',
+    metaDescription: 'Professional appliance installation in South Florida. Book online with Speedy or call (844) 460-7038 for a quote.',
     h1: 'Appliance Installation in South Florida',
     image: '/images/service/appliance-installation-service.webp',
     imageAlt: 'Appliance installation by Top Speed Appliance',
@@ -266,7 +266,7 @@ const SERVICE_CONFIG = {
   commercialRefrigeration: {
     name: 'Commercial Refrigeration',
     seoTitle: 'Commercial Refrigeration Repair in South Florida | Book Online',
-    metaDescription: 'Commercial refrigeration repair in South Florida for walk-in coolers, reach-ins, freezers, and ice machines. Book online or call (954) 931-7997.',
+    metaDescription: 'Commercial refrigeration repair in South Florida for walk-in coolers, reach-ins, freezers, and ice machines. Book online or call (844) 460-7038.',
     h1: 'Commercial Refrigeration Repair in South Florida',
     image: '/images/service/commercial-refrigeration-service.webp',
     imageAlt: 'Commercial refrigeration repair',
@@ -287,7 +287,7 @@ const SERVICE_CONFIG = {
   commercialCooking: {
     name: 'Commercial Cooking Equipment',
     seoTitle: 'Commercial Cooking Equipment Repair in South Florida | Book Online',
-    metaDescription: 'Commercial cooking equipment repair in South Florida for ovens, ranges, fryers, and griddles. Book online or call (954) 931-7997.',
+    metaDescription: 'Commercial cooking equipment repair in South Florida for ovens, ranges, fryers, and griddles. Book online or call (844) 460-7038.',
     h1: 'Commercial Cooking Equipment Repair in South Florida',
     image: '/images/service/commercial-cooking-service.webp',
     imageAlt: 'Commercial cooking equipment repair',
@@ -308,7 +308,7 @@ const SERVICE_CONFIG = {
   commercialDishwasher: {
     name: 'Commercial Dishwasher',
     seoTitle: 'Commercial Dishwasher Repair in South Florida | Book Online',
-    metaDescription: 'Commercial dishwasher repair in South Florida, including sanitizing and booster problems. Book online or call (954) 931-7997.',
+    metaDescription: 'Commercial dishwasher repair in South Florida, including sanitizing and booster problems. Book online or call (844) 460-7038.',
     h1: 'Commercial Dishwasher Repair in South Florida',
     image: '/images/service/commercial-dishwasher-service.webp',
     imageAlt: 'Commercial dishwasher repair',
@@ -329,7 +329,7 @@ const SERVICE_CONFIG = {
   commercialLaundry: {
     name: 'Commercial Laundry',
     seoTitle: 'Commercial Laundry Equipment Repair in South Florida | Book Online',
-    metaDescription: 'Commercial laundry equipment repair in South Florida for hotels, apartments, and laundromats. Book online or call (954) 931-7997.',
+    metaDescription: 'Commercial laundry equipment repair in South Florida for hotels, apartments, and laundromats. Book online or call (844) 460-7038.',
     h1: 'Commercial Laundry Equipment Repair in South Florida',
     image: '/images/service/commercial-laundry-service.webp',
     imageAlt: 'Commercial laundry equipment repair',
@@ -350,7 +350,7 @@ const SERVICE_CONFIG = {
   washerDryerInstallation: {
     name: 'Washer & Dryer Installation',
     seoTitle: 'Washer and Dryer Installation in South Florida | Book Online',
-    metaDescription: 'Washer and dryer installation in South Florida, including hookups and stacking kits. Book online or call (954) 931-7997 for a quote.',
+    metaDescription: 'Washer and dryer installation in South Florida, including hookups and stacking kits. Book online or call (844) 460-7038 for a quote.',
     h1: 'Washer and Dryer Installation in South Florida',
     image: '/images/service/washer-dryer-service.webp',
     imageAlt: 'Washer and dryer installation',
@@ -371,7 +371,7 @@ const SERVICE_CONFIG = {
   refrigeratorInstallation: {
     name: 'Refrigerator Installation',
     seoTitle: 'Refrigerator Installation in South Florida | Book Online',
-    metaDescription: 'Refrigerator installation in South Florida, including ice maker water lines and built-in units. Book online or call (954) 931-7997.',
+    metaDescription: 'Refrigerator installation in South Florida, including ice maker water lines and built-in units. Book online or call (844) 460-7038.',
     h1: 'Refrigerator Installation in South Florida',
     image: '/images/service/refrigerator-service.webp',
     imageAlt: 'Refrigerator installation',
@@ -392,7 +392,7 @@ const SERVICE_CONFIG = {
   rangeOvenInstallation: {
     name: 'Range & Oven Installation',
     seoTitle: 'Range and Oven Installation in South Florida | Book Online',
-    metaDescription: 'Range and oven installation in South Florida for electric, gas, and induction models. Book online or call (954) 931-7997 for a quote.',
+    metaDescription: 'Range and oven installation in South Florida for electric, gas, and induction models. Book online or call (844) 460-7038 for a quote.',
     h1: 'Range and Oven Installation in South Florida',
     image: '/images/service/oven-stove-service.webp',
     imageAlt: 'Range and oven installation',
@@ -413,7 +413,7 @@ const SERVICE_CONFIG = {
   dishwasherInstallation: {
     name: 'Dishwasher Installation',
     seoTitle: 'Dishwasher Installation in South Florida | Book Online',
-    metaDescription: 'Dishwasher installation in South Florida with water, drain, and power hookups. Book online or call (954) 931-7997 for a quote.',
+    metaDescription: 'Dishwasher installation in South Florida with water, drain, and power hookups. Book online or call (844) 460-7038 for a quote.',
     h1: 'Dishwasher Installation in South Florida',
     image: '/images/service/dishwasher-service.webp',
     imageAlt: 'Dishwasher installation',
@@ -434,7 +434,7 @@ const SERVICE_CONFIG = {
   microwaveInstallation: {
     name: 'Microwave Installation',
     seoTitle: 'Microwave Installation in South Florida | Book Online',
-    metaDescription: 'Microwave installation in South Florida for built-in, over-the-range, and countertop models. Book online or call (954) 931-7997.',
+    metaDescription: 'Microwave installation in South Florida for built-in, over-the-range, and countertop models. Book online or call (844) 460-7038.',
     h1: 'Microwave Installation in South Florida',
     image: '/images/service/microwave-service.webp',
     imageAlt: 'Microwave installation',
@@ -501,7 +501,7 @@ const SCENARIO_BANDS = {
       src: '/visuals/scenario/vent-lint-handful.webp',
       alt: 'A handful of lint cleared from a dryer vent — the build-up that makes dryers run long',
       heading: 'Dryer Vents: The Lint You Never See',
-      text: 'When a dryer runs and runs but clothes stay damp, the vent is often the real problem — lint builds up inside the duct, choking airflow and making the dryer work twice as hard. Dryer vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network: call 954-931-7997 and ask for Cleanout Vents.',
+      text: 'When a dryer runs and runs but clothes stay damp, the vent is often the real problem — lint builds up inside the duct, choking airflow and making the dryer work twice as hard. Dryer vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network: call 844-460-7038 and ask for Cleanout Vents.',
       moreImages: [
         { src: '/visuals/scenario/vent-before-after-duct.webp', alt: 'A dryer vent duct before and after a professional cleaning, with the lint build-up cleared' },
         { src: '/visuals/scenario/vent-airflow-test.webp', alt: 'Technician testing dryer vent airflow after a cleaning' }

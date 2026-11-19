@@ -12,7 +12,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance delivers licensed and insured dryer repair in Miami with same-day appointments when available. We help homeowners, condos, and property managers keep laundry rooms running without downtime.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dryer runs but never heats',
@@ -48,11 +48,11 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'Can you recommend maintenance or vent cleaning?',
-        answer: 'Yes — we inspect the vent during every dryer repair, and for vent cleaning we refer you to Cleanout Vents, our registered vent partner. Call 954-931-7997 and ask for Cleanout Vents.'
+        answer: 'Yes — we inspect the vent during every dryer repair, and for vent cleaning we refer you to Cleanout Vents, our registered vent partner. Call 844-460-7038 and ask for Cleanout Vents.'
       },
       {
         question: 'How do I schedule or reschedule?',
-        answer: 'Book online 24/7, call (954) 931-7997, or reply to the SMS confirmations to adjust an appointment.'
+        answer: 'Book online 24/7, call (844) 460-7038, or reply to the SMS confirmations to adjust an appointment.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d358686.13787315083!2d-80.51983479093477!3d25.78239079497669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69b9a020bf5%3A0xe26638e22d2aef14!2sMiami%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'
@@ -67,7 +67,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides expert washer and dryer repair in Miami for all major brands. Whether your laundry stops unexpectedly or needs preventive care, our certified technicians deliver fast, reliable service.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Washer not filling or draining properly',
@@ -122,7 +122,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance delivers fast refrigerator repair in Miami, restoring cold food storage before spoilage occurs. Our certified technicians handle French doors, ice makers, and commercial fridges.',
       ctaLabel: 'Book Refrigerator Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Fridge not cooling, freezer still frozen',
@@ -177,7 +177,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides expert oven and stove repair throughout Miami. From electric ranges to gas cooktops and convection ovens, our certified technicians fix it right the first time.',
       ctaLabel: 'Book Oven/Stove Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Oven not heating to correct temperature',
@@ -232,7 +232,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance fixes dishwashers in Miami quickly and affordably. Whether your dishes aren\'t getting clean or water is leaking, our technicians get you running again fast.',
       ctaLabel: 'Book Dishwasher Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dishes not getting clean',
@@ -290,7 +290,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance brings expert dryer repair to Fort Lauderdale, serving residential and commercial properties throughout Broward County. Get same-day service and transparent pricing from certified technicians.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'No heat, drum spins normally',
@@ -345,7 +345,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance specializes in washer and dryer repair throughout Fort Lauderdale and Broward County. From water leaks to electrical issues, our certified technicians resolve laundry emergencies fast.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Washer leaking from door seal or bottom',
@@ -400,7 +400,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance handles all oven and stove repairs in Fort Lauderdale, from gas flame issues to electric heating problems. Our technicians service luxury and standard ranges.',
       ctaLabel: 'Book Oven/Stove Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Oven temperature running hot or cold',
@@ -455,7 +455,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides reliable dishwasher repair in Fort Lauderdale. Get your dishes sparkling clean again with same-day diagnostics and repair.',
       ctaLabel: 'Book Dishwasher Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Water not spraying inside',
@@ -513,7 +513,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance serves Boca Raton with professional dryer repair, heat pump dryer expertise, and emergency same-day appointments. Serving single-family homes and luxury condos across Palm Beach County.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Heat pump dryer not heating properly',
@@ -541,7 +541,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How do I know if my vent is clogged?',
-        answer: 'Long dry times, reduced airflow, or lint at the exterior vent outlet indicate blockage. We inspect the vent during your repair; for cleaning, our vent partner Cleanout Vents can help — call 954-931-7997.'
+        answer: 'Long dry times, reduced airflow, or lint at the exterior vent outlet indicate blockage. We inspect the vent during your repair; for cleaning, our vent partner Cleanout Vents can help — call 844-460-7038.'
       },
       {
         question: 'What is the lifespan of a dryer?',
@@ -568,7 +568,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance handles washer and dryer repair in Boca Raton with same-day service availability. Expert care for your laundry appliances.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Water leak during wash cycle',
@@ -623,7 +623,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides specialist oven and stove repair in Boca Raton, serving both residential and commercial kitchens with white-glove service.',
       ctaLabel: 'Book Oven/Stove Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Oven not reaching desired temperature',
@@ -678,7 +678,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance offers premium dishwasher repair services in Boca Raton, handling everything from quiet operation to spray arm restoration.',
       ctaLabel: 'Book Dishwasher Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dishes coming out wet',
@@ -736,7 +736,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance delivers experienced dryer repair in West Palm Beach with certified technicians and same-day availability. Serving residential, commercial, and multi-unit properties across Palm Beach County.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dryer not heating despite spinning',
@@ -791,7 +791,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance specializes in complete washer and dryer repair service for West Palm Beach residents and businesses. Same-day diagnostics and fast turnaround.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Water leaking during cycles',
@@ -846,7 +846,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides emergency refrigerator repair in West Palm Beach with same-day availability. Prevent food spoilage with rapid professional service.',
       ctaLabel: 'Book Refrigerator Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Refrigerator not cooling below 50°F',
@@ -904,7 +904,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance brings professional dryer repair to Delray Beach with certified technicians and transparent pricing. Same-day service available.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'No heat output',
@@ -959,7 +959,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance offers comprehensive washer and dryer repair in Delray Beach with 24-hour emergency response for urgent issues.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Water leak underneath washer',
@@ -1014,7 +1014,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Professional oven and stove repair in Delray Beach from Top Speed Appliance. We handle gas, electric, and convection ovens.',
       ctaLabel: 'Book Oven/Stove Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Pilot light keeps going out',
@@ -1072,7 +1072,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides fast dryer repair in Boynton Beach with same-day diagnostics and affordable pricing.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Insufficient heat',
@@ -1104,11 +1104,11 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'Do you offer dryer vent cleaning?',
-        answer: 'Vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network — call 954-931-7997 and ask for Cleanout Vents. Our own team focuses on repairing your dryer.'
+        answer: 'Vent cleaning is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network — call 844-460-7038 and ask for Cleanout Vents. Our own team focuses on repairing your dryer.'
       },
       {
         question: 'Can I use dryer sheets instead of venting?',
-        answer: 'No. Vent sheets are a fire hazard. Always use a proper vent system. We check vents during repairs; cleaning is handled by our vent partner, Cleanout Vents — call 954-931-7997.'
+        answer: 'No. Vent sheets are a fire hazard. Always use a proper vent system. We check vents during repairs; cleaning is handled by our vent partner, Cleanout Vents — call 844-460-7038.'
       },
       {
         question: 'What\'s the difference between gas and electric repair costs?',
@@ -1127,7 +1127,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Emergency refrigerator repair in Boynton Beach—call Top Speed Appliance when your fridge fails. Rapid response prevents food spoilage.',
       ctaLabel: 'Book Refrigerator Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Fridge running continuously',
@@ -1185,7 +1185,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Fast refrigerator repair in Delray Beach from Top Speed Appliance. Emergency service prevents food spoilage and keeps your kitchen running smoothly.',
       ctaLabel: 'Book Refrigerator Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Fridge not cooling adequately',
@@ -1240,7 +1240,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Professional dishwasher repair in Delray Beach with same-day service. Get your dishes sparkling clean again with expert diagnostics and repair.',
       ctaLabel: 'Book Dishwasher Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dishes not getting clean',
@@ -1298,7 +1298,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Complete washer and dryer repair service in Boynton Beach with same-day diagnostics. Keep your laundry routine on track with Top Speed Appliance.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Water not draining from washer',
@@ -1353,7 +1353,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Expert oven and stove repair in Boynton Beach serving both gas and electric ranges. Same-day service with certified technicians.',
       ctaLabel: 'Book Oven/Stove Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Oven not reaching target temperature',
@@ -1408,7 +1408,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Professional dishwasher repair in Boynton Beach with transparent pricing and same-day service options available.',
       ctaLabel: 'Book Dishwasher Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Water not spraying properly',
@@ -1466,7 +1466,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides professional dryer repair in Jupiter with same-day service availability. Expert technicians keep your laundry running smoothly.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dryer not heating properly',
@@ -1521,7 +1521,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Expert washer and dryer repair in Jupiter with fast service and transparent pricing from Top Speed Appliance.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Washer not spinning clothes dry',
@@ -1576,7 +1576,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Emergency refrigerator repair in Jupiter—get fast service before food spoils. Top Speed Appliance responds quickly to cooling failures.',
       ctaLabel: 'Book Refrigerator Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Fridge not cooling below 50°F',
@@ -1631,7 +1631,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Professional oven and stove repair in Jupiter for gas and electric ranges. Certified technicians deliver expert service with same-day appointments.',
       ctaLabel: 'Book Oven/Stove Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Oven temperature inaccurate',
@@ -1686,7 +1686,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Expert dishwasher repair in Jupiter with rapid diagnostics and transparent pricing. Get sparkling clean dishes again with Top Speed Appliance.',
       ctaLabel: 'Book Dishwasher Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dishes not getting clean',
@@ -1744,7 +1744,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Top Speed Appliance provides fast, reliable dryer repair in Palm Beach Gardens with same-day service availability and transparent pricing.',
       ctaLabel: 'Book Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dryer not producing heat',
@@ -1784,7 +1784,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'Do you offer a vent cleaning service?',
-        answer: 'Vent cleaning is not a Top Speed service — it is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network. Call 954-931-7997 and ask for Cleanout Vents.'
+        answer: 'Vent cleaning is not a Top Speed service — it is handled by Cleanout Vents, our registered vent partner in the Top Speed Appliance Service Network. Call 844-460-7038 and ask for Cleanout Vents.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d897809.8889346032!2d-80.36481945000001!3d26.8185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d918c5c1a33333%3A0x8b02dc91b27e1c26!2sPalm%20Beach%20Gardens%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'
@@ -1799,7 +1799,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Complete washer and dryer repair service in Palm Beach Gardens with expert diagnostics and same-day turnaround when possible.',
       ctaLabel: 'Book Washer/Dryer Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Water leaking from beneath washer',
@@ -1854,7 +1854,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Emergency refrigerator repair in Palm Beach Gardens—prevent food spoilage with rapid response from Top Speed Appliance.',
       ctaLabel: 'Book Refrigerator Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Refrigerator not cooling below 40°F',
@@ -1909,7 +1909,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Professional oven and stove repair in Palm Beach Gardens for gas and electric ranges. Certified technicians with same-day service options.',
       ctaLabel: 'Book Oven/Stove Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Oven temperature running too hot or cold',
@@ -1964,7 +1964,7 @@ export const LOCATION_SERVICE_PAGES = [
     hero: {
       intro: 'Expert dishwasher repair in Palm Beach Gardens with fast diagnostics and same-day service options. Get your dishes sparkling clean again.',
       ctaLabel: 'Book Dishwasher Repair',
-      secondaryCtaLabel: 'Call (954) 931-7997'
+      secondaryCtaLabel: 'Call (844) 460-7038'
     },
     problems: [
       'Dishes not cleaning properly',

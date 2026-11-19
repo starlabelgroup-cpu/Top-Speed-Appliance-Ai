@@ -17,7 +17,7 @@ function Hero() {
             <Link to="/commercial-appliance-repair" className="hero-quick-tile">Commercial Appliance Repair</Link>
             <Link to="/service-areas" className="hero-quick-tile">Service Areas</Link>
             <a href="https://topspeedserviceos.com/book" target="_blank" rel="noopener noreferrer" className="hero-quick-tile">Book Online</a>
-            <a href="tel:9549317997" className="hero-quick-tile">Call 954-931-7997</a>
+            <a href="tel:8444607038" className="hero-quick-tile">Call 844-460-7038</a>
           </nav>
         </div>
       </div>

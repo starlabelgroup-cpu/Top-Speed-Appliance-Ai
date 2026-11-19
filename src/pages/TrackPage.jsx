@@ -263,8 +263,8 @@ export default function TrackPage() {
                       Identity + vehicle details appear here once assigned.
                     </p>
                     <div className="os-tech-actions">
-                      <a className="os-btn os-btn-navy" href="tel:9549317997">Call</a>
-                      <a className="os-btn os-btn-blue" href="sms:+19549317997">Message</a>
+                      <a className="os-btn os-btn-navy" href="tel:8444607038">Call</a>
+                      <a className="os-btn os-btn-blue" href="sms:+18444607038">Message</a>
                       <a
                         className="os-btn os-btn-ghost"
                         href={SERVICE_OS_LINKS.speedy}
@@ -349,7 +349,7 @@ export default function TrackPage() {
             </div>
 
             <p className="os-sub" style={{ paddingBottom: 50, fontSize: 13 }}>
-              Need a hand? Call <a href="tel:9549317997">(954) 931-7997</a> or{' '}
+              Need a hand? Call <a href="tel:8444607038">(844) 460-7038</a> or{' '}
               <Link to="/service-request">book another repair</Link>.
             </p>
           </>

@@ -73,7 +73,7 @@ function Booking() {
           ? (err.serviceCities?.length
               ? `${err.message}. We currently serve: ${err.serviceCities.join(', ')}.`
               : err.message)
-          : `${err.message || 'We could not send your request.'} Please call (954) 931-7997 to book.`,
+          : `${err.message || 'We could not send your request.'} Please call (844) 460-7038 to book.`,
         reference: '',
       })
     }

@@ -278,7 +278,7 @@ Display Name: Hero Content
 Fields:
   - intro (HTML) - "Top Speed Appliance provides..."
   - ctaLabel (String) - "Book Dryer Repair"
-  - secondaryCtaLabel (String) - "Call (954) 931-7997"
+  - secondaryCtaLabel (String) - "Call (844) 460-7038"
 ```
 
 #### Field 8: Common Problems

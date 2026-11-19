@@ -17,7 +17,7 @@ function Dashboard() {
   const [customer, setCustomer] = useState({
     name: localStorage.getItem('customerName') || 'John Doe',
     email: localStorage.getItem('customerEmail') || 'john@example.com',
-    phone: localStorage.getItem('customerPhone') || '(954) 931-7997',
+    phone: localStorage.getItem('customerPhone') || '(844) 460-7038',
     address: localStorage.getItem('customerAddress') || '123 Main St, Miami, FL 33101',
     serviceAddress: localStorage.getItem('customerServiceAddress') || '123 Main St, Miami, FL 33101',
   })
