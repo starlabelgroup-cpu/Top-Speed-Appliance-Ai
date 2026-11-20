@@ -23,6 +23,9 @@ function Footer() {
         <a href="https://top-speed-field-pro.vercel.app" target="_blank" rel="noopener noreferrer">Field Pro — Tech App</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/network" target="_blank" rel="noopener noreferrer">Service Network</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/advertiser" target="_blank" rel="noopener noreferrer">Advertiser Console</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/ad-studio" target="_blank" rel="noopener noreferrer">Top Speed Ads — Ad Studio</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/flywheel" target="_blank" rel="noopener noreferrer">Flywheel Advertising</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/marketing-os" target="_blank" rel="noopener noreferrer">Top Speed Local OS</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/marketing-os" target="_blank" rel="noopener noreferrer">Top Speed Marketing OS</a> · <a href="https://topspeedserviceos.com/marketing-os/studio" target="_blank" rel="noopener noreferrer">Page Studio</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/media" target="_blank" rel="noopener noreferrer">Media OS</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/portal" target="_blank" rel="noopener noreferrer">Service OS Portal</a> &nbsp;•&nbsp;{' '}
