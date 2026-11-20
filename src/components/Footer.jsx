@@ -16,16 +16,21 @@ function Footer() {
         <img src="/visuals/logo-lockup-a.webp" alt="Top Speed Appliance" loading="lazy" decoding="async" />
       </div>
       <p className="os-foot-nav">
-        <a href="https://topspeedserviceos.com" target="_blank" rel="noopener noreferrer">Top Speed Service OS</a> &nbsp;•&nbsp;{' '}
-        <Link to="/#services">Services</Link> &nbsp;•&nbsp;{' '}
-        <Link to="/commercial-appliance-repair">Commercial</Link> &nbsp;•&nbsp;{' '}
-        <a href="https://topspeedserviceos.com/property-managers" target="_blank" rel="noopener noreferrer">Property Managers</a> &nbsp;•&nbsp;{' '}
-        <a href="https://topspeedapplianceservice.com" target="_blank" rel="noopener noreferrer">Provider Network</a> &nbsp;•&nbsp;{' '}
-        <Link to="/track">Track My Tech</Link> &nbsp;•&nbsp;{' '}
-        <Link to="/refer">Refer &amp; Earn</Link> &nbsp;•&nbsp;{' '}
-        <Link to="/media-os">Media OS</Link>
+        <strong>Workstation:</strong> <a href="https://topspeedserviceos.com/crm" target="_blank" rel="noopener noreferrer">Top Speed CRM — Customers &amp; Bookings</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/book-os" target="_blank" rel="noopener noreferrer">Service Setters — Book OS</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/applianceman" target="_blank" rel="noopener noreferrer">ApplianceMan</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/tech" target="_blank" rel="noopener noreferrer">Tech App — Service Providers</a> &nbsp;•&nbsp;{' '}
+        <a href="https://top-speed-field-pro.vercel.app" target="_blank" rel="noopener noreferrer">Field Pro — Tech App</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/network" target="_blank" rel="noopener noreferrer">Service Network</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/advertiser" target="_blank" rel="noopener noreferrer">Advertiser Console</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/marketing-os" target="_blank" rel="noopener noreferrer">Top Speed Marketing OS</a> · <a href="https://topspeedserviceos.com/marketing-os/studio" target="_blank" rel="noopener noreferrer">Page Studio</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/media" target="_blank" rel="noopener noreferrer">Media OS</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/portal" target="_blank" rel="noopener noreferrer">Service OS Portal</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/navigator" target="_blank" rel="noopener noreferrer">Workstation — Team Consoles</a>
       </p>
       <p className="os-foot-nav">
+        <Link to="/#services">Services</Link> &nbsp;•&nbsp;{' '}
+        <Link to="/commercial-appliance-repair">Commercial</Link> &nbsp;•&nbsp;{' '}
         <Link to="/pricing">Pricing</Link> &nbsp;•&nbsp;{' '}
         <Link to="/warranty">Warranty</Link> &nbsp;•&nbsp;{' '}
         <Link to="/service-areas">Service Areas</Link> &nbsp;•&nbsp;{' '}
