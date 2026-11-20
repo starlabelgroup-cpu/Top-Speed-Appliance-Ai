@@ -18,17 +18,24 @@ function Footer() {
       <p className="os-foot-nav">
         <strong>Workstation:</strong> <a href="https://topspeedserviceos.com/crm" target="_blank" rel="noopener noreferrer">Top Speed CRM — Customers &amp; Bookings</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/book-os" target="_blank" rel="noopener noreferrer">Service Setters — Book OS</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/dispatch-dashboard" target="_blank" rel="noopener noreferrer">Dispatch Dashboard</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/applianceman" target="_blank" rel="noopener noreferrer">ApplianceMan</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/finance" target="_blank" rel="noopener noreferrer">Finance</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/tech" target="_blank" rel="noopener noreferrer">Tech App — Service Providers</a> &nbsp;•&nbsp;{' '}
         <a href="https://top-speed-field-pro.vercel.app" target="_blank" rel="noopener noreferrer">Field Pro — Tech App</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/network" target="_blank" rel="noopener noreferrer">Service Network</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/parts" target="_blank" rel="noopener noreferrer">Parts Supply</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/advertiser" target="_blank" rel="noopener noreferrer">Advertiser Console</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/ad-studio" target="_blank" rel="noopener noreferrer">Top Speed Ads — Ad Studio</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/flywheel" target="_blank" rel="noopener noreferrer">Flywheel Advertising</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/marketing-os" target="_blank" rel="noopener noreferrer">Top Speed Local OS</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/marketing-os" target="_blank" rel="noopener noreferrer">Top Speed Marketing OS</a> · <a href="https://topspeedserviceos.com/marketing-os/studio" target="_blank" rel="noopener noreferrer">Page Studio</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/media" target="_blank" rel="noopener noreferrer">Media OS</a> &nbsp;•&nbsp;{' '}
+        <a href="https://pepperlists.com" target="_blank" rel="noopener noreferrer">Pepper Lists — Marketplace</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/refer" target="_blank" rel="noopener noreferrer">Referrals &amp; Rewards</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/portal" target="_blank" rel="noopener noreferrer">Service OS Portal</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/academy" target="_blank" rel="noopener noreferrer">Training Academy</a> &nbsp;•&nbsp;{' '}
+        <a href="https://topspeedserviceos.com/work-time-access" target="_blank" rel="noopener noreferrer">Work Time Access</a> &nbsp;•&nbsp;{' '}
         <a href="https://topspeedserviceos.com/navigator" target="_blank" rel="noopener noreferrer">Workstation — Team Consoles</a>
       </p>
       <p className="os-foot-nav">
