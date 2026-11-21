@@ -137,14 +137,29 @@ async function api(path, options) {
  * { referenceCode, status, city, appliance, preferredWindow, diagnosticFee }.
  * Throws an Error with .status (400/422/…) and the API's message on failure.
  */
-export function bookGuest(payload) {
+export async function bookGuest(payload) {
   const code = referralCode()
-  const body = code && !payload.referralCode ? { ...payload, referralCode: code } : payload
-  return api('/speedy/book', {
+  let body = code && !payload.referralCode ? { ...payload, referralCode: code } : payload
+  // Conversion tracking (2026-11-20): the structured attribution fields
+  // ride every guest booking into the ServiceRequest record, where the
+  // offline-conversion export reads the click IDs back out. Additive —
+  // the [via: …] issue tag the callers build is unchanged, and any
+  // field a caller set itself always wins.
+  body = attributionFields(body)
+  const data = await api('/speedy/book', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   })
+  try {
+    if (typeof window !== 'undefined' && data?.referenceCode) {
+      window.dataLayer = window.dataLayer || []
+      window.dataLayer.push({ event: 'booking_submitted', reference_code: data.referenceCode })
+    }
+  } catch {
+    // Measurement must never break a booking.
+  }
+  return data
 }
 
 /* ------------------------------------------------------------------ */
@@ -261,6 +276,7 @@ export const ATTRIBUTION_PARAMS = [
   'keyword',
   'gclid',
   'fbclid',
+  'msclkid',
 ]
 
 const ATTRIBUTION_STORAGE_KEY = 'ts_attribution'
@@ -311,6 +327,44 @@ export function attributionParams() {
 export function attributionSearch() {
   const qs = attributionParams().toString()
   return qs ? `?${qs}` : ''
+}
+
+const STRUCTURED_ATTRIBUTION = [
+  ['utm_source', 'utmSource'],
+  ['utm_medium', 'utmMedium'],
+  ['utm_campaign', 'utmCampaign'],
+  ['utm_term', 'utmTerm'],
+  ['utm_content', 'utmContent'],
+  ['gclid', 'gclid'],
+  ['fbclid', 'fbclid'],
+  ['msclkid', 'msclkid'],
+]
+
+/**
+ * The structured attribution fields for a booking body (conversion
+ * tracking, 2026-11-20): the same params attributionParams() captures,
+ * mapped onto the Service OS intake's attribution fields so they land
+ * on the ServiceRequest record itself — not only in the [via: …] tag.
+ * A field the caller already set always wins; absent params stay
+ * absent. Also stamps via/page when the caller did not, so the
+ * booking's source is identifiable in Oversight and the export.
+ */
+export function attributionFields(body) {
+  const params = attributionParams()
+  const out = { ...body }
+  for (const [param, field] of STRUCTURED_ATTRIBUTION) {
+    const value = params.get(param)
+    if (value && !out[field]) out[field] = value.slice(0, 200)
+  }
+  if (!out.via) out.via = 'topspeedappliance.net'
+  if (!out.page && typeof window !== 'undefined') {
+    try {
+      out.page = window.location.href.split('#')[0].slice(0, 1000)
+    } catch {
+      // no page stamp — the booking itself is unaffected
+    }
+  }
+  return out
 }
 
 /**
