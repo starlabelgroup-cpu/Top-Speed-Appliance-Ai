@@ -15,11 +15,32 @@ export default function SEOSchema() {
       email: 'service@topspeedappliance.net',
       address: {
         '@type': 'PostalAddress',
+        streetAddress: '6810 N State Rd 7, Suite 341',
         addressCountry: 'US',
         addressRegion: 'FL',
-        addressLocality: 'Miami',
-        postalCode: '33101'
+        addressLocality: 'Coconut Creek',
+        postalCode: '33073'
       },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '19:00'
+      },
+      makesOffer: [
+        'Refrigerator Repair',
+        'Washer Repair',
+        'Dryer Repair',
+        'Oven and Range Repair',
+        'Dishwasher Repair',
+        'Freezer and Ice Maker Repair',
+        'Microwave Repair',
+        'Garbage Disposal Repair',
+        'Appliance Installation'
+      ].map((name) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name }
+      })),
       areaServed: {
         '@type': 'City',
         name: [
@@ -56,12 +77,6 @@ export default function SEOSchema() {
           '@type': 'Reservation',
           name: 'Book Appliance Repair Service'
         }
-      },
-      offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        lowPrice: '99',
-        highPrice: '500'
       },
       hasMap: 'https://www.google.com/maps/place/Top+Speed+Appliance',
       isPartOf: {
