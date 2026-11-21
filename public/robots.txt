@@ -1,0 +1,107 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+# AI search & answer engines — welcome on public content, internal paths closed
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account
+Crawl-delay: 1
+
+# TopSpeed Appliance Network Sitemaps
+# Main Authority Site
+Sitemap: https://topspeedappliance.net/sitemap.xml
+
+# Satellite Sites - Network Authority Boost
+Sitemap: https://appliancepro.net/sitemap.xml
+Sitemap: https://appliancereferral.com/sitemap.xml
+Sitemap: https://primehomeconnect.com/sitemap.xml
+Sitemap: https://applianceconnect.com/sitemap.xml

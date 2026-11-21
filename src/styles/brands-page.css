@@ -1,0 +1,94 @@
+.brands-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.brands-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.brands-hero h1 {
+  margin-bottom: 12px;
+}
+
+.brands-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.brand-tile {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.brand-tile h2 {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.brand-booking-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.brand-booking-btn,
+.brand-email-btn {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brand-booking-btn {
+  background: #d10000;
+  color: #fff;
+}
+
+.brand-email-btn {
+  border: 2px solid #d10000;
+  color: #d10000;
+}
+
+@media (max-width: 768px) {
+  .brands-page {
+    padding: 40px 16px;
+  }
+}
+
+/* ============================================
+   POSTER BANNERS (image-forward design pass)
+   ============================================ */
+.ts-poster {
+  margin: 28px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  line-height: 0;
+  max-width: 100%;
+}
+.ts-poster img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+/* Baked-text poster graphics: never cropped, natural aspect */
+.ts-poster-graphic img { height: auto; }
+/* Plain photos: deliberate 16:9 banner crop */
+.ts-poster-photo { aspect-ratio: 16 / 9; }
+.ts-poster-photo img { height: 100%; object-fit: cover; }
+/* Slim feature graphic for utility pages */
+.ts-poster-slim { max-width: 720px; }
+
+.brands-hero .ts-poster { margin: 24px auto 0; max-width: 860px; }
+
