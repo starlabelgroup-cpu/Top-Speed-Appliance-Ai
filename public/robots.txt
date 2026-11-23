@@ -104,4 +104,3 @@ Sitemap: https://topspeedappliance.net/sitemap.xml
 Sitemap: https://appliancepro.net/sitemap.xml
 Sitemap: https://appliancereferral.com/sitemap.xml
 Sitemap: https://primehomeconnect.com/sitemap.xml
-Sitemap: https://applianceconnect.com/sitemap.xml

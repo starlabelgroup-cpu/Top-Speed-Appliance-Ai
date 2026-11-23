@@ -44,17 +44,30 @@ export const organizationSchema = {
   email: 'service@topspeedappliance.net',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'South Florida',
-    addressLocality: 'South Florida',
+    streetAddress: '6810 N State Rd 7, Suite 341',
+    addressLocality: 'Coconut Creek',
     addressRegion: 'FL',
-    postalCode: '33000',
+    postalCode: '33073',
     addressCountry: 'US'
   },
   url: 'https://topspeedappliance.net',
   sameAs: [
     'https://www.facebook.com/profile.php?id=61596590488055',
-    'https://www.instagram.com/topspeedappliance'
-  ]
+    'https://www.instagram.com/rome64220/',
+    'https://www.instagram.com/topspeedappliance/',
+    'https://www.instagram.com/rom64220/',
+    'https://topspeedserviceos.com/',
+    'https://www.topspeedappliance.net/',
+    'https://www.appliancepro.net/',
+    'https://pepperlists.com/',
+    'https://appliancereferral.com/'
+  ],
+  parentOrganization: {
+    '@type': 'Organization',
+    '@id': 'https://topspeedserviceos.com/#organization',
+    name: 'Top Speed Appliance',
+    url: 'https://topspeedserviceos.com/'
+  }
 }
 
 export const serviceSchema = (title, description, areaServed) => ({

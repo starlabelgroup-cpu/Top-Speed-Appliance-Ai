@@ -57,10 +57,21 @@ export default function SEOSchema() {
       priceRange: '$',
       sameAs: [
         'https://www.facebook.com/profile.php?id=61596590488055',
-        'https://www.instagram.com/topspeedappliance',
-        'https://appliancepro.net',
-        'https://appliancereferral.com'
+        'https://www.instagram.com/rome64220/',
+        'https://www.instagram.com/topspeedappliance/',
+        'https://www.instagram.com/rom64220/',
+        'https://topspeedserviceos.com/',
+        'https://www.topspeedappliance.net/',
+        'https://www.appliancepro.net/',
+        'https://pepperlists.com/',
+        'https://appliancereferral.com/'
       ],
+      parentOrganization: {
+        '@type': 'Organization',
+        '@id': 'https://topspeedserviceos.com/#organization',
+        name: 'Top Speed Appliance',
+        url: 'https://topspeedserviceos.com/'
+      },
       potentialAction: {
         '@type': 'ReserveAction',
         target: {
@@ -79,28 +90,30 @@ export default function SEOSchema() {
       hasMap: 'https://www.google.com/maps/place/Top+Speed+Appliance',
       isPartOf: {
         '@type': 'Organization',
-        name: 'TopSpeed Appliance Network',
-        url: 'https://topspeedappliance.net',
-        description: 'Interconnected appliance service ecosystem featuring service dispatch, mobile apps, referral programs, and lead generation.',
-        sameAs: [
-          'https://appliancepro.net',
-          'https://appliancereferral.com'
-        ]
+        '@id': 'https://topspeedserviceos.com/#organization',
+        name: 'Top Speed Appliance',
+        url: 'https://topspeedserviceos.com/'
       }
     }
 
     const networkSchema = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'TopSpeed Appliance Network',
-      url: 'https://topspeedappliance.net',
+      '@id': 'https://topspeedserviceos.com/#organization',
+      name: 'Top Speed Appliance',
+      url: 'https://topspeedserviceos.com/',
       logo: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800',
       description: 'A comprehensive appliance service network including service dispatch, mobile booking app, referral program, home service platform, and lead generation.',
       sameAs: [
         'https://www.facebook.com/profile.php?id=61596590488055',
-        'https://www.instagram.com/topspeedappliance',
-        'https://appliancepro.net',
-        'https://appliancereferral.com'
+        'https://www.instagram.com/rome64220/',
+        'https://www.instagram.com/topspeedappliance/',
+        'https://www.instagram.com/rom64220/',
+        'https://topspeedserviceos.com/',
+        'https://www.topspeedappliance.net/',
+        'https://www.appliancepro.net/',
+        'https://pepperlists.com/',
+        'https://appliancereferral.com/'
       ]
     }
 
