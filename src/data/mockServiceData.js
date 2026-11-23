@@ -7,7 +7,7 @@ export const mockAppointments = [
     status: 'scheduled',
     technician: 'John Smith',
     address: '123 Main St, Miami, FL 33101',
-    estimatedCost: '$150 - $300',
+    estimatedCost: '$210 flat labor',
   },
   {
     id: 2,

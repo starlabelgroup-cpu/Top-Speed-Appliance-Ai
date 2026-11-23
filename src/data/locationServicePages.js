@@ -158,7 +158,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What is the cost range for refrigerator repair?',
-        answer: 'Service calls start at $99. Repairs typically range from $150 to $600 depending on the part and brand. We provide free digital estimates.'
+        answer: 'Residential pricing is flat, not a range: a $99 diagnostic, collected at booking and credited in full toward an approved repair — and still due if you decline the repair. Repair labor is $210 flat, and installation labor is $150 flat. Parts and materials are priced in a written quote, and no work is done without your approved written quote. Commercial service is priced by custom quote.'
       },
       {
         question: 'How long do repairs usually take?',
@@ -213,7 +213,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does an oven heating element replacement cost?',
-        answer: 'Heating element replacement typically costs $150–$300 including service. Burner igniter replacement averages $100–$200.'
+        answer: 'We price labor flat, not by the part: after the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline), repair labor is $210 flat for heating element or burner igniter work. The part itself is priced in a written quote, and no work is done without your approved written quote.'
       },
       {
         question: 'What is your emergency service window?',
@@ -268,7 +268,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does dishwasher repair typically cost?',
-        answer: 'Service calls are $99. Most repairs range from $150 (seal replacement) to $400 (pump replacement). We provide free estimates.'
+        answer: 'Residential service calls are $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repair labor is $210 flat whether it is a seal, a pump, or another component; parts and materials are priced in a written quote, and no work is done without your approved written quote. Commercial service is priced by custom quote.'
       },
       {
         question: 'Do you repair built-in vs. portable dishwashers?',
@@ -381,7 +381,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does washer repair usually cost?',
-        answer: 'Service calls are $99. Repairs range from $150 (seal replacement) to $400+ (pump replacement). We email estimates before starting.'
+        answer: 'Residential service calls are $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repair labor is $210 flat; parts and materials are priced in a written quote, which you receive and approve before any work starts. Commercial service is priced by custom quote.'
       },
       {
         question: 'Is mold in my washer normal?',
@@ -440,7 +440,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What\'s the typical cost for oven repair?',
-        answer: 'Service calls start at $99. Component replacements range from $100–$400. We provide free estimates.'
+        answer: 'Residential service calls start at $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repair labor is $210 flat for component replacements; parts and materials are priced in a written quote, and no work is done without your approved written quote. Commercial service is priced by custom quote.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912169.1913849098!2d-80.49050316000017!3d26.1548928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9155f90bfe4a7%3A0xfa1cd4b56ff00061!2sFort%20Lauderdale%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'
@@ -659,7 +659,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does a control board replacement cost?',
-        answer: 'Control board replacement ranges from $300–$600 depending on brand and features. All work includes testing and calibration.'
+        answer: 'Control board labor is flat, not a range: after the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline), repair labor is $210 flat. The board itself is priced in a written quote, and no work is done without your approved written quote. All work includes testing and calibration.'
       },
       {
         question: 'Do you offer maintenance plans for oven/stove?',
@@ -768,7 +768,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does a dryer belt replacement cost?',
-        answer: 'Belt replacement is typically $200–$350 including service. It is one of the most common repairs we perform.'
+        answer: 'Belt replacement labor is $210 flat, after the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline). The belt itself is priced in a written quote, and no work is done without your approved written quote. It is one of the most common repairs we perform.'
       },
       {
         question: 'Can you come on weekends?',
@@ -1054,7 +1054,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What\'s the typical cost to repair a broken oven door?',
-        answer: 'Door glass or gasket replacement ranges $80–$250. We provide free estimates.'
+        answer: 'After the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline), repair labor is $210 flat. Door glass or gasket parts are priced in a written quote, and no work is done without your approved written quote.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d897809.8889346032!2d-80.36481945000001!3d26.3548236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d916c5c1a33333%3A0x8b02dc91b27e1c26!2sDelray%20Beach%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'
@@ -1159,7 +1159,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'Is refrigerant replacement expensive?',
-        answer: 'Refrigerant recharge costs $150–$300. If there\'s a leak, we locate and repair it first.'
+        answer: 'Pricing is flat: the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline), then $210 flat repair labor. Refrigerant and any parts are priced in a written quote, and no work is done without your approved written quote. If there\'s a leak, we locate and repair it first.'
       },
       {
         question: 'Can I still use my fridge if it\'s running hot?',
@@ -1264,7 +1264,7 @@ export const LOCATION_SERVICE_PAGES = [
     faqs: [
       {
         question: 'How much does dishwasher repair typically cost?',
-        answer: 'Service calls are $99. Repairs range $150–$400 depending on the component. We provide estimates before starting.'
+        answer: 'Residential service calls are $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repair labor is $210 flat regardless of the component; parts and materials are priced in a written quote, which you approve before we start. Commercial service is priced by custom quote.'
       },
       {
         question: 'My dishes are cloudy—what causes this?',
@@ -1389,7 +1389,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does an oven control board replacement cost?',
-        answer: 'Control boards typically cost $300–$500 including parts and labor. We provide estimates before replacing.'
+        answer: 'Control board labor is $210 flat, after the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline). The board itself is priced in a written quote, and no work is done without your approved written quote.'
       },
       {
         question: 'Do you handle emergency stove repairs on weekends?',
@@ -1440,7 +1440,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does dishwasher repair cost?',
-        answer: 'Service calls: $99. Repairs: $150–$400. We always provide estimates before proceeding.'
+        answer: 'Residential service calls: $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repair labor: $210 flat. Parts and materials are priced in a written quote, which you always approve before we proceed. Commercial service is priced by custom quote.'
       },
       {
         question: 'Can you fix a broken door latch?',
@@ -1616,7 +1616,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does compressor replacement cost?',
-        answer: 'Compressor replacement typically ranges $400–$800 depending on brand. We provide estimates before proceeding.'
+        answer: 'Compressor labor is $210 flat, after the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline). The compressor itself is priced in a written quote, and no work is done without your approved written quote.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d897809.8889346032!2d-80.36481945000001!3d26.9585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a9b1f0e0e0e1%3A0xf0e0e0e0e0e0e0e0!2sJupiter%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'
@@ -1667,7 +1667,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does a heating element replacement cost?',
-        answer: 'Element replacement typically ranges $150–$300 including parts and labor. We provide free estimates.'
+        answer: 'Element replacement labor is $210 flat, after the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline). The element itself is priced in a written quote, and no work is done without your approved written quote.'
       },
       {
         question: 'Do you service luxury oven brands?',
@@ -1722,7 +1722,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'What\'s the typical cost for dishwasher repair?',
-        answer: 'Service calls are $99. Repairs range $150–$400. We provide free estimates before starting.'
+        answer: 'Residential service calls are $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repairs are $210 flat labor; parts and materials are priced in a written quote, and no work is done without your approved written quote. Commercial service is priced by custom quote.'
       },
       {
         question: 'Is my dishwasher still under warranty?',
@@ -1823,7 +1823,7 @@ export const LOCATION_SERVICE_PAGES = [
     faqs: [
       {
         question: 'What\'s the average cost to repair a washer?',
-        answer: 'Service calls: $99. Repairs typically range $200–$400 depending on the component. We provide free estimates.'
+        answer: 'Residential service calls: $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repair labor is $210 flat whatever the component; parts and materials are priced in a written quote, and no work is done without your approved written quote. Commercial service is priced by custom quote.'
       },
       {
         question: 'Is it normal for my washer to vibrate?',
@@ -1894,7 +1894,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does refrigerant replacement cost?',
-        answer: 'Recharge: $150–$300. If there\'s a leak, we locate and repair it first, then recharge the system.'
+        answer: 'Recharge labor is part of our $210 flat repair labor, after the $99 residential diagnostic (collected at booking, credited in full toward an approved repair, and still due if you decline). Refrigerant is priced in a written quote, and no work is done without your approved written quote. If there\'s a leak, we locate and repair it first, then recharge the system.'
       }
     ],
     googleMapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d897809.8889346032!2d-80.36481945000001!3d26.8185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d918c5c1a33333%3A0x8b02dc91b27e1c26!2sPalm%20Beach%20Gardens%2C%20FL!5e0!3m2!1sen!2sus!4v1707680000000!5m2!1sen!2sus'
@@ -1945,7 +1945,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does oven repair typically cost?',
-        answer: 'Service calls: $99. Component replacement: $150–$500 depending on the part. We provide free estimates.'
+        answer: 'Residential service calls: $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repair labor is $210 flat; the replacement part is priced in a written quote, and no work is done without your approved written quote. Commercial service is priced by custom quote.'
       },
       {
         question: 'Do you service high-end ranges like Wolf?',
@@ -1996,7 +1996,7 @@ export const LOCATION_SERVICE_PAGES = [
       },
       {
         question: 'How much does dishwasher repair cost?',
-        answer: 'Service: $99. Repairs: $150–$400. We always provide free estimates before starting work.'
+        answer: 'Residential service: $99 — the diagnostic is collected at booking, credited in full toward an approved repair, and still due if you decline the repair. Repairs: $210 flat labor. Parts and materials are priced in a written quote, and no work ever starts without your approved written quote. Commercial service is priced by custom quote.'
       },
       {
         question: 'Can I fix the door latch myself?',

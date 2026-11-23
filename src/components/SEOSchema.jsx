@@ -56,12 +56,10 @@ export default function SEOSchema() {
       },
       priceRange: '$',
       sameAs: [
-        'https://www.facebook.com/topspeedappliance',
+        'https://www.facebook.com/profile.php?id=61583446045420',
         'https://www.instagram.com/topspeedappliance',
         'https://appliancepro.net',
-        'https://appliancereferral.com',
-        'https://primehomeconnect.com',
-        'https://applianceconnect.com'
+        'https://appliancereferral.com'
       ],
       potentialAction: {
         '@type': 'ReserveAction',
@@ -86,9 +84,7 @@ export default function SEOSchema() {
         description: 'Interconnected appliance service ecosystem featuring service dispatch, mobile apps, referral programs, and lead generation.',
         sameAs: [
           'https://appliancepro.net',
-          'https://appliancereferral.com',
-          'https://primehomeconnect.com',
-          'https://applianceconnect.com'
+          'https://appliancereferral.com'
         ]
       }
     }
@@ -101,35 +97,10 @@ export default function SEOSchema() {
       logo: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800',
       description: 'A comprehensive appliance service network including service dispatch, mobile booking app, referral program, home service platform, and lead generation.',
       sameAs: [
-        'https://www.facebook.com/topspeedappliance',
+        'https://www.facebook.com/profile.php?id=61583446045420',
         'https://www.instagram.com/topspeedappliance',
         'https://appliancepro.net',
-        'https://appliancereferral.com',
-        'https://primehomeconnect.com',
-        'https://applianceconnect.com'
-      ],
-      subOrganization: [
-        {
-          '@type': 'SoftwareApplication',
-          name: 'AppliancePro',
-          url: 'https://appliancepro.net',
-          applicationCategory: 'MobileApplication'
-        },
-        {
-          '@type': 'Organization',
-          name: 'ApplianceReferral',
-          url: 'https://appliancereferral.com'
-        },
-        {
-          '@type': 'SoftwareApplication',
-          name: 'PrimeHomeConnect',
-          url: 'https://primehomeconnect.com'
-        },
-        {
-          '@type': 'Organization',
-          name: 'ApplianceConnect',
-          url: 'https://applianceconnect.com'
-        }
+        'https://appliancereferral.com'
       ]
     }
 

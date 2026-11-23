@@ -102,10 +102,10 @@ export default function AIAssistant() {
     }
 
     if (text.includes('hours') || text.includes('open'))
-      return "We're open every day from 8 AM to 8 PM. We offer same-day and emergency repair services!"
+      return "We're open Monday–Friday, 8 AM to 7 PM. We offer same-day and emergency repair services!"
 
     if (text.includes('price') || text.includes('cost'))
-      return "Diagnostics start at $89. Final pricing depends on appliance model and parts needed. No hidden fees!"
+      return "Residential pricing is flat: a $99 diagnostic, collected at booking and credited in full toward an approved repair (still due if you decline), plus $210 flat repair labor. Parts and materials are priced in a written quote, and no work is done without your approved written quote. Commercial service is priced by custom quote. No hidden fees!"
 
     if (text.includes('repair'))
       return "We repair refrigerators, dryers, washers, ovens, dishwashers, and microwaves. What appliance do you need help with?"
