@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { APPLIANCES, SERVICE_CITIES, SERVICE_OS_LINKS } from '../lib/serviceOs'
 import { SpeedyCard } from '../components/SpeedyPanel'
 import MobileStickyBar from '../components/MobileStickyBar'
+import SocialStreamBlock from '../components/SocialStreamBlock'
 
 /**
  * Homepage — Figma frame 01 "Desktop Homepage — .NET × Service OS"
@@ -310,6 +311,12 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* Social + Ads streams (2026-11-23): the official Facebook
+          Page's latest real posts and the Top Speed Ads stream,
+          from the Service OS public streams. Renders nothing
+          until a real post exists. */}
+      <SocialStreamBlock />
 
       <MobileStickyBar />
     </div>

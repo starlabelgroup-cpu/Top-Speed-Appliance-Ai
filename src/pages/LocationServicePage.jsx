@@ -4,6 +4,7 @@ import { LOCATION_SERVICE_PAGES } from '../data/locationServicePages'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { SERVICE_OS_LINKS, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import { useSeo } from '../utils/useSeo'
+import SocialStreamBlock from '../components/SocialStreamBlock'
 import * as ga4Events from '../utils/ga4Events'
 import * as googleAdsTracking from '../utils/googleAdsTracking'
 import '../styles/location-service-page.css'
@@ -360,6 +361,13 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
           </div>
         </aside>
       </section>
+
+      {/* Social + Ads streams (2026-11-23): wired once here, in the
+          shared template every generated city/service page renders
+          through — the official Page's latest real posts plus the
+          Top Speed Ads stream. Renders nothing until a real post
+          exists. */}
+      <SocialStreamBlock />
     </main>
   )
 }

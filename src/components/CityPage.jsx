@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SERVICE_OS_LINKS, attributionSearch, useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import SocialStreamBlock from './SocialStreamBlock'
 import '../styles/service-and-city-pages.css'
 
 /**
@@ -227,6 +228,12 @@ const CityPageComponent = ({ city }) => {
           </div>
         </div>
       </section>
+
+      {/* Social + Ads streams (2026-11-23): the official Page's
+          latest real posts plus the Top Speed Ads stream, from the
+          Service OS public streams. Renders nothing until a real
+          post exists. */}
+      <SocialStreamBlock />
 
       {/* Final CTA */}
       <section className="city-final-cta">
