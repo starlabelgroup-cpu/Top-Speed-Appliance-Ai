@@ -79,6 +79,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://topspeedappliance.net/book</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Location + Service Landing Pages (High-Intent SEO - 23 Pages) -->
   <!-- Miami (5 services) -->

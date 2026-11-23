@@ -13,6 +13,7 @@ const Blog = lazy(() => import('./components/Blog'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
 const Privacy = lazy(() => import('./components/Privacy'))
 const ServiceRequestPage = lazy(() => import('./pages/ServiceRequestPage'))
+const BookPage = lazy(() => import('./pages/BookPage'))
 const TrackPage = lazy(() => import('./pages/TrackPage'))
 const AccountPage = lazy(() => import('./pages/AccountPage'))
 const MediaPage = lazy(() => import('./pages/MediaPage'))
@@ -51,6 +52,7 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/service-request" element={<ServiceRequestPage />} />
+          <Route path="/book" element={<BookPage />} />
           <Route path="/track" element={<TrackPage />} />
           <Route path="/refer" element={<ReferPage />} />
           <Route path="/media-os" element={<MediaPage />} />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import ServiceBookButton from './ServiceBookButton'
 import { SERVICE_OS_LINKS, SERVICE_OS_WEB, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 
 function Header() {
@@ -97,7 +96,7 @@ function Header() {
                 <b>844-460-7038</b>
               </span>
             </a>
-            <ServiceBookButton source="header" className="book-now-btn" />
+            <Link to={withAttribution('/book', attrQs)} className="book-now-btn">Request Service</Link>
             <Link
               to="/account"
               className="portal-login-btn"
@@ -155,7 +154,7 @@ function Header() {
             <NavLink to="/reviews" className={navLinkClass}>Reviews</NavLink>
             <NavLink to="/media-os" className={navLinkClass}>Media OS</NavLink>
             <NavLink to="/account" className={navLinkClass}>Account</NavLink>
-            <Link to={withAttribution('/service-request', attrQs)} className="os-btn os-btn-red os-book-btn">BOOK SERVICE</Link>
+            <Link to={withAttribution('/book', attrQs)} className="os-btn os-btn-red os-book-btn">BOOK SERVICE</Link>
           </nav>
 
           <a className="os-call-btn" href="tel:8444607038" aria-label="Call Top Speed Appliance Repair at 844-460-7038">

@@ -5,8 +5,14 @@ import { bookGuest, preferredWindowFor, SERVICE_CITIES } from '../lib/serviceOs'
 const APPLIANCE_MAP = {
   'Refrigerator Repair': 'Refrigerator',
   'Washer & Dryer Repair': 'Washer',
+  'Washer Repair': 'Washer',
+  'Dryer Repair': 'Dryer',
   'Oven & Stove Repair': 'Oven/Range',
   'Dishwasher Repair': 'Dishwasher',
+  'Freezer / Ice Maker Repair': 'Freezer/Ice Maker',
+  'Microwave Repair': 'Microwave',
+  'Garbage Disposal Repair': 'Garbage Disposal',
+  'Appliance Installation': 'Installation',
 }
 
 const EMPTY_FORM = {
@@ -159,8 +165,14 @@ function Booking() {
           >
             <option>Refrigerator Repair</option>
             <option>Washer & Dryer Repair</option>
+            <option>Washer Repair</option>
+            <option>Dryer Repair</option>
             <option>Oven & Stove Repair</option>
             <option>Dishwasher Repair</option>
+            <option>Freezer / Ice Maker Repair</option>
+            <option>Microwave Repair</option>
+            <option>Garbage Disposal Repair</option>
+            <option>Appliance Installation</option>
           </select>
         </div>
 

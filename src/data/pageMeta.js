@@ -72,6 +72,10 @@ const PAGE_META = {
     title: 'Request Appliance Repair Service | Top Speed Appliance',
     description: 'Request appliance repair in South Florida. Tell us your appliance and issue, and our team will follow up.',
   },
+  '/book': {
+    title: 'Book Appliance Repair Service | Top Speed Appliance',
+    description: 'Book appliance repair in South Florida two ways: the Top Speed web form, or Smart AI booking by Speedy. $99 residential diagnostic credited toward your repair. Mon–Fri 8am–7pm.',
+  },
   '/track': {
     title: 'Track My Tech — Live Job Tracking | Top Speed Appliance',
     description: 'Follow your appliance repair live through all eight stages, from request received to repair completed — with a live map when your technician is en route.',

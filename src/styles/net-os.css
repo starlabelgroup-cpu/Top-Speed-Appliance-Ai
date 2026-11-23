@@ -2083,3 +2083,21 @@
   margin: 0 auto;
 }
 
+
+/* Book Service page (/book) — the two booking options, form first.
+   Added 2026-11-23 with the dedicated booking page; reuses the os-*
+   card/button styles above, these rules only stack and label them. */
+.book-facts { margin: 0 0 22px; }
+.book-facts a { color: inherit; font-weight: 700; }
+.book-opt { margin-bottom: 26px; }
+.book-opt-tag {
+  font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  letter-spacing: 1px;
+  color: var(--os-blue);
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+.book-opt-copy { color: var(--os-muted); line-height: 1.55; margin: 0 0 18px; }
+.book-alt { margin: 16px 0 0; font-size: 13.5px; color: var(--os-muted); }
+.book-alt a { font-weight: 600; }
