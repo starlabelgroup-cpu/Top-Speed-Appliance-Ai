@@ -56,7 +56,7 @@ export default function SEOSchema() {
       },
       priceRange: '$',
       sameAs: [
-        'https://www.facebook.com/profile.php?id=61583446045420',
+        'https://www.facebook.com/profile.php?id=61596590488055',
         'https://www.instagram.com/topspeedappliance',
         'https://appliancepro.net',
         'https://appliancereferral.com'
@@ -97,7 +97,7 @@ export default function SEOSchema() {
       logo: 'https://cdn.builder.io/api/v1/image/assets%2Fa186f40324f047e6b518d0ea27bf7f66%2F55f8330765584b548ff08a3d1f6b6116?format=webp&width=800',
       description: 'A comprehensive appliance service network including service dispatch, mobile booking app, referral program, home service platform, and lead generation.',
       sameAs: [
-        'https://www.facebook.com/profile.php?id=61583446045420',
+        'https://www.facebook.com/profile.php?id=61596590488055',
         'https://www.instagram.com/topspeedappliance',
         'https://appliancepro.net',
         'https://appliancereferral.com'

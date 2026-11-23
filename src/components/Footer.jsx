@@ -61,7 +61,7 @@ function Footer() {
       <div className="footer-social" aria-label="Social media">
         <a
           className="footer-social-link"
-          href="https://www.facebook.com/profile.php?id=61583446045420"
+          href="https://www.facebook.com/profile.php?id=61596590488055"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Top Speed Appliance on Facebook"

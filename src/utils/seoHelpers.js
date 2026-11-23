@@ -52,7 +52,7 @@ export const organizationSchema = {
   },
   url: 'https://topspeedappliance.net',
   sameAs: [
-    'https://www.facebook.com/topspeedappliance',
+    'https://www.facebook.com/profile.php?id=61596590488055',
     'https://www.instagram.com/topspeedappliance'
   ]
 }
