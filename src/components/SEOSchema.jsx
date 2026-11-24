@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 
-export default function SEOSchema() {
-  useEffect(() => {
-    const mainSchema = {
+/**
+ * Organization / LocalBusiness structured data.
+ *
+ * Rendered as real <script type="application/ld+json"> elements so the
+ * schemas are present in the server-prerendered HTML (crawlers and AI
+ * answer engines that do not execute JavaScript still see them).
+ * Previously these were injected from useEffect, which left the served
+ * HTML with no structured data at all. Content is unchanged.
+ */
+const mainSchema = {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       '@id': 'https://topspeedappliance.net',
@@ -96,7 +103,7 @@ export default function SEOSchema() {
       }
     }
 
-    const networkSchema = {
+const networkSchema = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       '@id': 'https://topspeedserviceos.com/#organization',
@@ -117,27 +124,11 @@ export default function SEOSchema() {
       ]
     }
 
-    // Add main business schema
-    const mainScript = document.createElement('script')
-    mainScript.type = 'application/ld+json'
-    mainScript.textContent = JSON.stringify(mainSchema)
-    document.head.appendChild(mainScript)
-
-    // Add network organization schema
-    const networkScript = document.createElement('script')
-    networkScript.type = 'application/ld+json'
-    networkScript.textContent = JSON.stringify(networkSchema)
-    document.head.appendChild(networkScript)
-
-    return () => {
-      if (mainScript.parentNode) {
-        mainScript.parentNode.removeChild(mainScript)
-      }
-      if (networkScript.parentNode) {
-        networkScript.parentNode.removeChild(networkScript)
-      }
-    }
-  }, [])
-
-  return null
+export default function SEOSchema() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mainSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(networkSchema) }} />
+    </>
+  )
 }
