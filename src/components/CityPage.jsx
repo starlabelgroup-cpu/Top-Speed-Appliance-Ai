@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SERVICE_OS_LINKS, attributionSearch, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import SocialStreamBlock from './SocialStreamBlock'
+import LibraryAd from './LibraryAd'
 import { RacingIcon } from './RacingMotifs'
 import '../styles/service-and-city-pages.css'
 
@@ -237,6 +238,11 @@ const CityPageComponent = ({ city }) => {
           Service OS public streams. Renders nothing until a real
           post exists. */}
       <SocialStreamBlock />
+
+      {/* Ads Library stream (2026-11-24): the next IMAGE or TEXT ad
+          from the Service OS Ads Library for this city. Renders
+          nothing when the library returns no ad. */}
+      <LibraryAd slot="city" city={city} />
 
       {/* Final CTA */}
       <section className="city-final-cta">

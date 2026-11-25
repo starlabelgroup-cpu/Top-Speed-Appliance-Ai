@@ -3,6 +3,7 @@ import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import '../styles/service-and-city-pages.css'
 import ServiceBookButton from './ServiceBookButton'
+import LibraryAd from './LibraryAd'
 
 /**
  * ServicePage Component
@@ -759,6 +760,11 @@ const ServicePageComponent = ({ service }) => {
           ))}
         </div>
       </section>
+
+      {/* Ads Library stream (2026-11-24): the next IMAGE or TEXT ad
+          from the Service OS Ads Library for this service. Renders
+          nothing when the library returns no ad. */}
+      <LibraryAd slot="service" service={service} />
 
       <section className="service-final-cta">
         <h2>Contact Top Speed Appliance Today</h2>

@@ -4,6 +4,7 @@ import { APPLIANCES, SERVICE_CITIES, SERVICE_OS_LINKS } from '../lib/serviceOs'
 import { SpeedyCard } from '../components/SpeedyPanel'
 import MobileStickyBar from '../components/MobileStickyBar'
 import SocialStreamBlock from '../components/SocialStreamBlock'
+import LibraryAd from '../components/LibraryAd'
 import { FleetStrip, RacingIcon, Stoplight } from '../components/RacingMotifs'
 
 /**
@@ -118,6 +119,11 @@ export default function HomePage() {
 
       {/* ---------- speed fleet (the page's one fleet moment) ---------- */}
       <FleetStrip />
+
+      {/* Ads Library stream (2026-11-24): the next IMAGE or TEXT ad
+          from the Service OS Ads Library, rotating server-side.
+          Renders nothing when the library returns no ad. */}
+      <LibraryAd slot="home" />
 
       {/* ---------- what we repair ---------- */}
       <section className="os-section" id="services" style={{ paddingBottom: 30 }}>

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { trackBooking, trackByToken, SERVICE_OS_LINKS } from '../lib/serviceOs'
 import { RacingIcon } from '../components/RacingMotifs'
+import LibraryAd from '../components/LibraryAd'
 
 /**
  * Track My Tech Live — Figma frame 03.
@@ -356,6 +357,11 @@ export default function TrackPage() {
             </p>
           </>
         )}
+
+        {/* Ads Library stream (2026-11-24): the next IMAGE or TEXT ad
+            from the Service OS Ads Library. Renders nothing when the
+            library returns no ad. */}
+        <LibraryAd slot="track" />
       </div>
     </div>
   )

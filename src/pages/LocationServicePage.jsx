@@ -5,6 +5,7 @@ import { BOOKING_CONFIG } from '../config/bookingConfig'
 import { SERVICE_OS_LINKS, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import { useSeo } from '../utils/useSeo'
 import SocialStreamBlock from '../components/SocialStreamBlock'
+import LibraryAd from '../components/LibraryAd'
 import * as ga4Events from '../utils/ga4Events'
 import * as googleAdsTracking from '../utils/googleAdsTracking'
 import '../styles/location-service-page.css'
@@ -367,6 +368,12 @@ export default function LocationServicePage({ citySlug: citySlugProp, serviceSlu
           through — the official Page's latest real posts plus the
           Top Speed Ads stream. Renders nothing until a real post
           exists. */}
+      {/* Ads Library stream (2026-11-24): wired once here, in the
+          shared template every generated city/service page renders
+          through — the next IMAGE or TEXT ad for this city + service.
+          Renders nothing when the library returns no ad. */}
+      <LibraryAd slot="location" service={serviceSlug} city={citySlug} />
+
       <SocialStreamBlock />
     </main>
   )

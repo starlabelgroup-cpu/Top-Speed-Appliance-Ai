@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Booking from '../components/Booking'
+import LibraryAd from '../components/LibraryAd'
 import MobileStickyBar from '../components/MobileStickyBar'
 import { attributionParams, attributionSearch, openSpeedy, withAttribution } from '../lib/serviceOs'
 
@@ -81,6 +82,12 @@ export default function BookPage() {
           </p>
         </section>
       </div>
+
+      {/* Ads Library stream (2026-11-24): the next IMAGE or TEXT ad
+          from the Service OS Ads Library. Renders nothing when the
+          library returns no ad. */}
+      <LibraryAd slot="book" />
+
       <MobileStickyBar />
     </div>
   )
