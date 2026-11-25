@@ -4,6 +4,7 @@ import { APPLIANCES, SERVICE_CITIES, SERVICE_OS_LINKS } from '../lib/serviceOs'
 import { SpeedyCard } from '../components/SpeedyPanel'
 import MobileStickyBar from '../components/MobileStickyBar'
 import SocialStreamBlock from '../components/SocialStreamBlock'
+import { FleetStrip, RacingIcon, Stoplight } from '../components/RacingMotifs'
 
 /**
  * Homepage — Figma frame 01 "Desktop Homepage — .NET × Service OS"
@@ -66,6 +67,7 @@ export default function HomePage() {
         <div className="os-hero-checker os-checker" aria-hidden="true" />
         <div className="os-wrap os-hero-inner">
           <div>
+            <span className="ts-hero-stripes" aria-hidden="true"><RacingIcon name="stripes" size={26} /></span>
             <span className="os-pill os-hero-pill">● Service OS — Live</span>
             <h1 className="os-hero-title">
               Appliance Repair.
@@ -114,10 +116,13 @@ export default function HomePage() {
       </section>
       <div className="os-red-strip" aria-hidden="true" />
 
+      {/* ---------- speed fleet (the page's one fleet moment) ---------- */}
+      <FleetStrip />
+
       {/* ---------- what we repair ---------- */}
       <section className="os-section" id="services" style={{ paddingBottom: 30 }}>
         <div className="os-wrap">
-          <p className="os-eyebrow">What We Repair</p>
+          <p className="os-eyebrow"><span className="ts-eyebrow-icon" aria-hidden="true"><RacingIcon name="tools" size={18} /></span>What We Repair</p>
           <h2 className="os-h2">Nine services. Twelve Broward cities. One dispatch team.</h2>
           <div className="os-services-grid">
             {SERVICE_TILES.map((s) => (
@@ -159,7 +164,7 @@ export default function HomePage() {
       {/* ---------- need moment (scenario library, below the posters) ---------- */}
       <section className="os-section" style={{ paddingTop: 10 }}>
         <div className="os-wrap">
-          <p className="os-eyebrow">The Moment It Breaks</p>
+          <p className="os-eyebrow ts-eyebrow-light"><span className="ts-eyebrow-stoplight" aria-hidden="true"><Stoplight height={44} /></span>The Moment It Breaks</p>
           <h2 className="os-h2">Dinner is in the oven — and the oven just quit.</h2>
           <p className="os-sub" style={{ maxWidth: 720 }}>
             It never breaks on a quiet Tuesday. It breaks with a house full of people and a meal
@@ -281,7 +286,7 @@ export default function HomePage() {
       <section className="os-section" style={{ paddingTop: 10 }}>
         <div className="os-wrap">
           <p className="os-eyebrow">Local OS &nbsp;•&nbsp; Reviews + Directory</p>
-          <h2 className="os-h2">Our promise, on every job.</h2>
+          <h2 className="os-h2 ts-laurel-title"><span className="ts-laurel" aria-hidden="true"><RacingIcon name="laurels" size={24} /></span>Our promise, on every job.<span className="ts-laurel ts-laurel-flip" aria-hidden="true"><RacingIcon name="laurels" size={24} /></span></h2>
           <div className="os-reviews-grid">
             {PROMISES.map((p) => (
               <div key={p.kicker} className="os-review-card">

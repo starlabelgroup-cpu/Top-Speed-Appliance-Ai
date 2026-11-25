@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { trackBooking, trackByToken, SERVICE_OS_LINKS } from '../lib/serviceOs'
+import { RacingIcon } from '../components/RacingMotifs'
 
 /**
  * Track My Tech Live — Figma frame 03.
@@ -113,6 +114,7 @@ export default function TrackPage() {
           <img src="/visuals/visual-track.jpg" alt="Track your Top Speed Appliance technician" />
         </figure>
         <div className="os-book-head">
+          <span className="ts-track-light" aria-hidden="true"><RacingIcon name="stoplight" size={28} /></span>
           <div>
             <h1 className="os-h1" style={{ fontSize: 30 }}>
               {result ? result.stageLabel8 : 'Your technician, on the way — live.'}

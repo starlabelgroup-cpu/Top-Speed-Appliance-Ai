@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SERVICE_OS_LINKS, attributionSearch, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import SocialStreamBlock from './SocialStreamBlock'
+import { RacingIcon } from './RacingMotifs'
 import '../styles/service-and-city-pages.css'
 
 /**
@@ -130,6 +131,7 @@ const CityPageComponent = ({ city }) => {
       {/* Hero Section */}
       <section className="city-hero">
         <div className="city-hero-content">
+          <p className="ts-city-eyebrow"><span className="ts-eyebrow-icon" aria-hidden="true"><RacingIcon name="road" size={18} /></span>Top Speed Service Area</p>
           <h1>{config.h1}</h1>
           <p className="city-intro">{config.intro}</p>
           <div className="city-ctas">
@@ -137,6 +139,7 @@ const CityPageComponent = ({ city }) => {
               <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.2 4h3.4l1.4 4.2-2.1 1.7a13.5 13.5 0 0 0 6.2 6.2l1.7-2.1L20 15.4v3.4a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.2 6.1 2 2 0 0 1 5.2 4z"/><path d="M15.5 3.5a7 7 0 0 1 5 5M15.5 6.8a3.8 3.8 0 0 1 1.7 1.7" stroke="#E8322E"/></svg> Call Now: (844) 460-7038
             </a>
             <button className="cta-button cta-secondary" onClick={handleBookingClick}>
+              <span className="ts-eyebrow-icon" aria-hidden="true"><RacingIcon name="sign" size={18} /></span>
               <svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="3.4" stroke="#E8322E"/><circle cx="12" cy="12" r="1" fill="#E8322E" stroke="none"/></svg> Schedule Service Today
             </button>
           </div>

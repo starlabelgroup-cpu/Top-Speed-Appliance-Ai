@@ -22,8 +22,8 @@ function Contact() {
           <div className="info-item">
             <span className="info-icon"><svg className="fxi" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 21.2S5 15.6 5 9.9a7 7 0 0 1 14 0c0 5.7-7 11.3-7 11.3z"/><circle cx="12" cy="9.9" r="2.6" stroke="#E8322E"/><circle cx="12" cy="9.9" r=".9" fill="#E8322E" stroke="none"/></svg></span>
             <div>
-              <h3>Address</h3>
-              <p>6810 N State Rd 7, Suite 341<br/>Coconut Creek, FL 33073</p>
+              <h3>Service Area</h3>
+              <p>Repairs at your location — serving 65 cities across<br/>Broward, Palm Beach &amp; Miami-Dade</p>
             </div>
           </div>
           <div className="info-item">

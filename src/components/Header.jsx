@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { SERVICE_OS_LINKS, SERVICE_OS_WEB, openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
+import { ShieldBadge } from './RacingMotifs'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -49,6 +50,7 @@ function Header() {
       <div className="header-strip">
         <div className="header-strip-inner">
           <Link to="/" className="os-logo" aria-label="Top Speed Appliance Repair — The Faster, The Better. — home">
+            <span className="ts-header-shield" aria-hidden="true"><ShieldBadge size={40} /></span>
             <img
               src="/logo-header.jpg"
               alt="Top Speed Appliance Repair — The Faster, The Better."

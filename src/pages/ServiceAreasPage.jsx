@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOKING_CONFIG } from '../config/bookingConfig'
 import SeoLeadCaptureForm from '../components/SeoLeadCaptureForm'
+import { RacingIcon } from '../components/RacingMotifs'
 import { openSpeedy, useAttributionSearch, withAttribution } from '../lib/serviceOs'
 import SeoLocationMap from '../components/SeoLocationMap'
 import SeoDirectoryKit from '../components/SeoDirectoryKit'
@@ -86,7 +87,7 @@ export default function ServiceAreasPage() {
     <main className="seo-leads-page">
       <section className="seo-leads-hero">
         <div className="seo-leads-hero-inner">
-          <div className="seo-leads-hero-badge">Local SEO • Directories • QR Codes</div>
+          <div className="seo-leads-hero-badge"><span className="ts-eyebrow-icon" aria-hidden="true"><RacingIcon name="road" size={16} /></span>Local SEO • Directories • QR Codes</div>
           <h1 className="seo-leads-hero-title">Find Appliance Repair Pages for Every City</h1>
           <p className="seo-leads-hero-subtitle">
             Use these pages for Google search, online directories, and QR stickers. Each link is optimized for local intent and includes fast booking options.

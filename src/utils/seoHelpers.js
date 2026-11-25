@@ -42,14 +42,6 @@ export const organizationSchema = {
   description: 'Professional appliance repair services in South Florida',
   telephone: '+1-844-460-7038',
   email: 'service@topspeedappliance.net',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '6810 N State Rd 7, Suite 341',
-    addressLocality: 'Coconut Creek',
-    addressRegion: 'FL',
-    postalCode: '33073',
-    addressCountry: 'US'
-  },
   url: 'https://topspeedappliance.net',
   sameAs: [
     'https://www.facebook.com/profile.php?id=61596590488055',

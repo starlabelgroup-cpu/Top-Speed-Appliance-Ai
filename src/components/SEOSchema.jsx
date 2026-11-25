@@ -20,14 +20,6 @@ const mainSchema = {
       url: 'https://topspeedappliance.net',
       telephone: BOOKING_CONFIG.PHONE_NUMBER,
       email: 'service@topspeedappliance.net',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '6810 N State Rd 7, Suite 341',
-        addressCountry: 'US',
-        addressRegion: 'FL',
-        addressLocality: 'Coconut Creek',
-        postalCode: '33073'
-      },
       openingHoursSpecification: {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ShieldBadge } from './RacingMotifs'
 
 function Footer() {
   return (
     <footer className="footer footer-os">
+      <div className="os-checker ts-checker-band" aria-hidden="true" />
       <a
         href="https://topspeedserviceos.com/advertise"
         target="_blank"
@@ -14,6 +16,10 @@ function Footer() {
       </a>
       <div className="footer-brand">
         <img src="/visuals/logo-lockup-a.webp" alt="Top Speed Appliance" loading="lazy" decoding="async" />
+        <p className="ts-footer-brand-line">
+          <span className="ts-footer-shield" aria-hidden="true"><ShieldBadge size={30} /></span>
+          Precision motorsport, applied to appliance repair.
+        </p>
       </div>
       <p className="os-foot-nav">
         <strong>Workstation:</strong> <a href="https://topspeedserviceos.com/crm" target="_blank" rel="noopener noreferrer">Top Speed CRM — Customers &amp; Bookings</a> &nbsp;•&nbsp;{' '}
@@ -52,7 +58,7 @@ function Footer() {
       <p className="os-foot-contact"><a href="tel:8444607038">(844) 460-7038</a> &nbsp;•&nbsp; <a href="mailto:service@topspeedappliance.net">service@topspeedappliance.net</a></p>
       <p>© {new Date().getFullYear()} Top Speed Appliance LLC — The Faster, The Better.</p>
       <p>Fast • Reliable • Professional</p>
-      <p>6810 N State Rd 7, Suite 341, Coconut Creek, FL 33073</p>
+      <p>Service-area business — repairs at your location across 65 cities in Broward, Palm Beach &amp; Miami-Dade.</p>
 
       <div className="footer-links-wrapper">
         <Link to="/privacy" className="footer-link">Privacy Policy</Link>

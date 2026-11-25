@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { RacingIcon } from '../components/RacingMotifs'
 import {
   captureReferralCode,
   resolveReferral,
@@ -49,8 +50,10 @@ export default function ReferPage() {
         </figure>
         <div className="os-book-head">
           <div>
-            <h1 className="os-h1" style={{ fontSize: 30 }}>
+            <h1 className="os-h1 ts-laurel-title" style={{ fontSize: 30 }}>
+              <span className="ts-laurel" aria-hidden="true"><RacingIcon name="laurels" size={24} /></span>
               Refer &amp; Earn — ApplianceReferral by Top Speed
+              <span className="ts-laurel ts-laurel-flip" aria-hidden="true"><RacingIcon name="laurels" size={24} /></span>
             </h1>
             <p className="os-sub">
               Good neighbors tell good neighbors. Share your personal referral code, your friend
