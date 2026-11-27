@@ -2,5 +2,1078 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "env": []
+  "rewrites": [
+    {
+      "source": "/account",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/leads",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/login",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-boca-raton",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-boynton-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-broward-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-coral-springs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-deerfield-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-delray-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-doral",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-fort-lauderdale",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-hialeah",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-hollywood",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-homestead",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-jupiter",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-kendall",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-miami",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-miami-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-miami-dade-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-palm-beach-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-palm-beach-gardens",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-pembroke-pines",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-pompano-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-sunrise",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-wellington",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-delivery-west-palm-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-boca-raton",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-boynton-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-broward-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-coral-springs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-deerfield-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-delray-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-doral",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-fort-lauderdale",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-hialeah",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-hollywood",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-homestead",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-jupiter",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-kendall",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-miami",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-miami-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-miami-dade-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-palm-beach-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-palm-beach-gardens",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-pembroke-pines",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-pompano-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-sunrise",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-wellington",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-installation-west-palm-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-boca-raton",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-boynton-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-boynton-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-broward-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-coral-springs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-deerfield-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-delray-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-delray-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-doral",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-fort-lauderdale",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-hialeah",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-hollywood",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-hollywood-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-homestead",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-jupiter",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-jupiter-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-kendall",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-miami",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-miami-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-miami-dade-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-palm-beach-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-palm-beach-gardens",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-palm-beach-gardens-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-pembroke-pines",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-pembroke-pines-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-plantation-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-pompano-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-sunrise",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-wellington",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/appliance-repair-west-palm-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/dishwasher-efficiency-guide",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/dishwasher-repair-service",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/freezer-repair-solutions",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/oven-stove-repair-guide",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/refrigerator-maintenance-tips",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/refrigerator-repair-near-me",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/washer-dryer-repair-near-me",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/washing-machine-common-problems",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/boca-raton",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/book",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/boynton-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/brands",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/broward-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-boca-raton",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-boynton-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-broward-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-coral-springs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-deerfield-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-delray-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-doral",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-fort-lauderdale",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-hialeah",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-hollywood",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-homestead",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-jupiter",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-kendall",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-miami",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-miami-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-miami-dade-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-palm-beach-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-palm-beach-gardens",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-pembroke-pines",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-pompano-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-sunrise",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-wellington",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-appliance-repair-west-palm-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-cooking-equipment-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-dishwasher-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-laundry-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/commercial-refrigeration-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/coral-springs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/deerfield-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/delray-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-installation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair-boca-raton-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair-boynton-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair-delray-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair-fort-lauderdale-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair-jupiter-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair-miami-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dishwasher-repair-palm-beach-gardens-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/doral",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-not-heating",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-boca-raton-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-boynton-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-delray-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-fort-lauderdale-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-jupiter-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-miami-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-palm-beach-gardens-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-repair-west-palm-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-boca-raton",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-boynton-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-broward-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-coral-springs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-deerfield-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-delray-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-doral",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-fort-lauderdale",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-hialeah",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-hollywood",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-homestead",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-jupiter",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-kendall",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-miami",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-miami-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-miami-dade-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-palm-beach-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-palm-beach-gardens",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-pembroke-pines",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-pompano-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-sunrise",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-wellington",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dryer-vent-cleaning-west-palm-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fort-lauderdale",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fridge-not-cooling",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/garbage-disposal-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/hialeah",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/hollywood",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-boca-raton",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-boynton-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-broward-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-coral-springs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-deerfield-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-delray-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-doral",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-fort-lauderdale",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-hialeah",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-hollywood",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-homestead",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-jupiter",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-kendall",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-miami",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-miami-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-miami-dade-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-palm-beach-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-palm-beach-gardens",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-pembroke-pines",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-pompano-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-sunrise",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-wellington",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-appliance-repair-west-palm-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/homestead",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ice-maker-not-working",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/jupiter",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/kendall",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/media-os",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/miami",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/miami-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/miami-dade-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/microwave-installation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/microwave-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/network",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-overheating",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair-boca-raton-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair-boynton-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair-delray-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair-fort-lauderdale-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair-jupiter-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair-miami-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/oven-stove-repair-palm-beach-gardens-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/palm-beach-county",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/palm-beach-gardens",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/pembroke-pines",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/pompano-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/pricing",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/range-oven-installation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refer",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-installation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-repair-boynton-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-repair-delray-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-repair-jupiter-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-repair-miami-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-repair-palm-beach-gardens-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/refrigerator-repair-west-palm-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/reviews",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/service-areas",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/service-directory",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/service-request",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sunrise",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/track",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/warranty",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-installation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-boca-raton-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-boynton-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-delray-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-fort-lauderdale-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-jupiter-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-miami-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-palm-beach-gardens-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-dryer-repair-west-palm-beach-fl",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-not-draining",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/washer-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/wellington",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/west-palm-beach",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/wine-cooler-repair",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/locations/:citySlug/:serviceSlug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/service-areas/:citySlug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/services/:serviceSlug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/services/:serviceSlug/:symptomSlug",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(self)"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        }
+      ]
+    }
+  ]
 }
